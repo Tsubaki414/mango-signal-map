@@ -1,0 +1,1789 @@
+{
+  "schema_version": "operator-research-candidates-v4.1",
+  "snapshot_date": "2026-08-25",
+  "scope": "42 priority-action companies; official/company role research plus non-LinkedIn public handle discovery",
+  "identity_rule": "Candidate names are not decision makers until official current-role evidence and a Rapid X exact profile pass deterministic gates.",
+  "summary": {
+    "company_count": 42,
+    "wave_1_count": 21,
+    "wave_2_count": 21,
+    "named_candidate_count": 41,
+    "candidate_handle_count": 15,
+    "specific_acquisition_path_count": 42
+  },
+  "records": [
+    {
+      "company": "Replit",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Tala Awwad",
+        "role": "Head of Creators / creator-program lead",
+        "decision_relevance": "Replit says Tala is on the marketing team and leads the creator program, so she is the closest publicly named owner of creator selection and collaborations; budget authority is not yet established.",
+        "x_handle": "@_talaawwad"
+      },
+      "candidate_x_handle": "@_talaawwad",
+      "handle_source": {
+        "url": "https://www.youtube.com/watch?v=1GzewbNtBO4",
+        "claim": "A video published by the Replit YouTube channel identifies Tala Awwad as Head of Creators / creator-partnership lead and says 'Follow Tala: @_talaawwad'.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://replit.com/blog/live-from-hq-agent4-launch-pt1",
+          "exact_claim": "Replit's official 2026 launch recap says: 'Tala Awwad from our marketing team leads the creator program.'",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Replit's official 2026 launch recap says: 'Tala Awwad from our marketing team leads the creator program.'",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1GzewbNtBO4",
+          "claim": "A video published by the Replit YouTube channel identifies Tala Awwad as Head of Creators / creator-partnership lead and says 'Follow Tala: @_talaawwad'.",
+          "date": "2026-08-25",
+          "source_type": "company_controlled_youtube_handle_link",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "replit.com",
+      "public_business_route": {
+        "type": "official_creator_program_application",
+        "value": "https://replit.com/creators",
+        "source_url": "https://replit.com/creators"
+      },
+      "acquisition_next_step": "Run Rapid X exact-profile lookup for @_talaawwad and require deterministic full-name match plus Replit/creator-program evidence in bio, domain, or company-account interaction. If the gate fails, apply through Replit Creators and ask the reviewer to route the proposal to Tala or the current creator-program owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Cursor",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Michael Truell",
+        "role": "CEO / founder-level routing sponsor",
+        "decision_relevance": "Cursor's public community forum identifies Michael as Cursor's CEO. He is a high-authority fallback sponsor, not a validated day-to-day Ambassador or creator-program owner.",
+        "x_handle": "@mntruell"
+      },
+      "candidate_x_handle": "@mntruell",
+      "handle_source": {
+        "url": "https://mntruell.com/",
+        "claim": "Michael Truell's personal site says he builds Cursor and links its X control to https://x.com/mntruell/.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://forum.cursor.com/t/ama-with-michael-truell-dev-ceo-cursor-on-may-22/93575",
+          "exact_claim": "Cursor's official community forum announcement titles the event 'AMA with Michael Truell (dev/ceo Cursor)'.",
+          "source_type": "company_controlled_community_forum",
+          "fact_status": "confirmed",
+          "claim": "Cursor's official community forum announcement titles the event 'AMA with Michael Truell (dev/ceo Cursor)'.",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://cursor.com/blog/third-era",
+          "exact_claim": "Cursor's official blog attributes 'The third era of AI software development' to Michael Truell and describes the work as 'we at Cursor'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Cursor's official blog attributes 'The third era of AI software development' to Michael Truell and describes the work as 'we at Cursor'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "forum.cursor.com",
+      "public_business_route": {
+        "type": "official_ambassador_program",
+        "value": "https://cursor.com/ambassadors",
+        "source_url": "https://cursor.com/ambassadors"
+      },
+      "acquisition_next_step": "Rapid X-verify @mntruell. In parallel email blang@cursor.com, the address printed on Cursor's Ambassador page, and ask for the current Community/Ambassador Programs owner; do not treat Michael as the operating program manager unless he or Cursor routes the request.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Runway",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Cristóbal Valenzuela",
+        "role": "Co-founder and co-CEO",
+        "decision_relevance": "Runway's official leadership announcement identifies Cristóbal as co-founder and co-CEO. He is an authority-level sponsor for major creative partnerships, but the day-to-day Creative Partners owner still needs routing.",
+        "x_handle": "@c_valenzuelab"
+      },
+      "candidate_x_handle": "@c_valenzuelab",
+      "handle_source": {
+        "url": "https://cvalenzuelab.com/",
+        "claim": "Cristóbal's personal site identifies him as Runway co-founder/CEO and links 'Twitter' to https://twitter.com/c_valenzuelab.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://runwayml.com/news/new-leaders-to-support-next-phase-of-growth",
+          "exact_claim": "Runway's official 2026 leadership announcement says Anastasis Germanidis became co-CEO alongside Cristóbal Valenzuela.",
+          "source_type": "official_company_news",
+          "fact_status": "confirmed",
+          "claim": "Runway's official 2026 leadership announcement says Anastasis Germanidis became co-CEO alongside Cristóbal Valenzuela.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "runwayml.com",
+      "public_business_route": {
+        "type": "official_partnerships_email",
+        "value": "partnerships@runwayml.com",
+        "source_url": "https://help.runwayml.com/hc/en-us/articles/37464713358099-Runway-Resources"
+      },
+      "acquisition_next_step": "Rapid X-verify @c_valenzuelab, then email partnerships@runwayml.com and request the current Creative Partners / Film Fund operator. Escalate to Cristóbal only for a strategic studio-scale proposal or if the official route names him as sponsor.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Perplexity",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Raman Malik",
+        "role": "Head of Growth (officially published title; current-title revalidation required)",
+        "decision_relevance": "Perplexity's own Campus Strategist recap names Raman as Head of Growth and connects his work to grassroots growth programs. The role publication is from 2024, so current title and ownership must be revalidated before use.",
+        "x_handle": "@ramanrmalik"
+      },
+      "candidate_x_handle": "@ramanrmalik",
+      "handle_source": {
+        "url": "https://www.youtube.com/watch?v=MDPmVw1HA1o",
+        "claim": "The 20VC episode page for an interview with Raman Malik states 'Follow Raman Malik on Twitter' and links https://twitter.com/ramanrmalik.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_current_title_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.perplexity.ai/hub/blog/perplexity-s-2024-campus-strategist-program",
+          "exact_claim": "Perplexity's official recap says a campus event featured 'Perplexity's Head of Growth Raman Malik' and describes his talk on scaling and growth.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "claim": "Perplexity's official recap says a campus event featured 'Perplexity's Head of Growth Raman Malik' and describes his talk on scaling and growth.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "perplexity.ai",
+      "public_business_route": {
+        "type": "official_growth_program_page",
+        "value": "https://www.perplexity.ai/campus-partners",
+        "source_url": "https://www.perplexity.ai/campus-partners"
+      },
+      "acquisition_next_step": "Rapid X-verify @ramanrmalik and require current Perplexity affiliation in the profile or current company-account evidence. If the current-title gate fails, use the Campus Strategist program or partnerships@perplexity.ai to request the present Growth Partnerships owner by name.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_stale_official_title_pending_rapid_x",
+      "status": "candidate_pending_current_role_and_rapid_x_revalidation",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Pika",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Demi Guo",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "A Pika-issued fundraising announcement identifies Demi Guo as co-founder and CEO. She is an authority-level creative-program sponsor; a day-to-day creator/operator owner is not publicly named.",
+        "x_handle": "@demiguo_"
+      },
+      "candidate_x_handle": "@demiguo_",
+      "handle_source": {
+        "url": "https://startupspotlight.co/founder/demiguo_",
+        "claim": "Startup Spotlight's Demi Guo founder profile links the X account @demiguo_ and identifies her as Pika's founder.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.businesswire.com/news/home/20231127388431/en/AI-Company-Pika-Raises-%2455M-to-Redesign-Video-Making-and-Editing",
+          "exact_claim": "Pika's company-issued release says Pika was founded by Demi Guo, co-founder and CEO, and Chenlin Meng, co-founder and CTO.",
+          "source_type": "company_issued_press_release",
+          "fact_status": "confirmed",
+          "claim": "Pika's company-issued release says Pika was founded by Demi Guo, co-founder and CEO, and Chenlin Meng, co-founder and CTO.",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://experiment.pika.art/blog/your-ai-self-just-got-a-job",
+          "exact_claim": "Pika's official 2026 blog refers to 'Demi, our CEO'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Pika's official 2026 blog refers to 'Demi, our CEO'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "experiment.pika.art",
+      "public_business_route": {
+        "type": "official_company_community_route",
+        "value": "https://discord.com/invite/pika",
+        "source_url": "https://pika.art/signup"
+      },
+      "acquisition_next_step": "Rapid X-verify @demiguo_. Use Pika's official Discord/community route to ask for the creator, community, or partnerships program owner; only escalate a strategic proposal to Demi after the operating owner is identified.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "PixVerse",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Davy Zhang",
+        "role": "Head of Global Operations",
+        "decision_relevance": "PixVerse identifies Davy as Head of Global Operations and shows him moderating a global creator workshop. He is close to creator and international program execution, although CPP cash authority is unconfirmed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No non-LinkedIn exact personal X URL was attributable without guessing.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://pixverse.ai/en/blog/un-ai-for-good-2026-pixverse-ai-filmmaking-workshop",
+          "exact_claim": "PixVerse's official workshop recap says the roundtable was moderated by 'Davy Zhang, our Head of Global Operations'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "PixVerse's official workshop recap says the roundtable was moderated by 'Davy Zhang, our Head of Global Operations'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "pixverse.ai",
+      "public_business_route": {
+        "type": "official_creator_program_email",
+        "value": "creator@pixverse.ai",
+        "source_url": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program"
+      },
+      "acquisition_next_step": "Search Davy Zhang/Xiongyi Zhang through Rapid X only, requiring exact name plus PixVerse affiliation. Also query the cached @PixVerse company timeline for first-party mentions of Davy. If unresolved, email creator@pixverse.ai and ask to route the proposal to Davy or the current CPP budget owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Gumloop",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Aron Korenblit",
+        "role": "Head of Community & Education",
+        "decision_relevance": "Gumloop's official profile says Aron leads community and education. He is a strong routing and execution candidate for workshops/tutorial-led creator acquisition, but not yet a confirmed cash-budget owner.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "The official Gumloop @aron identifier is an internal creator slug, not evidence of an X handle; no attributable exact personal X URL was found.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.gumloop.com/author/aron-korenblit",
+          "exact_claim": "Gumloop's official author page says 'Aron is the Head of Community & Education at Gumloop.'",
+          "source_type": "official_company_profile",
+          "fact_status": "confirmed",
+          "claim": "Gumloop's official author page says 'Aron is the Head of Community & Education at Gumloop.'",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "gumloop.com",
+      "public_business_route": {
+        "type": "official_creator_program_application",
+        "value": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+        "source_url": "https://www.gumloop.com/partners/apply-to-be-a-creator"
+      },
+      "acquisition_next_step": "Use Rapid X name search and Gumloop company-account timeline mentions to resolve Aron's exact handle. Submit the official creator application and ask the reviewer to route a workshop-led proposal to Aron and the current creator-program owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Meshy",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Ethan Yuanming Hu",
+        "role": "Founder and CEO",
+        "decision_relevance": "Meshy's official GDC page names Ethan Hu as CEO, while his personal site identifies him as founder and CEO. He is an authority-level fallback for global creator/partner programs; the day-to-day program owner remains unnamed.",
+        "x_handle": "@YuanmingH"
+      },
+      "candidate_x_handle": "@YuanmingH",
+      "handle_source": {
+        "url": "https://siliconvalleyinvestclub.com/companies/meshy-ai/team/ethan-yuanming-hu/",
+        "claim": "The Ethan Yuanming Hu profile identifies him as Meshy founder/CEO and attributes the public X account @YuanmingH.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.meshy.ai/gdc-2026",
+          "exact_claim": "Meshy's official GDC 2026 page names 'Ethan Hu — CEO, Meshy'.",
+          "source_type": "official_company_event_page",
+          "fact_status": "confirmed",
+          "claim": "Meshy's official GDC 2026 page names 'Ethan Hu — CEO, Meshy'.",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://www.meshy.ai/blog/fellowship-2026",
+          "exact_claim": "Meshy's official Fellowship post gives his full name as Ethan Yuanming Hu and calls him Meshy's CEO.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Meshy's official Fellowship post gives his full name as Ethan Yuanming Hu and calls him Meshy's CEO.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "meshy.ai",
+      "public_business_route": {
+        "type": "official_partnerships_contact_form",
+        "value": "https://www.meshy.ai/contact",
+        "source_url": "https://help.meshy.ai/en/articles/15641671-official-meshy-links-how-to-avoid-fake-apps-and-scams"
+      },
+      "acquisition_next_step": "Rapid X-verify @YuanmingH with exact full-name and Meshy affiliation. Use Meshy's verified contact form to request the Global Growth / Creator Programs owner and reserve Ethan for founder-level escalation.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "OpenArt",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Coco Mao",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "OpenArt's official product announcement calls Coco Mao CEO and its company story identifies her as a co-founder. She is an authority-level sponsor for creator/brand collaborations; the operational CPP owner remains unidentified.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found without guessing from unrelated usernames.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://openart.ai/blog/character-builder-pr/",
+          "exact_claim": "OpenArt's official Character Builder announcement quotes 'Coco Mao, CEO of OpenArt'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "OpenArt's official Character Builder announcement quotes 'Coco Mao, CEO of OpenArt'.",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://openart.ai/blog/the-openart-story/",
+          "exact_claim": "OpenArt's official company story says Coco Mao and John Qiao left Google in 2022 to build OpenArt.",
+          "source_type": "official_company_story",
+          "fact_status": "confirmed",
+          "claim": "OpenArt's official company story says Coco Mao and John Qiao left Google in 2022 to build OpenArt.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "openart.ai",
+      "public_business_route": {
+        "type": "official_creative_partner_program",
+        "value": "https://openart.ai/programs/cpp",
+        "source_url": "https://openart.ai/programs/cpp"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and the @openart_ai company timeline to resolve Coco's personal handle. Apply through OpenArt CPP and ask the reviewer for the current Creative Partner Program owner; use Coco only as escalation sponsor.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Talus Network",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Mike Hanono",
+        "role": "Founder and CEO",
+        "decision_relevance": "Talus's official blog identifies Mike as founder and CEO. As founder, he can sponsor ecosystem and accelerator partnerships, though day-to-day Talus/acc operations may sit elsewhere.",
+        "x_handle": "@0xgmike"
+      },
+      "candidate_x_handle": "@0xgmike",
+      "handle_source": {
+        "url": "https://twiscan.com/en/x/0xgmike",
+        "claim": "The public X mirror identifies Mike Hanono as @0xgmike and displays the bio 'CEO @Talus_Labs'.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://blog.talus.network/talus-x-assisterr-empowering-community-owned-ai-with-nexus/",
+          "exact_claim": "Talus's official partnership post identifies 'Mike Hanono, Founder and CEO of Talus'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Talus's official partnership post identifies 'Mike Hanono, Founder and CEO of Talus'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "blog.talus.network",
+      "public_business_route": {
+        "type": "official_accelerator_application",
+        "value": "https://5hdt04l3q1s.typeform.com/to/kb1GJCdx",
+        "source_url": "https://blog.talus.network/announcing-talus-acc-accelerating-the-agentic-era/"
+      },
+      "acquisition_next_step": "Rapid X-verify @0xgmike, then submit the Talus/acc application or use the same official program page to request the accelerator/ecosystem operator. Keep Mike as founder-level sponsor unless the team routes the deal to him.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "MyShell",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Ethan (surname unresolved)",
+        "role": "Co-founder",
+        "decision_relevance": "MyShell's official funding post quotes a co-founder named Ethan on creator ownership and remuneration, but the company-controlled source does not publish a surname; this is not a writeable strict identity yet.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No exact personal X identity can be safely attached to a first-name-only official reference.",
+        "status": "blocked_until_full_name_or_company_account_attribution"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://blog.myshell.ai/myshell-secures-5-6-million-seed-funding-to-revolutionize-the-ai-native-app-landscape-b744327a235c",
+          "exact_claim": "MyShell's official funding post attributes its creator-economy statement to 'MyShell Co-founder Ethan'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed_first_name_only",
+          "claim": "MyShell's official funding post attributes its creator-economy statement to 'MyShell Co-founder Ethan'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "blog.myshell.ai",
+      "public_business_route": {
+        "type": "official_community_directory",
+        "value": "https://discord.gg/myshell",
+        "source_url": "https://docs.myshell.ai/links"
+      },
+      "acquisition_next_step": "Use MyShell's official Discord staff/admin directory or a fresh @myshell_ai Rapid X company-timeline search for a company-authored post giving Ethan's full name and handle. Only after that, run Rapid X exact-profile verification; until then route through the official Discord and ask for the Creator Ecosystem / Partnerships owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "low_first_name_only",
+      "status": "official_first_name_only_not_writeable",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Tavus",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jesse Rowe",
+        "role": "Head of Growth",
+        "decision_relevance": "Tavus's official author page says Jesse shapes campaigns, positioning, and sustainable growth, making him the clearest published operator for a creator-led acquisition or launch pilot.",
+        "x_handle": "@jessetrowe"
+      },
+      "candidate_x_handle": "@jessetrowe",
+      "handle_source": {
+        "url": "https://www.instalker.org/jessetrowe",
+        "claim": "The public X mirror attributes @jessetrowe to Jesse Rowe and shows a current bio beginning 'growing @Tavus'.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.tavus.io/authors/jesse-rowe",
+          "exact_claim": "Tavus's official profile identifies Jesse Rowe as Head of Growth and describes his work scaling campaigns, refining positioning, and building sustainable growth.",
+          "source_type": "official_company_profile",
+          "fact_status": "confirmed",
+          "claim": "Tavus's official profile identifies Jesse Rowe as Head of Growth and describes his work scaling campaigns, refining positioning, and building sustainable growth.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "tavus.io",
+      "public_business_route": {
+        "type": "official_partnerships_form",
+        "value": "https://www.tavus.io/lp/partnerships",
+        "source_url": "https://www.tavus.io/lp/partnerships"
+      },
+      "acquisition_next_step": "Rapid X-verify @jessetrowe, then submit the official partnerships form addressed to Jesse and the referral/technology partnerships owner; ask who owns campaign budget before treating Jesse as final buyer.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Allora Network",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Nick Emmons",
+        "role": "Co-founder and CEO, Allora Labs",
+        "decision_relevance": "Allora's official ecosystem announcements identify Nick as CEO/co-founder of the core contributing organization. He is an authority-level ecosystem and accelerator sponsor; the current accelerator program manager still needs routing.",
+        "x_handle": "@nick_emmons"
+      },
+      "candidate_x_handle": "@nick_emmons",
+      "handle_source": {
+        "url": "https://www.youtube.com/watch?v=xcqfTdmpfVE",
+        "claim": "Archetype's interview page for Nick Emmons lists his X URL as https://twitter.com/nick_emmons and separately links Allora Labs and Allora Network.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_current_title_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.allora.network/blog/allora-network-aws-web3",
+          "exact_claim": "Allora's official AWS Web3 announcement identifies Nick Emmons as 'CEO and Co-founder of Allora Labs'.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "claim": "Allora's official AWS Web3 announcement identifies Nick Emmons as 'CEO and Co-founder of Allora Labs'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "allora.network",
+      "public_business_route": {
+        "type": "official_agent_accelerator_route",
+        "value": "https://discord.com/invite/allora",
+        "source_url": "https://www.allora.network/blog/announcing-the-allora-agent-accelerator-cohort-1"
+      },
+      "acquisition_next_step": "Rapid X-verify @nick_emmons with current Allora affiliation. Use the Agent Accelerator's official Discord/direct-contact route to identify the current program manager and grant owner; treat Nick as escalation sponsor, not presumed day-to-day operator.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_stale_official_title_pending_rapid_x",
+      "status": "candidate_pending_current_role_and_rapid_x_revalidation",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Tripo AI",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Gavin Luo",
+        "role": "Head of Business Operations (officially published 2025 title; current-title revalidation required)",
+        "decision_relevance": "Tripo's official partnership announcement names Gavin as Head of Business Operations and has him speaking for the company on ecosystem access, making him the strongest first-party business/partnership operator lead found.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found; usernames from other platforms were not converted into guessed X handles.",
+        "status": "official_operator_name_confirmed_current_title_and_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.tripo3d.ai/blog/tripo-with-anitya",
+          "exact_claim": "Tripo's official Anitya partnership announcement quotes 'Tripo AI Head of Business Operations Gavin Luo' on creator access and the partnership.",
+          "source_type": "official_company_partnership_announcement",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "claim": "Tripo's official Anitya partnership announcement quotes 'Tripo AI Head of Business Operations Gavin Luo' on creator access and the partnership.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "tripo3d.ai",
+      "public_business_route": {
+        "type": "official_business_email",
+        "value": "business@tripo3d.ai",
+        "source_url": "https://developers.tripo3d.ai/en/"
+      },
+      "acquisition_next_step": "Search Gavin Luo through Rapid X and require exact full name plus Tripo/VAST affiliation, then check @tripoai company-account mentions. If unresolved, email business@tripo3d.ai and request Gavin or the current Strategy/Partnerships and Creator Program owners.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_stale_official_title_x_unresolved",
+      "status": "official_operator_name_confirmed_current_title_and_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Photoroom",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Matthieu Rouif",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "Photoroom's official newsroom identifies Matthieu/Matt as co-founder and CEO. He is an authority-level route for major co-marketing, but the referral and creator-program manager still needs to be named.",
+        "x_handle": "@matthieurouif"
+      },
+      "candidate_x_handle": "@matthieurouif",
+      "handle_source": {
+        "url": "https://vivatech.com/speakers/matthieu-rouif-photoroom-2520bab6-2cc8-4175-bf05-168cd696d51f",
+        "claim": "VivaTech's speaker page identifies Matthieu Rouif as Photoroom co-founder/CEO and directly links https://x.com/matthieurouif.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.photoroom.com/inside-photoroom/photoroom-featured-on-twist",
+          "exact_claim": "Photoroom's official newsroom says 'Photoroom co-founder and CEO Matt Rouif' and labels him Matthieu Rouif.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Photoroom's official newsroom says 'Photoroom co-founder and CEO Matt Rouif' and labels him Matthieu Rouif.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "photoroom.com",
+      "public_business_route": {
+        "type": "official_referral_program_application",
+        "value": "https://partners.dub.co/photoroom/community/apply",
+        "source_url": "https://help.photoroom.com/en/articles/14723004-join-the-photoroom-referral-program"
+      },
+      "acquisition_next_step": "Rapid X-verify @matthieurouif. Apply through Photoroom's official Dub referral route and ask for the Referral Program / Growth Partnerships manager; reserve Matt for executive escalation on a material co-marketing proposal.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Sapien",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Rowan Stone",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "Sapien's official company page names Rowan as CEO and highlights his onchain BD/growth background, making him directly relevant to a crypto-native data, ecosystem, or growth partnership.",
+        "x_handle": "@RowanRK6"
+      },
+      "candidate_x_handle": "@RowanRK6",
+      "handle_source": {
+        "url": "https://newsletter.sapien.io/p/sapien-new-identity-powering-ai-with-human-data",
+        "claim": "Sapien's official newsletter byline says 'By Rowan Stone, Co-founder & CEO, Sapien (@RowanRK6)' and links the X URL.",
+        "status": "candidate_only_pending_rapid_x_exact_profile_and_company_bio_gate"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.sapien.io/company",
+          "exact_claim": "Sapien's official company page lists Rowan Stone as CEO and says he previously drove growth for cbETH and USDC as Director of Onchain BD at Coinbase.",
+          "source_type": "official_company_profile",
+          "fact_status": "confirmed",
+          "claim": "Sapien's official company page lists Rowan Stone as CEO and says he previously drove growth for cbETH and USDC as Director of Onchain BD at Coinbase.",
+          "date": "2026-08-25"
+        },
+        {
+          "url": "https://newsletter.sapien.io/p/sapien-new-identity-powering-ai-with-human-data",
+          "claim": "Sapien's official newsletter byline says 'By Rowan Stone, Co-founder & CEO, Sapien (@RowanRK6)' and links the X URL.",
+          "date": "2026-08-25",
+          "source_type": "company_controlled_handle_link",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "sapien.io",
+      "public_business_route": {
+        "type": "official_build_email",
+        "value": "build@sapien.io",
+        "source_url": "https://www.sapien.io/blog/proof-of-quality-who-verified-the-data-that-trained-your-model"
+      },
+      "acquisition_next_step": "Rapid X-verify @RowanRK6, then send the scoped AI-data/creator-network partnership to build@sapien.io and request Rowan or the current ecosystem/partnership operator. Budget authority must still be asked explicitly.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_candidate_pending_rapid_x",
+      "status": "candidate_pending_rapid_x_exact_profile",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Kittl",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Rachel Hughes-Morgan",
+        "role": "Growth Lead",
+        "decision_relevance": "Kittl's official careers page names Rachel Growth Lead. This is the closest public growth-budget and campaign-prioritization operator, although direct ownership of the influencer program is unconfirmed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found without guessing.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.kittl.com/careers",
+          "exact_claim": "Kittl's official careers page identifies Rachel Hughes-Morgan as Growth Lead.",
+          "source_type": "official_company_careers_page",
+          "fact_status": "confirmed",
+          "claim": "Kittl's official careers page identifies Rachel Hughes-Morgan as Growth Lead.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "kittl.com",
+      "public_business_route": {
+        "type": "official_partner_hub",
+        "value": "https://www.kittl.com/partners",
+        "source_url": "https://www.kittl.com/partners"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and @kittldesign company-timeline mentions to resolve Rachel's personal handle. Submit the influencer/creator track in Kittl's partner hub and request Rachel plus the current Creator Program Manager.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Retell AI",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Evie Wang",
+        "role": "CMO",
+        "decision_relevance": "Retell's official team page names Evie CMO, making her the clearest public executive for campaign, community, creator, and partner co-marketing decisions.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found; the similarly named @0xEvieYang connector is a different person and was not conflated with Evie Wang.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.retellai.com/about-us",
+          "exact_claim": "Retell's official About page lists 'CMO — Evie Wang'.",
+          "source_type": "official_company_profile",
+          "fact_status": "confirmed",
+          "claim": "Retell's official About page lists 'CMO — Evie Wang'.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "retellai.com",
+      "public_business_route": {
+        "type": "official_partner_portal",
+        "value": "https://partners.retellai.com/",
+        "source_url": "https://www.retellai.com/blog/how-retell-ais-certified-partners-work"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and @RetellAI company-timeline mentions to resolve Evie's exact account, explicitly rejecting @0xEvieYang as a false identity collision. Apply through Retell's partner portal and request Evie plus the Certified Partner Program lead.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Viggle AI",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Hang Chu",
+        "role": "Co-founder and CEO (company-issued 2024 role; current-role revalidation required)",
+        "decision_relevance": "Viggle's company-issued funding release identifies Hang as co-founder/CEO. He is an authority-level creator and studio partnership sponsor, but the Viggler Program operating owner remains unnamed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found without guessing.",
+        "status": "official_operator_name_confirmed_current_role_and_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.businesswire.com/news/home/20240826353941/en/Viggle-AI-Secures-%2419-Million-in-Series-A-Funding-Led-by-Andreessen-Horowitz",
+          "exact_claim": "Viggle's company-issued release identifies Hang Chu as CEO and co-founder of Viggle AI.",
+          "source_type": "company_issued_press_release",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "claim": "Viggle's company-issued release identifies Hang Chu as CEO and co-founder of Viggle AI.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "",
+      "public_business_route": {
+        "type": "official_creator_program_application",
+        "value": "https://viggle.ai/viggler",
+        "source_url": "https://viggle.ai/viggler"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and @ViggleAI company-timeline mentions to confirm Hang's current identity and role. Submit the Viggler application and ask for the Viggler Program / Brand Partnerships owner; keep Hang as founder escalation.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium_stale_official_title_x_unresolved",
+      "status": "official_operator_name_confirmed_current_role_and_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Beeble",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Conrad Curtis",
+        "role": "Head of Production and Partnerships",
+        "decision_relevance": "Beeble's official event post names Conrad as Head of Production and Partnerships and shows him working directly on practical filmmaker workflows, matching production-partner and creator-collaboration decisions.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found without guessing.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://beeble.ai/blog/siggraph-2026-conrad",
+          "exact_claim": "Beeble's official SIGGRAPH recap identifies Conrad Curtis as Head of Production and Partnerships and Production and Partnerships Lead at Beeble.",
+          "source_type": "official_company_blog",
+          "fact_status": "confirmed",
+          "claim": "Beeble's official SIGGRAPH recap identifies Conrad Curtis as Head of Production and Partnerships and Production and Partnerships Lead at Beeble.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "beeble.ai",
+      "public_business_route": {
+        "type": "official_creator_partner_application",
+        "value": "https://forms.beeble.ai/creator-program",
+        "source_url": "https://beeble.ai/creator-program"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and @beeble_ai company-timeline mentions to resolve Conrad's personal account. Submit the creator-program form and request Conrad plus the day-to-day creator approval owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Colossyan",
+      "wave": 1,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Dominik Mate Kovacs",
+        "role": "Founder and CEO",
+        "decision_relevance": "Colossyan's official About page names Dominik founder/CEO. He is an authority-level channel and partner-marketing sponsor, while the agency/technology/affiliate program owner is not publicly named.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": null,
+        "claim": "No attributable exact personal X URL was found; company-account links were not misclassified as the founder's account.",
+        "status": "official_operator_name_confirmed_x_handle_unresolved"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.colossyan.com/about/",
+          "exact_claim": "Colossyan's official About page identifies Dominik Mate Kovacs as Founder & CEO and says he founded Colossyan in 2020.",
+          "source_type": "official_company_profile",
+          "fact_status": "confirmed",
+          "claim": "Colossyan's official About page identifies Dominik Mate Kovacs as Founder & CEO and says he founded Colossyan in 2020.",
+          "date": "2026-08-25"
+        }
+      ],
+      "official_domain": "colossyan.com",
+      "public_business_route": {
+        "type": "official_partnerships_application",
+        "value": "https://www.colossyan.com/partnerships/",
+        "source_url": "https://www.colossyan.com/partnerships/"
+      },
+      "acquisition_next_step": "Use Rapid X exact-name search and @Colossyan company-timeline mentions to resolve Dominik's personal account. Apply under the agency or technology track and request the Director of Partnerships / Partner Marketing Manager, using Dominik only for executive escalation.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high_official_role_x_unresolved",
+      "status": "official_operator_name_confirmed_x_handle_unresolved",
+      "research_source_wave": "wave_1"
+    },
+    {
+      "company": "Higgsfield",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Mahi de Silva",
+        "role": "Co-founder and Chief Strategy Officer",
+        "decision_relevance": "Company strategy owner and public author of Higgsfield's creator-economy report; a credible executive router for creator partnerships and commercial programs. Budget authority is not inferred.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Mahi de Silva profile was found in the existing Rapid X cache.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://higgsfield.ai/blog/ai-video-report",
+          "claim": "Official article metadata identifies Mahi de Silva as Co-founder and Chief Strategy Officer, Higgsfield; the article is signed '- Mahi'.",
+          "date": "2026-06-22",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "higgsfield.ai",
+      "public_business_route": {
+        "type": "official_creator_and_partnerships",
+        "value": "https://higgsfield.ai/creator-hub/help-center/business-and-partners/how-do-i-join-a-partnership-or-creator-program",
+        "source_url": "https://higgsfield.ai/creator-hub/help-center/business-and-partners/how-do-i-join-a-partnership-or-creator-program",
+        "description": "Official creator/partnership inquiry surface; creator collaborations can also be routed to marketing@higgsfield.ai."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Mahi de Silva' and require Higgsfield in bio/domain; in parallel email marketing@higgsfield.ai asking Mahi's team to route a paid creator-distribution proposal.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Wispr Flow",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Tanay Kothari",
+        "role": "Founder and CEO",
+        "decision_relevance": "Founder-level decision maker and appropriate executive router to Wispr Flow's dedicated partnerships team. Campaign budget authority is not independently confirmed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Tanay Kothari profile was found in the existing Rapid X cache; the media kit exposes only the company account @wisprflow.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://wisprflow.ai/media-kit",
+          "claim": "Wispr Flow's official media kit identifies Tanay Kothari as Founder & CEO.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://docs.wisprflow.ai/articles/7890073756-partnership-and-creator-collaboration-inquiries",
+          "claim": "The partnerships team handles creator sponsorships, affiliate and referral programs, co-marketing, community partnerships, and brand integrations.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "wisprflow.ai",
+      "public_business_route": {
+        "type": "official_partnerships_and_creator_collaboration",
+        "value": "https://docs.wisprflow.ai/articles/7890073756-partnership-and-creator-collaboration-inquiries",
+        "source_url": "https://docs.wisprflow.ai/articles/7890073756-partnership-and-creator-collaboration-inquiries",
+        "description": "Submit the official partnership and creator collaboration inquiry form."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Tanay Kothari' with Wispr Flow in bio/domain, while submitting the official creator-collaboration form and asking for the operator who owns paid creator campaigns.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Luma AI",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jason Day",
+        "role": "Head of EMEA",
+        "decision_relevance": "Officially tasked with international business development, strategic partnerships, and customer expansion outside the United States, including Asia; directly relevant to Mango's regional partnership wedge.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Jason Day profile was found in the existing Rapid X cache; the official article exposes only @LumaLabsAI.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://lumalabs.ai/news/luma-ai-opens-for-international-business-with-former-wpp-executive-jason-day-leading-new-london-office",
+          "claim": "Luma appointed Jason Day Head of EMEA to lead international business development, strategic partnerships, and customer expansion outside the US, including Asia.",
+          "date": "2025-12-02",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://lumalabs.ai/news/luma-ai-to-open-riyadh-office-to-accelerate-humain-create-and-partner-with-publicis-groupe",
+          "claim": "A 2026 Luma announcement continues to identify Jason Day in its international partner-facing expansion work.",
+          "date": "2026-02-11",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "lumalabs.ai",
+      "public_business_route": {
+        "type": "official_international_business_and_partnerships",
+        "value": "https://lumalabs.ai/contact",
+        "source_url": "https://lumalabs.ai/contact",
+        "description": "Use Luma's official contact surface and request routing to Jason Day's international partnerships team."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Jason Day' with Luma/Luma AI in bio or an official domain, then pitch an Asia creator and enterprise activation through Luma's official contact route.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Genspark",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Eric Jing",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "Founder-level decision maker and public owner of Genspark's growth narrative; can route Genius Program, community, and partnership proposals. Budget authority is not separately evidenced.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Eric Jing profile was found in the existing Rapid X cache and the official article exposes no personal X link.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.genspark.ai/blog/seeing-agi-impact",
+          "claim": "Eric Jing states on Genspark's official blog that he is the co-founder and CEO of Genspark.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "genspark.ai",
+      "public_business_route": {
+        "type": "official_community_program",
+        "value": "https://www.genspark.ai/genius/",
+        "source_url": "https://www.genspark.ai/genius/",
+        "description": "Apply through the official Genspark Genius Program, which supports local chapters and events with operating resources."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Eric Jing' with Genspark in bio/domain; submit a Genius Program chapter or event proposal and ask for the community-growth budget owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Krea",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Diego Rodriguez",
+        "role": "Enterprise partnership representative; formal title not stated on the cited company page",
+        "decision_relevance": "The official partnership post shows Diego originated the Henning Larsen relationship, visited the partner team, and helped shape a product partnership, making him a concrete enterprise-partnership operator lead.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Diego Rodriguez profile was found in the existing Rapid X cache; the official post exposes only @krea_ai.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.krea.ai/blog/we-are-partnering-with-henning-larsen",
+          "claim": "Krea's official 2026 partnership announcement contains a 'Note from Diego Rodriguez' describing how he initiated and developed the Henning Larsen partnership.",
+          "date": "2026-05-29",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high_for_activity_low_for_formal_title"
+        }
+      ],
+      "official_domain": "krea.ai",
+      "public_business_route": {
+        "type": "official_enterprise_sales_and_partnerships",
+        "value": "https://www.krea.ai/enterprise#contact",
+        "source_url": "https://www.krea.ai/enterprise#contact",
+        "description": "Use Krea Enterprise or sales@krea.ai; press@krea.ai is explicitly available for partnership-specific files and routing."
+      },
+      "acquisition_next_step": "Ask sales@krea.ai to route the proposal to Diego Rodriguez or the current Krea Studio/enterprise partnerships owner; separately run Rapid X exact-name search and require Krea in bio/domain before person-level outreach.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "official_activity_candidate_title_incomplete_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Notion",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jenny Na",
+        "role": "Notion for Startups lead within the marketing team (historical, 2023)",
+        "decision_relevance": "The cited official article identifies her as the program lead, but it is historical and does not establish her current role in 2026. Treat only as a revalidation lead.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Jenny Na profile was found in the existing Rapid X cache; the official article links only Notion's company account.",
+        "verification_status": "rapid_x_exact_lookup_and_current_role_revalidation_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.notion.com/blog/notion-for-startups-relaunch",
+          "claim": "Jenny Na wrote that she was the Notion for Startups lead within Notion's marketing team.",
+          "date": "2023-04-11",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "confidence": "high_for_2023_role_low_for_current_role"
+        }
+      ],
+      "official_domain": "notion.com",
+      "public_business_route": {
+        "type": "official_partner_program",
+        "value": "https://www.notion.com/partners",
+        "source_url": "https://www.notion.com/partners",
+        "description": "Use the current official partner ecosystem covering solutions, technology, startups, and creators."
+      },
+      "acquisition_next_step": "Apply through Notion's current partner/startup intake and ask for the 2026 owner of Startup, Creator, or Partner Marketing; only retain Jenny Na if Rapid X exact profile plus a current Notion affiliation source passes.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "low",
+      "status": "historical_official_candidate_current_role_revalidation_required",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "v0 / Vercel",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jen Chang",
+        "role": "VP of Partnerships",
+        "decision_relevance": "The senior partnerships executive attached to Vercel's WPP/v0 strategic partnership; directly relevant to joint GTM, creative-industry alliances, and partner routing.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Jen Chang profile was found in the existing Rapid X cache and the official article exposes no personal X link.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://vercel.com/blog/wpp-and-vercel-bringing-ai-to-the-creative-process",
+          "claim": "Vercel's official blog metadata identifies the article author as Jen Chang, VP of Partnerships.",
+          "date": "2025-06-24",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "vercel.com",
+      "public_business_route": {
+        "type": "official_partnerships",
+        "value": "https://vercel.com/contact/partnerships",
+        "source_url": "https://vercel.com/contact/partnerships",
+        "description": "Official form to talk to Vercel's Partnerships team."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Jen Chang' with Vercel in bio/domain, then use the official partnership form and reference the WPP/v0 joint-GTM precedent.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Vapi",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jordan Dearsley",
+        "role": "Founder-level Series B announcement author; formal title not printed on the cited page",
+        "decision_relevance": "The official 2026 article is authored by Jordan, says 'We started Vapi,' and allocates new investment to distribution, making him a strong founder-level routing lead for partner GTM.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Jordan Dearsley profile was found in the existing Rapid X cache; the official article exposes only @Vapi_AI and a share-intent URL.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://vapi.ai/blog/series-b",
+          "claim": "The official Series B post is bylined Jordan Dearsley, says 'We started Vapi,' and says the round funds distribution, delivery, and infrastructure.",
+          "date": "2026-05-12",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high_for_identity_and_founder_activity_medium_for_formal_title"
+        }
+      ],
+      "official_domain": "vapi.ai",
+      "public_business_route": {
+        "type": "official_solutions_partnerships",
+        "value": "https://vapi.ai/partnerships",
+        "source_url": "https://vapi.ai/partnerships",
+        "description": "Official partner-first program covering joint solutions, co-selling, joint GTM, enablement, and marketing support."
+      },
+      "acquisition_next_step": "Submit Vapi's partner form asking for the partner-GTM owner and reference Jordan's distribution priority; run Rapid X exact-name lookup and require Vapi in bio/domain before direct person-level routing.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "official_activity_candidate_title_incomplete_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "PIN AI",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Ben Wu",
+        "role": "Co-founder, Strategy",
+        "decision_relevance": "The co-founder explicitly responsible for strategy is the strongest public lead for commercial positioning, ecosystem alliances, and partnership routing.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Ben Wu profile was found in the existing Rapid X cache and the official post exposes no personal X link.",
+        "verification_status": "rapid_x_exact_lookup_and_current_role_revalidation_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.pinai.com/post/pin-ai-team-from-ethereum-google-brain-stanford-and-mit-secures-10m-from-hack-vc-a16z-csx-and",
+          "claim": "PIN AI's official announcement says co-founder Ben Wu heads Strategy.",
+          "date": "2024-09-09",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "pinai.com",
+      "public_business_route": {
+        "type": "official_company_contact",
+        "value": "https://www.pinai.com/contact",
+        "source_url": "https://www.pinai.com/contact",
+        "description": "Use PIN AI's official contact form and request routing to Strategy or Partnerships."
+      },
+      "acquisition_next_step": "Use the official contact form asking for Ben Wu or the current Strategy/Partnerships owner; run Rapid X exact-name search and require PIN AI in bio/domain.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "official_candidate_pending_current_role_and_rapid_x_revalidation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Kite AI",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Chi Zhang",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "Founder and chief executive of a partner-intensive agent-payments company; appropriate executive router for ecosystem, event, and developer-growth collaborations.",
+        "x_handle": "@ChiZhangData"
+      },
+      "candidate_x_handle": "@ChiZhangData",
+      "handle_source": {
+        "url": "data/cache/rapidx/v4/requests/get-users-v2-643f941bb3ae1b456009.json",
+        "exact_claim": "Rapid X exact User object has name 'Chi Zhang', screen_name 'ChiZhangData', and bio 'Building Agentic Payments @GoKiteAI'.",
+        "verification_status": "strong_cached_candidate_root_recheck_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://newsroom.paypal-corp.com/2025-09-02-Kite-Raises-18M-in-Series-A-Funding-To-Enforce-Trust-in-the-Agentic-Web",
+          "claim": "PayPal's official newsroom identifies Chi Zhang as Co-Founder and CEO of Kite.",
+          "date": "2025-09-02",
+          "source_type": "reputable_secondary_or_partner_source",
+          "fact_status": "probable_secondary_requires_company_confirmation",
+          "confidence": "high"
+        },
+        {
+          "url": "https://gokite.ai/about-company",
+          "claim": "Kite's official company page says the company was founded by veterans from Databricks, Uber, and UC Berkeley and links its current community and events surfaces.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "gokite.ai",
+      "public_business_route": {
+        "type": "official_events_and_community",
+        "value": "https://luma.com/user/usr-DDHoBsvM69ysEt4",
+        "source_url": "https://luma.com/user/usr-DDHoBsvM69ysEt4",
+        "description": "Kite's official company page links this public events calendar; it also provides Discord and a KPass feedback form at https://kiteai.typeform.com/kpass-feedback."
+      },
+      "acquisition_next_step": "Root should re-run Rapid X exact profile for @ChiZhangData and preserve rest_id 1691762642455805953; approach through Kite's official event or community route with an agent-payments creator activation.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_candidate_with_strong_cached_x_pending_root_confirmation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Olas",
+      "wave": 2,
+      "company_aliases": [
+        "Autonolas"
+      ],
+      "candidate_operator": {
+        "name": "David Minarsch",
+        "role": "CEO of Olas core contributor",
+        "decision_relevance": "Executive of the core contributor and a public Olas spokesperson; a strong router for ecosystem, app-store, and AI-agent growth partnerships.",
+        "x_handle": "@david_enim"
+      },
+      "candidate_x_handle": "@david_enim",
+      "handle_source": {
+        "url": "data/cache/rapidx/v4/target-035-olas.json",
+        "exact_claim": "Rapid X cache contains name 'David Minarsch' with screen_name 'david_enim'; Olas company posts also tag @david_enim.",
+        "verification_status": "strong_cached_candidate_root_recheck_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://olas.network/blog/olas-announces-the-agent-app-store-after-core-contributor-raises-13-8m-led-by-1kx",
+          "claim": "Olas's official announcement identifies David Minarsch as CEO of the core contributor.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://olas.network/about",
+          "claim": "Olas's official About page includes https://x.com/david_enim in its founding-members section.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://olas.network/about",
+          "claim": "The official Olas About page links @david_enim inside the Olas founding-members section.",
+          "date": "2026-08-25",
+          "source_type": "official_company_x_identity_link",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "olas.network",
+      "public_business_route": {
+        "type": "official_ecosystem_and_community",
+        "value": "https://olas.network/about",
+        "source_url": "https://olas.network/about",
+        "description": "Use Olas's official get-involved/community surfaces and route an agent-economy partnership to the core contributor."
+      },
+      "acquisition_next_step": "Root should re-run Rapid X exact profile for @david_enim; then use Olas's official ecosystem route and reference Pearl/Mech Marketplace adoption rather than treating an X follow as an introduction.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_candidate_with_strong_cached_x_pending_root_confirmation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Giza",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Renç Korzay",
+        "role": "CEO (title appears on retained official legacy About page)",
+        "decision_relevance": "Chief executive and product-oriented founder lead for institutional financial-agent partnerships; the page is explicitly an old retained page, so current-role revalidation is mandatory.",
+        "x_handle": "@renckorzay"
+      },
+      "candidate_x_handle": "@renckorzay",
+      "handle_source": {
+        "url": "https://www.gizatech.xyz/",
+        "exact_claim": "The current company homepage directly links a specific announcement post on @renckorzay.",
+        "verification_status": "company_linked_candidate_rapid_x_exact_profile_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.gizatech.xyz/about--old",
+          "claim": "Giza's retained official leadership page lists Renç Korzay as CEO and describes his enterprise product-development background.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "confidence": "high_for_historical_title_medium_for_current_title"
+        },
+        {
+          "url": "https://www.gizatech.xyz/",
+          "claim": "Giza's current official homepage links its announcement directly to https://x.com/renckorzay/status/2026333065513963808.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_historical_role_requires_current_revalidation",
+          "confidence": "high"
+        },
+        {
+          "url": "https://www.gizatech.xyz/",
+          "claim": "The official homepage directly links the @renckorzay post as Giza's announcement.",
+          "date": "2026-08-25",
+          "source_type": "official_company_x_identity_link",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "gizatech.xyz",
+      "public_business_route": {
+        "type": "official_community_and_press",
+        "value": "https://www.gizatech.xyz/press",
+        "source_url": "https://www.gizatech.xyz/press",
+        "description": "Use official Discord/Telegram or the published support@arma.xyz media route and request the institutional or ecosystem partnerships owner."
+      },
+      "acquisition_next_step": "Root should exact-profile @renckorzay and require the deterministic full name plus Giza/company domain; if current title is not in bio, ask through Giza's official community route for the institutional partnerships owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "official_legacy_title_candidate_pending_current_role_and_rapid_x_revalidation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Inference Labs",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Colin Gagich",
+        "role": "Co-founder",
+        "decision_relevance": "Current public co-founder and product spokesperson appearing in company demos and partner-facing events; a strong executive router for ecosystem and enterprise partnership discussions.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Colin Gagich profile was found in the existing Rapid X cache and the official media room exposes no personal X link.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.inferencelabs.com/media-room",
+          "claim": "Inference Labs' current media room calls Colin Gagich a co-founder and shows him presenting the platform and speaking at partner-facing events.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high",
+          "date_basis": "2026-08-25_snapshot"
+        }
+      ],
+      "official_domain": "inferencelabs.com",
+      "public_business_route": {
+        "type": "official_company_contact",
+        "value": "contact@inferencelabs.com",
+        "source_url": "mailto:contact@inferencelabs.com",
+        "description": "Use the issuer-published company contact email and reference a current Inference Labs media-room partnership or platform demo."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Colin Gagich' with Inference Labs in bio/domain; email contact@inferencelabs.com asking for Colin or the enterprise ecosystem owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "GAIB",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Kony",
+        "role": "CEO (public company alias; legal/full name not stated)",
+        "decision_relevance": "The official founder narrative identifies Kony as CEO and explains the founding and partner network; executive authority is explicit, but the alias must be resolved before person-level outreach.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact personal handle for the CEO alias Kony was found in the existing Rapid X cache; the official article links only @gaib_ai for the company.",
+        "verification_status": "identity_resolution_then_rapid_x_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://blog.gaib.ai/from-investor-to-founder/",
+          "claim": "GAIB's official founder article is signed 'Kony (CEO@GAIB_AI)' and describes Kony founding GAIB with co-founders Alex and Jun.",
+          "date": "2024-12-05",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high_for_alias_and_role_low_for_legal_identity"
+        },
+        {
+          "url": "https://blog.gaib.ai/calling-all-gaib-storytellers-100-000-in-rewards-for-creators-shaping-rwaifi/",
+          "claim": "GAIB's official creator campaign offered a $100,000 token reward pool and team-curated bonuses, proving a concrete creator-spend mechanism.",
+          "date": "2025-08-05",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "blog.gaib.ai",
+      "public_business_route": {
+        "type": "official_official_community",
+        "value": "https://t.me/gaib_ai_official",
+        "source_url": "https://t.me/gaib_ai_official",
+        "description": "Use GAIB's official Telegram/Discord and request the owner of creator rewards, ecosystem growth, or AI-infrastructure partnerships."
+      },
+      "acquisition_next_step": "Ask in GAIB's official Telegram for Kony's current public identity or the operator who owned the Storyteller/Creator Bounty program; only then run an exact Rapid X profile lookup.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "official_alias_candidate_identity_resolution_required",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Hyperbolic",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Jasper Zhang",
+        "role": "Co-founder and CEO",
+        "decision_relevance": "Founder and chief executive; the official page also provides his direct X route, making him a high-quality executive routing candidate for developer, compute, and referral partnerships.",
+        "x_handle": "@zjasper666"
+      },
+      "candidate_x_handle": "@zjasper666",
+      "handle_source": {
+        "url": "https://hyperbolic.xyz/blog/hyperbolic-secures-20m-total-funding-with-latest-series-a",
+        "exact_claim": "The official page's 'connect with him on X' link for Dr. Jasper Zhang resolves to https://twitter.com/zjasper666.",
+        "verification_status": "company_linked_candidate_rapid_x_exact_profile_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://hyperbolic.xyz/blog/hyperbolic-secures-20m-total-funding-with-latest-series-a",
+          "claim": "Hyperbolic's official funding page identifies Dr. Jasper Zhang as Co-founder and CEO and tells readers to connect with him on X.",
+          "date": "2024-12-10",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://hyperbolic.xyz/blog/hyperbolic-secures-20m-total-funding-with-latest-series-a",
+          "claim": "Hyperbolic directly ties Dr. Jasper Zhang to @zjasper666 in the official funding article.",
+          "date": "2026-08-25",
+          "source_type": "official_company_x_identity_link",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "hyperbolic.xyz",
+      "public_business_route": {
+        "type": "official_referral_and_enterprise",
+        "value": "https://hyperbolic.xyz/blog/referral-program",
+        "source_url": "https://hyperbolic.xyz/blog/referral-program",
+        "description": "Use Hyperbolic's official referral program or enterprise/reserved-compute inquiry and request Developer Growth or Partnerships routing."
+      },
+      "acquisition_next_step": "Root should exact-profile @zjasper666 and require Jasper Zhang plus Hyperbolic in bio/domain; pair direct outreach with the official referral or enterprise route.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_candidate_with_company_linked_x_pending_root_confirmation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Heurist",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "RvalReal",
+        "role": "Official Ambassador Program and funding-article author alias; full name and formal title not stated",
+        "decision_relevance": "The company-controlled article metadata ties this alias to the Ambassador Program and funding narrative, making it a concrete community-content lead, but not yet a validated budget owner.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact RvalReal person profile tied to Heurist was found in the existing Rapid X cache; the article exposes only @heurist_ai.",
+        "verification_status": "full_identity_resolution_required_before_rapid_x_lookup"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.heurist.ai/blog/join-the-heurist-ambassador-program",
+          "claim": "Heurist's official page structured metadata names RvalReal as the author of the Ambassador Program article.",
+          "date": "2024-05-07",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high_for_author_alias_low_for_current_role"
+        },
+        {
+          "url": "https://docs.heurist.ai/",
+          "claim": "Heurist's official documentation publishes team@heurist.xyz as the support route.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "heurist.ai",
+      "public_business_route": {
+        "type": "official_official_support_and_ecosystem",
+        "value": "team@heurist.xyz",
+        "source_url": "mailto:team@heurist.xyz",
+        "description": "Official support email published in Heurist documentation."
+      },
+      "acquisition_next_step": "Email team@heurist.xyz referencing the Ambassador Program and ask for the current Community/Ecosystem Growth owner and RvalReal's public identity; then use Rapid X exact lookup only after a full name is supplied.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "low",
+      "status": "official_alias_activity_candidate_full_identity_and_role_required",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "OpenLedger",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Ram Kumar",
+        "role": "Core Contributor",
+        "decision_relevance": "Public company spokesperson on OpenLedger's agent strategy; can plausibly route OpenCircle, ecosystem, and GTM discussions, but budget authority is unconfirmed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/v4/target-047-openledger.json",
+        "exact_claim": "Rapid X cache contains public posts referring to 'OpenLedger's Ram Kumar' but no deterministic personal handle match.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://chainwire.org/2025/09/10/openledger-open-debuts-with-200-surge-after-binance-listing/",
+          "claim": "The OpenLedger-issued press release quotes Ram Kumar and identifies him as a Core Contributor at OpenLedger.",
+          "date": "2025-09-10",
+          "source_type": "reputable_secondary_or_partner_source",
+          "fact_status": "probable_secondary_requires_company_confirmation",
+          "confidence": "medium_high"
+        },
+        {
+          "url": "https://www.openledger.xyz/open-circle",
+          "claim": "OpenLedger's official OpenCircle SeedLab offers direct core-team mentoring, GTM support, and support tiers from $25,000 to $500,000.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "openledger.xyz",
+      "public_business_route": {
+        "type": "official_builder_and_gtm_support_program",
+        "value": "https://www.openledger.xyz/open-circle",
+        "source_url": "https://www.openledger.xyz/open-circle",
+        "description": "Apply to OpenCircle through its official form; the company also publishes official Discord and Telegram routes."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for Ram Kumar and require OpenLedger in bio/domain; apply through OpenCircle and ask the core team to route Mango to Ram or the current ecosystem/GTM owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "medium",
+      "status": "issuer_named_candidate_pending_company_and_rapid_x_confirmation",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Recraft",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Anna Veronika Dorogush",
+        "role": "CEO and founder",
+        "decision_relevance": "Founder and chief executive; the official funding announcement directly ties the round to expanded go-to-market efforts, making her a credible executive router for creator and brand partnerships.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Anna Veronika Dorogush profile was found in the existing Rapid X cache; the official release links only Recraft's company account.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://www.recraft.ai/press-releases/series-b-announcement",
+          "claim": "Recraft's official Series B release identifies Anna Veronika Dorogush as CEO and founder and says the funding will expand go-to-market efforts.",
+          "date": "2025-05-01",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "recraft.ai",
+      "public_business_route": {
+        "type": "official_company_contact_and_press",
+        "value": "https://www.recraft.ai/contact",
+        "source_url": "https://www.recraft.ai/contact",
+        "description": "Use Recraft's official contact route or press@recraft.ai and request the GTM, creator, or brand-partnership owner."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Anna Veronika Dorogush' with Recraft in bio/domain; contact Recraft with a brand-consistent design creator cohort and ask for the current GTM owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Synthflow AI",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Hakob Astabatsyan",
+        "role": "Co-founder and Chief Executive Officer",
+        "decision_relevance": "Founder and chief executive of a company that launched formal partnerships in 2026; appropriate executive router to the channel and partner organization.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Hakob Astabatsyan profile was found in the existing Rapid X cache; the company page exposes only @SynthflowAI.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://synthflow.ai/company",
+          "claim": "Synthflow's official 2026 company page lists Hakob Astabatsyan as Co-founder & Chief Executive Officer and states that Partnerships launched in 2026.",
+          "date": "2026-08-13",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high",
+          "date_basis": "2026-08-13_metadata"
+        }
+      ],
+      "official_domain": "synthflow.ai",
+      "public_business_route": {
+        "type": "official_partner_program",
+        "value": "https://synthflow.ai/partners",
+        "source_url": "https://synthflow.ai/partners",
+        "description": "Use Synthflow's official partner program; press@synthflow.ai is also published on the company page."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Hakob Astabatsyan' with Synthflow in bio/domain; apply through the partner program and request the channel-growth owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Gopher",
+      "wave": 2,
+      "company_aliases": [
+        "Masa Network",
+        "Masa"
+      ],
+      "candidate_operator": {
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/v4/target-050-gopher.json",
+        "exact_claim": "The existing Rapid X search cache is noisy and contains no deterministic current Gopher team-person match.",
+        "verification_status": "company_timeline_collection_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://github.com/masa-finance",
+          "claim": "The official Masa GitHub organization says Masa re-branded to Gopher and directs users to the new gopher-lab organization and @gopher_ai.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://github.com/gopher-lab",
+          "claim": "The official Gopher GitHub organization publishes a 'Contact the Gopher Team' form for launching a Gophernet.",
+          "date": "2026-08-25",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "github.com",
+      "public_business_route": {
+        "type": "official_ecosystem_partnership_form",
+        "value": "https://docs.google.com/forms/d/e/1FAIpQLScnIuvBGQeXKKZ5UXZOU8EW_b27ayp7CHdasba01utNHgL4Mw/viewform",
+        "source_url": "https://docs.google.com/forms/d/e/1FAIpQLScnIuvBGQeXKKZ5UXZOU8EW_b27ayp7CHdasba01utNHgL4Mw/viewform",
+        "description": "Official 'Contact the Gopher Team' form linked from the company-controlled GitHub page for launching a Gophernet."
+      },
+      "acquisition_next_step": "Submit the official Gopher Team form asking for the current Gophernet/Data Provider/Builder Partnerships owner; root should collect @gopher_ai's recent Rapid X timeline and inspect company-authored mentions or reposts for a full-name operator, then exact-profile that person.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "low",
+      "status": "no_strict_named_operator_official_route_only",
+      "research_source_wave": "wave_2"
+    },
+    {
+      "company": "Vana",
+      "wave": 2,
+      "company_aliases": [],
+      "candidate_operator": {
+        "name": "Anna Kazlauskas",
+        "role": "Creator of Vana Protocol",
+        "decision_relevance": "Current official public protocol leader and external spokesperson; a credible executive router for DataDAO, ecosystem, and sponsorship discussions. Budget authority is not independently confirmed.",
+        "x_handle": null
+      },
+      "candidate_x_handle": null,
+      "handle_source": {
+        "url": "data/cache/rapidx/",
+        "exact_claim": "No exact attributable Anna Kazlauskas profile was found in the existing Rapid X cache; the official article exposes only @vana.",
+        "verification_status": "rapid_x_exact_lookup_required"
+      },
+      "operator_evidence": [
+        {
+          "url": "https://vana.org/blog/anna-kazlauskas-at-zeg-data-as-a-digital-representation-of-self",
+          "claim": "Vana's official 2026 article identifies Anna Kazlauskas as Creator of Vana Protocol and describes her external advocacy for Vana's model.",
+          "date": "2026-06-29",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        },
+        {
+          "url": "https://vana.org/blog/vana-sponsors-season-3-of-the-peoples-ai-the-decentralized-ai-podcast",
+          "claim": "Vana's official site confirms sponsorship of Season 3 of The People's AI podcast.",
+          "date": "2025-12-15",
+          "source_type": "official_company_source",
+          "fact_status": "confirmed_current_company_source",
+          "confidence": "high"
+        }
+      ],
+      "official_domain": "vana.org",
+      "public_business_route": {
+        "type": "official_foundation_and_enterprise",
+        "value": "support@vanafoundation.org",
+        "source_url": "mailto:support@vanafoundation.org",
+        "description": "Use the official Vana Foundation support route or OpenDataLabs' enterprise-facing site and ask for the DataDAO/Ecosystem Growth owner."
+      },
+      "acquisition_next_step": "Run Rapid X exact-name search for 'Anna Kazlauskas' with Vana/OpenDataLabs in bio or official domain; email the Foundation referencing Vana's prior podcast sponsorship and ask for the current ecosystem-growth owner.",
+      "last_verified_at": "2026-08-25",
+      "confidence": "high",
+      "status": "official_current_candidate_pending_rapid_x",
+      "research_source_wave": "wave_2"
+    }
+  ]
+}

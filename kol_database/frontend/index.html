@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mango KOL database</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo"><span class="logo-mark"></span><em>Mango</em>&nbsp;Cockpit</span>
+      <nav class="section-nav" id="sectionNav">
+        <button class="section-btn active" data-section="home">Home</button>
+        <button class="section-btn" data-section="opportunities">Opportunities</button>
+        <button class="section-btn" data-section="network">Network</button>
+        <button class="section-btn" data-section="creators">Creators</button>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <div class="global-search-wrap" id="globalSearchWrap">
+        <input id="globalSearch" class="search-input" type="text" placeholder="Search companies, people, creators" autocomplete="off" />
+        <div id="globalSearchResults" class="search-results hidden"></div>
+      </div>
+      <button id="shortlistManagerBtn" class="btn btn-ghost">Shortlists</button>
+    </div>
+  </header>
+
+  <!-- ============================ Home ============================ -->
+  <section id="homeSection" class="app-section">
+    <main class="content wide">
+      <div id="homeBody">Loading</div>
+    </main>
+  </section>
+
+  <!-- ======================== Opportunities ======================== -->
+  <section id="opportunitiesSection" class="app-section hidden">
+    <div class="layout">
+      <aside class="filters" id="oppFilters">
+        <div class="filters-header">
+          <span>Filters</span>
+          <button id="oppClearFilters" class="link-btn">Clear all</button>
+        </div>
+        <div id="oppFilterBody"></div>
+      </aside>
+      <main class="content">
+        <div class="content-header">
+          <div id="oppResultCount" class="result-count"></div>
+          <div class="sort-controls">
+            <label>Sort by
+              <select id="oppSortField">
+                <option value="priority">Priority</option>
+                <option value="reachability">Reachability</option>
+                <option value="sponsorship_count">Sponsorship evidence</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+            <button id="oppSortOrderBtn" class="btn btn-ghost" data-order="desc">High to low</button>
+          </div>
+        </div>
+        <div id="oppTableWrap" class="table-wrap">
+          <table id="oppTable">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Priority</th>
+                <th>Reachability</th>
+                <th data-col="category">Category</th>
+                <th data-col="geography">Geography</th>
+                <th class="num">Sponsorships</th>
+                <th>Next action</th>
+              </tr>
+            </thead>
+            <tbody id="oppRows"></tbody>
+          </table>
+          <div id="oppEmptyState" class="empty-state" style="display:none"></div>
+          <div id="oppErrorState" class="empty-state error" style="display:none"></div>
+        </div>
+        <div class="pagination" id="oppPagination"></div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ============================ Network ============================ -->
+  <section id="networkSection" class="app-section hidden">
+    <main class="content wide">
+      <div id="networkBody">Loading</div>
+    </main>
+  </section>
+
+  <!-- ============================ Creators ============================ -->
+  <section id="creatorsSection" class="app-section hidden">
+    <div class="layout">
+      <aside class="filters" id="filters">
+        <div class="filters-header">
+          <span>Filters</span>
+          <button id="clearFilters" class="link-btn">Clear all</button>
+        </div>
+        <div id="filterBody"></div>
+      </aside>
+
+      <main class="content">
+        <div class="content-header">
+          <nav class="tabs" id="tabs">
+            <button class="tab active" data-tab="strategic">Strategic KOLs<span class="tab-count" id="countStrategic"></span></button>
+            <button class="tab" data-tab="distribution">KOC / Distribution<span class="tab-count" id="countDistribution"></span></button>
+            <button class="tab" data-tab="needs_review">Needs Review<span class="tab-count" id="countNeedsReview"></span></button>
+          </nav>
+          <input id="search" class="search-input" type="text" placeholder="Search name, handle, category" />
+        </div>
+        <div class="content-header">
+          <div id="resultCount" class="result-count"></div>
+          <div class="sort-controls">
+            <label>Sort by
+              <select id="sortField">
+                <option value="followers">Followers</option>
+                <option value="avg_views">Avg views</option>
+                <option value="engagement_rate">Engagement rate</option>
+                <option value="quote">Quote</option>
+                <option value="cpm">Estimated CPM</option>
+                <option value="creator_class">Creator class</option>
+                <option value="promotion_level">Promotion level</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+            <button id="sortOrderBtn" class="btn btn-ghost" data-order="desc">High to low</button>
+            <div class="columns-toggle-wrap">
+              <button id="columnsToggleBtn" class="btn btn-ghost">Columns</button>
+              <div id="columnsMenu" class="columns-menu hidden"></div>
+            </div>
+            <button id="exportFilteredBtn" class="btn btn-ghost" title="Export every creator matching the current tab + filters, not just the shortlist">Export list</button>
+            <button id="batchEnrichBtn" class="btn btn-ghost" title="Pull fresh data for rows on this page that have never been enriched">Refresh data</button>
+          </div>
+        </div>
+
+        <div id="bulkBar" class="bulk-bar hidden">
+          <span id="bulkBarSummary">0 selected</span>
+          <div class="actions">
+            <button id="bulkAddBtn" class="btn btn-primary btn-sm">Add to shortlist</button>
+            <button id="bulkClearBtn" class="link-btn">Clear selection</button>
+          </div>
+        </div>
+
+        <div id="tableWrap" class="table-wrap">
+          <table id="creatorTable">
+            <thead>
+              <tr id="headerRow">
+                <th class="col-select"><input type="checkbox" id="selectAllCheckbox" class="row-checkbox" title="Select all on this page" /></th>
+                <th>Creator</th>
+                <th>Class</th>
+                <th data-col="platform">Platform</th>
+                <th data-col="category">Category</th>
+                <th data-col="region">Region / Lang</th>
+                <th class="num">Followers</th>
+                <th class="num" data-col="avg_views">Avg views</th>
+                <th class="num" data-col="engagement">Engagement</th>
+                <th>Deliverable &amp; quote</th>
+                <th class="num" data-col="cpm">Est. CPM</th>
+                <th data-col="contact">Contact</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="creatorRows"></tbody>
+          </table>
+          <div id="emptyState" class="empty-state" style="display:none"></div>
+          <div id="loadingState" class="empty-state" style="display:none">Loading</div>
+          <div id="errorState" class="empty-state error" style="display:none"></div>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </main>
+    </div>
+  </section>
+
+  <div class="sticky-bar hidden" id="stickyBar">
+    <span id="stickySummary">Selected 0 creators, total $0</span>
+    <button id="openShortlistBtn" class="btn btn-primary">View shortlist</button>
+  </div>
+
+  <!-- Creator detail drawer -->
+  <div id="drawerOverlay" class="overlay hidden"></div>
+  <aside id="drawer" class="drawer hidden">
+    <div class="drawer-header">
+      <button id="drawerClose" class="link-btn">✕ Close</button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+
+  <!-- Shortlist modal -->
+  <div id="shortlistOverlay" class="overlay hidden"></div>
+  <div id="shortlistModal" class="modal hidden">
+    <div class="modal-header">
+      <span>Shortlist</span>
+      <button id="shortlistClose" class="link-btn">✕ Close</button>
+    </div>
+    <div id="shortlistBody" class="modal-body"></div>
+  </div>
+
+  <!-- Shortlist manager modal -->
+  <div id="managerOverlay" class="overlay hidden"></div>
+  <div id="managerModal" class="modal hidden">
+    <div class="modal-header">
+      <span>All shortlists</span>
+      <button id="managerClose" class="link-btn">✕ Close</button>
+    </div>
+    <div id="managerBody" class="modal-body"></div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

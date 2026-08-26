@@ -1,0 +1,908 @@
+[
+  {
+    "company": "PixVerse",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "pixverse.ai",
+    "official_social_url": "https://x.com/PixVerse",
+    "proposed_handle": "@PixVerse",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-001-pixverse.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://pixverse.ai/en",
+        "date": "2026-08-25",
+        "claim": "PixVerse's official homepage HTML explicitly links to https://x.com/PixVerse.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-001-pixverse.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @PixVerse.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @PixVerse_. The cached Rapid profile lookup queried the old handle and returned no User object; @PixVerse requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "Tavus",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "tavus.io",
+    "official_social_url": "https://x.com/tavus",
+    "proposed_handle": "@tavus",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-003-tavus.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://www.tavus.io/",
+        "date": "2026-08-25",
+        "claim": "Tavus's official homepage HTML explicitly links to https://x.com/tavus.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-003-tavus.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @tavus.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @heytavus. The cached Rapid profile lookup queried the old handle and returned no User object; @tavus requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "Relevance AI",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "relevanceai.com",
+    "official_social_url": "https://twitter.com/RelevanceAI_",
+    "proposed_handle": "@RelevanceAI_",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-014-relevance-ai.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://relevanceai.com/",
+        "date": "2026-08-25",
+        "claim": "Relevance AI's official homepage HTML explicitly links to https://twitter.com/RelevanceAI_.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-014-relevance-ai.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @RelevanceAI_.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @relevanceai. The cached Rapid profile lookup queried the old handle and returned no User object; @RelevanceAI_ requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "Relume",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "relume.ai",
+    "official_social_url": "https://x.com/relume_ai",
+    "proposed_handle": "@relume_ai",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-015-relume.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://www.relume.ai/",
+        "date": "2026-08-25",
+        "claim": "Relume's official homepage explicitly links to https://x.com/relume_ai.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-015-relume.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @relume_ai.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @relume_io. The cached Rapid profile lookup queried the old handle and returned no User object; @relume_ai requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "AKOOL",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "akool.com",
+    "official_social_url": "https://twitter.com/AkoolInc",
+    "proposed_handle": "@AkoolInc",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-020-akool.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://akool.com/creator-partner-program",
+        "date": "2026-08-25",
+        "claim": "AKOOL's official Creator Partner Program page explicitly links to https://twitter.com/AkoolInc.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-020-akool.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @AkoolInc.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @akool_com. The cached Rapid profile lookup queried the old handle and returned no User object; @AkoolInc requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "Pixo",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "pixo.video",
+    "official_social_url": "https://x.com/pixo_ai",
+    "proposed_handle": "@pixo_ai",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-023-pixo.json",
+      "match_basis": "official_handle_not_observed_as_exact_user_candidate_in_cached_rapid_search_response"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://pixo.video/",
+        "date": "2026-08-25",
+        "claim": "Pixo's official homepage explicitly links to https://x.com/pixo_ai.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-023-pixo.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @pixo_ai.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The existing Rapid search cache contains no exact @pixo_ai User candidate. A new handle-specific Rapid X lookup is required."
+  },
+  {
+    "company": "Relay.app",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "relay.app",
+    "official_social_url": "",
+    "proposed_handle": "",
+    "rapid_candidate_match": {
+      "matched": null,
+      "handle": "@relay",
+      "rest_id": "859475705972871168",
+      "source_cache": "data/cache/rapidx/v4/target-024-relay-app.json",
+      "match_basis": "rapid_candidate_observed_but_no_official_social_link_available_for_adjudication"
+    },
+    "rest_id": "",
+    "status": "unresolved_no_official_link",
+    "evidence": [
+      {
+        "url": "https://www.relay.app/",
+        "date": "2026-08-25",
+        "claim": "No explicit x.com/<handle> or twitter.com/<handle> company-account link was observed on the official homepage or official affiliate page during this check.",
+        "source_type": "official_website",
+        "confidence": "medium"
+      },
+      {
+        "url": "https://www.relay.app/affiliates/apply",
+        "date": "2026-08-25",
+        "claim": "No explicit x.com/<handle> or twitter.com/<handle> company-account link was observed on this additional official page.",
+        "source_type": "official_website",
+        "confidence": "medium"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-024-relay-app.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache alone cannot be promoted to an official identity without an explicit official-domain social link.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The Rapid search cache contains an @relay User candidate (rest_id 859475705972871168), but without an explicit official-domain social link it is not promoted to a confirmed identity."
+  },
+  {
+    "company": "Intangible",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "intangible.ai",
+    "official_social_url": "https://x.com/intangibleai",
+    "proposed_handle": "@intangibleai",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-025-intangible.json",
+      "match_basis": "official_handle_differs_from_handle_queried_in_cached_rapid_profile_lookup"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://www.intangible.ai/",
+        "date": "2026-08-25",
+        "claim": "Intangible's official homepage explicitly links to https://x.com/intangibleai.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-025-intangible.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @intangibleai.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle differs from the requested @intangible_ai. The cached Rapid profile lookup queried the old handle and returned no User object; @intangibleai requires a fresh Rapid X lookup."
+  },
+  {
+    "company": "Talus Network",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "talus.network",
+    "official_social_url": "https://x.com/Talus_Labs",
+    "proposed_handle": "@Talus_Labs",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@Talus_Labs",
+      "rest_id": "1912085033902616577",
+      "source_cache": "data/cache/rapidx/v4/target-031-talus-network.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1912085033902616577",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://blog.talus.network/building-the-foundation-for-the-autonomous-digital-economy/",
+        "date": "2026-08-25",
+        "claim": "Talus's official blog says to follow Talus on Twitter and links that call to https://x.com/Talus_Labs.",
+        "source_type": "official_blog",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-031-talus-network.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @Talus_Labs User candidate with rest_id 1912085033902616577.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive). The identity artifact did not surface nested User handles, so the rest_id is taken from that already-cached User object."
+  },
+  {
+    "company": "MyShell",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "myshell.ai",
+    "official_social_url": "https://twitter.com/myshell_ai",
+    "proposed_handle": "@myshell_ai",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@myshell_ai",
+      "rest_id": "1616647371081027588",
+      "source_cache": "data/cache/rapidx/v4/target-032-myshell.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1616647371081027588",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://docs.myshell.ai/links",
+        "date": "2026-08-25",
+        "claim": "MyShell's official Links documentation explicitly lists https://twitter.com/myshell_ai as Twitter.",
+        "source_type": "official_docs",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-032-myshell.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @myshell_ai User candidate with rest_id 1616647371081027588.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive). The identity artifact did not surface nested User handles, so the rest_id is taken from that already-cached User object."
+  },
+  {
+    "company": "PIN AI",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "pinai.com",
+    "official_social_url": "https://x.com/PINAI_IO",
+    "proposed_handle": "@PINAI_IO",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@PINAI_IO",
+      "rest_id": "1780370563074297856",
+      "source_cache": "data/cache/rapidx/v4/target-033-pin-ai.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1780370563074297856",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://www.pinai.com/",
+        "date": "2026-08-25",
+        "claim": "PIN AI's official homepage explicitly links to https://x.com/PINAI_IO.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-033-pin-ai.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @PINAI_IO User candidate with rest_id 1780370563074297856.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive). The identity artifact did not surface nested User handles, so the rest_id is taken from that already-cached User object."
+  },
+  {
+    "company": "Allora Network",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "allora.network",
+    "official_social_url": "https://x.com/AlloraNetwork",
+    "proposed_handle": "@AlloraNetwork",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@AlloraNetwork",
+      "rest_id": "1752421556494438401",
+      "source_cache": "data/cache/rapidx/v4/target-034-allora-network.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1752421556494438401",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://www.allora.network/",
+        "date": "2026-08-25",
+        "claim": "Allora Network's official homepage HTML explicitly links to https://x.com/AlloraNetwork.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-034-allora-network.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @AlloraNetwork User candidate with rest_id 1752421556494438401.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive). The identity artifact did not surface nested User handles, so the rest_id is taken from that already-cached User object."
+  },
+  {
+    "company": "Olas",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "olas.network",
+    "official_social_url": "https://x.com/autonolas",
+    "proposed_handle": "@autonolas",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@autonolas",
+      "rest_id": "1450081635559428107",
+      "source_cache": "data/cache/rapidx/v4/target-035-olas.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1450081635559428107",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://olas.network/",
+        "date": "2026-08-25",
+        "claim": "Olas's official website explicitly links multiple Olas updates published from https://x.com/autonolas, establishing the account path.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-035-olas.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @autonolas User candidate with rest_id 1450081635559428107.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official-site handle matches a User object in the existing Rapid X search cache exactly (case-insensitive). The profile name in cache is 'Olas (formerly Autonolas)'."
+  },
+  {
+    "company": "Sapien",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "sapien.io",
+    "official_social_url": "https://x.com/BuildOnSapien",
+    "proposed_handle": "@BuildOnSapien",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@BuildOnSapien",
+      "rest_id": "1786019543220948992",
+      "source_cache": "data/cache/rapidx/v4/target-036-sapien.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1786019543220948992",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://newsletter.sapien.io/p/sapien-weekly-digest-february-13th",
+        "date": "2026-08-25",
+        "claim": "Sapien's official newsletter states that @JoinSapien on X is now @BuildOnSapien and links to https://x.com/BuildOnSapien.",
+        "source_type": "official_blog",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-036-sapien.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @BuildOnSapien User candidate with rest_id 1786019543220948992.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The renamed official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "Giza",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "gizatech.xyz",
+    "official_social_url": "https://x.com/gizatechxyz",
+    "proposed_handle": "@gizatechxyz",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-037-giza.json",
+      "match_basis": "official_handle_not_observed_as_exact_user_candidate_in_cached_rapid_search_response"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://www.gizatech.xyz/blog/anatomy-of-an-agent-pt-2-technical-architecture",
+        "date": "2026-08-25",
+        "claim": "Giza's official blog says 'Follow us on X' and links to https://twitter.com/gizatechxyz; the URL is canonicalized here as https://x.com/gizatechxyz.",
+        "source_type": "official_blog",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-037-giza.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @gizatechxyz.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The existing Rapid search cache contains no exact @gizatechxyz User candidate. A new handle-specific Rapid X lookup is required."
+  },
+  {
+    "company": "Inference Labs",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "inferencelabs.com",
+    "official_social_url": "https://x.com/inference_labs",
+    "proposed_handle": "@inference_labs",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@inference_labs",
+      "rest_id": "1639429440680624130",
+      "source_cache": "data/cache/rapidx/v4/target-038-inference-labs.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1639429440680624130",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://inferencelabs.com/",
+        "date": "2026-08-25",
+        "claim": "Inference Labs's official homepage HTML explicitly links to https://x.com/inference_labs.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-038-inference-labs.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @inference_labs User candidate with rest_id 1639429440680624130.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "Kite AI",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "gokite.ai",
+    "official_social_url": "https://x.com/GoKiteAI",
+    "proposed_handle": "@GoKiteAI",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@GoKiteAI",
+      "rest_id": "1841881477371592704",
+      "source_cache": "data/cache/rapidx/v4/target-039-kite-ai.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1841881477371592704",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://gokite.ai/",
+        "date": "2026-08-25",
+        "claim": "Kite AI's official homepage explicitly links to https://x.com/GoKiteAI.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-039-kite-ai.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @GoKiteAI User candidate with rest_id 1841881477371592704.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "GAIB",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "gaib.ai",
+    "official_social_url": "https://x.com/gaib_ai",
+    "proposed_handle": "@gaib_ai",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@gaib_ai",
+      "rest_id": "1805656710360842246",
+      "source_cache": "data/cache/rapidx/v4/target-040-gaib.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1805656710360842246",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://gaib.ai/",
+        "date": "2026-08-25",
+        "claim": "GAIB's official homepage HTML explicitly links to https://x.com/gaib_ai (and its equivalent twitter.com URL).",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-040-gaib.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @gaib_ai User candidate with rest_id 1805656710360842246.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "Hyperbolic",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "hyperbolic.xyz",
+    "official_social_url": "https://x.com/hyperbolic_labs",
+    "proposed_handle": "@hyperbolic_labs",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-041-hyperbolic.json",
+      "match_basis": "official_handle_not_observed_as_exact_user_candidate_in_cached_rapid_search_response"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://hyperbolic.xyz/",
+        "date": "2026-08-25",
+        "claim": "Hyperbolic's official homepage HTML explicitly links to https://x.com/hyperbolic_labs.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-041-hyperbolic.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @hyperbolic_labs.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The existing Rapid search cache contains no exact @hyperbolic_labs User candidate. A new handle-specific Rapid X lookup is required."
+  },
+  {
+    "company": "Bardeen",
+    "current_status": "unresolved_profile_lookup_no_user_object",
+    "official_domain": "bardeen.ai",
+    "official_social_url": "",
+    "proposed_handle": "",
+    "rapid_candidate_match": {
+      "matched": null,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-042-bardeen.json",
+      "match_basis": "no_official_social_link_available_for_adjudication"
+    },
+    "rest_id": "",
+    "status": "unresolved_no_official_link",
+    "evidence": [
+      {
+        "url": "https://www.bardeen.ai/",
+        "date": "2026-08-25",
+        "claim": "No explicit x.com/<handle> or twitter.com/<handle> company-account link was observed on the official homepage, about page, blog index, or inspected official article during this check.",
+        "source_type": "official_website",
+        "confidence": "medium"
+      },
+      {
+        "url": "https://www.bardeen.ai/about",
+        "date": "2026-08-25",
+        "claim": "No explicit Bardeen company-account X/Twitter link was observed; a twitter.com privacy-policy link is not treated as identity evidence.",
+        "source_type": "official_website",
+        "confidence": "medium"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-042-bardeen.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache alone cannot be promoted to an official identity without an explicit official-domain social link.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The requested @bardeenai Rapid lookup returned UserUnavailable with reason 'Suspended'. The only twitter.com link observed on the inspected official pages was a platform privacy-policy URL, not a company account, so no identity is inferred."
+  },
+  {
+    "company": "Heurist",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "heurist.ai",
+    "official_social_url": "https://twitter.com/heurist_ai",
+    "proposed_handle": "@heurist_ai",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@heurist_ai",
+      "rest_id": "1736748346566459392",
+      "source_cache": "data/cache/rapidx/v4/target-043-heurist.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1736748346566459392",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://www.heurist.ai/",
+        "date": "2026-08-25",
+        "claim": "Heurist's official homepage HTML explicitly links to https://twitter.com/heurist_ai.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-043-heurist.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @heurist_ai User candidate with rest_id 1736748346566459392.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "Fraction AI",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "fraction-ai.gitbook.io",
+    "official_social_url": "",
+    "proposed_handle": "",
+    "rapid_candidate_match": {
+      "matched": null,
+      "handle": "@FractionAI_xyz",
+      "rest_id": "1737049734668238848",
+      "source_cache": "data/cache/rapidx/v4/target-045-fraction-ai.json",
+      "match_basis": "rapid_candidate_observed_but_no_official_social_link_available_for_adjudication"
+    },
+    "rest_id": "",
+    "status": "unresolved_no_official_link",
+    "evidence": [
+      {
+        "url": "https://fraction-ai.gitbook.io/fraction-ai-product-docs",
+        "date": "2026-08-25",
+        "claim": "No explicit x.com/<handle> or twitter.com/<handle> company-account link was observed on the official documentation landing page or its complete llms.txt documentation index during this check.",
+        "source_type": "official_docs",
+        "confidence": "medium"
+      },
+      {
+        "url": "https://fraction-ai.gitbook.io/fraction-ai-product-docs/llms.txt",
+        "date": "2026-08-25",
+        "claim": "The complete official documentation index exposes no company-account X/Twitter link.",
+        "source_type": "official_docs",
+        "confidence": "medium"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-045-fraction-ai.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache alone cannot be promoted to an official identity without an explicit official-domain social link.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The Rapid search cache contains an @FractionAI_xyz User candidate (rest_id 1737049734668238848), but the official docs inspected do not link that account, so it remains unconfirmed."
+  },
+  {
+    "company": "375ai",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "375.ai",
+    "official_social_url": "https://x.com/375ai_",
+    "proposed_handle": "@375ai_",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@375ai_",
+      "rest_id": "1799880807546552320",
+      "source_cache": "data/cache/rapidx/v4/target-046-375ai.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1799880807546552320",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://www.375.ai/",
+        "date": "2026-08-25",
+        "claim": "375ai's official homepage HTML explicitly links to https://x.com/375ai_.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-046-375ai.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @375ai_ User candidate with rest_id 1799880807546552320.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "OpenLedger",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "openledger.xyz",
+    "official_social_url": "https://x.com/OpenledgerHQ",
+    "proposed_handle": "@OpenledgerHQ",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@OpenledgerHQ",
+      "rest_id": "1755624156731768833",
+      "source_cache": "data/cache/rapidx/v4/target-047-openledger.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1755624156731768833",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://www.openledger.xyz/",
+        "date": "2026-08-25",
+        "claim": "OpenLedger's official homepage explicitly links to https://x.com/OpenledgerHQ.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-047-openledger.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @OpenledgerHQ User candidate with rest_id 1755624156731768833.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  },
+  {
+    "company": "Gopher",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "gopher-ai.com",
+    "official_social_url": "https://x.com/gopher_ai",
+    "proposed_handle": "@gopher_ai",
+    "rapid_candidate_match": {
+      "matched": false,
+      "handle": "",
+      "rest_id": "",
+      "source_cache": "data/cache/rapidx/v4/target-050-gopher.json",
+      "match_basis": "official_handle_not_observed_as_exact_user_candidate_in_cached_rapid_search_response"
+    },
+    "rest_id": "",
+    "status": "corrected_handle_requires_rapid_lookup",
+    "evidence": [
+      {
+        "url": "https://developers.gopher-ai.com/docs/intro",
+        "date": "2026-08-25",
+        "claim": "Gopher's official developer documentation explicitly links to https://x.com/gopher_ai.",
+        "source_type": "official_docs",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-050-gopher.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache does not provide an exact confirmed User identity for the official handle @gopher_ai.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The existing Rapid search cache contains no exact @gopher_ai User candidate. A new handle-specific Rapid X lookup is required."
+  },
+  {
+    "company": "Vana",
+    "current_status": "search_candidates_manual_match_required",
+    "official_domain": "vana.org",
+    "official_social_url": "https://x.com/vana",
+    "proposed_handle": "@vana",
+    "rapid_candidate_match": {
+      "matched": true,
+      "handle": "@vana",
+      "rest_id": "1460528108952453120",
+      "source_cache": "data/cache/rapidx/v4/target-051-vana.json",
+      "match_basis": "official_handle_exact_case_insensitive_match_to_cached_rapid_user"
+    },
+    "rest_id": "1460528108952453120",
+    "status": "confirmed_official_link_matches_rapid_candidate",
+    "evidence": [
+      {
+        "url": "https://vana.org/",
+        "date": "2026-08-25",
+        "claim": "Vana's official homepage HTML explicitly links to https://x.com/vana.",
+        "source_type": "official_website",
+        "confidence": "high"
+      },
+      {
+        "url": "data/cache/rapidx/v4/target-051-vana.json",
+        "date": "2026-08-25",
+        "claim": "Existing Rapid X cache contains an exact @vana User candidate with rest_id 1460528108952453120.",
+        "source_type": "rapid_x_cache",
+        "confidence": "high"
+      }
+    ],
+    "last_verified_at": "2026-08-25T02:48:48+08:00",
+    "notes": "The official handle matches a User object in the existing Rapid X search cache exactly (case-insensitive)."
+  }
+]
+

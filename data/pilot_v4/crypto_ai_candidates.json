@@ -1,0 +1,1144 @@
+[
+  {
+    "rank": 1,
+    "company": "MyShell",
+    "aliases": [],
+    "category": "Consumer AI agents and creator economy",
+    "why_longtail": "A crypto-native AI creator platform with meaningful consumer scale, but still less saturated as a BD target than the largest AI and crypto infrastructure brands.",
+    "funding_signal": "$16.6M total disclosed funding as of March 2024.",
+    "live_metric": "The funding announcement reported 1M+ registered users and 50K creators; current official documentation describes thousands of AI agents and creator monetization mechanisms.",
+    "metric_as_of": "2024-03, supplemented by 2025 product documentation",
+    "budget_interpretation": "Financing indicates runway, not a marketing budget. More decision-useful signals are creator monetization, seasonal incentives, hackathons, and explicit ecosystem marketing allocations; token allocation must not be treated as cash spend.",
+    "collaboration_angle": "Cross-border creator challenge, agent launch campaign, localized creator acquisition, and short-video distribution.",
+    "bd_score": 92,
+    "priority": "A",
+    "risk": "The headline user and creator metrics are dated; verify 2026 MAU, creator payouts, geographic mix, and cash campaign budget before outreach.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official_or_issuer_release",
+    "evidence_urls": [
+      "https://docs.myshell.ai/about/what-is-myshell",
+      "https://docs.myshell.ai/tokenomics/how-to-obtain-shell",
+      "https://chainwire.org/2024/03/27/myshell-raises-11-million-for-its-decentralized-ai-consumer-layer/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:myshell:01",
+        "url": "https://docs.myshell.ai/about/what-is-myshell",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2024-03, supplemented by 2025 product documentation",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:myshell:02",
+        "url": "https://docs.myshell.ai/tokenomics/how-to-obtain-shell",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2024-03, supplemented by 2025 product documentation",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:myshell:03",
+        "url": "https://chainwire.org/2024/03/27/myshell-raises-11-million-for-its-decentralized-ai-consumer-layer/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2024-03, supplemented by 2025 product documentation",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "company": "OpenLedger",
+    "aliases": [],
+    "category": "AI data and model blockchain",
+    "why_longtail": "A fast-growing AI-chain ecosystem with large testnet participation and an explicit creator campaign, yet a less obvious target than top-tier general-purpose L1s.",
+    "funding_signal": "$15M raised since 2024 was claimed in a September 2025 issuer release; the original seed round was $8M.",
+    "live_metric": "Issuer materials reported 6M+ testnet nodes, 25M+ transactions, 20K+ models, and 27+ products around mainnet launch.",
+    "metric_as_of": "2025-09",
+    "budget_interpretation": "The 2M OPN Yapper Arena is an explicit token incentive program, not proof of an equivalent cash marketing budget.",
+    "collaboration_angle": "Yapper and creator campaign, Payable AI education, regional developer acquisition, and node-to-builder conversion content.",
+    "bd_score": 91,
+    "priority": "A",
+    "risk": "Node registrations and transaction counts may be incentive-driven and do not establish active users, revenue, or available cash budget.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official_or_issuer_release",
+    "evidence_urls": [
+      "https://www.openledger.xyz/blog/openledger-yapper-arena-2-million-opn-token-prize-pool-reward-for-top-200-yappers-over-6-months?id=154",
+      "https://chainwire.org/2025/09/10/openledger-open-debuts-with-200-surge-after-binance-listing/",
+      "https://chainwire.org/2024/07/02/openledger-raises-8m-seed-round-led-by-polychain-capital-and-borderless-capital/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:openledger:01",
+        "url": "https://www.openledger.xyz/blog/openledger-yapper-arena-2-million-opn-token-prize-pool-reward-for-top-200-yappers-over-6-months?id=154",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:openledger:02",
+        "url": "https://chainwire.org/2025/09/10/openledger-open-debuts-with-200-surge-after-binance-listing/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:openledger:03",
+        "url": "https://chainwire.org/2024/07/02/openledger-raises-8m-seed-round-led-by-polychain-capital-and-borderless-capital/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "company": "Allora Network",
+    "aliases": [],
+    "category": "Decentralized model coordination and prediction intelligence",
+    "why_longtail": "A specialized AI intelligence layer with active ecosystem building and enough financing for partnerships, but narrower recognition than leading AI-token names.",
+    "funding_signal": "$35M total funding disclosed by Allora Labs.",
+    "live_metric": "Mainnet launched in November 2025; the project announced multiple ecosystem integrations and v0.17 classification and multi-output topics in August 2026.",
+    "metric_as_of": "2026-08",
+    "budget_interpretation": "The agent accelerator demonstrates grant, storytelling, social, and positioning activity, but no public cash campaign pool was found.",
+    "collaboration_angle": "Accelerator sourcing, APAC builder acquisition, technical content, and integration-launch amplification.",
+    "bd_score": 90,
+    "priority": "A",
+    "risk": "Product and integration announcements do not establish application usage, paid customers, or a currently approved marketing budget.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://www.allora.network/blog/allora-labs-brings-total-funding-to-35-million-with-latest-strategic-round-917c6",
+      "https://www.allora.network/blog/announcing-the-allora-agent-accelerator-cohort-1",
+      "https://www.allora.network/blog/allora-mainnet-v0-17-adds-classification-multi-output-topics"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:allora-network:01",
+        "url": "https://www.allora.network/blog/allora-labs-brings-total-funding-to-35-million-with-latest-strategic-round-917c6",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-08",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:allora-network:02",
+        "url": "https://www.allora.network/blog/announcing-the-allora-agent-accelerator-cohort-1",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-08",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:allora-network:03",
+        "url": "https://www.allora.network/blog/allora-mainnet-v0-17-adds-classification-multi-output-topics",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-08",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 4,
+    "company": "Olas",
+    "aliases": [
+      "Autonolas"
+    ],
+    "category": "Owned autonomous agents and agent marketplace",
+    "why_longtail": "A technically mature autonomous-agent network with measurable on-chain activity and a funded app-store push, but still outside the most famous consumer AI brands.",
+    "funding_signal": "$13.8M latest disclosed raise led by 1kx.",
+    "live_metric": "The official site says Olas agents generated more than 75% of Safe transactions on Gnosis on some days; earlier project reporting cited 3.5M agent transactions across nine chains.",
+    "metric_as_of": "2025-2026",
+    "budget_interpretation": "A $1M accelerator is the strongest explicit program-budget signal. OLAS token rewards should be tracked separately from cash marketing spend.",
+    "collaboration_angle": "Pearl and agent-app launch, consumer demonstrations, creator-agent campaigns, and accelerator recruitment.",
+    "bd_score": 89,
+    "priority": "A",
+    "risk": "The transaction-share claim is chain- and date-specific; verify current activity, unique operators, app retention, and remaining accelerator budget.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://olas.network/blog/olas-announces-the-agent-app-store-after-core-contributor-raises-13-8m-led-by-1kx",
+      "https://olas.network/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:olas:01",
+        "url": "https://olas.network/blog/olas-announces-the-agent-app-store-after-core-contributor-raises-13-8m-led-by-1kx",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-2026",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:olas:02",
+        "url": "https://olas.network/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-2026",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "company": "Talus Network",
+    "aliases": [],
+    "category": "On-chain agent workflow infrastructure",
+    "why_longtail": "An emerging agent platform entering its mainnet era with accelerator and ecosystem support, making it more reachable than mature infrastructure incumbents.",
+    "funding_signal": "$9M total disclosed funding.",
+    "live_metric": "Talus entered its mainnet phase in 2026 and launched Talus/acc with Sui and Cicada, offering technical and go-to-market support.",
+    "metric_as_of": "2026-05",
+    "budget_interpretation": "The accelerator is a real BD entry point, but no public cash pool or per-team spend was identified.",
+    "collaboration_angle": "Accelerator sourcing, builder launch campaigns, agent-workflow demonstrations, and regional developer acquisition.",
+    "bd_score": 88,
+    "priority": "A",
+    "risk": "The mainnet is young; verify production applications, active developers, paid usage, and decision ownership for marketing.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://blog.talus.network/talus-raises-6m-to-become-the-leading-platform-for-decentralized-ai-agents/",
+      "https://blog.talus.network/announcing-talus-acc-accelerating-the-agentic-era/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:talus-network:01",
+        "url": "https://blog.talus.network/talus-raises-6m-to-become-the-leading-platform-for-decentralized-ai-agents/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:talus-network:02",
+        "url": "https://blog.talus.network/announcing-talus-acc-accelerating-the-agentic-era/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 6,
+    "company": "PIN AI",
+    "aliases": [],
+    "category": "Consumer personal AI, private data, and agent commerce",
+    "why_longtail": "A mobile-first personal-agent product with strong crypto and AI founders and visible app distribution, but not yet a household consumer brand.",
+    "funding_signal": "$10M pre-seed funding.",
+    "live_metric": "Google Play showed 100K+ downloads; official materials describe cross-app agents, payments, private on-device data, and ecosystem partnerships.",
+    "metric_as_of": "2026-01 app listing and current product materials",
+    "budget_interpretation": "Funding-use language and app, ambassador, and go-to-market activity are useful signals; download count does not establish MAU or an approved campaign budget.",
+    "collaboration_angle": "Mobile UGC, SEA and APAC localization, commerce-agent education, and creator-led onboarding.",
+    "bd_score": 87,
+    "priority": "A",
+    "risk": "Verify retention, regional user mix, conversion to agent usage, creator payouts, and current app-store status.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://www.pinai.com/post/pin-ai-team-from-ethereum-google-brain-stanford-and-mit-secures-10m-from-hack-vc-a16z-csx-and",
+      "https://www.pinai.com/product",
+      "https://play.google.com/store/apps/details?id=com.pin.ai"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:pin-ai:01",
+        "url": "https://www.pinai.com/post/pin-ai-team-from-ethereum-google-brain-stanford-and-mit-secures-10m-from-hack-vc-a16z-csx-and",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-01 app listing and current product materials",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:pin-ai:02",
+        "url": "https://www.pinai.com/product",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-01 app listing and current product materials",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:pin-ai:03",
+        "url": "https://play.google.com/store/apps/details?id=com.pin.ai",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-01 app listing and current product materials",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 7,
+    "company": "Fraction AI",
+    "aliases": [],
+    "category": "Consumer agent training and decentralized reinforcement learning",
+    "why_longtail": "A no-code agent-training product with competition mechanics and notable testnet participation, giving it a clear growth surface without top-tier brand saturation.",
+    "funding_signal": "$6M pre-seed funding was reported by The Block.",
+    "live_metric": "An issuer release reported 320K users, 1.1M agents, and 30M+ testnet sessions before Base mainnet launch.",
+    "metric_as_of": "2025-05",
+    "budget_interpretation": "Paid sessions, rewards, and no-code creator mechanics are commercial signals, but testnet sessions and token rewards do not establish retention, revenue, or cash budget.",
+    "collaboration_angle": "Agent competition, tournament content, prompt-to-agent challenges, and localized Spaces or creator campaigns.",
+    "bd_score": 86,
+    "priority": "A",
+    "risk": "Key usage metrics came from an issuer release; verify 2026 mainnet activity, repeat users, paid sessions, and rewards economics.",
+    "source_type": "web_official",
+    "funding_source_type": "web_secondary",
+    "evidence_urls": [
+      "https://chainwire.org/2025/05/06/fraction-ai-launches-on-mainnet-for-auto-training-ai-agents/",
+      "https://fraction-ai.gitbook.io/fraction-ai-product-docs",
+      "https://www.theblock.co/news/deals/2024-12-18-crypto-ai-startup-fraction-funding-331488"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:fraction-ai:01",
+        "url": "https://chainwire.org/2025/05/06/fraction-ai-launches-on-mainnet-for-auto-training-ai-agents/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:fraction-ai:02",
+        "url": "https://fraction-ai.gitbook.io/fraction-ai-product-docs",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:fraction-ai:03",
+        "url": "https://www.theblock.co/news/deals/2024-12-18-crypto-ai-startup-fraction-funding-331488",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 8,
+    "company": "375ai",
+    "aliases": [],
+    "category": "Physical AI and decentralized edge data",
+    "why_longtail": "A differentiated physical-data network with hardware deployment and a global testnet footprint, offering more specific partnership hooks than generic AI-token projects.",
+    "funding_signal": "$10M funding disclosed by the company.",
+    "live_metric": "The company reported 200K testnet participants or nodes across 170+ countries and announced mainnet and physical-network expansion in 2025.",
+    "metric_as_of": "2025-10",
+    "budget_interpretation": "Hardware, app, airdrop, and enterprise-sales activity suggest go-to-market needs; reported nodes and footprint still require active-rate validation.",
+    "collaboration_angle": "Physical-network storytelling, node activation, city and logistics campaigns, and regional community acquisition.",
+    "bd_score": 85,
+    "priority": "A",
+    "risk": "Verify installed versus active devices, retained participants, enterprise contracts, and whether incentives drove the testnet numbers.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://www.375.ai/zh/blog/375ai-raises-10-million-to-power-the-next-phase-of-real-world-ai",
+      "https://www.375.ai/blog/road-to-mainnet",
+      "https://www.375.ai/blog/introducing-the-eat-airdrop"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:375ai:01",
+        "url": "https://www.375.ai/zh/blog/375ai-raises-10-million-to-power-the-next-phase-of-real-world-ai",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-10",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:375ai:02",
+        "url": "https://www.375.ai/blog/road-to-mainnet",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-10",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:375ai:03",
+        "url": "https://www.375.ai/blog/introducing-the-eat-airdrop",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-10",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 9,
+    "company": "Hyperbolic",
+    "aliases": [],
+    "category": "Decentralized GPU cloud and AI inference",
+    "why_longtail": "A credible decentralized compute provider with visible developer usage and growth programs, but more accessible than the biggest centralized cloud and GPU-network names.",
+    "funding_signal": "$20M total funding after its Series A.",
+    "live_metric": "The May 2025 recap reported 195K+ developers, 6.6K GPU rentals, 81.9K GPU hours, and more than 1B tokens processed per day.",
+    "metric_as_of": "2025-05",
+    "budget_interpretation": "Referral programs, hackathons, credits, and accelerator activity are direct acquisition signals; infrastructure usage itself is not a marketing-budget proxy.",
+    "collaboration_angle": "Developer referrals, compute-credit campaigns, hackathons, tutorials, and customer case studies.",
+    "bd_score": 83,
+    "priority": "A/B",
+    "risk": "Usage data needs a 2026 refresh, and positioning may have shifted toward conventional on-demand cloud services.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://hyperbolic.xyz/blog/hyperbolic-secures-20m-total-funding-with-latest-series-a",
+      "https://www.hyperbolic.xyz/blog/monthly-recap-may-2025",
+      "https://hyperbolic.xyz/blog/referral-program"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:hyperbolic:01",
+        "url": "https://hyperbolic.xyz/blog/hyperbolic-secures-20m-total-funding-with-latest-series-a",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:hyperbolic:02",
+        "url": "https://www.hyperbolic.xyz/blog/monthly-recap-may-2025",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:hyperbolic:03",
+        "url": "https://hyperbolic.xyz/blog/referral-program",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 10,
+    "company": "Heurist",
+    "aliases": [],
+    "category": "Decentralized serverless AI cloud",
+    "why_longtail": "A smaller inference network with large cumulative usage claims and cloud-program support, suited to a performance-oriented pilot rather than a prestige-led partnership.",
+    "funding_signal": "$2M financing plus $350K in Google Cloud credits.",
+    "live_metric": "Official materials reported 1.3B+ inferences, 13K cumulative GPU providers, 20+ production models, and 28K NFTs.",
+    "metric_as_of": "2024-11, with Google Cloud update in 2025-07",
+    "budget_interpretation": "Cloud credits are not marketing cash. A lower-cost, measurable developer or creator pilot is more realistic than assuming a large campaign budget.",
+    "collaboration_angle": "API tutorials, GPU-provider education, model demonstrations, and an image-creator sprint.",
+    "bd_score": 81,
+    "priority": "B",
+    "risk": "The usage counts are cumulative and dated; verify current inference volume, paying users, active providers, and treasury runway.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://www.heurist.ai/blog/decentralized-ai-cloud-heurist-raises-2m",
+      "https://www.heurist.ai/blog/heurist-joins-google-cloud-startup-program-with-350k-grant"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:heurist:01",
+        "url": "https://www.heurist.ai/blog/decentralized-ai-cloud-heurist-raises-2m",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2024-11, with Google Cloud update in 2025-07",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:heurist:02",
+        "url": "https://www.heurist.ai/blog/heurist-joins-google-cloud-startup-program-with-350k-grant",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2024-11, with Google Cloud update in 2025-07",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 11,
+    "company": "Giza",
+    "aliases": [],
+    "category": "Autonomous DeFi agents",
+    "why_longtail": "A specialized DeFi-agent company with institutional experimentation and claimed on-chain volume, creating a sharper BD thesis than broad agent platforms.",
+    "funding_signal": "$3M pre-seed funding.",
+    "live_metric": "Giza reported more than $1.5B in on-chain volume over six months; earlier materials cited 36K+ agent deployments and more than $12M in assets under agents.",
+    "metric_as_of": "2025-09",
+    "budget_interpretation": "Volume and assets under agents are not budget. The Re7 pilot, grants, and community activity are the more relevant partnership signals.",
+    "collaboration_angle": "DeFi-agent education, institutional case studies, protocol-liquidity campaigns, and builder-grant amplification.",
+    "bd_score": 80,
+    "priority": "B",
+    "risk": "Self-reported volume and assets require contract-level verification; compliance and financial-promotion constraints may narrow campaign formats.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://www.gizatech.xyz/blog/swarm-finance",
+      "https://www.gizatech.xyz/blog/giza-tokenomics-report",
+      "https://www.gizatech.xyz/blog/re7-brings-the-first-wave-of-institutional-financial-agents"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info",
+      "project_defi_metrics"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:giza:01",
+        "url": "https://www.gizatech.xyz/blog/swarm-finance",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:giza:02",
+        "url": "https://www.gizatech.xyz/blog/giza-tokenomics-report",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:giza:03",
+        "url": "https://www.gizatech.xyz/blog/re7-brings-the-first-wave-of-institutional-financial-agents",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-09",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 12,
+    "company": "Sapien",
+    "aliases": [],
+    "category": "Human intelligence and decentralized AI data foundry",
+    "why_longtail": "A contribution network built around expert human data, with a different user-acquisition need from model or compute projects and a sizable claimed task base.",
+    "funding_signal": "$10.5M seed funding.",
+    "live_metric": "Sapien reported roughly 1.8M registered users, 800K active users, and 185M completed tasks.",
+    "metric_as_of": "2025 tokenomics and company materials",
+    "budget_interpretation": "Enterprise clients, USDC payouts, and social campaigns support a real contributor-acquisition thesis, but metric definitions and available cash budget still need verification.",
+    "collaboration_angle": "Expert-contributor acquisition, vertical data campaigns, regional worker communities, and quality-control education.",
+    "bd_score": 79,
+    "priority": "B",
+    "risk": "Metrics are self-reported; verify active-user definition, repeat contributors, payout economics, customer concentration, and campaign geography.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://newsletter.sapien.io/p/sapien-brings-millions-of-minds-onchain-to-train-ai",
+      "https://cdn.sapien.io/tokenomics.pdf"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:sapien:01",
+        "url": "https://newsletter.sapien.io/p/sapien-brings-millions-of-minds-onchain-to-train-ai",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025 tokenomics and company materials",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:sapien:02",
+        "url": "https://cdn.sapien.io/tokenomics.pdf",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025 tokenomics and company materials",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 13,
+    "company": "Vana",
+    "aliases": [],
+    "category": "User-owned data and DataDAOs",
+    "why_longtail": "A data-ownership network with a distinct contributor and DataDAO growth model, large enough to fund partnerships but less obvious than major AI compute protocols.",
+    "funding_signal": "$25M total funding disclosed by Vana.",
+    "live_metric": "Vana reported more than 12M data points contributed during roughly the first 12 weeks after mainnet and described active data sales.",
+    "metric_as_of": "2025-05",
+    "budget_interpretation": "DataDAO and data-token launches imply go-to-market needs, but network liquidity, token value, and data points must not be treated as campaign budget.",
+    "collaboration_angle": "DataDAO launches, privacy and ownership education, and regional data-contributor acquisition.",
+    "bd_score": 78,
+    "priority": "B",
+    "risk": "Data points do not equal unique active users, and sales claims lack public GMV or repeat-customer detail.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official",
+    "evidence_urls": [
+      "https://vana.org/blog/vana-raises-funding-to-build-user-owned-ai-and-overcome-the-data-wall",
+      "https://www.vana.org/posts/introducing-data-validator-staking"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:vana:01",
+        "url": "https://vana.org/blog/vana-raises-funding-to-build-user-owned-ai-and-overcome-the-data-wall",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:vana:02",
+        "url": "https://www.vana.org/posts/introducing-data-validator-staking",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-05",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 14,
+    "company": "GAIB",
+    "aliases": [],
+    "category": "AI compute finance and tokenized GPU assets",
+    "why_longtail": "A mid-market AiFi project at the intersection of compute and real-world assets, with event and partner surfaces but less mainstream recognition than core AI tokens.",
+    "funding_signal": "$5M pre-seed funding plus a separate $10M strategic commitment earmarked for assets.",
+    "live_metric": "GAIB reported $200M peak pre-deposit TVL, 100K+ wallets, and $50M in deals during 2025.",
+    "metric_as_of": "2025 year-end",
+    "budget_interpretation": "TVL, deposits, asset commitments, and deal value are not marketing budget. Summits, co-marketing, and operator partnerships are more credible spend signals.",
+    "collaboration_angle": "AiFi education, GPU-operator co-marketing, partner events, and carefully scoped regional thought leadership.",
+    "bd_score": 77,
+    "priority": "B",
+    "risk": "Financial-promotion and regional restrictions apply; validate revenue, asset performance, liquidity sources, and the actual marketing owner.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official_or_issuer_release",
+    "evidence_urls": [
+      "https://blog.gaib.ai/gaib-raises-10m-to-accelerate-onchain-ai-infrastructure-led-by-amber-group/",
+      "https://blog.gaib.ai/gaib-2026-outlook/",
+      "https://blog.gaib.ai/tokenizing-15m-and-5.4m-worth-of-robotics-and-gpu-assets/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info",
+      "project_defi_metrics"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:gaib:01",
+        "url": "https://blog.gaib.ai/gaib-raises-10m-to-accelerate-onchain-ai-infrastructure-led-by-amber-group/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025 year-end",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:gaib:02",
+        "url": "https://blog.gaib.ai/gaib-2026-outlook/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025 year-end",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:gaib:03",
+        "url": "https://blog.gaib.ai/tokenizing-15m-and-5.4m-worth-of-robotics-and-gpu-assets/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025 year-end",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 15,
+    "company": "Kite AI",
+    "aliases": [],
+    "category": "Agent identity, payments, and AI-focused L1",
+    "why_longtail": "An agent-commerce infrastructure project with payment-industry backing and large testnet claims, but still a more focused target than general L1 ecosystems.",
+    "funding_signal": "$33M cumulative funding after an $18M Series A.",
+    "live_metric": "Issuer materials reported 546M agent calls, 32M transactions, and about 4M users in testnet phase one.",
+    "metric_as_of": "2025-03 usage; 2025-09 funding",
+    "budget_interpretation": "PayPal and agent-commerce relationships plus merchant-store experiments are stronger BD indicators than testnet volume; incentive-driven calls should not be read as budget.",
+    "collaboration_angle": "Agent-commerce education, merchant campaigns, developer acquisition, and hackathon or demo-day amplification.",
+    "bd_score": 76,
+    "priority": "B",
+    "risk": "This is less long-tail than other entries, and testnet activity may be incentive-inflated rather than production demand.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official_or_issuer_release",
+    "evidence_urls": [
+      "https://newsroom.paypal-corp.com/2025-09-02-Kite-Raises-18M-in-Series-A-Funding-To-Enforce-Trust-in-the-Agentic-Web",
+      "https://chainwire.org/2025/03/29/kite-ai-soars-past-546-million-agent-calls-and-4-million-users-on-testnet-phase-1/"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:kite-ai:01",
+        "url": "https://newsroom.paypal-corp.com/2025-09-02-Kite-Raises-18M-in-Series-A-Funding-To-Enforce-Trust-in-the-Agentic-Web",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-03 usage; 2025-09 funding",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:kite-ai:02",
+        "url": "https://chainwire.org/2025/03/29/kite-ai-soars-past-546-million-agent-calls-and-4-million-users-on-testnet-phase-1/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2025-03 usage; 2025-09 funding",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 16,
+    "company": "Inference Labs",
+    "aliases": [],
+    "category": "Verifiable AI inference and autonomous systems",
+    "why_longtail": "A technically differentiated proof-of-inference company with enterprise hardware collaboration, suitable for high-trust technical campaigns rather than broad retail promotion.",
+    "funding_signal": "$6.3M total funding.",
+    "live_metric": "The company reported more than 3.1B proofs on Sertn by July 2026 and a collaboration with Dell.",
+    "metric_as_of": "2026-07",
+    "budget_interpretation": "Proof count demonstrates technical activity, not revenue or budget. Enterprise demonstrations and partner programs are the usable commercial signals.",
+    "collaboration_angle": "Technical thought leadership, regulated-industry use cases, verifiable-agent demonstrations, and partner-event content.",
+    "bd_score": 74,
+    "priority": "B",
+    "risk": "The fit for consumer creators is weaker, and proof-generation volume needs independent context on unique workloads and paying customers.",
+    "source_type": "web_official",
+    "funding_source_type": "web_official_or_issuer_release",
+    "evidence_urls": [
+      "https://inferencelabs.com/media-room",
+      "https://www.theblock.co/press-releases/360011/inference-labs-raises-6-3m-to-secure-ai-agents-through-verifiable-inference-protocol"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:inference-labs:01",
+        "url": "https://inferencelabs.com/media-room",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-07",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:inference-labs:02",
+        "url": "https://www.theblock.co/press-releases/360011/inference-labs-raises-6-3m-to-secure-ai-agents-through-verifiable-inference-protocol",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "2026-07",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  },
+  {
+    "rank": 17,
+    "company": "Gopher",
+    "aliases": [
+      "Masa Network",
+      "Masa"
+    ],
+    "category": "Verifiable real-time data and AI trading data",
+    "why_longtail": "A recently rebranded data project with a potential need to rebuild market understanding, creating an outreach opening if its current operating metrics are confirmed.",
+    "funding_signal": "The former Masa entity raised about $9.2M privately in 2024; a token sale was separate, and current Gopher capital was not verified.",
+    "live_metric": "The current product claims coverage of 100K+ assets and a live API. Historical Masa claims of 1.3M wallets, 40K nodes, and 40M+ data points are not automatically transferable to Gopher.",
+    "metric_as_of": "Current product in 2026; historical network metrics from 2024",
+    "budget_interpretation": "A rebrand implies go-to-market needs, but old financing, community size, and token metrics cannot be treated as a new campaign budget.",
+    "collaboration_angle": "Rebrand education, data-builder acquisition, Bittensor ecosystem content, and AI-trading data demonstrations.",
+    "bd_score": 69,
+    "priority": "C/watchlist",
+    "risk": "The identity transition, old metrics, historical testnet participation, and current funding status all require direct verification before qualification.",
+    "source_type": "web_official",
+    "funding_source_type": "web_secondary",
+    "evidence_urls": [
+      "https://github.com/masa-finance",
+      "https://github.com/gopher-lab",
+      "https://www.gopher-ai.com/",
+      "https://www.theblock.co/news/deals/2024-01-23-masa-network-seed-round-273984"
+    ],
+    "surf_status": "blocked_paid_balance_zero_unverified",
+    "surf_fields_planned": [
+      "overview",
+      "funding",
+      "team",
+      "social",
+      "contracts",
+      "tge_status",
+      "token_info"
+    ],
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "record_level_sources_not_atomic_requires_claim_mapping",
+    "evidence": [
+      {
+        "evidence_id": "candidate:gopher:01",
+        "url": "https://github.com/masa-finance",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "Current product in 2026; historical network metrics from 2024",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:gopher:02",
+        "url": "https://github.com/gopher-lab",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "Current product in 2026; historical network metrics from 2024",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:gopher:03",
+        "url": "https://www.gopher-ai.com/",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "Current product in 2026; historical network metrics from 2024",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "official",
+        "confidence": "low",
+        "fact_status": "unverified"
+      },
+      {
+        "evidence_id": "candidate:gopher:04",
+        "url": "https://www.theblock.co/news/deals/2024-01-23-masa-network-seed-round-273984",
+        "claim": "Collected for one or more record-level funding, activity, program, or product claims; exact claim-to-URL mapping remains to be atomized.",
+        "date": "Current product in 2026; historical network metrics from 2024",
+        "date_basis": "record_metric_period_not_source_publication_date",
+        "last_verified_at": "2026-08-25",
+        "evidence_type": "reputable_secondary",
+        "confidence": "low",
+        "fact_status": "unverified"
+      }
+    ]
+  }
+]

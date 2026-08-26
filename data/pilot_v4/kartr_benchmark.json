@@ -1,0 +1,684 @@
+{
+  "benchmark_id": "kartr_devpost_source_audit_20260824",
+  "verified_date": "2026-08-24",
+  "scope": "Source-level benchmark of the Kartr Devpost submission, its public repository and live deployment, with a separately labelled comparison to Sponsorship Intelligence Graph. The comparison project is not Kartr.",
+  "sources": [
+    {
+      "id": "kartr_devpost",
+      "title": "Kartr | Devpost",
+      "url": "https://devpost.com/software/kartr",
+      "source_type": "product_submission",
+      "notes": "Primary source for the team's feature claims and linked deployment/repository."
+    },
+    {
+      "id": "kartr_repo",
+      "title": "AnantaCoder/kartr at audited commit",
+      "url": "https://github.com/AnantaCoder/kartr/tree/2198b90396cc446ef1a7e009fa575f9c033be225",
+      "source_type": "public_source_repository",
+      "notes": "MIT-licensed repository; audited commit dated 2026-02-09."
+    },
+    {
+      "id": "kartr_analysis_service",
+      "title": "Kartr sponsor and video analysis service",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/analysis_service.py#L301-L401",
+      "source_type": "source_code",
+      "notes": "Batch LLM sponsor extraction schema and merge logic."
+    },
+    {
+      "id": "kartr_single_video_prompt",
+      "title": "Kartr single-video analysis prompt",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/analysis_service.py#L503-L536",
+      "source_type": "source_code",
+      "notes": "Uses title, channel, tags and up to 4,000 description characters."
+    },
+    {
+      "id": "kartr_youtube_service",
+      "title": "Kartr YouTube collection and deterministic sponsor detection",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/youtube_service.py#L298-L480",
+      "source_type": "source_code",
+      "notes": "Latest-video collection, hard-coded sponsor dictionary, disclosure keywords and URL/code regexes."
+    },
+    {
+      "id": "kartr_youtube_router",
+      "title": "Kartr channel-analysis and persistence routes",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/routers/youtube.py#L229-L318",
+      "source_type": "source_code",
+      "notes": "Shows the channel pipeline and first-sponsor persistence behavior."
+    },
+    {
+      "id": "kartr_youtube_schemas",
+      "title": "Kartr YouTube Pydantic schemas",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/models/youtube_schemas.py#L44-L117",
+      "source_type": "source_code",
+      "notes": "Analysis fields are typed, but saved sponsors remain List[dict]."
+    },
+    {
+      "id": "kartr_graph_service",
+      "title": "Kartr NetworkX graph service",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/graph_service.py#L10-L82",
+      "source_type": "source_code",
+      "notes": "Undirected simple graph, degree centrality and connected components over at most 500 analysis rows."
+    },
+    {
+      "id": "kartr_visualization",
+      "title": "Kartr creator-sponsor graph construction",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/routers/visualization.py#L48-L160",
+      "source_type": "source_code",
+      "notes": "Emits nodes with id/type and edges with source/target only."
+    },
+    {
+      "id": "kartr_graph_schema",
+      "title": "Kartr graph response schema",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/models/common_schemas.py#L8-L11",
+      "source_type": "source_code",
+      "notes": "Graph nodes and edges are untyped dictionaries."
+    },
+    {
+      "id": "kartr_tavily",
+      "title": "Kartr live recommendation search",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/tavily_service.py#L18-L59",
+      "source_type": "source_code",
+      "notes": "Niche query returns five Tavily results before LLM formatting."
+    },
+    {
+      "id": "kartr_influencer_matching",
+      "title": "Kartr influencer discovery service",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/services/influencer_discovery_service.py#L39-L328",
+      "source_type": "source_code",
+      "notes": "Keyword/subscriber heuristic plus LLM score; budget parameters are documented as future filtering."
+    },
+    {
+      "id": "kartr_model_config",
+      "title": "Kartr model defaults",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/config.py#L35-L55",
+      "source_type": "source_code",
+      "notes": "Published defaults use gemini-2.0-flash for text and Veo 2 for video."
+    },
+    {
+      "id": "kartr_analysis_smoke_test",
+      "title": "Kartr sponsor-analysis smoke test",
+      "url": "https://github.com/AnantaCoder/kartr/blob/2198b90396cc446ef1a7e009fa575f9c033be225/fastapi_backend/tests/test_analysis_service.py",
+      "source_type": "source_code_test",
+      "notes": "Live one-video script that prints results; it is not a labelled precision/recall evaluation."
+    },
+    {
+      "id": "kartr_frontend",
+      "title": "Kartr public frontend deployment",
+      "url": "https://kartr-frontend-309626598513.us-central1.run.app",
+      "source_type": "live_deployment",
+      "observed_http_status": 500,
+      "observed_date": "2026-08-24"
+    },
+    {
+      "id": "kartr_backend",
+      "title": "Kartr public backend deployment",
+      "url": "https://kartr-backend-309626598513.us-central1.run.app",
+      "source_type": "live_deployment",
+      "observed_http_status": 500,
+      "observed_date": "2026-08-24"
+    },
+    {
+      "id": "sig_repo",
+      "title": "Sponsorship Intelligence Graph comparison repository",
+      "url": "https://github.com/Aditya-0037/Sponsorship-Intelligence-graph/tree/f7275e3bf7f8bfd99142643aff05fb9bacbcd574",
+      "source_type": "separate_public_comparison_repository",
+      "notes": "Independent project surfaced during research. It must not be attributed to Kartr."
+    },
+    {
+      "id": "sig_pipeline_quality",
+      "title": "Sponsorship Intelligence Graph pipeline and data-quality documentation",
+      "url": "https://github.com/Aditya-0037/Sponsorship-Intelligence-graph/blob/f7275e3bf7f8bfd99142643aff05fb9bacbcd574/README.md#L115-L188",
+      "source_type": "separate_public_comparison_repository",
+      "notes": "Offline cached pipeline, uploads-playlist collection and two extraction layers."
+    },
+    {
+      "id": "sig_evidence_gates",
+      "title": "Sponsorship Intelligence Graph evidence gates",
+      "url": "https://github.com/Aditya-0037/Sponsorship-Intelligence-graph/blob/f7275e3bf7f8bfd99142643aff05fb9bacbcd574/README.md#L280-L307",
+      "source_type": "separate_public_comparison_repository",
+      "notes": "Gazetteer/tracking/repeat gate, creator-owned domain rules, blocklist and LLM substring validation."
+    },
+    {
+      "id": "sig_types",
+      "title": "Sponsorship Intelligence Graph typed evidence contracts",
+      "url": "https://github.com/Aditya-0037/Sponsorship-Intelligence-graph/blob/f7275e3bf7f8bfd99142643aff05fb9bacbcd574/lib/types.ts#L46-L142",
+      "source_type": "separate_public_comparison_repository",
+      "notes": "Atomic SponsorMention, EdgeEvidence and GraphEdge contracts with dates and provenance."
+    },
+    {
+      "id": "mangobd_discovery",
+      "title": "MangoBD sponsor disclosure, cluster and target scoring logic",
+      "url": "src/mangobd/discovery.py",
+      "source_type": "local_source_code"
+    },
+    {
+      "id": "mangobd_cluster_builder",
+      "title": "MangoBD sponsor cluster builder",
+      "url": "scripts/build_sponsor_clusters.py",
+      "source_type": "local_source_code"
+    },
+    {
+      "id": "mangobd_discovery_config",
+      "title": "MangoBD discovery scoring configuration",
+      "url": "config/discovery_v4.json",
+      "source_type": "local_configuration"
+    }
+  ],
+  "verified_claims": [
+    {
+      "claim": "Kartr presents itself as an end-to-end influencer-sponsor platform covering YouTube analysis, sponsor detection, relationship mapping, campaign execution, content generation and analytics.",
+      "status": "verified_product_claim",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_devpost"
+      ]
+    },
+    {
+      "claim": "Kartr has a public MIT-licensed repository with a React/Bun frontend, FastAPI backend, Firebase persistence, Gemini/Grok/Groq integrations, Tavily search and NetworkX graph code.",
+      "status": "verified_in_source",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_repo",
+        "kartr_analysis_service",
+        "kartr_graph_service",
+        "kartr_tavily"
+      ]
+    },
+    {
+      "claim": "The normal public channel-analysis path fetches recent YouTube videos, performs deterministic sponsor matching and then sends a batch of descriptions to an LLM for structured sponsor extraction.",
+      "status": "verified_in_source",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "kartr_analysis_service",
+        "kartr_youtube_router"
+      ]
+    },
+    {
+      "claim": "Kartr's public graph implementation maps creator_name to sponsor_name and exposes degree centrality, connected components and neighbor lists.",
+      "status": "verified_in_source",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_graph_service",
+        "kartr_visualization"
+      ]
+    },
+    {
+      "claim": "Both Devpost-linked Cloud Run deployments returned HTTP 500 during verification on 2026-08-24.",
+      "status": "verified_live_observation",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_frontend",
+        "kartr_backend"
+      ]
+    }
+  ],
+  "repo_findings": {
+    "repository": {
+      "public": true,
+      "owner_repo": "AnantaCoder/kartr",
+      "audited_commit": "2198b90396cc446ef1a7e009fa575f9c033be225",
+      "license": "MIT",
+      "created_at": "2026-01-01T13:57:24Z",
+      "audited_commit_date": "2026-02-09T19:35:59Z",
+      "stargazers_at_verification": 1,
+      "forks_at_verification": 2,
+      "committed_sponsorship_dataset_found": false,
+      "assessment": "Public hackathon prototype source is available, but its claimed live deployment was not functioning during verification and the repository does not include a reproducible creator-sponsor corpus."
+    },
+    "actual_pipeline": [
+      {
+        "step": 1,
+        "name": "collect_video_or_channel_metadata",
+        "implementation": "Single-video analysis uses YouTube videos.list. Channel analysis uses search.list ordered by date, then a batch videos.list request, capped at 50 recent videos.",
+        "evidence_source_ids": [
+          "kartr_youtube_service",
+          "kartr_youtube_router"
+        ]
+      },
+      {
+        "step": 2,
+        "name": "deterministic_sponsor_prepass",
+        "implementation": "Lower-cased title and description are checked against a hard-coded common-sponsor dictionary, disclosure phrases and basic URL or promo-code regexes. A positive disclosure without a resolved brand falls back to the literal label Sponsored.",
+        "evidence_source_ids": [
+          "kartr_youtube_service"
+        ]
+      },
+      {
+        "step": 3,
+        "name": "llm_enrichment",
+        "implementation": "The batch prompt asks for index, is_sponsored, sponsor_name, discount_code, sponsor_url and high/medium/low confidence. Gemini is attempted first and Grok is the fallback. Results enrich or override the per-video fields.",
+        "evidence_source_ids": [
+          "kartr_analysis_service"
+        ]
+      },
+      {
+        "step": 4,
+        "name": "manual_persistence",
+        "implementation": "A separate save-analysis route persists the request to Firebase or CSV. The request accepts an untyped sponsors list and promotes only the first sponsor to top-level sponsor_name and sponsor_industry.",
+        "evidence_source_ids": [
+          "kartr_youtube_router",
+          "kartr_youtube_schemas"
+        ]
+      },
+      {
+        "step": 5,
+        "name": "graph_and_rag",
+        "implementation": "Top-level creator_name and sponsor_name fields become a simple creator-brand graph. NetworkX generates degree centrality and component counts, while a separate keyword-substring RAG path retrieves up to ten stored rows.",
+        "evidence_source_ids": [
+          "kartr_graph_service",
+          "kartr_visualization",
+          "kartr_graph_schema"
+        ]
+      }
+    ],
+    "sponsor_extraction": {
+      "deterministic_signals": [
+        "hard-coded known sponsor substring",
+        "sponsored-by and partnership disclosure phrases",
+        "paid-promotion and ad markers",
+        "promotional URL domain regex",
+        "promo or discount code regex"
+      ],
+      "llm_output_fields": [
+        "index",
+        "is_sponsored",
+        "sponsor_name",
+        "discount_code",
+        "sponsor_url",
+        "confidence"
+      ],
+      "single_video_context": "Title, channel, up to 20 tags and at most 4,000 description characters.",
+      "channel_context": "The collector stores only the first 200 description characters; the later 800-character LLM slice therefore receives at most 200 characters on this path.",
+      "transcript_collection_in_public_tree": false,
+      "transcript_or_caption_files_found_in_public_tree": [],
+      "multimodal_exception": "A separate local MP4 upload path sends the video file to Gemini, but this is not the normal YouTube channel pipeline.",
+      "confidence_semantics": "High, medium or low is produced by the LLM prompt. No calibrated probability, labelled evaluation or post-generation substring/evidence gate is applied in the audited code."
+    },
+    "data_schema": {
+      "analysis_fields": [
+        "is_sponsored",
+        "sponsor_name",
+        "sponsor_industry",
+        "influencer_niche",
+        "content_summary",
+        "sentiment",
+        "key_topics"
+      ],
+      "save_request": {
+        "video_title": "string",
+        "channel_name": "string",
+        "creator_name": "string",
+        "creator_industry": "string",
+        "sponsors": "optional List[dict]"
+      },
+      "persisted_analysis": [
+        "date",
+        "user_id",
+        "video_title",
+        "channel_name",
+        "creator_name",
+        "creator_industry",
+        "sponsors",
+        "sponsor_name from sponsors[0]",
+        "sponsor_industry from sponsors[0]"
+      ],
+      "graph_contract": {
+        "node": {
+          "id": "raw creator or sponsor name",
+          "type": "creator or sponsor"
+        },
+        "edge": {
+          "source": "raw creator name",
+          "target": "raw sponsor name"
+        }
+      },
+      "missing_edge_fields": [
+        "canonical entity id",
+        "content or video id",
+        "source URL",
+        "evidence excerpt",
+        "extraction method",
+        "disclosure class",
+        "confidence",
+        "observed date",
+        "first seen",
+        "last seen",
+        "occurrence count",
+        "all observation dates",
+        "transcript timestamp"
+      ]
+    },
+    "graph_method": {
+      "graph_type": "undirected NetworkX simple Graph",
+      "input_limit": 500,
+      "metrics": [
+        "degree centrality",
+        "number of connected components",
+        "top neighbors"
+      ],
+      "information_loss": [
+        "Repeated creator-brand observations collapse into one simple edge.",
+        "Direction, count, date, recency, confidence and evidence are not part of the graph edge.",
+        "Only the first saved sponsor is promoted to the field consumed by the graph.",
+        "Raw display names are node identifiers, so aliases can fragment one brand into multiple nodes."
+      ]
+    },
+    "recommendation_method": {
+      "web_discovery": "Tavily receives a broad niche query and returns at most five search results.",
+      "formatting": "An LLM is instructed to emit three recommendations with a fit_score constrained to 60-99.",
+      "creator_matching": "Keyword/name/channel matching and subscriber bonuses create a base score. An LLM rescores up to ten candidates; final score is 40% heuristic and 60% LLM.",
+      "budget_filter_status": "budget_min and budget_max parameters exist but are explicitly documented as future filtering and are not applied in the audited method.",
+      "assessment": "This is recommendation generation, not a calibrated evidence-backed ranking or a sponsor-gap algorithm."
+    },
+    "testing_and_evidence": {
+      "dedicated_sponsor_test_reviewed": "One live MrBeast video smoke script that prints fields and returns a boolean.",
+      "labelled_precision_recall_evaluation_found": false,
+      "confidence_calibration_found": false,
+      "edge_level_proof_endpoint_found": false,
+      "assessment": "The public code demonstrates flow integration, not measured extraction accuracy."
+    }
+  },
+  "gaps": [
+    {
+      "id": "kartr_claim_code_gap_transcripts",
+      "subject": "Kartr",
+      "fact": "Devpost says Gemini analyzes transcripts, metadata and descriptions, and discusses spoken mentions and overlays.",
+      "observed_gap": "No transcript or caption ingestion file was found in the complete public repository tree. The normal YouTube channel route processes metadata and descriptions; only a separate uploaded-MP4 route is multimodal.",
+      "impact_inference": "The public implementation cannot substantiate the transcript and overlay coverage claimed for normal YouTube analysis.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_devpost",
+        "kartr_analysis_service",
+        "kartr_youtube_service"
+      ]
+    },
+    {
+      "id": "kartr_claim_code_gap_model",
+      "subject": "Kartr",
+      "fact": "Devpost brands the system as Gemini 3-powered.",
+      "observed_gap": "The audited public configuration defaults text analysis to gemini-2.0-flash, and the local uploaded-video function directly names gemini-1.5-flash. An environment variable could override the text default, but no deployed configuration is public.",
+      "impact_inference": "Model-version marketing should not be treated as verified deployment configuration.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_devpost",
+        "kartr_model_config",
+        "kartr_analysis_service"
+      ]
+    },
+    {
+      "id": "kartr_description_truncation",
+      "subject": "Kartr",
+      "fact": "Channel collection truncates returned descriptions to 200 characters before LLM sponsor enrichment.",
+      "observed_gap": "The later 800-character slice cannot recover text discarded by the collector.",
+      "impact_inference": "Disclosures, affiliate links and sponsor blocks placed later in a YouTube description can be missed.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "kartr_analysis_service"
+      ]
+    },
+    {
+      "id": "kartr_no_evidence_gate",
+      "subject": "Kartr",
+      "fact": "The LLM assigns sponsor name and qualitative confidence, and the audited merge accepts those fields without checking the proposed brand against the source text or a canonical registry.",
+      "observed_gap": "There is no enforced evidence gate, alias normalization, blocklist or creator-owned-domain detection in the audited sponsor path.",
+      "impact_inference": "Common citations, creator shops, ambiguous promo codes and model hallucinations can become graph nodes.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_analysis_service",
+        "kartr_youtube_service"
+      ]
+    },
+    {
+      "id": "kartr_graph_not_relationship_intelligence",
+      "subject": "Kartr",
+      "fact": "The graph is a simple unweighted creator-name to first-sponsor-name projection.",
+      "observed_gap": "It does not represent repeated buys, recency, campaign clusters, proof, contactability, X relationship degree or operator paths.",
+      "impact_inference": "Degree centrality alone cannot support Solomon-rooted BD routing or distinguish a durable paid relationship from one noisy mention.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "kartr_graph_service",
+        "kartr_visualization",
+        "kartr_youtube_router"
+      ]
+    },
+    {
+      "id": "mangobd_scale_gap",
+      "subject": "MangoBD current sponsor-cluster module",
+      "fact": "The current pilot contains 13 curated sponsorship observations, producing 12 creator-brand pairs and 10 campaign clusters.",
+      "observed_gap": "The module classifies and clusters supplied records but does not yet ingest a broad creator corpus or discover new companies automatically.",
+      "impact_inference": "It is high-precision but recall-limited and biased toward companies already selected for research.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "mangobd_discovery",
+        "mangobd_cluster_builder"
+      ]
+    },
+    {
+      "id": "mangobd_atomic_evidence_gap",
+      "subject": "MangoBD current sponsor-cluster module",
+      "fact": "MangoBD correctly separates confirmed paid disclosures, affiliate/referral evidence and unverified mentions, and carries evidence_ids into clusters and creator-brand pairs.",
+      "observed_gap": "The sponsorship observation contract does not yet store extraction source, raw brand, canonical brand id, mention type, numeric confidence or transcript timestamp as first-class fields.",
+      "impact_inference": "Scaling extraction would be difficult to audit and deduplicate without a richer atomic mention layer.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "mangobd_discovery",
+        "mangobd_cluster_builder"
+      ]
+    },
+    {
+      "id": "mangobd_gap_algorithm_gap",
+      "subject": "MangoBD current sponsor-cluster module",
+      "fact": "MangoBD summarizes recurrence within a 45-day window and builds creator-brand pairs.",
+      "observed_gap": "It does not yet compute sponsor gaps from peer creators, creator gaps from competitor brands, lapsed repeat deals or share-of-voice with minimum-sample gates.",
+      "impact_inference": "The existing data is not yet converted into systematic long-tail company discovery and actionable whitespace.",
+      "confidence": "confirmed",
+      "evidence_source_ids": [
+        "mangobd_discovery",
+        "mangobd_cluster_builder",
+        "sig_pipeline_quality"
+      ]
+    }
+  ],
+  "portable_patterns": [
+    {
+      "id": "retain_deterministic_then_llm_layers",
+      "source": "Kartr architecture, strengthened for MangoBD",
+      "pattern": "Run deterministic disclosure/link extraction first, then use an LLM only for unresolved spans and semantic classification.",
+      "mangobd_adaptation": "Keep MangoBD's paid-versus-affiliate classifier as the authoritative first layer. The LLM may propose entities and mention types but cannot promote an observation without a source span and evidence gate.",
+      "priority": "P0",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "kartr_analysis_service",
+        "mangobd_discovery"
+      ]
+    },
+    {
+      "id": "atomic_sponsor_mention_contract",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Make one brand mention in one piece of content the atomic record, with raw and canonical brand, source, mention type, timestamp and numeric confidence.",
+      "mangobd_adaptation": "Add observation_id, creator_id, project_id or candidate_brand_id, content_id, raw_brand, canonical_brand_id, source_type, disclosure_class, mention_type, matched_excerpt, start_ts, confidence, extractor_version and evidence_id.",
+      "priority": "P0",
+      "evidence_source_ids": [
+        "sig_types",
+        "mangobd_discovery"
+      ]
+    },
+    {
+      "id": "offline_cached_ingestion",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Build the corpus offline with resumable disk caches, quota accounting and versioned artifacts; serve the graph without request-time extraction.",
+      "mangobd_adaptation": "Seed from Solomon-adjacent creators, their creator peers and niche cohorts. Fetch channel uploads through uploads playlists, persist raw metadata once, and rebuild observations and graph deterministically.",
+      "priority": "P0",
+      "evidence_source_ids": [
+        "sig_pipeline_quality"
+      ]
+    },
+    {
+      "id": "evidence_gate_and_entity_resolution",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Require a canonical gazetteer match, tracking signal or repeat observation; maintain aliases, blocklist and creator-owned-domain rules; validate every LLM brand against source text.",
+      "mangobd_adaptation": "Use the existing company entity IDs as the canonical registry, add a candidate-brand quarantine table for unknown domains, and require manual review before an unknown company enters priority scoring.",
+      "priority": "P0",
+      "evidence_source_ids": [
+        "sig_evidence_gates",
+        "mangobd_discovery"
+      ]
+    },
+    {
+      "id": "evidence_rich_graph_edges",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Collapse atomic mentions into creator-brand edges while retaining count, firstSeen, lastSeen, all dates, mention types and verifiable evidence links.",
+      "mangobd_adaptation": "Keep sponsorship edges separate from X FOLLOWS, MUTUAL_FOLLOW, REPLIES_TO and MENTIONS edges. Overlay them only at query time to produce Solomon to connector to creator to company or operator routes.",
+      "priority": "P0",
+      "evidence_source_ids": [
+        "sig_types",
+        "mangobd_cluster_builder"
+      ]
+    },
+    {
+      "id": "sponsor_gap_long_tail_discovery",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Find brands sponsoring peer creators but not the focal creator; rank by peer coverage and recency, with explicit peer-set rules.",
+      "mangobd_adaptation": "Use Solomon-adjacent AI, crypto and developer creators as roots. Define peers by at least two shared sponsors, then fall back to niche, geography and log audience-size proximity. Send unknown brands into research rather than directly into outreach.",
+      "priority": "P1",
+      "evidence_source_ids": [
+        "sig_repo"
+      ]
+    },
+    {
+      "id": "creator_gap_for_bd",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "For a brand, find creators already bought by category competitors but not by that brand, then rank with an exposed score breakdown.",
+      "mangobd_adaptation": "Use this as the value proposition in outreach: show a company the China and APAC creators its nearest competitors activate, plus Mango's verified routing path to those creators.",
+      "priority": "P1",
+      "evidence_source_ids": [
+        "sig_repo"
+      ]
+    },
+    {
+      "id": "minimum_sample_gates",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Only calculate momentum, similarity, saturation or lapsed-deal signals when the evidence count clears a declared minimum.",
+      "mangobd_adaptation": "Preserve MangoBD's evidence-first policy and add not_enough_history outputs instead of generating weak trend scores from one or two observations.",
+      "priority": "P1",
+      "evidence_source_ids": [
+        "sig_repo",
+        "mangobd_discovery_config"
+      ]
+    },
+    {
+      "id": "model_and_extractor_provenance",
+      "source": "Kartr response pattern, strengthened for MangoBD",
+      "pattern": "Return model_used and raw model response alongside parsed output during development.",
+      "mangobd_adaptation": "Persist extractor_version, prompt_version, model, raw output hash and parse status in an audit record; keep raw content out of the production graph but link it through evidence_id.",
+      "priority": "P1",
+      "evidence_source_ids": [
+        "kartr_analysis_service"
+      ]
+    },
+    {
+      "id": "graph_ui_proof_first",
+      "source": "Separate Sponsorship Intelligence Graph comparator, not Kartr",
+      "pattern": "Every creator-brand edge opens the exact supporting videos and transcript timestamp when available.",
+      "mangobd_adaptation": "Any broader MangoBD graph should make proof, confidence, relation type and last verified date visible before centrality or path length.",
+      "priority": "P1",
+      "evidence_source_ids": [
+        "sig_repo",
+        "sig_types"
+      ]
+    }
+  ],
+  "do_not_copy": [
+    {
+      "pattern": "Treat a hard-coded list of famous sponsors as the main detector.",
+      "reason": "It structurally favors well-known companies and works against the user's goal of finding a wider long tail.",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "mangobd_discovery_config"
+      ]
+    },
+    {
+      "pattern": "Use search.list to enumerate every channel's latest videos.",
+      "reason": "It is quota-expensive and unnecessary when the channel uploads playlist can provide the corpus more cheaply and reproducibly.",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "sig_pipeline_quality"
+      ]
+    },
+    {
+      "pattern": "Truncate descriptions before the sponsor extractor runs.",
+      "reason": "YouTube sponsor disclosures and tracked links are often below the first 200 characters.",
+      "evidence_source_ids": [
+        "kartr_youtube_service",
+        "kartr_analysis_service"
+      ]
+    },
+    {
+      "pattern": "Accept LLM high, medium or low confidence without source-span validation or calibration.",
+      "reason": "A model label is not evidence and cannot support a confirmed BD relationship edge.",
+      "evidence_source_ids": [
+        "kartr_analysis_service",
+        "sig_evidence_gates"
+      ]
+    },
+    {
+      "pattern": "Persist sponsors as an untyped list and use only sponsors[0] in the graph.",
+      "reason": "It silently loses multi-sponsor videos and makes schema drift undetectable.",
+      "evidence_source_ids": [
+        "kartr_youtube_schemas",
+        "kartr_youtube_router"
+      ]
+    },
+    {
+      "pattern": "Use raw display names as graph node IDs.",
+      "reason": "Aliases, spelling variants and product names fragment the company graph and corrupt degree metrics.",
+      "evidence_source_ids": [
+        "kartr_graph_service",
+        "kartr_visualization"
+      ]
+    },
+    {
+      "pattern": "Use an undirected simple graph that collapses repeated observations and drops evidence, dates and relation type.",
+      "reason": "It cannot distinguish one mention from a repeat paid relationship or keep X routing separate from commercial history.",
+      "evidence_source_ids": [
+        "kartr_graph_service",
+        "kartr_graph_schema"
+      ]
+    },
+    {
+      "pattern": "Let an LLM invent a fit score in a preselected 60-99 range.",
+      "reason": "The score is compressed, uncalibrated and not comparable across runs. MangoBD should retain explicit reachability, spend, timing, fit, buyer clarity and evidence components.",
+      "evidence_source_ids": [
+        "kartr_analysis_service",
+        "mangobd_discovery_config"
+      ]
+    },
+    {
+      "pattern": "Add subscriber-count bonuses as a default relevance signal.",
+      "reason": "It reintroduces fame bias, while MangoBD intentionally lets a routable mid-market target outrank a famous cold target.",
+      "evidence_source_ids": [
+        "kartr_influencer_matching",
+        "mangobd_discovery_config"
+      ]
+    },
+    {
+      "pattern": "Mix broad web-search recommendations with proven sponsorship history in one result type.",
+      "reason": "A search result is a lead, not proof of budget, campaign history or relationship.",
+      "evidence_source_ids": [
+        "kartr_tavily",
+        "kartr_analysis_service",
+        "mangobd_discovery"
+      ]
+    },
+    {
+      "pattern": "Use graph degree centrality as a proxy for introducibility.",
+      "reason": "Popularity in a sponsor graph does not prove a Solomon-rooted X path, human willingness or an operator-level route.",
+      "evidence_source_ids": [
+        "kartr_graph_service",
+        "mangobd_discovery_config"
+      ]
+    }
+  ]
+}

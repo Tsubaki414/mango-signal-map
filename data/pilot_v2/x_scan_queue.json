@@ -1,0 +1,10 @@
+{
+  "collection_order":[
+    {"priority":1,"scope":"Mango followers","endpoint":"followers-ids","username":"MangoLabs_","page_size":5000,"max_pages":2,"purpose":"Complete Mango first-degree inbound set and all mutuals."},
+    {"priority":2,"scope":"Remaining Mango first-degree outbound accounts","endpoint":"following-ids","usernames":["Snowmaker_CJ","nihaovand","choc07_","Anitahityou","Web3CartonNinja","Ru7Longcrypto","0xYuxi","Fifi_WinsAll","lorrainelolo","joyce24beats","jerry_hgnz","siriusxyzzz","carolcao_","Lighthouse_2026"],"page_size":5000,"max_pages_per_account":3,"purpose":"Complete secondary target intersections across all 19 Mango followings."},
+    {"priority":3,"scope":"Resolved v1 target outbound sets","endpoint":"following-ids","usernames":["cursor_ai","perplexity_ai","pika_labs","Replit","runwayml","suno_ai_","synthesiaIO"],"page_size":5000,"max_pages_per_account":3,"purpose":"Find target-to-Mango and target-to-seed reverse follows plus common followed accounts."},
+    {"priority":4,"scope":"Expanded target profiles and outbound sets","endpoint":"user then following-ids","usernames":["higgsfield","LumaLabsAI","genspark_ai","wisprflow","krea_ai","OpusClip","NotionHQ","DescriptApp"],"page_size":5000,"max_pages_per_account":3,"purpose":"Resolve new target IDs and compute secondary routes."},
+    {"priority":5,"scope":"Target follower samples","endpoint":"followers-ids","usernames":["cursor_ai","perplexity_ai","pika_labs","Replit","runwayml","suno_ai_","synthesiaIO","higgsfield","LumaLabsAI","genspark_ai","wisprflow","krea_ai","OpusClip","NotionHQ","DescriptApp"],"page_size":5000,"max_pages_per_account":1,"purpose":"Cost-capped one-page follower overlap with Mango followers; label as sample unless the response has no resume cursor."}
+  ],
+  "safety":"Cache every page, resume by cursor, stop at configured page caps, and never silently label samples as full follower sets."
+}

@@ -1,0 +1,26 @@
+{
+  "verified_date":"2026-08-24",
+  "status":"partial_blocked_invalid_or_unsubscribed_rapid_x_credential",
+  "scope_completed":{
+    "mango_profile":true,
+    "mango_following_profiles":"19/19",
+    "fully_paginated_seed_following_ids":"5/19",
+    "fully_paginated_seed_handles":["amy_yuhan_","doriszzz2025","dov_wo","Solomon_Nahhh","jenniekusu"],
+    "resolved_target_x_profiles":"7/12"
+  },
+  "confirmed_findings":{
+    "mango_mutuals_among_fully_audited_seeds":["amy_yuhan_","doriszzz2025","dov_wo","Solomon_Nahhh","jenniekusu"],
+    "mutual_definition":"Mango follows the seed and the seed's complete following-ID set contains Mango rest_id 1626926446991089664.",
+    "seed_to_resolved_target_matches":{"jenniekusu":["Replit","Cursor","Perplexity","Pika","Runway"],"amy_yuhan_":[],"doriszzz2025":[],"dov_wo":[],"Solomon_Nahhh":[]},
+    "interpretation":"The five Jennie-to-company edges are X follows only; no reply, mention, direct message or introduction willingness was established."
+  },
+  "not_yet_completed":{
+    "mango_follower_ids":"0/approximately 1647; Rapid X returned 403 before the first page could be saved",
+    "remaining_seed_following_ids":"14/19 accounts still require collection",
+    "target_company_following_ids":"0/7 resolved target accounts in the v1 set",
+    "target_company_follower_ids":"not collected; potentially large and should be cost-capped",
+    "full_common_follower_analysis":false
+  },
+  "credential_diagnostic":"Both /followers-ids and the previously working /user endpoint returned HTTP 403 with message 'You are not subscribed to this API'. This distinguishes a credential/subscription problem from a follower-endpoint parameter problem.",
+  "answer_to_user":"No: the previous pilot did not inspect all followers or all mutual relationships. It inspected all Mango followings and fully paginated outbound following IDs for five seed accounts. The v2 audit now proves those five are mutuals, but full Mango follower and target-side scans require a valid subscribed Rapid X key."
+}

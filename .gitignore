@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+# Local diagnostic screenshots may contain retired credential examples.
+Screenshot*.png
+outputs/
+data/cache/
+kol_database/data/kol.db
+kol_database/data/cache/
+.venv/

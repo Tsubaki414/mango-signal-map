@@ -1,0 +1,47 @@
+{
+  "weights": {
+    "reachability": 0.30,
+    "spend_mechanism": 0.25,
+    "timing": 0.15,
+    "fit": 0.15,
+    "buyer_clarity": 0.10,
+    "evidence_quality": 0.05
+  },
+  "reachability_levels": {
+    "operator_direct_mutual": 85,
+    "operator_direct_follow": 72,
+    "x_secondary_operator": 66,
+    "x_direct_company_follow": 62,
+    "x_secondary_company_follow": 52,
+    "x_third_routable": 38,
+    "public_business_route": 42,
+    "cold_named_operator": 28,
+    "unresolved": 10
+  },
+  "spend_mechanism_levels": {
+    "repeated_paid_campaign": 95,
+    "active_creator_or_partner_budget": 85,
+    "formal_paid_program": 75,
+    "affiliate_or_referral_only": 55,
+    "funding_or_token_value_only": 25,
+    "unknown": 10
+  },
+  "penalties": {
+    "oversaturated_famous_cold_target": 10,
+    "identity_unresolved": 6,
+    "funding_only_budget_claim": 8,
+    "stale_trigger": 5
+  },
+  "tiers": {
+    "act_now": 76,
+    "validate": 66,
+    "watch": 0
+  },
+  "principles": [
+    "Fame and follower count do not add points.",
+    "Funding is a timing signal, not proof of marketing spend.",
+    "Repeated disclosed sponsorship outranks an affiliate page.",
+    "X structural degree, routable degree and human willingness are separate fields.",
+    "A mid-market project with a named buyer and connector can outrank a famous cold target."
+  ]
+}

@@ -1,0 +1,1403 @@
+[
+  {
+    "company": "PixVerse",
+    "category": "AI video generation",
+    "geography": "Singapore / global",
+    "why_now": "2025 Series B 后持续国际扩张，2026 年升级 CPP 2.0、Earn 和 Originals，增长机制完整。",
+    "budget_evidence": "$60M Series B；CPP 每周 $2,500 现金池；Affiliate 30% recurring，达标升至 35%。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Creative Partner Program 2.0",
+      "PixVerse Earn",
+      "PixVerse Originals",
+      "Affiliate Program"
+    ],
+    "buyer_or_route": "creator@pixverse.ai；CPP rolling application；Affiliate online application",
+    "x_handle_candidate": "@PixVerse_",
+    "sources": [
+      {
+        "url": "https://pixverse.ai/en/blog/pixverse-global-creative-partner-program-2-0",
+        "claim": "现金池、credits、付费合作及分层 creator 支持。",
+        "date": "2026-06-02",
+        "confidence": "high",
+        "evidence_id": "candidate:pixverse:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+        "claim": "$60M Series B、100M users、175+ markets 和国际扩张。",
+        "date": "2025-09-10",
+        "confidence": "high",
+        "evidence_id": "candidate:pixverse:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Hedra",
+    "category": "AI character and generative media",
+    "geography": "United States / global",
+    "why_now": "2026 年上线结构化 Ambassador Program，主动招募 creator、agency 和 AI storytelling 受众。",
+    "budget_evidence": "Premium access、free credits、15% commission，按每个付费用户持续 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Hedra Ambassador Program",
+      "Dub Affiliate Program"
+    ],
+    "buyer_or_route": "https://partners.dub.co/hedra；enterprise route: sales@hedra.com",
+    "x_handle_candidate": "@hedra_labs (verify)",
+    "sources": [
+      {
+        "url": "https://www.hedra.com/creator",
+        "claim": "15% commission、免费 credits、early access 和 creator community。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:hedra:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.hedra.com/blog/hedra-ambassador-program-is-here",
+        "claim": "Ambassador Program 正式发布并面向 creators、agencies。",
+        "date": "2026-01-16",
+        "confidence": "high",
+        "evidence_id": "candidate:hedra:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Beeble",
+    "category": "AI video-to-VFX",
+    "geography": "South Korea / global",
+    "why_now": "SwitchX 正在建立早期 VFX creator 网络，接受 rolling applications，适合用高质量案例换直接团队连接。",
+    "budget_evidence": "2,400 starter credits、持续 top-up、20% recurring commission 最长 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Beeble Creative Partner Program",
+      "Pre-approved Affiliate Program"
+    ],
+    "buyer_or_route": "https://forms.beeble.ai/creator-program",
+    "x_handle_candidate": "@beeble_ai",
+    "sources": [
+      {
+        "url": "https://beeble.ai/creator-program",
+        "claim": "明确 credits、affiliate、early access、direct team line 和申请门槛。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:beeble:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Pixo",
+    "category": "AI video creation",
+    "geography": "Global; HQ unverified",
+    "why_now": "处于 creator ecosystem 建设早期，公开招短剧、广告、海外 TikTok/Reels 和 MCN 团队。",
+    "budget_evidence": "按传播表现支付 $30/$75/$150，另有 monthly Pro、unlimited compute 和单独商业合同。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Creator Partnership Program",
+      "Commercial Collaboration Pool"
+    ],
+    "buyer_or_route": "https://pixo.video/creator-program；hello@pixo.video",
+    "x_handle_candidate": null,
+    "sources": [
+      {
+        "url": "https://pixo.video/creator-program",
+        "claim": "明确 creator 分层、现金奖励、海外内容需求和 commercial pool。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:pixo:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "medium",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Raspberry AI",
+    "category": "AI fashion design",
+    "geography": "New York, United States",
+    "why_now": "a16z 领投 Series A 后扩张 fashion workflow；垂类明确，竞争噪音低于通用设计工具。",
+    "budget_evidence": "Ambassador 每月 premium package 标称价值 $298，并提供曝光和 early access。",
+    "spend_mechanism_level": "L2_committed_in_kind",
+    "programs_or_campaigns": [
+      "Raspberry Brand Ambassador Program"
+    ],
+    "buyer_or_route": "https://www.raspberry.ai/ambassador-program",
+    "x_handle_candidate": "@RaspberryAI (verify)",
+    "sources": [
+      {
+        "url": "https://www.raspberry.ai/ambassador-program",
+        "claim": "每月 $298 premium access、每周内容要求及品牌曝光。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:raspberry-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://a16z.com/announcement/investing-in-raspberry-ai/",
+        "claim": "a16z 领投其 Series A，支持其扩张 fashion design platform。",
+        "date": "2025-01-13",
+        "confidence": "high",
+        "evidence_id": "candidate:raspberry-ai:02",
+        "evidence_type": "first_party_partner",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Scenario",
+    "category": "AI game and brand asset generation",
+    "geography": "France / United States",
+    "why_now": "从游戏扩展到 marketing、entertainment、3D 和品牌视觉，公开搭建三层 creator partner 体系。",
+    "budget_evidence": "每月最高 $150 compute；Pioneer 可获 CEO 直连、co-marketing 和年度 summit。",
+    "spend_mechanism_level": "L2_committed_in_kind",
+    "programs_or_campaigns": [
+      "Scenario Creator Partner Program"
+    ],
+    "buyer_or_route": "https://www.scenario.com/cpp",
+    "x_handle_candidate": "@Scenario_gg (verify)",
+    "sources": [
+      {
+        "url": "https://www.scenario.com/cpp",
+        "claim": "三层 creator program、月度 compute、co-marketing 和直接 CEO route。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:scenario:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Viggle AI",
+    "category": "AI animation and remix video",
+    "geography": "Toronto, Canada / global",
+    "why_now": "40M users 后仍在扩张 creator monetization，适合 meme、sports、anime 和 fandom creator。",
+    "budget_evidence": "$19M Series A；已向 creators 支付 $25K+；20% recurring affiliate；另有现金挑战和 bounty。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Viggler Network",
+      "Creator Affiliate Program",
+      "Creative Partner Program"
+    ],
+    "buyer_or_route": "https://viggle.ai/affiliate；https://viggle.ai/viggler",
+    "x_handle_candidate": "@ViggleAI",
+    "sources": [
+      {
+        "url": "https://viggle.ai/affiliate",
+        "claim": "20% recurring、500+ creators、$25K+ paid、现金活动。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:viggle-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.businesswire.com/news/home/20240826353941/en/Viggle-AI-Secures-%2419-Million-in-Series-A-Funding-Led-by-Andreessen-Horowitz",
+        "claim": "$19M Series A 用于全球增长和 creator program。",
+        "date": "2024-08-26",
+        "confidence": "high",
+        "evidence_id": "candidate:viggle-ai:02",
+        "evidence_type": "reputable_secondary",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "FLORA",
+    "category": "AI creative workflow canvas",
+    "geography": "New York, United States / global",
+    "why_now": "2026 年完成大额 Series A，正在从创意实验工具转向 agency、studio 和 brand production workflow。",
+    "budget_evidence": "$42M Series A、累计 $52M；Partner 50% 首年收入、$300 二级招募奖励、credits 和 co-marketing。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "FLORA Partners",
+      "FLORA Expert"
+    ],
+    "buyer_or_route": "https://flora.ai/partners",
+    "x_handle_candidate": "@flora_ai (verify)",
+    "sources": [
+      {
+        "url": "https://flora.ai/partners",
+        "claim": "50% 首年收入、$300 partner bonus、credits、1:1 和 co-marketing。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:flora:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://flora.ai/blog/the-creative-environment-for-the-generative-era",
+        "claim": "$42M Series A、累计 $52M，并服务专业创意团队。",
+        "date": "2026-01-27",
+        "confidence": "high",
+        "evidence_id": "candidate:flora:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Meshy",
+    "category": "AI 3D generation",
+    "geography": "United States / global",
+    "why_now": "2026 年巨额融资后加速 3D foundation model 和商业扩张，同时开放 creator acquisition。",
+    "budget_evidence": "近 $400M Series B；Affiliate 20% recurring 持续 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Meshy Affiliate Program",
+      "Referral Program"
+    ],
+    "buyer_or_route": "https://www.meshy.ai/affiliates；team@meshy.ai",
+    "x_handle_candidate": "@MeshyAI",
+    "sources": [
+      {
+        "url": "https://www.meshy.ai/affiliates",
+        "claim": "20% recurring、12 个月、营销素材和 creator-friendly application。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:meshy:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/meshy-raises-nearly-400-million-at-a-1-5-billion-valuation-the-largest-round-to-date-in-ai-3d-302828384.html",
+        "claim": "近 $400M Series B，估值 $1.5B。",
+        "date": "2026-07-21",
+        "confidence": "high",
+        "evidence_id": "candidate:meshy:02",
+        "evidence_type": "reputable_secondary",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Tripo AI",
+    "category": "AI 3D and world models",
+    "geography": "China / United States / global",
+    "why_now": "2026 连续融资并扩张全球 developer platform，正在争夺 3D creator 和 studio 心智。",
+    "budget_evidence": "2026 年 $150M Series A3；Affiliate 30% Stripe subscription revenue 持续 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Tripo Affiliate Program"
+    ],
+    "buyer_or_route": "https://www.tripo3d.ai/affiliate",
+    "x_handle_candidate": "@tripoai",
+    "sources": [
+      {
+        "url": "https://www.tripo3d.ai/affiliate",
+        "claim": "30% commission、12 个月，并面向 creators、developers 和 community builders。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:tripo-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.globenewswire.com/news-release/2026/07/02/3321436/0/en/tripo-ai-raises-150-million-in-series-a3-financing-backed-by-investors-across-automotive-gaming-internet-and-technology-sectors.html",
+        "claim": "$150M Series A3 和跨游戏、汽车、科技扩张。",
+        "date": "2026-07-02",
+        "confidence": "high",
+        "evidence_id": "candidate:tripo-ai:02",
+        "evidence_type": "reputable_secondary",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Kittl",
+    "category": "AI-first graphic design",
+    "geography": "Berlin, Germany / global",
+    "why_now": "正在从个人设计工具向 teams 和国际市场扩张，creator、designer、student 三类入口成熟。",
+    "budget_evidence": "$36M Series B；拥有 influencer、designer template、student ambassador 和 affiliate 四类计划。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Influencer Program",
+      "Designer Program",
+      "Student Ambassador",
+      "Affiliate Program"
+    ],
+    "buyer_or_route": "https://www.kittl.com/partners",
+    "x_handle_candidate": "@kittldesign",
+    "sources": [
+      {
+        "url": "https://www.kittl.com/partners",
+        "claim": "四种 partnership routes，并承诺每周审核申请。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:kittl:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.kittl.com/blogs/kittl-series-b/",
+        "claim": "$36M Series B、1M+ creator community 和国际扩张。",
+        "date": "2024-01-24",
+        "confidence": "high",
+        "evidence_id": "candidate:kittl:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Photoroom",
+    "category": "AI product photography",
+    "geography": "Paris, France / global",
+    "why_now": "由 consumer editor 转向 sellers、brands、API 和团队工作流，2026 刷新 affiliate/referral acquisition。",
+    "budget_evidence": "$43M Series B；20% commission、30-day cookie，覆盖 Max、Ultra 和年付 Pro。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Awin Affiliate Program",
+      "Community Referral Program"
+    ],
+    "buyer_or_route": "https://www.photoroom.com/affiliates；https://partners.dub.co/photoroom/community/apply",
+    "x_handle_candidate": "@photoroom_app",
+    "sources": [
+      {
+        "url": "https://www.photoroom.com/affiliates",
+        "claim": "20% commission、Awin、创意素材和 seller/creator 定位。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:photoroom:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/photoroom-secures-43m-in-series-b-funding-launches-next-generation-ai-photo-editing-features-for-businesses-302071832.html",
+        "claim": "$43M Series B 和 business product 扩张。",
+        "date": "2024-02-27",
+        "confidence": "high",
+        "evidence_id": "candidate:photoroom:02",
+        "evidence_type": "reputable_secondary",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Creatify",
+    "category": "AI performance video ads",
+    "geography": "United States / global",
+    "why_now": "Series A 后从单点视频生成转向 end-to-end ad intelligence，正在获取 performance marketers 和 creators。",
+    "budget_evidence": "$15.5M Series A；Affiliate 25% recurring，月销售超 $5K 再加 5%，另有品牌合作。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Creatify Affiliate Program",
+      "Brand Ambassador Collaborations"
+    ],
+    "buyer_or_route": "https://creatify.ai/affiliate；公开 Google Form",
+    "x_handle_candidate": "@Creatify_AI (verify)",
+    "sources": [
+      {
+        "url": "https://creatify.ai/affiliate",
+        "claim": "25% recurring、额外 bonus、Pro access 和 brand collaborations。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:creatify:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://creatify.ai/blog/announcing-our-15-5m-series-a-a-new-chapter-for-creatify",
+        "claim": "$15.5M Series A 和 AdMax 扩张。",
+        "date": "2025-05-28",
+        "confidence": "high",
+        "evidence_id": "candidate:creatify:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Arcads",
+    "category": "AI UGC advertising",
+    "geography": "Paris, France / global",
+    "why_now": "聚焦 AI actors 和 direct-response ads，公开 program 对小型 performance creator 很友好。",
+    "budget_evidence": "25% recurring commission，持续前 12 个月；官网示例 10 referrals 约 $573/月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Arcads Affiliate Program"
+    ],
+    "buyer_or_route": "https://www.arcads.ai/affiliate",
+    "x_handle_candidate": "@arcads_ai (verify)",
+    "sources": [
+      {
+        "url": "https://www.arcads.ai/affiliate",
+        "claim": "25% recurring、12 个月、Rewardful application 和 payout examples。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:arcads:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "AKOOL",
+    "category": "AI video, avatars and localization",
+    "geography": "United States / global",
+    "why_now": "正在同时扩张 creator、startup、agency 和 technology ecosystem，并以比赛快速购买内容供给。",
+    "budget_evidence": "Creator Fund 按 CPM 支付；Creator Clash 标示 $300K rewards；startup partner 提供 $3K plan。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Creator Partner Program",
+      "Creator Fund",
+      "Creator Clash",
+      "Startup and Agency Partner Programs"
+    ],
+    "buyer_or_route": "https://akool.com/creator-partner-program；info@akool.com",
+    "x_handle_candidate": "@akool_com (verify)",
+    "sources": [
+      {
+        "url": "https://akool.com/creator-partner-program",
+        "claim": "月度 credits、直接团队支持、paid campaign 和 launch collaboration。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:akool:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.akool.com/creatorfund",
+        "claim": "按平台 CPM 明确 creator payout 和封顶金额。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:akool:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Colossyan",
+    "category": "AI learning and enterprise video",
+    "geography": "London, UK / Europe / global",
+    "why_now": "相较通用 avatar 公司更聚焦 L&D，公开构建 agency、technology、affiliate 三类 channel。",
+    "budget_evidence": "Affiliate 25% commissions、90-day cookie，另提供 marketing support 和 partner certification。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Agency Partner",
+      "Technology Partner",
+      "Affiliate Partner"
+    ],
+    "buyer_or_route": "https://www.colossyan.com/partnerships/",
+    "x_handle_candidate": "@Colossyan",
+    "sources": [
+      {
+        "url": "https://www.colossyan.com/partnerships/",
+        "claim": "三类 partnership、25% affiliate 和 marketing support。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:colossyan:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Tavus",
+    "category": "AI humans and conversational video",
+    "geography": "San Francisco, United States",
+    "why_now": "2025 Series B 后从 personalized video 转向 human simulation，需扩大 consultant、agency 和 platform ecosystem。",
+    "budget_evidence": "$40M Series B、累计约 $64M；Referral Partnership 明确按客户支付 commission。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Referral Partnerships",
+      "Technology Partnerships"
+    ],
+    "buyer_or_route": "https://www.tavus.io/lp/partnerships",
+    "x_handle_candidate": "@heytavus",
+    "sources": [
+      {
+        "url": "https://www.tavus.io/lp/partnerships",
+        "claim": "面向 consultants、platforms、agencies 的 referral 和 tech routes。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:tavus:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.tavus.io/lp/ai-info-page",
+        "claim": "$40M Series B 和约 $64M 累计融资。",
+        "date": "2025-11",
+        "confidence": "high",
+        "evidence_id": "candidate:tavus:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Wondercraft",
+    "category": "AI audio ads and podcast production",
+    "geography": "London / New York / Cairo",
+    "why_now": "从 podcast/audio 工具扩展到多模态广告制作，垂类 creator 竞争小于 AI video。",
+    "budget_evidence": "Creative Partners 获 unlimited credits、private events、social amplification 和 early access。",
+    "spend_mechanism_level": "L2_committed_in_kind",
+    "programs_or_campaigns": [
+      "Wondercraft Creative Partner Program"
+    ],
+    "buyer_or_route": "https://www.wondercraft.ai/creative-partner-programme；enterprise@wondercraft.ai",
+    "x_handle_candidate": "@Wondercraft_AI (verify)",
+    "sources": [
+      {
+        "url": "https://www.wondercraft.ai/creative-partner-programme",
+        "claim": "Unlimited credits、private community、events 和 creator amplification。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:wondercraft:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.wondercraft.ai/contact",
+        "claim": "公开 partnerships/business inquiry 邮箱。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:wondercraft:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Retell AI",
+    "category": "AI voice-agent infrastructure",
+    "geography": "San Francisco, United States",
+    "why_now": "小团队已达 $40M annualized revenue，正同时扩张 creator、affiliate 和 solution-partner flywheel。",
+    "budget_evidence": "$4.6M seed；$40M annualized revenue；Affiliate 15% revenue 持续 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Affiliate Program",
+      "Creator Program",
+      "Certified Solution Partner Program"
+    ],
+    "buyer_or_route": "https://www.retellai.com/affiliate；https://partners.retellai.com/",
+    "x_handle_candidate": "@RetellAI",
+    "sources": [
+      {
+        "url": "https://www.retellai.com/affiliate",
+        "claim": "15% recurring、12 个月、90-day cookie，并连接 creator program。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:retell-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.retellai.com/about-us",
+        "claim": "2025 年达到 $40M annualized revenue 且保持盈利。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:retell-ai:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Vapi",
+    "category": "AI voice-agent developer platform",
+    "geography": "San Francisco, United States",
+    "why_now": "2026 Series B 后明确采取 partner-first strategy，寻求全球 solution experts 和 joint GTM。",
+    "budget_evidence": "$50M Series B；提供 co-selling、qualified partner opportunities 和 dedicated enablement。",
+    "spend_mechanism_level": "L2_committed_co_sell",
+    "programs_or_campaigns": [
+      "Vapi Solutions Partner Program",
+      "Vapicon"
+    ],
+    "buyer_or_route": "https://vapi.ai/partnerships",
+    "x_handle_candidate": "@Vapi_AI (verify)",
+    "sources": [
+      {
+        "url": "https://vapi.ai/partnerships",
+        "claim": "Partner-first、co-sell、joint programs 和 qualified opportunities。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:vapi:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://vapi.ai/blog/series-b",
+        "claim": "$50M Series B，1M developers 已使用平台。",
+        "date": "2026",
+        "confidence": "high",
+        "evidence_id": "candidate:vapi:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Synthflow AI",
+    "category": "No-code enterprise voice agents",
+    "geography": "Berlin, Germany / United States",
+    "why_now": "融资后开设美国办公室并向 mid-market、BPO 和 contact centers 扩张，具备区域 GTM 合作需求。",
+    "budget_evidence": "$20M Series A、累计 $30M；资金明确用于全球扩张和美国市场。",
+    "spend_mechanism_level": "L1_capacity_signal_only",
+    "programs_or_campaigns": [
+      "Enterprise and BPO expansion; no public creator payout verified"
+    ],
+    "buyer_or_route": "Synthflow sales/demo form；优先找 Partnerships、US GTM 或 Community owner",
+    "x_handle_candidate": "@SynthflowAI (verify)",
+    "sources": [
+      {
+        "url": "https://synthflow.ai/news/synthflow-raises-20m-series-a",
+        "claim": "$20M Series A、美国办公室和全球 mid-market/enterprise expansion。",
+        "date": "2025-06-25",
+        "confidence": "high",
+        "evidence_id": "candidate:synthflow-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "medium",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Gumloop",
+    "category": "No-code AI automation and agents",
+    "geography": "San Francisco, United States / Canada-origin",
+    "why_now": "2026 Series B 后正在扩大 enterprise adoption，同时仍保留 creator-led education acquisition。",
+    "budget_evidence": "$50M Series B；Creator 20% 首年 revenue，并提供 early access、co-promotion 和 priority support。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Gumloop Creator Program"
+    ],
+    "buyer_or_route": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+    "x_handle_candidate": "@gumloop",
+    "sources": [
+      {
+        "url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+        "claim": "20% 首年 commission、creator support 和 community access。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:gumloop:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.gumloop.com/blog/series-b",
+        "claim": "$50M Series B 和 enterprise expansion。",
+        "date": "2026-03-12",
+        "confidence": "high",
+        "evidence_id": "candidate:gumloop:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Relay.app",
+    "category": "AI workflow automation",
+    "geography": "United States / global",
+    "why_now": "较 Zapier/n8n 更小，但已形成 affiliate 与 certified consulting ecosystem，适合 workflow educator 和 agency。",
+    "budget_evidence": "公开 Affiliate application；Certified Partners 可获目录曝光与客户匹配。",
+    "spend_mechanism_level": "L3_explicit_cash_terms_unverified",
+    "programs_or_campaigns": [
+      "Affiliate Program",
+      "Certified Partner Program"
+    ],
+    "buyer_or_route": "https://www.relay.app/affiliates/apply；https://partners.relay.app/",
+    "x_handle_candidate": null,
+    "sources": [
+      {
+        "url": "https://www.relay.app/affiliates/apply",
+        "claim": "公开 affiliate application。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:relay-app:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://partners.relay.app/",
+        "claim": "活跃 Certified Partner directory 和 lead matching。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:relay-app:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "medium_high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium_high",
+    "fact_status": "unverified",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Relevance AI",
+    "category": "No-code AI workforce",
+    "geography": "Sydney, Australia / San Francisco",
+    "why_now": "Series B 后扩张 GTM，agent adoption 快，明确希望 educators、agencies 和 community builders 帮助获客。",
+    "budget_evidence": "$24M Series B；Affiliate 15% subscription revenue 持续 12 个月。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Relevance AI Affiliate Program"
+    ],
+    "buyer_or_route": "https://relevanceai.com/affiliate-program",
+    "x_handle_candidate": "@relevanceai",
+    "sources": [
+      {
+        "url": "https://relevanceai.com/affiliate-program",
+        "claim": "面向 creators、educators、agencies、community builders 的 recurring program。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:relevance-ai:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://relevanceai.com/blog/the-ai-workforce-revolution-24m-series-b-to-accelerate-our-mission",
+        "claim": "$24M Series B 和 GTM expansion。",
+        "date": "2025-05-06",
+        "confidence": "high",
+        "evidence_id": "candidate:relevance-ai:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "AirOps",
+    "category": "AI search and content operations",
+    "geography": "United States",
+    "why_now": "AEO/GEO 市场快速增长，AirOps 正通过 agencies 和 expert playbooks 扩张，和 Mango 的增长研究能力贴合。",
+    "budget_evidence": "$15.5M Series A；对 custom-agent spend 提供最高 $1M performance refund，显示强 GTM 承诺但不是 creator payout。",
+    "spend_mechanism_level": "L1_capacity_signal_only",
+    "programs_or_campaigns": [
+      "Agency and expert playbook collaboration",
+      "AirOps Performance Promise"
+    ],
+    "buyer_or_route": "https://www.airops.com/ 的 Get in touch；目标 Partner Marketing、Agency Partnerships 或 Community",
+    "x_handle_candidate": "@AirOpsHQ (verify)",
+    "sources": [
+      {
+        "url": "https://www.airops.com/blog/airops-raises-15-5m-to-turn-marketers-into-ai-growth-leaders",
+        "claim": "$15.5M Series A，并与 agencies 共建 playbooks。",
+        "date": "2024-10-02",
+        "confidence": "high",
+        "evidence_id": "candidate:airops:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://www.airops.com/airops-performance-promise",
+        "claim": "最高 $1M eligible usage refund，说明其企业 GTM 投入力度。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:airops:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "medium_high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium_high",
+    "fact_status": "unverified",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "CrewAI",
+    "category": "Multi-agent orchestration",
+    "geography": "United States / global developer community",
+    "why_now": "开源社区已进入 enterprise commercialization，正在搭建模板 marketplace 和早期 creator supply。",
+    "budget_evidence": "约 $18M 融资；Marketplace 公示 planned enterprise template revenue share，但当前支付状态需复核。",
+    "spend_mechanism_level": "L2_planned_revenue_share",
+    "programs_or_campaigns": [
+      "Agentic App Marketplace",
+      "Community Template Program"
+    ],
+    "buyer_or_route": "marketplace@crewai.com；https://marketplace.crewai.com/",
+    "x_handle_candidate": "@crewAIInc",
+    "sources": [
+      {
+        "url": "https://marketplace.crewai.com/",
+        "claim": "征集 enterprise-ready templates，并承诺 early access to planned revenue share。",
+        "date": "checked 2026-08-24",
+        "confidence": "medium",
+        "evidence_id": "candidate:crewai:01",
+        "evidence_type": "first_party_partner",
+        "fact_status": "probable",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/",
+        "claim": "融资约 $18M、企业客户和全球 developer community 扩张。",
+        "date": "2025-12-10",
+        "confidence": "high",
+        "evidence_id": "candidate:crewai:02",
+        "evidence_type": "first_party_partner",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "medium",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium",
+    "fact_status": "probable",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Bardeen",
+    "category": "Business-ready AI automation",
+    "geography": "San Francisco, United States / global",
+    "why_now": "2026-08 刚发布新 business-ready agent，并获得 Dropbox、HubSpot 战略投资，是强近期触发器。",
+    "budget_evidence": "$3M strategic investment；300K users；尚未验证公开 creator/affiliate payout。",
+    "spend_mechanism_level": "L1_capacity_signal_only",
+    "programs_or_campaigns": [
+      "Strategic launch collaboration; public creator program not verified"
+    ],
+    "buyer_or_route": "Bardeen business demo/contact；优先找 Growth Partnerships、Strategic Partnerships",
+    "x_handle_candidate": "@bardeenai",
+    "sources": [
+      {
+        "url": "https://www.bardeen.ai/posts/bardeen-the-first-business-ready-ai-agent",
+        "claim": "$3M Dropbox/HubSpot 战略投资和 2026 新产品发布。",
+        "date": "2026-08-19",
+        "confidence": "high",
+        "evidence_id": "candidate:bardeen:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "medium_high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium_high",
+    "fact_status": "unverified",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Durable",
+    "category": "AI website and small-business operating suite",
+    "geography": "Vancouver, Canada / global",
+    "why_now": "虽然融资较早，但仍在扩大 AI CRM、invoicing 和 small-business audience，affiliate economics 清晰。",
+    "budget_evidence": "$14M Series A、累计 $20.25M；Affiliate 最高 30% 持续一年。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Durable Affiliate Program"
+    ],
+    "buyer_or_route": "https://durable.com/affiliate",
+    "x_handle_candidate": "@durable_ai (verify)",
+    "sources": [
+      {
+        "url": "https://durable.com/affiliate",
+        "claim": "最高 30% commission、12 个月，面向 creators、educators、publishers。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:durable:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://durable.com/blog/series-a",
+        "claim": "$14M Series A、累计 $20.25M 和 global entrepreneurship expansion。",
+        "date": "2023-12-12",
+        "confidence": "high",
+        "evidence_id": "candidate:durable:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Relume",
+    "category": "AI website planning and component library",
+    "geography": "Sydney, Australia / global",
+    "why_now": "约 21 人的小团队和 10K+ community，正在接入 MCP、Claude、Cursor 等新 AI design workflows。",
+    "budget_evidence": "官网条款确认 cash affiliate；另有 $10 referral credits 和大型 Slack community。",
+    "spend_mechanism_level": "L3_explicit_cash_terms_unverified",
+    "programs_or_campaigns": [
+      "Affiliate Program",
+      "Referral Program",
+      "Slack Community"
+    ],
+    "buyer_or_route": "hello@relume.io；support/community route: https://www.relume.ai/support",
+    "x_handle_candidate": "@relume_io",
+    "sources": [
+      {
+        "url": "https://www.relume.ai/legal/terms",
+        "claim": "确认 active affiliate 和 referral mechanisms。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:relume:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://www.relume.ai/support",
+        "claim": "10K+ community 和公开 Slack/team contact route。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:relume:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "medium_high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium_high",
+    "fact_status": "unverified",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "ImagineArt",
+    "category": "Multimodal AI creative suite",
+    "geography": "Pakistan / global",
+    "why_now": "以 aggressive creator economics 获取多平台创作者，并主动发展 studio、agency 和本地活动。",
+    "budget_evidence": "20K–200K credits/月；最高 25% revenue share；enterprise referral bonuses 和活动支持。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "ImagineArt Creative Partner Program",
+      "Affiliate Program",
+      "Enterprise Referral",
+      "Community Event Support"
+    ],
+    "buyer_or_route": "https://www.imagine.art/creators-program",
+    "x_handle_candidate": "@ImagineArtAI (verify)",
+    "sources": [
+      {
+        "url": "https://www.imagine.art/creators-program",
+        "claim": "最高 25% revenue share、200K credits、enterprise bonus 和 meetup support。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:imagineart:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Intangible",
+    "category": "AI spatial intelligence and 3D studio",
+    "geography": "San Francisco, United States",
+    "why_now": "仅 seed 阶段但已进入 film、events、retail 和 deeptech production，适合高质量 creator-led case study。",
+    "budget_evidence": "$4M seed；Creative Partners 获 25% first-year revenue、25% audience discount 和 monthly credits。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Intangible Creative Partner Program"
+    ],
+    "buyer_or_route": "https://www.intangible.ai/partners；support@intangible.ai",
+    "x_handle_candidate": "@intangible_ai (verify)",
+    "sources": [
+      {
+        "url": "https://www.intangible.ai/partners",
+        "claim": "25% revenue、monthly credit grant、founder access 和 case-study amplification。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:intangible:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://techcrunch.com/2025/03/06/intangible-ai-a-no-code-3d-creation-tool-for-filmmakers-and-game-designers-raises-4m/",
+        "claim": "$4M seed 和 film/game 3D use cases。",
+        "date": "2025-03-06",
+        "confidence": "high",
+        "evidence_id": "candidate:intangible:02",
+        "evidence_type": "reputable_secondary",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Recraft",
+    "category": "AI brand-consistent design",
+    "geography": "London, United Kingdom / global",
+    "why_now": "Series B、NVIDIA extension 和 agentic/MCP launches 后正在从 designer tool 转向 brand and enterprise workflow。",
+    "budget_evidence": "$30M Series B；4M+ users、10x expansion；尚未验证公开 cash creator program。",
+    "spend_mechanism_level": "L1_capacity_signal_only",
+    "programs_or_campaigns": [
+      "Artist case studies",
+      "Style Sharing",
+      "MCP ecosystem; public paid creator program not verified"
+    ],
+    "buyer_or_route": "Recraft contact sales；press@recraft.ai；目标 Partner Marketing/Community",
+    "x_handle_candidate": "@recraftai",
+    "sources": [
+      {
+        "url": "https://www.recraft.ai/press-releases/series-b-announcement",
+        "claim": "$30M Series B、4M users 和 10x growth。",
+        "date": "2025-05-05",
+        "confidence": "high",
+        "evidence_id": "candidate:recraft:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://www.recraft.ai/press-releases/welcoming-new-investors-series-b",
+        "claim": "NVIDIA 加入 Series B extension，支持平台 scale。",
+        "date": "2025-07-28",
+        "confidence": "high",
+        "evidence_id": "candidate:recraft:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "medium_high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "medium_high",
+    "fact_status": "unverified",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "OpenArt",
+    "category": "AI image, video and visual storytelling",
+    "geography": "San Francisco, United States / global",
+    "why_now": "同时开放 affiliate、Creative Partner 和限额 OpenArtist，正在主动购买 creator distribution。",
+    "budget_evidence": "Affiliate 默认 20% 持续 12 个月，优秀者可升 30%；CPP 预告 Creative Fund。",
+    "spend_mechanism_level": "L3_explicit_cash",
+    "programs_or_campaigns": [
+      "Affiliate Program",
+      "Creative Partner Program",
+      "OpenArtist Program",
+      "Planned Creative Fund"
+    ],
+    "buyer_or_route": "https://openart.ai/programs/affiliate；https://openart.ai/programs/cpp",
+    "x_handle_candidate": "@openart_ai",
+    "sources": [
+      {
+        "url": "https://openart.ai/programs/affiliate",
+        "claim": "公开 affiliate application 和 creator examples。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:openart:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      },
+      {
+        "url": "https://openart.notion.site/OpenArt-Affiliate-Program-Terms-and-Conditions-1d6269c1f585806585b1ffedd27ec800",
+        "claim": "默认 20% 持续一年，优秀 affiliate 可升至 30%。",
+        "date": "2025-04-14",
+        "confidence": "high",
+        "evidence_id": "candidate:openart:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://openart.ai/programs/cpp",
+        "claim": "Creative Partner perks、events、affiliate integration 和 planned fund。",
+        "date": "checked 2026-08-24",
+        "confidence": "high",
+        "evidence_id": "candidate:openart:03",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "accessed"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  },
+  {
+    "company": "Evertune",
+    "category": "GEO and AI-native marketing",
+    "geography": "New York, United States",
+    "why_now": "2026 将 GEO intelligence 扩展到 affiliate、programmatic 和 ChatGPT advertising，BD trigger 极强。",
+    "budget_evidence": "$15M Series A、总融资后续增至约 $20M；Partner Connect 已接 impact.com、PartnerStack、Trade Desk 和 Index Exchange。",
+    "spend_mechanism_level": "L2_committed_channel_activation",
+    "programs_or_campaigns": [
+      "Partner Connect",
+      "AI Retargeting",
+      "Visibility Boost Ad Agent"
+    ],
+    "buyer_or_route": "Evertune Book a Demo；目标 Partnerships、Growth、Partner Connect owner",
+    "x_handle_candidate": "@EvertuneAI",
+    "sources": [
+      {
+        "url": "https://www.evertune.ai/resources/insights-on-ai/our-15m-series-a-raise-unlocks-the-future-of-marketing-in-ai",
+        "claim": "$15M Series A 和 enterprise AI-marketing expansion。",
+        "date": "2025-08-12",
+        "confidence": "high",
+        "evidence_id": "candidate:evertune:01",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://www.evertune.ai/resources/insights-on-ai/introducing-partner-connect-evertune-and-impact-com-partner-to-bridge-ai-intelligence-and-affiliate-action",
+        "claim": "Partner Connect 将 GEO intelligence 连接到 affiliate publisher activation。",
+        "date": "2025-12-16",
+        "confidence": "high",
+        "evidence_id": "candidate:evertune:02",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      },
+      {
+        "url": "https://www.evertune.ai/resources/insights-on-ai/evertune-announces-ai-retargeting-through-new-partnerships-with-index-exchange-and-the-trade-desk",
+        "claim": "2026 扩展到 programmatic activation，总融资约 $20M。",
+        "date": "2026-02-11",
+        "confidence": "high",
+        "evidence_id": "candidate:evertune:03",
+        "evidence_type": "official",
+        "fact_status": "confirmed",
+        "last_verified_at": "2026-08-25",
+        "date_basis": "published_or_source_date"
+      }
+    ],
+    "overall_confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "confidence": "high",
+    "fact_status": "confirmed",
+    "evidence_contract_status": "atomic_claim_sources"
+  }
+]

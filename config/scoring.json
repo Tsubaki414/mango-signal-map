@@ -1,0 +1,25 @@
+{
+  "weights": {
+    "reachability": 0.35,
+    "budget": 0.25,
+    "fit": 0.20,
+    "timing": 0.10,
+    "evidence_quality": 0.10
+  },
+  "confidence_multipliers": {
+    "confirmed": 1.0,
+    "high_probability": 0.85,
+    "lead": 0.6
+  },
+  "reachability_levels": {
+    "direct_intro": 95,
+    "verified_one_hop": 82,
+    "verified_two_hop": 68,
+    "verified_third_degree": 52,
+    "warm_interaction": 58,
+    "public_business_contact": 42,
+    "linkedin_third_plus_only": 28,
+    "cold_only": 20,
+    "no_path": 5
+  }
+}

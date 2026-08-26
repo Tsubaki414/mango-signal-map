@@ -1,0 +1,1018 @@
+{
+  "schema_version": "4.0",
+  "as_of": "2026-08-25",
+  "generated_at": "2026-08-25T02:18:52+08:00",
+  "research_method": {
+    "routing": "Agent Reach Exa search plus Jina Reader",
+    "source_policy": "Official and first-party sources were preferred. A partner case study and an archived job mirror are used only where they add spend evidence and are labeled reputable_secondary.",
+    "x_twitter_used": false,
+    "linkedin_used": false,
+    "budget_rule": "Fundraising, valuation, fame, follower counts, free credits, and token allocations are not treated as proof of discretionary cash marketing spend. Each classification is scoped to the exact program supported by evidence."
+  },
+  "classification_legend": {
+    "repeated_paid": "Multiple paid creator or campaign executions are evidenced, not merely a program landing page.",
+    "active_budget": "A current program explicitly commits cash, grants, reimbursements, prizes, or event funding; amount and scope may still be limited or undisclosed.",
+    "formal_program": "A structured partner or creator program is operating, but the available evidence does not confirm the company's own discretionary cash campaign budget.",
+    "affiliate_only": "The confirmed cash mechanism is performance-based affiliate commission; this is not proof of an upfront media or sponsorship budget.",
+    "capacity_only": "Only capacity signals such as funding, credits, or token allocation are present.",
+    "unknown": "No reliable spend or formal-program evidence was found."
+  },
+  "coverage": {
+    "case_count": 8,
+    "category_tags": [
+      "ai_coding",
+      "video_creative",
+      "prosumer_productivity",
+      "b2b_agents",
+      "crypto_ai_adjacent",
+      "voice_audio_ai",
+      "gtm_automation"
+    ],
+    "classification_counts": {
+      "repeated_paid": 1,
+      "active_budget": 4,
+      "formal_program": 2,
+      "affiliate_only": 1,
+      "capacity_only": 0,
+      "unknown": 0
+    }
+  },
+  "case_studies": [
+    {
+      "company": "Cursor",
+      "category": "AI coding / developer tooling",
+      "category_tags": [
+        "ai_coding",
+        "developer_tools",
+        "community_led_growth"
+      ],
+      "maturity_stage": "High-growth scale-up with institutionalized developer, campus, startup, and enterprise-adoption programs",
+      "gtm_motion": "Land individual builders through product-led use, convert them into local advocates through ambassador and campus cohorts, then use founder events, venture and accelerator partners, and Field Engineering to deepen usage and surface enterprise-ready accounts.",
+      "campaigns_programs": [
+        {
+          "name": "Cursor Ambassadors",
+          "status": "accepting applications when verified",
+          "mechanic": "Selected advocates host meetups, hackathons, and workshops, help new users, moderate community spaces, and provide product feedback. Cursor supplies credits, meetup-cost funding, team access, and community assets.",
+          "spend_type": "event funding plus in-kind credits and merchandise"
+        },
+        {
+          "name": "Cursor Campus Leads",
+          "status": "cohort program; interest list active when verified",
+          "mechanic": "Student leads commit time to workshops, campus events, hackathons, club co-hosting, onboarding, and feedback. Benefits include a paid kickoff trip, travel reimbursement, event resources, and six months of Cursor Ultra.",
+          "spend_type": "travel, reimbursement, event funding, and in-kind subscription"
+        },
+        {
+          "name": "Cursor for Startups events and community motion",
+          "status": "active operating model evidenced by an official hiring brief",
+          "mechanic": "Founder events, hackathons, roundtables, VC and accelerator activations, customer stories, and Field Engineering support are managed as a measurable funnel from activation to enterprise readiness.",
+          "spend_type": "managed program budget; amount undisclosed"
+        }
+      ],
+      "channels": [
+        "developer community",
+        "campus workshops",
+        "hackathons and build nights",
+        "founder events and roundtables",
+        "VC and accelerator co-marketing",
+        "forums and private community groups",
+        "customer stories",
+        "Field Engineering-led adoption"
+      ],
+      "creator_or_partner_mechanics": [
+        "Select for active contribution and teaching ability rather than audience size alone.",
+        "Give advocates early access, product credits, team contact, and a repeatable event format.",
+        "Fund local execution while keeping the core success metric on product activation, usage, retention, and advocacy.",
+        "Use multilingual local leaders and ecosystem partners to reach builders that the central team cannot serve efficiently."
+      ],
+      "budget_spend_evidence": {
+        "classification": "active_budget",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": true,
+        "scope": "Ambassador meetup costs, Campus Lead trips and travel reimbursements, campus-event funding, and an operating budget for startup events",
+        "rationale": "Official pages explicitly promise funding and reimbursements, and the startup-events role explicitly manages spend against outcomes. No total budget or per-event ceiling is disclosed."
+      },
+      "buyer_roles": [
+        "Community or Developer Marketing lead",
+        "Startup Events and Programs Marketing Manager",
+        "Growth and Product Marketing",
+        "Partnerships or VC ecosystem lead",
+        "Field Engineering",
+        "Enterprise adoption or customer success"
+      ],
+      "measurement_signals": [
+        "activated builders and startups",
+        "depth and frequency of product usage",
+        "retention after the event or cohort",
+        "advocacy and reusable customer stories",
+        "accounts reaching enterprise-conversation readiness",
+        "spend per activated or retained account rather than impressions alone"
+      ],
+      "what_mango_should_copy": [
+        "Offer a regional developer cohort where every creator or community lead must ship a real project and report activation, retained usage, and qualified-team signals.",
+        "Pair event operators with technical builders so workshops deliver working outcomes instead of generic awareness.",
+        "Use a small local-event reimbursement pool with standardized briefs, proof requirements, and post-event conversion reporting."
+      ],
+      "what_not_to_copy": [
+        "Do not sell audience reach without a post-event activation and retention plan.",
+        "Do not treat free credits, swag, or an ambassador badge as cash sponsorship evidence.",
+        "Do not assume a community member is willing or able to introduce a budget owner."
+      ],
+      "evidence": [
+        {
+          "url": "https://cursor.com/ambassadors",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Cursor's official Ambassador page lists meetups, hackathons, workshops, free credits, meetup-cost funding, team access, and an application and review process.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://cursor.com/campus-leads",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Cursor's Campus Leads program lists campus workshops and hackathons plus an all-expenses-paid kickoff trip, one hackathon travel reimbursement, event funding, and six months of Cursor Ultra.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://cursor.com/careers/marketing-manager-startup-events-programs",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "An official role brief defines the startup-events funnel and tells the operator to track spend against activation, usage, retention, and advocacy while coordinating with Growth, PMM, and Field Engineering.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Total annual community and events budget",
+        "Typical cash amount per meetup or campus event",
+        "Program-to-paid conversion and retention by region",
+        "Whether Mango's target regions are currently prioritized"
+      ]
+    },
+    {
+      "company": "Replit",
+      "category": "AI coding / agentic software creation",
+      "category_tags": [
+        "ai_coding",
+        "developer_tools",
+        "creator_partnerships",
+        "channel_partners"
+      ],
+      "maturity_stage": "Scaled developer platform with separate creator, solution, integration, education, startup, and event programs",
+      "gtm_motion": "Turn build demonstrations into acquisition, route complex customers to certified solution and integration partners, and use startup challenges and in-kind hackathon support to move users from an idea to a deployed product and commercial outcome.",
+      "campaigns_programs": [
+        {
+          "name": "Replit Creators",
+          "status": "application program live when verified",
+          "mechanic": "Creators must teach clearly, build authentically, and meet published audience-performance thresholds including at least 5,000 average views across their last five posts or videos.",
+          "spend_type": "collaboration terms not publicly disclosed"
+        },
+        {
+          "name": "Replit Partner Programs",
+          "status": "active",
+          "mechanic": "Integration, solution, government, and education tracks provide co-marketing, joint case studies, lead referrals, reseller and co-selling paths, technical enablement, and tier-dependent campaign opportunities.",
+          "spend_type": "referral revenue and co-marketing; rates undisclosed"
+        },
+        {
+          "name": "Race to Revenue",
+          "status": "featured on the official partner hub when verified",
+          "mechanic": "An eight-week founder program is framed around shipping and reaching first revenue, with live content, mentors, and a published 25,000-dollar prize.",
+          "spend_type": "cash prize"
+        },
+        {
+          "name": "Partner Events",
+          "status": "request form live when verified",
+          "mechanic": "Replit provides product credits to hackathon participants but explicitly excludes cash sponsorships, prize money, and direct financial support for events.",
+          "spend_type": "in-kind credits only"
+        }
+      ],
+      "channels": [
+        "creator tutorials and build demonstrations",
+        "hackathons and buildathons",
+        "startup competitions",
+        "solution partners and resellers",
+        "integration partner launches",
+        "education programs",
+        "joint case studies, webinars, newsletters, and conferences",
+        "cloud marketplaces"
+      ],
+      "creator_or_partner_mechanics": [
+        "Require evidence that the creator can teach and generate consistent recent attention.",
+        "Make the product artifact itself the content: a shipped application, deployment, or revenue experiment.",
+        "Give service partners lead referral, reselling, enablement, and co-selling incentives rather than treating them as media inventory.",
+        "Separate credits-only event support from cash programs so organizers receive accurate expectations."
+      ],
+      "budget_spend_evidence": {
+        "classification": "active_budget",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": true,
+        "scope": "A specific 25,000-dollar startup-program prize and referral or co-selling economics; hackathon support is explicitly credits-only",
+        "rationale": "The official partner hub confirms a cash prize and structured revenue paths. It does not disclose creator fees or a general sponsorship budget, and the events page explicitly says event support is not cash."
+      },
+      "buyer_roles": [
+        "Creator Partnerships",
+        "Growth Partnerships",
+        "Business Development and Partnerships",
+        "Developer Relations or Community",
+        "Solution and Integration Partner leads",
+        "Startup Programs",
+        "Partner Marketing"
+      ],
+      "measurement_signals": [
+        "qualified creator applications and recent average views",
+        "applications built, deployed, and retained",
+        "activated users after creator or event exposure",
+        "first-revenue milestones",
+        "registered partner deals and referral revenue",
+        "integration usage and co-sell pipeline",
+        "credit redemption without mislabeling it as cash spend"
+      ],
+      "what_mango_should_copy": [
+        "Pitch an APAC build-to-revenue cohort whose deliverables are shipped apps, activated teams, and qualified partner opportunities.",
+        "Use creator eligibility thresholds as a floor, then select on teaching quality, product authenticity, and audience-role fit.",
+        "Offer separate packages for creators, event organizers, and solution partners because their incentives and proof of value differ."
+      ],
+      "what_not_to_copy": [
+        "Do not report product credits as sponsorship dollars.",
+        "Do not optimize only for content views when Replit's strongest proof is what participants build and monetize.",
+        "Do not assume that joining a free partner program guarantees co-marketing, referrals, or commissions."
+      ],
+      "evidence": [
+        {
+          "url": "https://replit.com/creators",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Replit's official creator page describes a reviewed collaboration program and publishes recent-view and audience thresholds, including 5,000 average views across the last five items.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://replit.com/partners",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "The official partner hub describes four partner tracks, co-marketing, joint case studies, structured referral and co-selling, a 25,000-dollar Race to Revenue prize, and creator and event programs.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://replit.com/partners/events",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Replit explicitly offers credits for hackathons while excluding cash sponsorship, prize money, and direct financial support from this event-support track.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Creator compensation structure and repeat-booking cadence",
+        "Partner commission rates and deal-registration rules",
+        "Race to Revenue prize composition and future recurrence",
+        "Regional program availability and conversion rates"
+      ]
+    },
+    {
+      "company": "Runway",
+      "category": "Generative video and professional creative production",
+      "category_tags": [
+        "video_creative",
+        "film",
+        "creator_funding",
+        "studio_partnerships"
+      ],
+      "maturity_stage": "Scaled creative-AI platform with a studio, formal funding vehicle, festivals, creator programs, and institutional partnerships",
+      "gtm_motion": "Move creators up an ecosystem ladder from community challenges and meetups to Creative Partners, funded productions, festivals, screenings, and studio or industry collaborations; let finished work become both product proof and cultural distribution.",
+      "campaigns_programs": [
+        {
+          "name": "Hundred Film Fund",
+          "status": "official fund announced with applications open in the cited source",
+          "mechanic": "Professional creators submit AI-augmented film projects for grants, advisory support, amplification, and possible co-production.",
+          "spend_type": "5 million-dollar fund with potential to reach 10 million dollars, grants from 5,000 dollars to more than 1 million dollars, plus 2 million dollars in Runway credits"
+        },
+        {
+          "name": "Creative Partners Program",
+          "status": "application route listed when verified",
+          "mechanic": "A selected creator group receives early access to tools and models and can become a recurring source of high-quality work and product feedback.",
+          "spend_type": "benefits disclosed; cash terms not disclosed"
+        },
+        {
+          "name": "Runway Studios, AI Film Festival, and Gen:48",
+          "status": "active resources listed when verified",
+          "mechanic": "Competitions, screenings, festivals, and studio initiatives give work a deadline, curation layer, and distribution moment.",
+          "spend_type": "program support; current cash detail not disclosed on the resources page"
+        },
+        {
+          "name": "Meetups and Student Ambassadors",
+          "status": "active resources listed when verified",
+          "mechanic": "Local creators and student leaders host workshops, events, and creative projects that recruit and educate the next cohort.",
+          "spend_type": "support and resources; amount undisclosed"
+        }
+      ],
+      "channels": [
+        "film funds and grants",
+        "film festivals and screenings",
+        "creator and student ambassador programs",
+        "global meetups",
+        "creative challenges",
+        "studio and production partnerships",
+        "education",
+        "finished films and artist showcases"
+      ],
+      "creator_or_partner_mechanics": [
+        "Select on project quality and credible production intent, not raw follower count.",
+        "Combine cash, product credits, advisory support, amplification, and possible co-production.",
+        "Create recurring public milestones where creators show finished work to an industry audience.",
+        "Use a public partnerships route for communities that can supply curated talent and programming."
+      ],
+      "budget_spend_evidence": {
+        "classification": "active_budget",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": true,
+        "scope": "The Hundred Film Fund and associated creator-production support",
+        "rationale": "Runway's official announcement specifies the fund size and grant range. This proves active creative-production funding, not an unrestricted influencer-media budget."
+      },
+      "buyer_roles": [
+        "Runway Studios or Creative Programs",
+        "Film Fund program lead",
+        "Creative Partnerships",
+        "Community and Meetups",
+        "Education or Student Programs",
+        "Studio and industry partnerships",
+        "Festival programming and operations"
+      ],
+      "measurement_signals": [
+        "qualified project applications",
+        "funded projects reaching production milestones",
+        "films completed, screened, or distributed",
+        "festival submissions and attendance",
+        "repeat participation by selected creators",
+        "product-credit utilization and professional workflow adoption",
+        "studio or distribution follow-on opportunities"
+      ],
+      "what_mango_should_copy": [
+        "Curate an APAC filmmaker cohort with a clear brief, production milestones, local mentors, and a screening or distribution partner.",
+        "Sell talent qualification and program operations, not a generic influencer list.",
+        "Measure completed work, professional adoption, and downstream opportunities alongside reach."
+      ],
+      "what_not_to_copy": [
+        "Do not propose a large grant fund without credible selection, production, rights, safety, and distribution operations.",
+        "Do not count credits at face value as cash spend.",
+        "Do not assume every Creative Partner or ambassador receives payment."
+      ],
+      "evidence": [
+        {
+          "url": "https://runwayml.com/news/hundred-film-fund",
+          "date": "2024-09-26",
+          "date_basis": "published",
+          "claim": "Runway announced a 5 million-dollar film fund that could grow to 10 million dollars, grants from 5,000 dollars to more than 1 million dollars, and an additional 2 million dollars in credits.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://help.runwayml.com/hc/en-us/articles/37464713358099-Runway-Resources",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Runway's official resources page lists global meetups, Runway Studios and its AI film programs, Creative Partners, Student Ambassadors, educator support, and a public partnerships route.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "How much of the announced fund has been awarded or remains available",
+        "Current grant acceptance rate and regional distribution",
+        "Cash compensation terms for Creative Partners and ambassadors",
+        "Attribution from cultural programs to paid product or enterprise usage"
+      ]
+    },
+    {
+      "company": "Gamma",
+      "category": "AI presentations / prosumer visual productivity",
+      "category_tags": [
+        "prosumer_productivity",
+        "creator_marketing",
+        "affiliate",
+        "community_events"
+      ],
+      "maturity_stage": "Scaled prosumer platform with a high-volume creator engine and expanding regional community layer",
+      "gtm_motion": "Use product-led sharing as the base, then run many creator-format and audience experiments, scale the cohorts that clear performance thresholds, retain an attribution layer through affiliate links, and extend into locally operated community events around major product moments.",
+      "campaigns_programs": [
+        {
+          "name": "Scaled creator experimentation with 1stCollab",
+          "status": "documented partner case study",
+          "mechanic": "The vendor reports 15 creator audiences tested, 6,000 creators sourced and contacted, campaigns executed across more than 1,000 creators, international creator payments, and continuous optimization against CPM, engagement, and link clicks.",
+          "spend_type": "repeated paid creator campaigns; absolute cash amount not disclosed"
+        },
+        {
+          "name": "Gamma Affiliate Program",
+          "status": "application route live when verified",
+          "mechanic": "Creators, educators, founders, and community builders receive unique links, promotional resources, PartnerStack tracking, and earnings reporting after approval.",
+          "spend_type": "performance commission; rate not disclosed on the cited help page"
+        },
+        {
+          "name": "Gambassador-supported local events",
+          "status": "active official call for hosts dated July 2026",
+          "mechanic": "Local hosts propose meetups, workshops, panels, or fireside chats. Gamma supplies venue and food budget, playbooks, coupons, swag, event pages, and promotional support, with a September product-launch priority window.",
+          "spend_type": "event cash budget plus in-kind support"
+        }
+      ],
+      "channels": [
+        "YouTube",
+        "TikTok",
+        "Instagram",
+        "creator tutorials and product demonstrations",
+        "affiliate links",
+        "community workshops and meetups",
+        "localized education",
+        "product-launch events"
+      ],
+      "creator_or_partner_mechanics": [
+        "Source broadly, segment creators into test cohorts, negotiate and contract centrally, and scale formats that meet explicit efficiency targets.",
+        "Track engagement, link clicks, creator-level performance, and CPM while processing cross-border payments and content reviews.",
+        "Use affiliates as an evergreen conversion layer rather than substituting affiliate availability for paid-campaign proof.",
+        "Give community hosts a reusable event kit and a product moment around which to organize."
+      ],
+      "budget_spend_evidence": {
+        "classification": "repeated_paid",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": true,
+        "scope": "Repeated creator campaigns and locally hosted event costs",
+        "rationale": "A creator-platform partner case reports negotiation, contracting, international payments, campaigns across more than 1,000 creators, and a 20-fold increase in monthly spend; Gamma's own community announcement separately commits event-cost budgets. The partner's performance metrics remain self-reported and no absolute cash total is claimed."
+      },
+      "buyer_roles": [
+        "Creator Partnerships",
+        "Influencer or Performance Marketing",
+        "Growth Marketing",
+        "Affiliate or Partner Marketing",
+        "Community and Regional Growth",
+        "Events",
+        "Marketing Operations and creator payments"
+      ],
+      "measurement_signals": [
+        "creator-audience cohort CPM",
+        "engagement and link clicks",
+        "tracked referrals and paid conversions",
+        "creative-format and audience test lift",
+        "monthly spend efficiency",
+        "event registrations, attendance, activation, and post-event retention",
+        "regional content and course reuse"
+      ],
+      "what_mango_should_copy": [
+        "Build a regional test-and-scale creator pod with explicit hypotheses, small initial cohorts, tracked links, creator-level QA, and a stop-or-scale rule.",
+        "Bundle local community hosts and education content into product launches so one activation produces both content and user learning.",
+        "Provide cross-border sourcing, contracting, payment operations, and culturally fluent creative review as the differentiated service."
+      ],
+      "what_not_to_copy": [
+        "Do not promise Gamma-scale volume before Mango has repeatable creator QA and attribution.",
+        "Do not treat vendor-reported views as independently audited revenue impact.",
+        "Do not quote the multi-million-dollar phrase from an archived hiring requirement as Gamma's actual budget."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.1stcollab.com/customers/gamma",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "A Gamma vendor case study reports campaigns across more than 1,000 creators, international creator payments, 15 audience tests, 31 million views, sub-13-dollar CPM, and a 20-fold increase in monthly spend during the partnership.",
+          "source_type": "reputable_secondary",
+          "confidence": "medium",
+          "fact_status": "probable"
+        },
+        {
+          "url": "https://community.gamma.app/x/gamma-announcements/0qpiq1o1ixmw/host-your-own-local-gamma-event-with-full-support",
+          "date": "2026-07-09",
+          "date_basis": "published",
+          "claim": "Gamma's official community announcement offers local hosts venue and food budget, an event playbook, coupons, swag, an event page, and promotional support around a September launch window.",
+          "source_type": "first_party_social",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://help.gamma.app/en/articles/11048092-how-do-i-join-the-gamma-affiliate-program",
+          "date": "2025-10-10",
+          "date_basis": "published",
+          "claim": "Gamma's help center documents a reviewed PartnerStack affiliate program with unique links, promotional resources, and referral and earnings tracking.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://builtin.com/job/creator-partnerships-lead/7630961",
+          "date": "2025-11-10",
+          "date_basis": "listing_removed_date",
+          "claim": "An archived Gamma job mirror describes an existing creator program with more than 150 influencers going live monthly; its multi-million-dollar language is a candidate-experience requirement and is not treated as proof of Gamma's own budget.",
+          "source_type": "reputable_secondary",
+          "confidence": "medium",
+          "fact_status": "probable"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Current total creator budget and allocation by market",
+        "Paid versus affiliate versus organic share of the 1,000-plus creator cohort",
+        "Independent validation of vendor-reported views and CPM",
+        "Current creator cadence after the archived hiring brief",
+        "Regional event budget ceilings and selection criteria"
+      ]
+    },
+    {
+      "company": "ElevenLabs",
+      "category": "Voice, audio, and conversational AI",
+      "category_tags": [
+        "voice_audio_ai",
+        "b2b_agents",
+        "affiliate",
+        "ambassador_program"
+      ],
+      "maturity_stage": "Scaled multi-product AI platform with distinct affiliate, ambassador, API, creative, and agent product lines",
+      "gtm_motion": "Use authentic product tutorials and search-intent content to compound affiliate conversions, while a separate ambassador system recruits community builders and creators for events, education, product feedback, and a potential progression into paid opportunities.",
+      "campaigns_programs": [
+        {
+          "name": "Creator Affiliate Program",
+          "status": "live when verified",
+          "mechanic": "Creators and publishers receive recurring commission on attributed paid subscriptions across ElevenCreative, ElevenAgents, and ElevenAPI. Official examples teach use-case-first, evergreen tutorial content with a clear conversion call to action.",
+          "spend_type": "up to 22 percent commission for 12 months on qualifying subscriptions"
+        },
+        {
+          "name": "ElevenLabs Ambassador Program",
+          "status": "application program live when verified",
+          "mechanic": "Community Builders host local events and Content Creators publish tutorials, demos, reviews, and workflows. Benefits include credits, early access, event funding, support, team access, and the possibility of paid opportunities over time.",
+          "spend_type": "event funding and in-kind support; creator paid opportunities are possible but not guaranteed"
+        },
+        {
+          "name": "Affiliate success-story content",
+          "status": "official case-study series",
+          "mechanic": "Top affiliates become educational proof: ElevenLabs documents their workflow, placement of tracked links, conversion behavior, and recurring revenue mechanics to recruit and improve the wider affiliate base.",
+          "spend_type": "performance commission"
+        }
+      ],
+      "channels": [
+        "YouTube and evergreen tutorial content",
+        "search-oriented workflow education",
+        "creator demos and reviews",
+        "affiliate links",
+        "local meetups, hackathons, workshops, and demo nights",
+        "Discord and ambassador community",
+        "product launch education"
+      ],
+      "creator_or_partner_mechanics": [
+        "Recruit creators who already use the product and can demonstrate a concrete workflow.",
+        "Pay affiliate commission only when a tracked user becomes and remains a qualifying paid subscriber.",
+        "Keep ambassador community participation separate from affiliate compensation and from any later paid creator opportunity.",
+        "Turn successful affiliates into official playbooks that teach other creators how to create useful, conversion-oriented content."
+      ],
+      "budget_spend_evidence": {
+        "classification": "affiliate_only",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": false,
+        "scope": "Performance affiliate commissions are confirmed; event funding is confirmed but amount and cadence are undisclosed; upfront creator sponsorship spend is not established by these sources",
+        "rationale": "Official sources prove recurring affiliate payouts and ambassador event support. The ambassador page explicitly says it is not a paid role and that paid creator opportunities may be unlocked, so those opportunities are not promoted to confirmed repeated paid spend."
+      },
+      "buyer_roles": [
+        "Affiliate Partnerships",
+        "Ambassador or Community Programs",
+        "Creator Partnerships",
+        "Social and Content Growth",
+        "Regional Growth Marketing",
+        "Product Marketing for ElevenCreative, ElevenAgents, or ElevenAPI"
+      ],
+      "measurement_signals": [
+        "attributed paid subscribers",
+        "subscription revenue and retained commission window",
+        "conversion by tutorial and use case",
+        "monthly referrals from evergreen content",
+        "event attendance and activated builders",
+        "ambassador content completion and quality",
+        "progression from ambassador to paid opportunity, if any"
+      ],
+      "what_mango_should_copy": [
+        "Start with bilingual creators who already use the product and can teach one high-intent workflow rather than commissioning generic reviews.",
+        "Pair tracked conversion with regional workshops so evergreen content and community adoption reinforce each other.",
+        "Create a transparent ladder from user to ambassador to affiliate to separately contracted paid creator, with distinct evidence and compensation fields."
+      ],
+      "what_not_to_copy": [
+        "Do not call an ambassador a paid creator unless a separate paid engagement is evidenced.",
+        "Do not count the theoretical maximum affiliate commission as committed campaign budget.",
+        "Do not optimize only for referral volume without paid conversion and retention."
+      ],
+      "evidence": [
+        {
+          "url": "https://elevenlabs.io/affiliate",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "ElevenLabs' official affiliate page offers up to 22 percent commission over 12 months on qualifying paid subscriptions and says thousands of creators, publishers, bloggers, and influencers participate.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://elevenlabs.io/ambassador",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "The official ambassador program separates Community Builder and Content Creator tracks, offers event funding, credits, support, and playbooks, and states that it is not a paid role although paid opportunities may become available.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://elevenlabs.io/blog/greg-preece-on-youtube-monetisation-with-the-elevenlabs-affiliate-program",
+          "date": "2025-04-28",
+          "date_basis": "published",
+          "claim": "An official ElevenLabs case says a top affiliate refers thousands of users monthly and uses evergreen, product-based YouTube tutorials and prominent tracked links to drive recurring affiliate revenue.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Event-funding amount and approval rate",
+        "Criteria and typical compensation for separately paid creator opportunities",
+        "Affiliate paid conversion and retention by region",
+        "Whether paid creator campaigns repeat outside the affiliate program"
+      ]
+    },
+    {
+      "company": "Clay",
+      "category": "AI-assisted GTM automation and revenue operations",
+      "category_tags": [
+        "gtm_automation",
+        "b2b_agents",
+        "solution_partners",
+        "creator_education"
+      ],
+      "maturity_stage": "Scaled B2B platform with a tiered practitioner, agency, integration, creator, education, and community ecosystem",
+      "gtm_motion": "Make expert practitioners and agencies part of delivery and distribution: certify them, list them, match them to customers, reward referrals, fund partner-created best practices, and turn their client outcomes into co-marketing and category education.",
+      "campaigns_programs": [
+        {
+          "name": "Solutions Partner Program",
+          "status": "active",
+          "mechanic": "GTM engineers, consultancies, and agencies progress through tiers using certifications, activity, capability, and customer feedback; the directory routes customer demand and higher tiers unlock deeper support and co-marketing.",
+          "spend_type": "revenue share, grants, reimbursements, and co-marketing; amounts not public"
+        },
+        {
+          "name": "Partner Growth Fund",
+          "status": "announced as part of the official partner program",
+          "mechanic": "Clay offers grants and reimbursements to partners that share GTM best practices, attend industry events, and invest in ecosystem capabilities.",
+          "spend_type": "cash grants and reimbursements"
+        },
+        {
+          "name": "Clay Creators",
+          "status": "existing member community but public page says expanded content support is under construction",
+          "mechanic": "Top users receive a private creator community, resources, content support, product and team access, and affiliate-revenue paths; application availability should be rechecked before outreach.",
+          "spend_type": "affiliate revenue and in-kind support; upfront creator fees not established"
+        },
+        {
+          "name": "Referral and expert-directory motion",
+          "status": "active",
+          "mechanic": "Qualified Solutions Partners can receive revenue share for new paid customers, while the customer gets credits and can request expert matching through the directory.",
+          "spend_type": "performance revenue share plus credits"
+        }
+      ],
+      "channels": [
+        "solution and integration partners",
+        "expert directory and customer matching",
+        "certifications and cohort education",
+        "creator tutorials and playbooks",
+        "community clubs and events",
+        "webinars and case studies",
+        "referrals and revenue share",
+        "co-marketing with agencies and data providers"
+      ],
+      "creator_or_partner_mechanics": [
+        "Turn implementation skill and client outcomes into a tiered, searchable distribution asset.",
+        "Use certification, customer feedback, and partner activity as quality controls.",
+        "Fund partners to publish useful category practices and attend ecosystem events rather than buying broad, undifferentiated reach.",
+        "Reward paid-customer referrals while keeping credits and cash revenue share distinct."
+      ],
+      "budget_spend_evidence": {
+        "classification": "active_budget",
+        "cash_budget_confirmed": true,
+        "discretionary_cash_marketing_budget_confirmed": true,
+        "scope": "Partner Growth Fund grants and reimbursements plus performance revenue share for Solutions Partners",
+        "rationale": "Clay's official announcement commits grants and reimbursements to partner ecosystem activity. No total allocation or creator-media budget is disclosed, and the creator program page says expanded support is still under construction."
+      },
+      "buyer_roles": [
+        "Ecosystem or Partnerships",
+        "Solutions Partner Program",
+        "Integration Partnerships",
+        "Partner Marketing",
+        "Creator or Community Programs",
+        "Education and Certification",
+        "Growth or Revenue Marketing"
+      ],
+      "measurement_signals": [
+        "certifications and tier advancement",
+        "partner activity and customer feedback",
+        "customer-to-partner matches",
+        "registered referrals and paid-account conversion",
+        "partner-sourced or influenced pipeline",
+        "implementation success and expansion",
+        "co-marketing content tied to qualified GTM audiences"
+      ],
+      "what_mango_should_copy": [
+        "For B2B AI, recruit a small group of credible operators who can both implement the product and teach it to the target market.",
+        "Rank partners on demonstrated workflows, customer proof, and qualified pipeline rather than social following.",
+        "Offer co-marketing grants only against a measurable artifact such as a workshop, playbook, customer deployment, or verified pipeline contribution."
+      ],
+      "what_not_to_copy": [
+        "Do not present the Clay Creators public intake as fully open while the official page says it is under construction.",
+        "Do not treat partner-directory membership as proof of revenue or customer quality.",
+        "Do not use credits or fundraising as a substitute for a scoped cash-program signal."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.clay.com/blog/announcing-the-clay-partner-program",
+          "date": "2025-08-19",
+          "date_basis": "published",
+          "claim": "Clay's official partner-program announcement describes tiering, certifications, customer feedback, co-marketing, and a Partner Growth Fund that offers grants and reimbursements.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://www.clay.com/partners/creators",
+          "date": "2026-08-24",
+          "date_basis": "page_last_modified",
+          "claim": "Clay's official creator page describes an existing 300-plus-member creator community, benefits and affiliate revenue, while warning that expanded content support is under construction.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://www.clay.com/faq/how-can-i-get-rewarded-for-referring-clay",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Clay's official FAQ distinguishes credit-only referrals from credits plus revenue share for qualifying paid-customer referrals through the Solutions Partner route.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://www.clay.com/experts",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Clay operates a public, tiered directory that lets customers find GTM and RevOps consultancies and implementation specialists.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Partner Growth Fund size, award cadence, and regional eligibility",
+        "Current creator-application availability",
+        "Revenue-share rates and retention conditions",
+        "Partner-sourced pipeline and customer satisfaction by tier"
+      ]
+    },
+    {
+      "company": "Retell AI",
+      "category": "B2B voice agents and contact-center automation",
+      "category_tags": [
+        "b2b_agents",
+        "voice_ai",
+        "solution_partners",
+        "developer_community"
+      ],
+      "maturity_stage": "Growth-stage B2B platform building a formal reseller, implementation, integration, and advocate ecosystem",
+      "gtm_motion": "Use certified implementation and reseller partners to close the gap between an API platform and production business outcomes, route buyer demand through a tiered directory, and surround the channel with training, co-branded assets, case studies, and a community of technical champions.",
+      "campaigns_programs": [
+        {
+          "name": "Certified Partner Program",
+          "status": "active",
+          "mechanic": "App developers, technology integrators, and resellers receive training, certification, tools, technical support, marketing assets, co-branded campaign opportunities, and profit-sharing paths after qualification.",
+          "spend_type": "formal revenue and co-marketing mechanisms; rates and cash commitments undisclosed"
+        },
+        {
+          "name": "Solution Partner Directory",
+          "status": "active and populated when verified",
+          "mechanic": "Retell segments partners into visible tiers and lets buyers browse implementation specialists by capability and use case, converting ecosystem supply into a customer-acquisition and deployment channel.",
+          "spend_type": "demand routing and partner economics; no campaign budget shown"
+        },
+        {
+          "name": "Retell Champions",
+          "status": "application page live when verified",
+          "mechanic": "Developers, creators, and community leaders commit time to mentoring, demos, tutorials, internal advocacy, and events in exchange for access, certification vouchers, recognition, and speaking opportunities.",
+          "spend_type": "in-kind benefits; cash compensation not stated"
+        }
+      ],
+      "channels": [
+        "solution partners and resellers",
+        "technology and app integrations",
+        "partner directory",
+        "co-branded campaigns",
+        "case studies and sales enablement",
+        "developer tutorials and demos",
+        "webinars and workshops",
+        "community champions"
+      ],
+      "creator_or_partner_mechanics": [
+        "Qualify partners on technical and industry capability, then certify and tier them.",
+        "Route buyers to specialists who can implement the product in vertical workflows.",
+        "Give partners marketing templates, case studies, and co-branding so deployment proof creates new demand.",
+        "Use champions for education and advocacy without implying they are paid creators."
+      ],
+      "budget_spend_evidence": {
+        "classification": "formal_program",
+        "cash_budget_confirmed": false,
+        "discretionary_cash_marketing_budget_confirmed": false,
+        "scope": "Structured profit-sharing and co-branded marketing opportunities are described, but no rate, active payout, or Retell-funded creator or campaign amount is disclosed",
+        "rationale": "The partner program is real and the public directory is populated. The official evidence does not justify upgrading it to confirmed active cash marketing spend."
+      },
+      "buyer_roles": [
+        "Channel or Partnerships",
+        "Solution Partner Program",
+        "Partner Marketing",
+        "Developer Relations or Community",
+        "Solutions Engineering",
+        "Customer Success",
+        "Vertical GTM or Industry Marketing"
+      ],
+      "measurement_signals": [
+        "certified and active partners by tier",
+        "buyer-to-partner introductions",
+        "partner-sourced pipeline and profit share",
+        "production agents deployed",
+        "call volume, retention, and expansion from partner accounts",
+        "co-branded campaign leads",
+        "case-study outcomes and implementation quality"
+      ],
+      "what_mango_should_copy": [
+        "Build a vertical operator network that can turn an agent demo into a production deployment, then market the resulting business outcomes.",
+        "Pitch Retell a regional partner-activation package with technical workshops, qualified agencies, and customer-story production rather than broad consumer creators.",
+        "Track partner-influenced deployments and usage, not just registrations or event attendance."
+      ],
+      "what_not_to_copy": [
+        "Do not call co-marketing eligibility an approved campaign budget.",
+        "Do not equate directory size or certification badges with partner productivity.",
+        "Do not label Champions as paid advocates without separate compensation evidence."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.retellai.com/blog/how-retell-ais-certified-partners-work",
+          "date": "2024-11-22",
+          "date_basis": "published",
+          "claim": "Retell's official partner overview defines app, integration, and reseller tracks with training, certification, marketing assets, co-branded campaigns, and profit-sharing opportunities.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://www.retellai.com/partners",
+          "date": "2026-08-24",
+          "date_basis": "page_last_modified",
+          "claim": "Retell maintains a populated public Solution Partner directory with visible partner tiers and implementation specializations.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://champions.retellai.com/",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "The Retell Champions page recruits active builders and content creators for mentoring, tutorials, demos, internal advocacy, and events, offering access, vouchers, recognition, and speaking opportunities but not cash compensation.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Partner revenue-share rates and active payout volume",
+        "Number of productive versus listed partners",
+        "Current co-marketing campaign cadence and cash contribution",
+        "Champion participation, completion, and compensation beyond listed perks"
+      ]
+    },
+    {
+      "company": "Kaito",
+      "category": "Crypto-AI attention intelligence and brand-creator marketplace",
+      "category_tags": [
+        "crypto_ai_adjacent",
+        "creator_marketplace",
+        "attention_analytics",
+        "token_incentives"
+      ],
+      "maturity_stage": "Crypto-AI network expanding from profitable intelligence software into tokenized distribution, capital formation, and creator-marketplace products",
+      "gtm_motion": "Convert attention data into a two-sided distribution market: score creator relevance and reputation, let brands publish structured campaigns and reward offers, let eligible creators quote and contract, track performance and completion, and use ecosystem and creator token incentives to attract and retain supply.",
+      "campaigns_programs": [
+        {
+          "name": "Kaito Studio",
+          "status": "official marketplace and terms live when verified",
+          "mechanic": "Participating brands publish objectives, timelines, requirements, brand guidelines, performance tracking, and reward budgets. Eligible creators submit quotes, brands select participants, and selected creators contract directly with the brand and submit content for verification and settlement.",
+          "spend_type": "participating-brand rewards, incentives, or payments; not evidence of Kaito's own cash media budget"
+        },
+        {
+          "name": "Yaps and long-term creator incentives",
+          "status": "formal token incentive design",
+          "mechanic": "Kaito weights relevance, reputation, originality, focused discussion, alignment, loyalty, and ecosystem participation rather than raw volume, then uses creator and ecosystem allocations to reward participation.",
+          "spend_type": "token allocation, not cash marketing spend"
+        },
+        {
+          "name": "Ecosystem and network growth allocation",
+          "status": "documented tokenomics allocation",
+          "mechanic": "A token allocation is designated for grants, marketing, incentives, and ecosystem initiatives, with separate creator and partner allocations.",
+          "spend_type": "token capacity and incentive pool; realized cash value and discretionary campaign budget not established"
+        }
+      ],
+      "channels": [
+        "data-driven creator marketplace",
+        "project-specific creator campaigns",
+        "community content and attention incentives",
+        "capital and ecosystem launch programs",
+        "wallet-based rewards",
+        "brand briefs and creator quotes",
+        "performance attribution and campaign orchestration"
+      ],
+      "creator_or_partner_mechanics": [
+        "Match creators and brands using relevance, audience alignment, and reputation data.",
+        "Require structured briefs, creator quotes, explicit selection, separate brand contracts, content review, and completion rules.",
+        "Tie rewards to quality and verified participation rather than raw posting volume.",
+        "Keep platform fees, brand-funded rewards, and Kaito token incentives as separate economic flows."
+      ],
+      "budget_spend_evidence": {
+        "classification": "formal_program",
+        "cash_budget_confirmed": false,
+        "discretionary_cash_marketing_budget_confirmed": false,
+        "scope": "Kaito operates the formal marketplace and has token incentive allocations; participating brands, not Kaito, set campaign reward budgets under separate contracts",
+        "rationale": "Studio terms prove real reward and payment mechanics, while tokenomics proves reserved creator and ecosystem capacity. Neither establishes Kaito's own discretionary cash creator-marketing budget, and token allocations are not converted into a cash-budget claim."
+      },
+      "buyer_roles": [
+        "Kaito Studio partnerships or brand success",
+        "Creator ecosystem or supply",
+        "Campaign operations and attribution",
+        "Ecosystem Growth",
+        "Foundation or protocol incentives",
+        "Compliance, settlement, and marketplace operations",
+        "Participating-brand campaign owner"
+      ],
+      "measurement_signals": [
+        "qualified creator supply and brand demand",
+        "creator-to-campaign match and acceptance rate",
+        "submitted reward quotes and selected creators",
+        "verified content completion",
+        "campaign performance and attribution",
+        "quality-weighted engagement and mindshare",
+        "repeat campaigns and creator retention",
+        "token-incentive participation kept separate from cash return"
+      ],
+      "what_mango_should_copy": [
+        "Use structured campaign briefs, creator quotes, explicit selection, evidence-backed delivery, and performance attribution in the sponsorship graph.",
+        "Rank creators on topical authority, audience fit, and verified quality signals instead of follower count.",
+        "Maintain separate ledgers for brand cash, affiliate or performance rewards, token incentives, credits, and platform fees."
+      ],
+      "what_not_to_copy": [
+        "Do not use token rewards as proof of a discretionary cash marketing budget.",
+        "Do not equate attention, mindshare, token price, or follower net worth with buyer demand or campaign ROI.",
+        "Do not build Mango's general AI GTM model around crypto-native token incentives where the customer's legal, brand-safety, or audience context does not fit."
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.kaito.ai/overview/what-is-kaito",
+          "date": "2026-08-25",
+          "date_basis": "accessed; page reported last updated approximately three months earlier",
+          "claim": "Kaito describes Studio as a brand-creator operating system using mutual fit and audience alignment for matching, performance attribution, and end-to-end campaign orchestration.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://docs.kaito.ai/legal/terms-of-use-studio",
+          "date": "2026-08-25",
+          "date_basis": "accessed",
+          "claim": "Kaito Studio terms define campaign briefs, reward quotes, brand-set reward budgets, creator selection, direct brand-creator contracts, performance tracking, content verification, and reward settlement.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        },
+        {
+          "url": "https://docs.kaito.ai/overview/introducing-usdkaito/tokenomics",
+          "date": "2026-05-11",
+          "date_basis": "published",
+          "claim": "Kaito tokenomics reserves 7.5 percent for long-term creator incentives and 32.2 percent for ecosystem and network growth including grants, marketing, and incentives; these are token allocations, not cash-spend proof.",
+          "source_type": "official",
+          "confidence": "high",
+          "fact_status": "confirmed"
+        }
+      ],
+      "last_verified_at": "2026-08-25T02:18:52+08:00",
+      "unknowns": [
+        "Number and value of completed Studio campaigns",
+        "Mix of cash, stablecoin, and volatile-token rewards",
+        "Kaito-funded versus participating-brand-funded campaign volume",
+        "Independent validation of creator-network and attribution metrics",
+        "Retention and ROI after token incentives are reduced"
+      ]
+    }
+  ]
+}
