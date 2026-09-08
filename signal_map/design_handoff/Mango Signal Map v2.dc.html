@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#1F4144;color:#F3F1EA;font-family:Inter,"Noto Sans SC",-apple-system,"PingFang SC",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#5FC4BB;text-decoration:none}a:hover{color:#F3F1EA}
+button,input,textarea{font-family:inherit}
+::selection{background:#5FC4BB;color:#0E0E0E}
+@keyframes msm-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes msm-line{from{stroke-dashoffset:2400}to{stroke-dashoffset:0}}
+@keyframes msm-band{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes msm-wipe{0%{opacity:0}18%{opacity:1}62%{opacity:1}100%{opacity:0}}
+@keyframes msm-wipe-label{0%{opacity:0;transform:translateY(6px)}30%{opacity:1;transform:none}70%{opacity:1}100%{opacity:0}}
+type-line{min-height:1.35em}
+@media (prefers-reduced-motion:reduce){[data-wipe]{display:none!important}}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #5FC4BB;outline-offset:2px}
+@media print{header,aside[data-screen-label],[data-print-hide]{display:none!important}body{background:#fff;color:#111}section[data-screen-label="阵容价值"]{color:#111}section[data-screen-label="阵容价值"] *{color:#111!important;background:transparent!important;border-color:#999!important}}
+</style>
+<script src="motion.js"></script>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<sc-if value="{{ wipe.on }}" hint-placeholder-val="{{ false }}">
+<div data-wipe="true" data-print-hide="true" style="position:fixed;inset:0;z-index:80;background:#0E0E0E;pointer-events:none;display:grid;place-items:center;animation:msm-wipe .58s cubic-bezier(.2,.8,.2,1) both">
+  <div style="display:flex;align-items:baseline;gap:18px;animation:msm-wipe-label .58s cubic-bezier(.2,.8,.2,1) both"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:#5FC4BB">{{ wipe.n }} ///</span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:rgba(243,241,234,.85)">{{ wipe.label }}</span></div>
+</div>
+</sc-if>
+
+<!-- TOP BAR -->
+<header style="position:sticky;top:0;z-index:40;height:56px;background:#0E0E0E;display:flex;align-items:center;gap:14px;padding:0 40px;border-bottom:1px solid rgba(243,241,234,.12)">
+  <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;background:transparent;border:0;color:#F3F1EA;padding:0"><img src="assets/mango-mark.png" alt="Mango Labs" style="height:26px;width:auto"><span style="font-size:20px;font-weight:400;letter-spacing:-.01em">MangoLabs</span></button>
+  <span style="width:1px;height:18px;background:rgba(243,241,234,.3)"></span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:rgba(243,241,234,.75)">SIGNAL MAP</span>
+  <nav style="margin-left:auto;display:flex;gap:28px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.go }}" style="background:transparent;border:0;padding:0;color:{{ s.color }};font-family:inherit;font-size:inherit;letter-spacing:inherit;display:flex;gap:8px"><span style="color:{{ s.numColor }}">{{ s.n }}</span>{{ s.label }}</button></sc-for>
+  </nav>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(243,241,234,.5);min-width:64px;text-align:right">{{ saveNote }}</span>
+</header>
+
+<!-- ================= HOME ================= -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="首页" style="position:relative;min-height:max(calc(100vh - 56px),720px);overflow:hidden;background:linear-gradient(180deg,#2C5A5D 0%,#1F4144 55%,#14302F 100%);display:flex;flex-direction:column">
+  <x-import component-from-global-scope="gradient-waves" from="./gradient-waves.js" horizon="#14302F" wave="#24605C" crest="#7FD8CE" speed="0.22" amplitude="2.2" tilt="1.18" zoom="1.05" height="6" fog-depth="26" opacity="0.9" brightness="1.15" grain-intensity="0.04" parallax="0.6" detail="medium" blend="screen" layer-opacity="0.72" style="position:absolute;left:0;right:0;top:0;bottom:0;width:100%;height:100%" hint-size="100%,100%"></x-import>
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" aria-hidden="true">
+    <defs><filter id="msm-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter></defs>
+    <circle cx="1040" cy="560" r="300" fill="none" stroke="#F3F1EA" stroke-width="6" opacity=".4" filter="url(#msm-glow)"></circle>
+    <circle cx="1040" cy="560" r="300" fill="none" stroke="#F3F1EA" stroke-width="1.6" stroke-dasharray="2400" style="animation:msm-line 2.4s cubic-bezier(.2,.8,.2,1) both"></circle>
+  </svg>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:#0F2526;border-top:1px solid rgba(243,241,234,.5);pointer-events:none">
+    <svg viewBox="0 0 1000 120" preserveAspectRatio="none" style="position:absolute;left:55%;right:0;top:0;height:100%;width:45%" aria-hidden="true">
+      <g stroke="#F3F1EA" stroke-width="1.5" vector-effect="non-scaling-stroke">
+        <path d="M0 26H420l14 6h566" opacity=".45"></path>
+        <path d="M180 52H700l14 6h286" opacity=".3"></path>
+        <path d="M60 78H380l14 6h546" opacity=".18"></path>
+        <path d="M300 104H620l14 6h366" opacity=".1"></path>
+      </g>
+    </svg>
+  </div>
+
+  <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;padding:64px 96px 160px;max-width:1120px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:rgba(243,241,234,.7);animation:msm-in .6s both">01 /// KOL 阵容配置</div>
+    <h1 style="margin:28px 0 0;font-size:clamp(44px,5.4vw,80px);line-height:1.08;letter-spacing:-.02em;font-weight:300;max-width:16ch;text-wrap:pretty;animation:msm-in .7s .1s both"><em style="font-weight:700;font-style:italic">Mango Signal Map，</em><br>让重要的人，看见你。</h1>
+    <p style="margin:32px 0 0;max-width:50ch;font-size:clamp(16px,1.3vw,20px);line-height:1.65;color:rgba(243,241,234,.78);text-wrap:pretty;animation:msm-in .7s .2s both">你表达想被谁注意到、进入哪些圈层、预算多少；Mango 已核实报价的创作者随之重新排列，形成一份属于你项目、每个人都有解释的传播阵容。</p>
+    <div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;animation:msm-in .7s .3s both">
+      <button onClick="{{ openTokenEntry }}" style="height:52px;padding:0 26px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:18px" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)">MANGO 已为我准备了 BRIEF <span>→</span></button>
+      <button onClick="{{ goStart }}" style="height:52px;padding:0 26px;border:1px solid rgba(243,241,234,.3);background:rgba(0,0,0,.18);color:rgba(243,241,234,.9);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em" style-hover="border-color:#F3F1EA;color:#F3F1EA">第一次接触 MANGO</button>
+    </div>
+    <sc-if value="{{ tokenEntryOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;animation:msm-in .3s both">
+        <div style="display:flex"><input value="{{ tokenInput }}" onChange="{{ setTokenInput }}" onKeyDown="{{ tokenKey }}" placeholder="输入 Mango 顾问发给你的 Brief 码 · 演示输入 demo" style="height:52px;width:min(420px,100%);padding:0 16px;border:1px solid rgba(243,241,234,.5);border-right:0;background:rgba(0,0,0,.35);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;outline:none"><button onClick="{{ submitToken }}" style="height:52px;padding:0 20px;border:1px solid rgba(243,241,234,.5);background:#F3F1EA;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em">打开 BRIEF</button></div>
+        <sc-if value="{{ tokenError }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C9A227">未找到该 Brief，请核对或联系你的 Mango 顾问。</span></sc-if>
+      </div>
+    </sc-if>
+  </div>
+  <div style="position:absolute;left:96px;bottom:48px;max-width:50%;display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:rgba(243,241,234,.6);text-transform:uppercase;line-height:1.8">{{ slashFlow }}</div>
+  </div>
+</section>
+
+<section style="padding:96px 96px 120px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(243,241,234,.14);border-top:1px solid rgba(243,241,234,.14);border-bottom:1px solid rgba(243,241,234,.14)">
+  <div style="background:#1F4144;padding:40px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5FC4BB">01</div><h3 style="margin:18px 0 0;font-size:26px;font-weight:400;line-height:1.25">你表达偏好</h3><p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.7);text-wrap:pretty">想被谁注意到、进入哪些圈层、预算多少。每个选择即时改变候选与预算，不需要研究几百个账号。</p></div>
+  <div style="background:#1F4144;padding:40px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5FC4BB">02</div><h3 style="margin:18px 0 0;font-size:26px;font-weight:400;line-height:1.25">名单随你成形</h3><p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.7);text-wrap:pretty">每位创作者有本项目适配度与解释；整套阵容说明覆盖哪些圈层、预算花在哪里、替换一个人会发生什么。</p></div>
+  <div style="background:#1F4144;padding:40px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5FC4BB">03</div><h3 style="margin:18px 0 0;font-size:26px;font-weight:400;line-height:1.25">Mango 复核并执行</h3><p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.7);text-wrap:pretty">确认初步阵容后，Mango 复核最新报价、档期与合作条件，返回最终执行方案。确认不是购买。</p></div>
+</section>
+<section style="padding:96px 96px 120px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start">
+  <div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5FC4BB">你最终会拿到</div><h2 style="margin:18px 0 0;font-size:clamp(28px,2.6vw,40px);line-height:1.15;letter-spacing:-.01em;font-weight:300;max-width:18ch;text-wrap:pretty">一份能在会议上直接讨论的初步阵容。</h2><p style="margin:16px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.7);max-width:44ch">不是几百个账号的数据库，也不是只能签字的静态提案。</p></div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.3)">
+    <div style="display:grid;grid-template-columns:40px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid rgba(243,241,234,.14);align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FC4BB">01</span><div><div style="font-size:18px;font-weight:400">名单里的每个人，都能解释为什么是他</div><div style="margin-top:4px;font-size:13px;color:rgba(243,241,234,.6)">本项目适配度、传播角色、面向的人群与市场、价格档位、报价与商务状态。</div></div></div>
+    <div style="display:grid;grid-template-columns:40px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid rgba(243,241,234,.14);align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FC4BB">02</span><div><div style="font-size:18px;font-weight:400">整套阵容覆盖了哪些圈层，缺口在哪</div><div style="margin-top:4px;font-size:13px;color:rgba(243,241,234,.6)">可能进入谁的信息流；已观察到的关系 Signal；替换一个人会发生什么。</div></div></div>
+    <div style="display:grid;grid-template-columns:40px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid rgba(243,241,234,.14);align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FC4BB">03</span><div><div style="font-size:18px;font-weight:400">预算区间与哪些事项仍需 Mango 核验</div><div style="margin-top:4px;font-size:13px;color:rgba(243,241,234,.6)">价格只显示档位；确认后 Mango 复核最新报价、档期与合作条件并返回执行方案。</div></div></div>
+  </div>
+</section>
+<footer style="padding:24px 96px;border-top:1px solid rgba(243,241,234,.14);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:rgba(243,241,234,.45)"><span>© 2026 MANGO LABS GLOBAL HOLDING LTD.</span><sc-if value="{{ showDemo }}" hint-placeholder-val="{{ true }}"><span>{{ demoNotice }}</span></sc-if></footer>
+</sc-if>
+
+<!-- ================= UNDERSTAND (A/B) ================= -->
+<sc-if value="{{ isUnderstand }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Mango 对你的理解" style="flex:1;background:#F3F1EA;color:#141414;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.7fr);min-height:calc(100vh - 56px)">
+  <div style="padding:80px 80px 120px;border-right:1px solid #D9D6CC">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#0E6E6A">01 /// 你的 BRIEF</div>
+    <h1 style="margin:24px 0 0;font-size:clamp(36px,3.8vw,56px);line-height:1.1;letter-spacing:-.02em;font-weight:300;max-width:20ch;text-wrap:pretty;animation:msm-in .5s both"><em style="font-weight:700;font-style:italic">{{ project.name }}，</em>这是 Mango 根据此前沟通为你整理的 Brief。</h1>
+    <p style="margin:20px 0 0;font-size:16px;line-height:1.7;color:#6B6B66;max-width:60ch">不需要重新填写。有出入直接改；确认后进入阵容配置。</p>
+
+    <div style="margin-top:48px;border-top:1px solid #141414">
+      <sc-for list="{{ understandRows }}" as="r" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:160px 1fr 64px;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid #D9D6CC">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6B6B66">{{ r.label }}</span>
+          <sc-if value="{{ r.editing }}" hint-placeholder-val="{{ false }}"><input value="{{ r.value }}" onChange="{{ r.change }}" onBlur="{{ r.done }}" onKeyDown="{{ r.key }}" autoFocus="{{ true }}" style="font-size:18px;font-weight:400;padding:4px 0;border:0;border-bottom:1px solid #0E6E6A;background:transparent;color:#141414;outline:none;width:100%"></sc-if>
+          <sc-if value="{{ r.showValue }}" hint-placeholder-val="{{ true }}"><span style="font-size:18px;font-weight:400;line-height:1.5">{{ r.value }}</span></sc-if>
+          <button onClick="{{ r.edit }}" style="background:transparent;border:0;padding:0;color:#0E6E6A;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-align:right">{{ r.btn }}</button>
+        </div>
+      </sc-for>
+      <div style="display:grid;grid-template-columns:160px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid #D9D6CC">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6B6B66">上次沟通要点</span>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px"><sc-for list="{{ lastNotes }}" as="n" hint-placeholder-count="3"><li style="font-size:15px;line-height:1.6;display:grid;grid-template-columns:16px 1fr;gap:8px"><span style="color:#0E6E6A">·</span>{{ n }}</li></sc-for></ul>
+      </div>
+    </div>
+  </div>
+  <div style="padding:80px 64px;display:flex;flex-direction:column;gap:24px;background:#FAF9F5">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6B6B66">本次要做什么 · 可多选</div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC">
+      <sc-for list="{{ goalOpts }}" as="g" hint-placeholder-count="4"><button onClick="{{ g.pick }}" style="text-align:left;padding:16px 18px;border:0;background:{{ g.bg }};color:{{ g.color }};display:grid;grid-template-columns:16px 1fr;gap:12px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">{{ g.mark }}</span><span><span style="font-size:15px;font-weight:500">{{ g.label }}</span><span style="display:block;margin-top:3px;font-size:12px;opacity:.7">{{ g.desc }}</span></span></button></sc-for>
+    </div>
+    <input value="{{ projCustomGoal }}" onChange="{{ setProjCustomGoal }}" onBlur="{{ saveProj }}" placeholder="或用一句话补充你最想解决的问题" style="height:44px;padding:0 14px;border:1px dashed #6B6B66;background:transparent;color:#141414;font-size:13px;outline:none" style-focus="border-color:#0E6E6A;border-style:solid">
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+      <button onClick="{{ goConfigure }}" style="height:56px;padding:0 22px;border:1px solid #141414;background:#141414;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between" style-hover="background:#0E6E6A;border-color:#0E6E6A">确认，继续配置阵容 <span>→</span></button>
+      <button onClick="{{ newCampaign }}" style="height:44px;border:1px solid #141414;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em" style-hover="background:#E3E0D6">这是一个新 CAMPAIGN</button>
+      <sc-if value="{{ hasSaved }}" hint-placeholder-val="{{ false }}"><button onClick="{{ goConfigure }}" style="height:44px;border:1px solid #D9D6CC;background:transparent;color:#6B6B66;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em">继续上次的名单</button></sc-if>
+      <p style="margin:6px 0 0;font-size:12px;line-height:1.6;color:#6B6B66">领域与市场沿用档案；配置阶段只问本次需要的问题。</p>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- ================= START (C) ================= -->
+<sc-if value="{{ isStart }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="新访客起点" style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 320px;min-height:calc(100vh - 56px)">
+  <div style="padding:80px 96px 120px;display:flex;flex-direction:column">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5FC4BB">01 /// 项目起点 · {{ startStepLabel }}</div>
+    <h1 style="margin:24px 0 0;font-size:clamp(34px,3.6vw,52px);line-height:1.12;letter-spacing:-.02em;font-weight:300;max-width:22ch;text-wrap:pretty;animation:msm-in .4s both">{{ startQuestion }}</h1>
+    <p style="margin:16px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.65);max-width:56ch">{{ startHint }}</p>
+    <div style="margin-top:40px;animation:msm-in .4s .05s both">
+      <sc-if value="{{ startIsDomain }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+          <sc-for list="{{ domainCards }}" as="d" hint-placeholder-count="4"><button onClick="{{ d.pick }}" style="text-align:left;padding:24px;min-height:180px;border:0;background:{{ d.bg }};color:#F3F1EA;display:flex;flex-direction:column;gap:12px;box-shadow:{{ d.ring }};position:relative" style-hover="background:#1B3A3C"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ d.dot }}"></span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(243,241,234,.5)">{{ d.n }}</span><span style="font-size:22px;font-weight:500">{{ d.label }}</span><span style="font-size:12px;line-height:1.6;color:rgba(243,241,234,.65)">{{ d.desc }}</span><span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.5)">{{ d.roots }}</span><sc-if value="{{ d.isCustom }}" hint-placeholder-val="{{ false }}"><input value="{{ customDomain }}" onChange="{{ setCustomDomain }}" onClick="{{ stop }}" autoFocus="{{ true }}" placeholder="例如：AI 法律助手、医疗影像 SaaS" style="margin-top:8px;height:40px;padding:0 12px;border:1px solid #5FC4BB;background:rgba(0,0,0,.25);color:#F3F1EA;font-size:13px;outline:none;width:100%"></sc-if></button></sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ startIsMarket }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ marketOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="height:56px;padding:0 22px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:16px;display:flex;align-items:center;gap:14px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;opacity:.6">{{ o.en }}</span>{{ o.label }}</button></sc-for></div>
+      </sc-if>
+      <sc-if value="{{ startIsIntro }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+          <input value="{{ draft.name }}" onChange="{{ setDraftName }}" placeholder="项目名称" style="height:60px;padding:0 0 0 2px;border:0;border-bottom:1px solid rgba(243,241,234,.4);background:transparent;color:#F3F1EA;font-size:28px;font-weight:300;outline:none" style-focus="border-bottom-color:#5FC4BB">
+          <input value="{{ draft.tagline }}" onChange="{{ setDraftTagline }}" placeholder="一句话介绍你的产品" style="height:52px;padding:0 0 0 2px;border:0;border-bottom:1px solid rgba(243,241,234,.4);background:transparent;color:#F3F1EA;font-size:18px;font-weight:300;outline:none" style-focus="border-bottom-color:#5FC4BB">
+          <input value="{{ draft.site }}" onChange="{{ setDraftSite }}" placeholder="官网（可选）" style="height:44px;padding:0 0 0 2px;border:0;border-bottom:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.8);font-family:'JetBrains Mono',monospace;font-size:13px;outline:none" style-focus="border-bottom-color:#5FC4BB">
+        </div>
+      </sc-if>
+      <sc-if value="{{ startIsGoal }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+          <sc-for list="{{ goalCards }}" as="g" hint-placeholder-count="4"><button onClick="{{ g.pick }}" style="text-align:left;padding:20px 24px;min-height:120px;border:0;background:{{ g.bg }};color:#F3F1EA;display:flex;flex-direction:column;gap:8px;box-shadow:{{ g.ring }};position:relative" style-hover="background:#1B3A3C"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ g.dot }}"></span><span style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:{{ g.markColor }}">{{ g.mark }}</span><span style="font-size:20px;font-weight:500">{{ g.label }}</span></span><span style="font-size:13px;line-height:1.6;color:rgba(243,241,234,.65)">{{ g.desc }}</span></button></sc-for>
+        </div>
+        <input value="{{ customGoal }}" onChange="{{ setCustomGoal }}" placeholder="或者用一句话说你最想解决的问题 —— 例如：让 3 家目标企业客户主动来聊" style="margin-top:12px;height:46px;padding:0 16px;border:1px dashed rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-size:13px;outline:none;width:100%" style-focus="border-color:#5FC4BB;border-style:solid">
+      </sc-if>
+      <sc-if value="{{ startIsBudget }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+          <sc-for list="{{ startBudgetCards }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="text-align:left;padding:20px 24px;min-height:120px;border:0;background:{{ b.bg }};color:#F3F1EA;display:flex;flex-direction:column;gap:10px;box-shadow:{{ b.ring }};position:relative" style-hover="background:#1B3A3C"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ b.dot }}"></span><span style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:{{ b.markColor }}">{{ b.mark }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:22px">{{ b.label }}</span></span><span style="font-size:13px;line-height:1.6;color:rgba(243,241,234,.65)">{{ b.hint }}</span></button></sc-for>
+        </div>
+        <p style="margin:12px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:rgba(243,241,234,.45)">档位区间，非报价；最终以 Mango 复核为准。</p>
+      </sc-if>
+    </div>
+    <div style="margin-top:auto;padding-top:48px;display:flex;gap:12px;align-items:center">
+      <sc-if value="{{ startCanBack }}" hint-placeholder-val="{{ false }}"><button onClick="{{ startBack }}" style="height:48px;padding:0 20px;border:1px solid rgba(243,241,234,.3);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em">← 上一步</button></sc-if>
+      <button onClick="{{ startNext }}" disabled="{{ startNextDisabled }}" style="height:48px;padding:0 24px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:16px;opacity:{{ startNextOpacity }}" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)">{{ startNextLabel }} <span>→</span></button>
+      <button onClick="{{ startNext }}" style="height:48px;padding:0 12px;border:0;background:transparent;color:rgba(243,241,234,.5);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em">跳过</button>
+    </div>
+  </div>
+  <aside style="border-left:1px solid rgba(243,241,234,.14);background:#152F31;padding:80px 32px;display:flex;flex-direction:column;gap:28px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(243,241,234,.5)">你的项目草稿</div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.12)">
+      <sc-for list="{{ draftRows }}" as="r" hint-placeholder-count="4"><div style="background:#152F31;padding:12px 0;display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">{{ r.label }}</span><span style="font-size:14px;color:{{ r.color }}">{{ r.value }}</span></div></sc-for>
+    </div>
+    <svg viewBox="0 0 240 40" style="width:100%;height:40px;margin-top:auto" aria-hidden="true"><g stroke-width="2"><sc-for list="{{ startBands }}" as="b" hint-placeholder-count="4"><path d="{{ b.d }}" stroke="{{ b.stroke }}"></path></sc-for></g></svg>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">{{ startProgress }}</div>
+  </aside>
+</section>
+</sc-if>
+
+<!-- ================= CONFIGURE ================= -->
+<sc-if value="{{ isConfigure }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="偏好配置" style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,clamp(280px,26vw,380px));min-height:calc(100vh - 56px)">
+  <div style="padding:56px clamp(24px,4vw,64px) 140px;display:flex;flex-direction:column;gap:56px;min-width:0">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5FC4BB">02 /// 表达偏好</div>
+      <h1 style="margin:22px 0 0;font-size:clamp(34px,3.6vw,52px);line-height:1.12;letter-spacing:-.02em;font-weight:300;max-width:22ch;text-wrap:pretty;animation:msm-in .4s both"><em style="font-weight:700;font-style:italic">{{ project.name }}，</em>{{ configureLead }}</h1>
+      <p style="margin:16px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.65);max-width:58ch">每个选择即时改变右侧的候选数量、平台构成与预算区间。可以跳过暂时不确定的，之后随时回来。</p>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(243,241,234,.55)"><span>{{ cfgMeta }}</span><span style="display:flex;gap:10px;align-items:center;color:#5FC4BB">{{ cfgProgress }}<span style="display:inline-block;width:120px;height:3px;background:rgba(243,241,234,.15)"><span style="display:block;height:100%;background:#5FC4BB;width:{{ cfgProgressPct }};transition:width .3s"></span></span></span></div>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.12);border:1px solid rgba(243,241,234,.12)">
+        <sc-for list="{{ knownRows }}" as="r" hint-placeholder-count="3"><div style="background:#152F31;padding:12px 18px;display:grid;grid-template-columns:100px 1fr auto;gap:16px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">{{ r.label }}</span><span style="font-size:14px">{{ r.value }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.45)">沿用 BRIEF</span></div></sc-for>
+      </div>
+    </div>
+
+    <!-- 2.1 领域细分 & 市场（折叠） -->
+    <div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.1</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">领域细分与市场</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">沿用 Brief。想加更细的叙事方向或市场再展开。</p></div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <button onClick="{{ toggleDomain }}" style="text-align:left;height:44px;padding:0 16px;border:1px solid rgba(243,241,234,.25);background:transparent;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;display:flex;justify-content:space-between;align-items:center"><span>细分领域 · 展开修改</span><span>{{ domainChevron }}</span></button>
+        <sc-if value="{{ domainOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:14px;animation:msm-in .3s both"><sc-for list="{{ domainGroups }}" as="g" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:start"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.45);padding-top:12px">{{ g.label }}</span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ g.items }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.toggle }}" style="height:38px;padding:0 14px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px;display:flex;gap:10px;align-items:center"><span>{{ o.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.55">{{ o.count }}</span></button></sc-for></div></div></sc-for>
+          <input value="{{ customDom }}" onChange="{{ setCustomDom }}" placeholder="没有你的领域？直接写 —— 例如：AI 法律助手、链上身份" style="height:42px;padding:0 14px;border:1px dashed rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-size:13px;outline:none" style-focus="border-color:#5FC4BB;border-style:solid"></div>
+        </sc-if>
+        <button onClick="{{ toggleMarket }}" style="text-align:left;height:44px;padding:0 16px;border:1px solid rgba(243,241,234,.25);background:transparent;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;display:flex;justify-content:space-between;align-items:center"><span>市场与语言 · 展开修改</span><span>{{ marketChevron }}</span></button>
+        <sc-if value="{{ marketOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:10px;animation:msm-in .3s both"><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ marketOpts2 }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="height:42px;padding:0 16px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:14px;display:flex;gap:10px;align-items:center"><span>{{ o.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.55">{{ o.count }}</span></button></sc-for></div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ langOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.toggle }}" style="height:36px;padding:0 14px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px">{{ o.label }}</button></sc-for></div></div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- 2.2 人群 -->
+    <div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.2</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">希望被哪类人注意到</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">选择最重要的目标人群，Mango 匹配最适合连接他们的创作者。可多选；都不合适可以自己写。</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+          <sc-for list="{{ audCards }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="text-align:left;padding:16px 16px 14px;border:0;background:{{ o.bg }};color:#F3F1EA;display:flex;flex-direction:column;gap:6px;box-shadow:{{ o.ring }};position:relative;min-height:96px" style-hover="background:#1B3A3C"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ o.dot }}"></span><span style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:{{ o.markColor }}">{{ o.mark }}</span><span style="font-size:15px;font-weight:500;line-height:1.3">{{ o.label }}</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(243,241,234,.4)">{{ o.count }}</span></span><span style="padding-left:24px;font-size:11.5px;line-height:1.55;color:rgba(243,241,234,.6)">{{ o.sub }}</span><sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><span style="margin:6px 0 0 24px;padding-top:10px;border-top:1px solid rgba(95,196,187,.3);font-size:12px;line-height:1.6;color:#5FC4BB;animation:msm-in .25s both">{{ o.why }}</span></sc-if></button></sc-for>
+        </div>
+        <input value="{{ customAud }}" onChange="{{ setCustomAud }}" placeholder="都不合适？写下你想影响的人，Mango 会人工匹配 —— 例如：独立游戏开发者、跨境电商卖家" style="height:46px;padding:0 16px;border:1px dashed rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-size:13px;outline:none" style-focus="border-color:#5FC4BB;border-style:solid">
+      </div>
+    </div>
+
+    <!-- 2.3 Root -->
+    <div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.3</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">想被哪种 Root 看到</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">Root 是你希望进入其信息流的代表人物类型。只需选类型；点代表人物可了解他是谁。</p>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.55)"><span><span style="display:inline-block;width:8px;height:8px;background:#5FC4BB;margin-right:8px"></span>最想进入</span><span><span style="display:inline-block;width:8px;height:8px;border:1px solid #5FC4BB;margin-right:8px;box-sizing:border-box"></span>也很重要</span><span><span style="display:inline-block;width:8px;height:8px;border:1px solid rgba(243,241,234,.3);margin-right:8px;box-sizing:border-box"></span>本次不优先</span></div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+        <sc-for list="{{ rootCards }}" as="rt" hint-placeholder-count="5">
+          <div style="background:{{ rt.bg }};padding:16px;display:flex;flex-direction:column;gap:10px;min-height:210px;box-shadow:{{ rt.ring }};position:relative"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ rt.dot }}"></span>
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">{{ rt.n }} · {{ rt.value }}</div><div style="margin-top:6px;font-size:18px;font-weight:500;line-height:1.2">{{ rt.label }}</div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#5FC4BB;white-space:nowrap">{{ rt.sigNote }}</span></div>
+            <p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.65);text-wrap:pretty">{{ rt.why }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ rt.people }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.open }}" style="display:flex;align-items:center;gap:6px;padding:3px 8px 3px 3px;border:1px solid rgba(243,241,234,.2);background:rgba(0,0,0,.15);color:#F3F1EA;font-size:11px" style-hover="border-color:#5FC4BB"><span style="width:18px;height:18px;border-radius:50%;background:#0E0E0E;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:9px;color:#5FC4BB">{{ p.initial }}</span>{{ p.name }}</button></sc-for></div>
+            <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+              <button onClick="{{ rt.setPrimary }}" style="height:34px;border:0;background:{{ rt.pBg }};color:{{ rt.pColor }};font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em">最想进入</button>
+              <button onClick="{{ rt.setSecondary }}" style="height:34px;border:0;background:{{ rt.sBg }};color:{{ rt.sColor }};font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em">也很重要</button>
+              <button onClick="{{ rt.setSkip }}" style="height:34px;border:0;background:{{ rt.kBg }};color:{{ rt.kColor }};font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em">不优先</button>
+            </div>
+          </div>
+        </sc-for>
+        <div style="background:#152F31;padding:20px;display:flex;flex-direction:column;gap:10px;min-height:210px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">+ · 其他</div><div style="font-size:18px;font-weight:500">还想被谁看到？</div><p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.65)">列表里没有的人或圈层，直接写名字或描述。Mango 会人工核查是否存在可行路径。</p><textarea value="{{ customRoot }}" onChange="{{ setCustomRoot }}" placeholder="例如：Paul Graham、a16z 的消费团队、某位垂类播客主持人" style="margin-top:auto;min-height:72px;padding:10px 12px;border:1px dashed rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-size:13px;line-height:1.5;outline:none;resize:vertical" style-focus="border-color:#5FC4BB;border-style:solid"></textarea></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:40px">
+<div style="display:flex;flex-direction:column;gap:40px">
+<!-- 2.4 平台与形式 -->
+    <div style="display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.4</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">平台与内容形式</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">只显示当前有报价的平台。不选表示不限。</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ platOpts }}" as="o" hint-placeholder-count="8"><button onClick="{{ o.toggle }}" disabled="{{ o.disabled }}" style="height:46px;padding:0 18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;display:flex;gap:12px;align-items:center;opacity:{{ o.opacity }}"><span>{{ o.label }}</span><span style="font-size:10px;opacity:.6">{{ o.count }}</span></button></sc-for></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ fmtOpts }}" as="o" hint-placeholder-count="9"><button onClick="{{ o.toggle }}" style="height:36px;padding:0 14px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px">{{ o.label }}</button></sc-for></div>
+      </div>
+    </div>
+
+    <!-- 2.6 品牌偏好 -->
+    <div style="display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.6</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">内容与品牌偏好</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">帮助我们排除不合适的账号与内容角度。</p></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ brandOpts }}" as="o" hint-placeholder-count="7"><button onClick="{{ o.toggle }}" style="height:42px;padding:0 16px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:14px">{{ o.label }}</button></sc-for></div>
+    </div>
+</div>
+<div>
+<!-- 2.5 预算 -->
+    <div style="display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:1px solid rgba(243,241,234,.18)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">2.5</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">预算与创作者量级</h3><p style="margin:8px 0 0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.55)">预算影响推荐的档位构成，不替你决定人数。价格只显示档位。</p></div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)"><sc-for list="{{ budgetOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="padding:18px 16px;border:0;background:{{ o.bg }};color:{{ o.color }};text-align:left;font-family:'JetBrains Mono',monospace;font-size:16px">{{ o.label }}</button></sc-for></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ tierOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.toggle }}" style="height:42px;padding:0 16px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px;display:flex;gap:10px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-weight:500">{{ o.mark }}</span><span>{{ o.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.55">{{ o.count }}</span></button></sc-for></div>
+      </div>
+    </div>
+
+    </div>
+</div>
+  </div>
+
+  <!-- PULSE -->
+  <aside style="border-left:1px solid rgba(243,241,234,.14);background:#152F31;position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column">
+    <div style="padding:28px 28px 20px;border-bottom:1px solid rgba(243,241,234,.14)">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(243,241,234,.55);display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;background:#5FC4BB;animation:msm-band 1.6s infinite"></span>实时脉搏</div>
+      <div style="margin-top:14px;display:flex;align-items:baseline;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:64px;line-height:1"><count-up value="{{ pulse.count }}"></count-up></span><span style="font-size:13px;color:rgba(243,241,234,.65)">位符合条件的候选</span></div>
+      <div style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#5FC4BB;min-height:16px">{{ pulse.note }}</div>
+    </div>
+    <div style="padding:20px 28px;display:flex;flex-direction:column;gap:22px;overflow:auto;flex:1">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5);margin-bottom:10px">平台分布</div><div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ pulse.platforms }}" as="b" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:76px 1fr 28px;gap:10px;align-items:center;font-size:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">{{ b.label }}</span><div style="height:4px;background:rgba(243,241,234,.12)"><div style="height:100%;background:#5FC4BB;width:{{ b.pct }}%;transition:width .3s"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:11px;text-align:right">{{ b.n }}</span></div></sc-for></div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5);margin-bottom:10px">档位构成</div><div style="display:flex;gap:1px;height:30px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)"><sc-for list="{{ pulse.tiers }}" as="b" hint-placeholder-count="4"><div style="flex:{{ b.n }};background:{{ b.bg }};display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:{{ b.color }};min-width:{{ b.minw }};transition:flex .3s">{{ b.mark }}</div></sc-for></div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5);margin-bottom:8px">预估预算区间 · 前 8 位 · 每人一条主内容</div><div style="font-family:'JetBrains Mono',monospace;font-size:22px"><count-up value="{{ pulse.budgetRange }}"></count-up></div><div style="font-size:11px;color:rgba(243,241,234,.5);margin-top:4px">档位对应隐藏区间；以 Mango 复核为准。</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5);margin-bottom:8px">目标圈层</div><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ pulse.rootChips }}" as="c" hint-placeholder-count="3"><span style="padding:4px 8px;border:1px solid {{ c.border }};font-size:11px;color:{{ c.color }}">{{ c.label }}</span></sc-for><sc-if value="{{ pulse.noRoots }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;color:rgba(243,241,234,.4)">尚未选择圈层</span></sc-if></div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5);margin-bottom:8px">当前最匹配</div><div style="display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.12)"><sc-for list="{{ pulse.top }}" as="m" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:1fr auto;gap:8px;padding:9px 10px;background:#152F31;font-size:12px;align-items:center"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.name }} <span style="font-family:'JetBrains Mono',monospace;color:rgba(243,241,234,.45);font-size:10px">{{ m.platform }}</span></div><span style="font-family:'JetBrains Mono',monospace;color:#5FC4BB">{{ m.fit }}</span></div></sc-for></div></div>
+    </div>
+    <div style="padding:18px 28px;border-top:1px solid rgba(243,241,234,.14)">
+      <button onClick="{{ goUnderstanding }}" style="width:100%;height:54px;padding:0 20px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)"><span>下一步 · 确认 MANGO 的理解</span><span>{{ pulse.count }} →</span></button>
+    </div>
+  </aside>
+</section>
+</sc-if>
+
+<!-- ================= CRITERIA · MANGO 当前理解 ================= -->
+<sc-if value="{{ isCriteria }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Mango 当前理解" style="flex:1;min-height:calc(100vh - 56px);padding:56px clamp(24px,4vw,64px) 140px;display:flex;flex-direction:column;gap:32px;max-width:1600px;width:100%;margin:0 auto">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:start">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5FC4BB">02 /// MANGO 当前理解</div>
+      <h1 style="margin:18px 0 0;font-size:clamp(32px,3.4vw,48px);line-height:1.12;letter-spacing:-.02em;font-weight:300;max-width:24ch;animation:msm-in .4s both"><em style="font-weight:700;font-style:italic">{{ project.name }}，</em>这是我们据你的选择形成的判别标准。</h1>
+      <p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(243,241,234,.7);max-width:72ch;text-wrap:pretty">{{ critBrief }}</p>
+      <p style="margin:8px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.5);max-width:72ch">逐条认可、移除或改写；也可以增加。这些判别会直接进入名单排序。</p>
+    </div>
+    <div style="display:flex;gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">
+      <div style="background:#152F31;padding:12px 18px;display:flex;gap:10px;align-items:baseline"><span style="color:rgba(243,241,234,.55)">已认可</span><span style="font-size:20px;color:#5FC4BB">{{ critCounts.approved }}</span></div>
+      <div style="background:#152F31;padding:12px 18px;display:flex;gap:10px;align-items:baseline"><span style="color:rgba(243,241,234,.55)">已移除</span><span style="font-size:20px">{{ critCounts.removed }}</span></div>
+      <div style="background:#152F31;padding:12px 18px;display:flex;gap:10px;align-items:baseline"><span style="color:rgba(243,241,234,.55)">待确认</span><span style="font-size:20px;color:#C9A227">{{ critCounts.pending }}</span></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+    <sc-for list="{{ critGroups }}" as="g" hint-placeholder-count="3">
+      <div style="background:#152F31;padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div><div style="font-size:20px;font-weight:500">{{ g.label }}</div><div style="margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.5)">{{ g.sub }}</div></div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.14)">
+          <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);opacity:{{ c.opacity }}">
+              <button onClick="{{ c.approve }}" style="background:transparent;border:0;padding:0;color:{{ c.markColor }};font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;text-align:left">{{ c.mark }}</button>
+              <sc-if value="{{ c.showText }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;line-height:1.6;text-decoration:{{ c.deco }}">{{ c.text }}</span></sc-if>
+              <sc-if value="{{ c.editing }}" hint-placeholder-val="{{ false }}"><input value="{{ c.text }}" onChange="{{ c.change }}" onBlur="{{ c.done }}" onKeyDown="{{ c.key }}" autoFocus="{{ true }}" style="font-size:14px;line-height:1.6;padding:2px 0;border:0;border-bottom:1px solid #5FC4BB;background:transparent;color:#F3F1EA;outline:none;width:100%"></sc-if>
+              <div style="display:flex;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em">
+                <button onClick="{{ c.approve }}" style="height:26px;padding:0 9px;border:1px solid rgba(95,196,187,.5);background:transparent;color:#5FC4BB" style-hover="background:#5FC4BB;color:#0E0E0E">认可</button>
+                <button onClick="{{ c.edit }}" style="height:26px;padding:0 9px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.8)" style-hover="border-color:#F3F1EA">编辑</button>
+                <button onClick="{{ c.remove }}" style="height:26px;padding:0 9px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.8)" style-hover="border-color:#F3F1EA">移除</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ g.adding }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;gap:6px;animation:msm-in .2s both"><input value="{{ g.draft }}" onChange="{{ g.changeDraft }}" autoFocus="{{ true }}" placeholder="写一条判别条件" style="flex:1;height:40px;padding:0 12px;border:1px solid #5FC4BB;background:rgba(0,0,0,.25);color:#F3F1EA;font-size:13px;outline:none"><button onClick="{{ g.commitAdd }}" style="height:40px;padding:0 14px;border:1px solid #5FC4BB;background:#5FC4BB;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:11px">加入</button><button onClick="{{ g.cancelAdd }}" style="height:40px;padding:0 10px;border:1px solid rgba(243,241,234,.25);background:transparent;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px">取消</button></div>
+        </sc-if>
+        <button onClick="{{ g.startAdd }}" style="align-self:flex-start;height:36px;padding:0 14px;border:1px dashed rgba(243,241,234,.35);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em" style-hover="border-color:#5FC4BB;color:#5FC4BB">+ 增加判别条件</button>
+      </div>
+    </sc-for>
+    <div style="background:#152F31;padding:24px;display:flex;flex-direction:column;gap:14px">
+      <div><div style="font-size:20px;font-weight:500">下一轮推荐如何调整</div><div style="margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.5)">你的反馈会进入 Root / KOL 排序</div></div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.14)"><sc-for list="{{ critAdjust }}" as="a" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:18px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);font-size:14px;line-height:1.6"><span style="color:#5FC4BB;font-family:'JetBrains Mono',monospace">→</span><span>{{ a }}</span></div></sc-for></div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button onClick="{{ goReveal }}" style="height:54px;padding:0 24px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:18px" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)"><span>按这些判别生成我的名单</span><span>{{ pulse.count }} →</span></button>
+    <button onClick="{{ approveAllWant }}" style="height:54px;padding:0 20px;border:1px solid rgba(243,241,234,.3);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em" style-hover="border-color:#F3F1EA;color:#F3F1EA">全部认可</button>
+    <button onClick="{{ goConfigure }}" style="height:54px;padding:0 20px;border:0;background:transparent;color:rgba(243,241,234,.6);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em" style-hover="color:#F3F1EA">← 返回调整偏好</button>
+  </div>
+</section>
+</sc-if>
+
+<!-- ================= REVEAL ================= -->
+<sc-if value="{{ isReveal }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="生成揭示" onClick="{{ skipReveal }}" style="flex:1;min-height:calc(100vh - 56px);background:linear-gradient(180deg,#2C5A5D 0%,#1F4144 60%,#14302F 100%);display:grid;grid-template-columns:minmax(0,1fr);align-content:center;padding:96px;cursor:pointer;position:relative;overflow:hidden">
+  <svg viewBox="0 0 600 80" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;opacity:.9" aria-hidden="true"><g stroke-width="1.5"><sc-for list="{{ revealBands }}" as="b" hint-placeholder-count="5"><path d="{{ b.d }}" stroke="{{ b.stroke }}" style="transition:stroke .4s"></path></sc-for></g></svg>
+  <div style="max-width:960px;display:flex;flex-direction:column;gap:22px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:rgba(243,241,234,.7)">/// 正在生成你的名单</div>
+    <sc-for list="{{ revealLines }}" as="l" hint-placeholder-count="4"><type-line text="{{ l.text }}" active="{{ l.active }}" speed="18" style="font-size:clamp(22px,2.4vw,34px);line-height:1.35;font-weight:300;letter-spacing:-.01em;opacity:{{ l.op }};transform:translateY({{ l.y }});transition:opacity .4s,transform .4s;text-wrap:pretty"></type-line></sc-for>
+    <sc-if value="{{ revealDone }}" hint-placeholder-val="{{ false }}"><div style="margin-top:16px;animation:msm-in .4s both"><button onClick="{{ finishReveal }}" style="height:52px;padding:0 26px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:18px" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)">查看名单 <span>→</span></button></div></sc-if>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.4)">点击任意处跳过</div>
+  </div>
+</section>
+</sc-if>
+
+<!-- ================= LINEUP ================= -->
+<sc-if value="{{ isLineup }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="推荐名单" style="flex:1;background:#F3F1EA;color:#141414;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,clamp(280px,26vw,380px));min-height:calc(100vh - 56px)">
+  <div style="padding:56px clamp(24px,4vw,56px) 140px;display:flex;flex-direction:column;gap:40px;min-width:0">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#0E6E6A">03 /// 推荐名单</div>
+        <h1 style="margin:18px 0 0;font-size:clamp(30px,3.2vw,46px);line-height:1.12;letter-spacing:-.02em;font-weight:300;max-width:26ch;text-wrap:pretty;animation:msm-in .4s both"><em style="font-weight:700;font-style:italic">{{ project.name }}，</em>{{ understanding }}</h1>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.7;color:#6B6B66;max-width:70ch">{{ understandingSub }}</p>
+      </div>
+      <button onClick="{{ goConfigure }}" style="height:44px;padding:0 18px;border:1px solid #141414;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;white-space:nowrap" style-hover="background:#141414;color:#F3F1EA">← 返回调整</button>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 0;border-top:1px solid #141414;border-bottom:1px solid #D9D6CC">
+      <input placeholder="搜索名称 / 账号" value="{{ filterQ }}" onChange="{{ setQuery }}" style="height:36px;border:1px solid #D9D6CC;background:#FAF9F5;padding:0 12px;font-size:13px;width:220px;outline:none;color:#141414" style-focus="border-color:#141414">
+      <span style="width:1px;height:20px;background:#D9D6CC;margin:0 4px"></span>
+      <sc-for list="{{ platFilters }}" as="f" hint-placeholder-count="4"><button onClick="{{ f.pick }}" style="height:36px;padding:0 12px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">{{ f.label }}</button></sc-for>
+      <span style="width:1px;height:20px;background:#D9D6CC;margin:0 4px"></span>
+      <sc-for list="{{ tierFilters }}" as="f" hint-placeholder-count="4"><button onClick="{{ f.pick }}" style="height:36px;padding:0 12px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">{{ f.label }}</button></sc-for>
+      <span style="width:1px;height:20px;background:#D9D6CC;margin:0 4px"></span>
+      <button onClick="{{ confirmedOnly.pick }}" style="height:36px;padding:0 12px;border:1px solid {{ confirmedOnly.border }};background:{{ confirmedOnly.bg }};color:{{ confirmedOnly.color }};font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">{{ confirmedOnly.label }}</button>
+      <span style="width:1px;height:20px;background:#D9D6CC;margin:0 4px"></span>
+      <sc-for list="{{ groupTabs }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.pick }}" style="height:36px;padding:0 12px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">{{ f.label }}</button></sc-for>
+      <span style="margin-left:auto;display:flex;gap:12px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6B6B66"><sc-if value="{{ hasExcluded }}" hint-placeholder-val="{{ false }}"><button onClick="{{ restoreExcluded }}" style="border:0;background:transparent;padding:0;color:#6B6B66;font-family:inherit;font-size:inherit;text-decoration:underline">已排除 {{ excludedCount }} 位 · 恢复</button></sc-if>{{ resultCount }}</span>
+    </div>
+
+    <sc-if value="{{ showSuggest }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:22px 24px;border:1px solid #141414;background:#141414;color:#F3F1EA;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;animation:msm-in .3s both"><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#5FC4BB">MANGO 建议起点 · 根据你的目的与预算</div><p style="margin:8px 0 0;font-size:14px;line-height:1.7;text-wrap:pretty">{{ suggestNote }}</p></div><button onClick="{{ applySuggestion }}" style="height:48px;padding:0 22px;border:1px solid #5FC4BB;background:#5FC4BB;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;white-space:nowrap">采用这 {{ suggestCount }} 位 →</button></div>
+    </sc-if>
+    <div style="padding:20px 24px;border:1px solid #D9D6CC;background:#FAF9F5;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#0E6E6A;padding-top:3px;white-space:nowrap">MANGO 对这套阵容的判断</span><p style="margin:0;font-size:14px;line-height:1.7;color:#141414;text-wrap:pretty">{{ verdict }}</p></div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66"><span>适配度色深</span><sc-for list="{{ fitLegend }}" as="l" hint-placeholder-count="4"><span style="display:flex;gap:6px;align-items:center"><span style="display:inline-block;width:22px;height:8px;background:{{ l.color }}"></span>{{ l.label }}</span></sc-for></div>
+
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid #141414"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#0E6E6A">{{ g.n }}</span><h3 style="margin:0;font-size:20px;font-weight:500">{{ g.label }}</h3><span style="font-size:12px;color:#6B6B66">{{ g.note }}</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B6B66">{{ g.count }} 位</span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px">
+          <sc-for list="{{ g.items }}" as="m" hint-placeholder-count="3">
+            <article style="background:{{ m.bg }};box-shadow:{{ m.ring }};border:1px solid #D9D6CC;position:relative;display:flex;flex-direction:column;padding-left:4px"><span style="position:absolute;left:0;top:0;bottom:0;width:4px;background:{{ m.fitColor }}"></span><span style="position:absolute;left:4px;top:0;width:8px;height:8px;background:{{ m.dot }}"></span>
+              <div style="padding:18px 18px 0;display:flex;gap:14px;align-items:flex-start">
+                <button onClick="{{ m.open }}" style="flex:none;width:48px;height:48px;background:#141414;color:#F3F1EA;border:0;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:15px;padding:0">{{ m.initial }}</button>
+                <div style="flex:1;min-width:0"><button onClick="{{ m.open }}" style="background:transparent;border:0;padding:0;font-size:16px;font-weight:500;color:#141414;text-align:left;line-height:1.3" style-hover="color:#0E6E6A">{{ m.name }}</button><div style="margin-top:3px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B6B66;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.handle }}</div></div>
+                <button onClick="{{ m.open }}" style="flex:none;background:transparent;border:0;padding:0;text-align:right;color:#141414"><div style="display:flex;gap:6px;align-items:baseline;justify-content:flex-end"><span style="display:inline-block;width:8px;height:8px;background:{{ m.fitColor }}"></span><span style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1;color:#0E6E6A"><count-up value="{{ m.fit }}"></count-up></span></div><div style="font-size:10px;color:#6B6B66;margin-top:4px;white-space:nowrap">{{ m.fitWord }}</div></button>
+              </div>
+              <div style="padding:12px 18px 0;display:flex;flex-wrap:wrap;gap:4px"><span style="padding:3px 8px;border:1px solid #0E6E6A;color:#0E6E6A;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em">{{ m.role }}</span><span style="padding:3px 8px;border:1px solid #D9D6CC;color:#4A4A46;font-family:'JetBrains Mono',monospace;font-size:10px">{{ m.platform }}</span><span style="padding:3px 8px;border:1px solid #D9D6CC;color:#4A4A46;font-size:11px">{{ m.lang }}</span><span style="padding:3px 8px;border:1px solid #D9D6CC;color:#4A4A46;font-size:11px">{{ m.markets }}</span></div>
+              <p style="margin:12px 18px 0;font-size:13px;line-height:1.6;color:#4A4A46;text-wrap:pretty">{{ m.content }}</p>
+              <div style="margin:14px 18px 0;padding-top:12px;border-top:1px solid #D9D6CC;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px"><span style="color:#6B6B66">{{ m.followers }} 粉丝 · {{ m.type }}</span><span style="display:flex;gap:8px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:15px">{{ m.tierMark }}</span><span style="padding:2px 7px;border:1px solid {{ m.qsColor }};color:{{ m.qsColor }};font-family:'JetBrains Mono',monospace;font-size:10px">{{ m.qs }}</span></span></div>
+              <button onClick="{{ m.toggleExpand }}" style="margin:12px 18px 0;padding:0;border:0;background:transparent;text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6B6B66;display:flex;gap:8px" style-hover="color:#141414"><span>推荐理由 · 关系 SIGNAL</span><span>{{ m.chevron }}</span></button>
+              <sc-if value="{{ m.expanded }}" hint-placeholder-val="{{ false }}">
+                <div style="margin:10px 18px 0;padding:12px 14px;background:#F3F1EA;font-size:12px;line-height:1.6;color:#4A4A46;display:flex;flex-direction:column;gap:8px;animation:msm-in .25s both"><div>{{ m.reason }}</div><sc-if value="{{ m.hasSig }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:3px;color:#0E6E6A"><sc-for list="{{ m.sigLines }}" as="sl" hint-placeholder-count="2"><span>→ {{ sl }}</span></sc-for></div></sc-if><div style="color:#6B6B66">Signal：{{ m.sig }}</div></div>
+              </sc-if>
+              <sc-if value="{{ m.swapOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="margin:12px 18px 0;display:flex;flex-direction:column;gap:6px;animation:msm-in .25s both"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#6B6B66">相似替代</span><sc-for list="{{ m.alts }}" as="a" hint-placeholder-count="3"><button onClick="{{ a.pick }}" style="height:38px;padding:0 12px;border:1px solid #141414;background:transparent;color:#141414;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:space-between" style-hover="background:#141414;color:#F3F1EA"><span>{{ a.name }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6">{{ a.platform }} · {{ a.tierMark }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#0E6E6A">{{ a.fit }}</span></button></sc-for></div>
+              </sc-if>
+              <div style="margin-top:auto;padding-top:14px"><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#D9D6CC;border-top:1px solid #D9D6CC">
+                <button onClick="{{ m.toggleSelect }}" style="height:42px;border:0;background:{{ m.selBg }};color:{{ m.selColor }};font-size:12px">{{ m.selLabel }}</button>
+                <button onClick="{{ m.toggleSwap }}" style="height:42px;border:0;background:{{ m.bg }};color:#141414;font-size:12px" style-hover="background:#E3E0D6">换一个</button>
+                <button onClick="{{ m.exclude }}" style="height:42px;border:0;background:{{ m.bg }};color:#141414;font-size:12px" style-hover="background:#E3E0D6">本次不考虑</button>
+                <button onClick="{{ m.open }}" style="height:42px;border:0;background:{{ m.bg }};color:#141414;font-size:12px" style-hover="background:#E3E0D6">适配详情</button>
+              </div></div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><div style="padding:56px;border:1px dashed #D9D6CC;text-align:center;color:#6B6B66;font-size:13px">当前条件下没有候选。放宽平台、档位或市场限制试试。</div></sc-if>
+  </div>
+
+  <!-- MY LINEUP -->
+  <aside style="border-left:1px solid #D9D6CC;background:#FAF9F5;position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column">
+    <div style="padding:24px 28px 18px;border-bottom:1px solid #D9D6CC">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6B6B66">我的名单</span><div style="display:flex;gap:1px;border:1px solid #141414"><sc-for list="{{ planTabs }}" as="p" hint-placeholder-count="2"><button onClick="{{ p.pick }}" style="height:26px;padding:0 10px;border:0;background:{{ p.bg }};color:{{ p.color }};font-family:'JetBrains Mono',monospace;font-size:11px">{{ p.label }}</button></sc-for></div></div>
+      <div style="margin-top:14px;display:flex;align-items:baseline;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:48px;line-height:1"><count-up value="{{ summary.count }}"></count-up></span><span style="font-size:13px;color:#6B6B66">人</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:17px"><count-up value="{{ summary.range }}"></count-up></span></div>
+      <div style="margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66;text-align:right">预算区间 · 每人一条主内容</div>
+    </div>
+    <sc-if value="{{ hasDiff }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:14px 28px;background:#141414;color:#F3F1EA;font-size:12px;line-height:1.6;animation:msm-in .3s both"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5FC4BB;margin-bottom:4px">刚刚的变化 · {{ lastDiff.title }}</div><sc-for list="{{ lastDiff.notes }}" as="d" hint-placeholder-count="2"><div>· {{ d }}</div></sc-for></div>
+    </sc-if>
+    <div style="flex:1;overflow:auto;padding:18px 28px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:1px;background:#D9D6CC">
+        <sc-for list="{{ selectedRows }}" as="m" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:9px 10px;background:#FAF9F5;font-size:12px"><button onClick="{{ m.open }}" style="min-width:0;text-align:left;background:transparent;border:0;padding:0;color:#141414"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500">{{ m.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B66">{{ m.role }} · {{ m.platform }}</div></button><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#0E6E6A">{{ m.tierMark }}</span><button onClick="{{ m.remove }}" style="width:24px;height:24px;border:0;background:transparent;color:#6B6B66;font-size:15px">×</button></div></sc-for>
+        <sc-if value="{{ emptyLineup }}" hint-placeholder-val="{{ true }}"><div style="padding:22px 12px;background:#FAF9F5;font-size:12px;color:#6B6B66;text-align:center;line-height:1.6">从「MANGO 建议起点」一键采用，或在左侧逐个「保留」。每次增删都会说明阵容发生了什么变化。</div></sc-if>
+      </div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6B66;margin-bottom:8px">传播角色</div><div style="display:flex;flex-wrap:wrap;gap:4px"><sc-for list="{{ summary.roleChips }}" as="r" hint-placeholder-count="3"><span style="padding:3px 8px;background:#141414;color:#F3F1EA;font-size:11px">{{ r }}</span></sc-for></div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6B66;margin-bottom:8px">覆盖</div><div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ summary.coverRows }}" as="r" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:84px 1fr;gap:8px;font-size:12px"><span style="color:#6B6B66">{{ r.label }}</span><span>{{ r.value }}</span></div></sc-for></div></div>
+      <sc-if value="{{ summary.hasGaps }}" hint-placeholder-val="{{ false }}"><div style="padding:10px 12px;border:1px solid #C9A227;font-size:12px;line-height:1.6;color:#6B4E00"><strong style="font-weight:500">缺口：</strong>{{ summary.gapText }}</div></sc-if>
+      <sc-if value="{{ hasBench }}" hint-placeholder-val="{{ false }}"><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6B66;margin-bottom:8px">备选池</div><div style="display:flex;flex-wrap:wrap;gap:4px"><sc-for list="{{ benchRows }}" as="b" hint-placeholder-count="2"><button onClick="{{ b.promote }}" style="padding:5px 9px;border:1px dashed #6B6B66;background:transparent;font-size:11px;color:#141414">☆ {{ b.name }} → 加入</button></sc-for></div></div></sc-if>
+    </div>
+    <div style="padding:16px 28px;border-top:1px solid #D9D6CC;display:flex;flex-direction:column;gap:8px">
+      <sc-if value="{{ hasCompare }}" hint-placeholder-val="{{ false }}"><button onClick="{{ openCompare }}" style="height:40px;border:1px solid #141414;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em">对比 {{ compareCount }} 人</button></sc-if>
+      <sc-if value="{{ hasHistory }}" hint-placeholder-val="{{ false }}"><button onClick="{{ clearLineup }}" style="height:34px;border:0;background:transparent;color:#6B6B66;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em" style-hover="color:#141414">清空重新选</button></sc-if>
+      <button onClick="{{ goOverview }}" disabled="{{ emptyLineup }}" style="height:54px;padding:0 20px;border:1px solid #141414;background:#141414;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between;opacity:{{ confirmOpacity }}" style-hover="background:#0E6E6A;border-color:#0E6E6A"><span>查看阵容价值</span><span>→</span></button>
+    </div>
+  </aside>
+</section>
+</sc-if>
+
+<!-- ================= OVERVIEW (Phase 4) ================= -->
+<sc-if value="{{ isOverview }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="阵容价值" style="flex:1;display:flex;flex-direction:column">
+  <!-- 4.0 header -->
+  <div style="padding:56px clamp(24px,4vw,64px) 48px;border-bottom:1px solid rgba(243,241,234,.14);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.9fr);gap:48px;align-items:end">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5FC4BB">04 /// 阵容价值概览</div>
+      <h1 style="margin:18px 0 0;font-size:clamp(32px,3.6vw,54px);line-height:1.08;letter-spacing:-.02em;font-weight:300;max-width:22ch;text-wrap:pretty;animation:msm-in .4s both"><em style="font-weight:700;font-style:italic">{{ project.name }}，</em>{{ ovHeadline }}</h1>
+      <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:rgba(243,241,234,.75);max-width:64ch;text-wrap:pretty">{{ ovStatement }}</p>
+      <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#5FC4BB;max-width:64ch">{{ ovSignal }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(243,241,234,.14);border:1px solid rgba(243,241,234,.14)">
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1"><count-up value="{{ ovStats.count }}"></count-up></div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">人</div></div>
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;line-height:1.6"><count-up value="{{ ovStats.range }}"></count-up></div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">预算区间</div></div>
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1">{{ ovStats.plat }}</div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">个平台</div></div>
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1">{{ ovStats.contactable }}</div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">可由 MANGO 对接</div></div>
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1;color:#C9A227">{{ ovStats.unverified }}</div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">报价待复核</div></div>
+      <div style="background:#152F31;padding:18px"><div style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1;color:{{ ovStats.sigColor }}">{{ ovStats.sig }}</div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">条关系 SIGNAL</div></div>
+    </div>
+  </div>
+
+  <!-- 4.1 path graph -->
+  <div style="padding:48px clamp(24px,4vw,64px);border-bottom:1px solid rgba(243,241,234,.14)">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">4.1</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">{{ graph.title }}</h3><p style="margin:8px 0 0;font-size:13px;color:rgba(243,241,234,.6);max-width:72ch;line-height:1.6">{{ graph.note }}</p></div>
+      <div style="display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.65)"><span><span style="display:inline-block;width:18px;border-top:1.5px solid #5FC4BB;vertical-align:middle;margin-right:6px"></span>已核验</span><span><span style="display:inline-block;width:18px;border-top:1px dashed rgba(243,241,234,.7);vertical-align:middle;margin-right:6px"></span>待核验</span></div>
+    </div>
+    <sc-if value="{{ graph.show }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));gap:24px">
+      <div style="position:relative;width:100%;height:{{ graph.px }};min-width:0">
+        <dot-grid gap="24" dot="1" shift="4" color="rgba(243,241,234,0.1)" style="position:absolute;inset:0"></dot-grid>
+        <div style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:14% 30% 30% 26%;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.45)"><span style="padding-left:1%">你的项目</span><span style="padding-left:3%">已选 KOL / 媒体</span><span style="padding-left:3%">目标 ROOT</span><span style="padding-left:2%">目标圈层</span></div>
+        <svg viewBox="0 0 1000 {{ graph.h }}" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible" aria-hidden="true"><sc-for list="{{ graph.edges }}" as="e" hint-placeholder-count="6"><line x1="{{ e.x1 }}" y1="{{ e.y1 }}" x2="{{ e.x2 }}" y2="{{ e.y2 }}" stroke="{{ e.stroke }}" stroke-width="{{ e.w }}" stroke-dasharray="{{ e.dash }}" opacity="{{ e.op }}" vector-effect="non-scaling-stroke" onClick="{{ e.click }}" style="cursor:pointer"></line></sc-for></svg>
+        <sc-for list="{{ graph.nodes }}" as="n" hint-placeholder-count="8"><button onClick="{{ n.click }}" title="{{ n.label }} · {{ n.sub }}" style="position:absolute;left:{{ n.left }};top:{{ n.top }};width:{{ n.width }};height:38px;padding:0 10px;border:1px solid {{ n.stroke }};background:{{ n.fill }};color:{{ n.color }};opacity:{{ n.op }};display:flex;flex-direction:column;justify-content:center;gap:1px;font-size:12px;text-align:left;overflow:hidden;transition:opacity .2s" style-hover="border-color:#F3F1EA"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;line-height:1.2">{{ n.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.04em;opacity:.6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.2">{{ n.sub }}</span></button></sc-for>
+      </div>
+      <div style="border:1px solid rgba(243,241,234,.18);padding:18px;display:flex;flex-direction:column;gap:12px;min-height:200px;background:#152F31">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">检视</div>
+        <div style="font-size:17px;font-weight:500">{{ inspect.title }}</div>
+        <div style="font-size:12px;color:rgba(243,241,234,.65);line-height:1.6">{{ inspect.sub }}</div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.14)"><sc-for list="{{ inspect.rows }}" as="r" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:72px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid rgba(243,241,234,.1);font-size:12px;line-height:1.5"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:rgba(243,241,234,.5)">{{ r.k }}</span><span style="color:{{ r.color }}">{{ r.v }}</span></div></sc-for></div>
+        <div style="font-size:12px;color:rgba(243,241,234,.8);line-height:1.6"><span style="color:#5FC4BB;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">MANGO 判断</span><br>{{ inspect.judgment }}</div>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ graph.degraded }}" hint-placeholder-val="{{ true }}">
+    <div style="margin-top:24px;padding:24px;border:1px dashed rgba(243,241,234,.3);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;padding:5px 9px;border:1px solid rgba(243,241,234,.4);color:rgba(243,241,234,.75)">{{ graph.badge }}</span><p style="margin:0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.75)">{{ graph.degradeNote }}</p></div>
+    </sc-if>
+  </div>
+
+  <!-- 4.2 matrix + 4.3 roots -->
+  <div style="padding:48px clamp(24px,4vw,64px);border-bottom:1px solid rgba(243,241,234,.14);display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:48px">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">4.2</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">{{ matrix.title }}</h3><p style="margin:8px 0 20px;font-size:13px;color:rgba(243,241,234,.6);line-height:1.6">{{ matrix.note }}</p>
+      <div style="overflow:auto"><div style="display:grid;grid-template-columns:150px repeat({{ matrix.cols }},minmax(56px,1fr)) 64px;gap:1px;background:rgba(243,241,234,.14);border:1px solid rgba(243,241,234,.14);min-width:{{ matrix.minw }}">
+        <div style="background:#1F4144"></div>
+        <sc-for list="{{ matrix.heads }}" as="h" hint-placeholder-count="4"><div style="background:#1F4144;padding:8px 6px;font-size:10px;color:rgba(243,241,234,.75);writing-mode:vertical-rl;transform:rotate(180deg);height:88px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ h }}</div></sc-for>
+        <div style="background:#1F4144;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.5)">合计</div>
+        <sc-for list="{{ matrix.rows }}" as="r" hint-placeholder-count="4">
+          <div style="background:#1F4144;padding:10px 8px;font-size:12px;display:flex;align-items:center">{{ r.label }}</div>
+          <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="4"><div style="background:{{ c.bg }};display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:{{ c.color }};min-height:40px">{{ c.v }}</div></sc-for>
+          <div style="background:#1F4144;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:{{ r.totColor }}">{{ r.total }}</div>
+        </sc-for>
+      </div></div>
+      <div style="margin-top:12px;display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.6)"><span><span style="display:inline-block;width:10px;height:10px;background:#5FC4BB;margin-right:6px;vertical-align:-1px"></span>多人覆盖</span><span><span style="display:inline-block;width:10px;height:10px;background:#C9A227;margin-right:6px;vertical-align:-1px"></span>单点覆盖</span><span><span style="display:inline-block;width:10px;height:10px;border:1px solid rgba(243,241,234,.3);margin-right:6px;vertical-align:-1px;box-sizing:border-box"></span>缺口</span></div>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.5)">4.3</div><h3 style="margin:8px 0 0;font-size:22px;font-weight:400">可能进入谁的信息流</h3><p style="margin:8px 0 20px;font-size:13px;color:rgba(243,241,234,.6);line-height:1.6">{{ rootsNote }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:rgba(243,241,234,.14);border:1px solid rgba(243,241,234,.14)">
+        <sc-for list="{{ reachedRoots }}" as="r" hint-placeholder-count="4">
+          <button onClick="{{ r.open }}" style="background:#152F31;padding:16px;text-align:left;border:0;color:#F3F1EA;display:flex;flex-direction:column;gap:10px" style-hover="background:#1B3A3C">
+            <div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:50%;background:#0E0E0E;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;color:#5FC4BB;font-size:12px;flex:none">{{ r.initial }}</div><div style="min-width:0"><div style="font-size:14px;font-weight:500">{{ r.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(243,241,234,.5);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.role }}</div></div></div>
+            <div style="font-size:12px;line-height:1.5;color:rgba(243,241,234,.7)">{{ r.why }}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#5FC4BB">{{ r.via }}</div>
+          </button>
+        </sc-for>
+        <sc-if value="{{ noReached }}" hint-placeholder-val="{{ false }}"><div style="background:#152F31;padding:24px;font-size:12px;color:rgba(243,241,234,.6);line-height:1.6;grid-column:1/-1">当前阵容与所选 Root 之间尚无已观察到的关系 Signal。这不代表不会被看到，只是目前没有证据支撑。</div></sc-if>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.4 final list + confirm (bone) -->
+  <div style="background:#F3F1EA;color:#141414;padding:48px clamp(24px,4vw,64px) 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:48px">
+    <div style="grid-column:span 1;min-width:0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#0E6E6A">4.4</div><h3 style="margin:8px 0 20px;font-size:22px;font-weight:400">初步阵容</h3>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #141414">
+        <sc-for list="{{ finalRows }}" as="m" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto auto auto auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #D9D6CC;font-size:13px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B6B66">{{ m.n }}</span>
+            <div style="min-width:0"><div style="font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.name }} <span style="font-weight:300;color:#6B6B66;font-size:11px;font-family:'JetBrains Mono',monospace">{{ m.handle }}</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B66;margin-top:2px">{{ m.platform }} · {{ m.followers }} · {{ m.formats }}</div></div>
+            <span style="font-size:11px;padding:3px 8px;border:1px solid #0E6E6A;color:#0E6E6A;font-family:'JetBrains Mono',monospace;white-space:nowrap">{{ m.role }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;color:#0E6E6A">{{ m.fit }}</span>
+            <span style="font-family:'JetBrains Mono',monospace">{{ m.tierMark }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:{{ m.qsColor }};white-space:nowrap">{{ m.qs }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ hasHistory }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:32px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6B66;margin-bottom:10px">变化记录</div><div style="display:flex;flex-direction:column;border-top:1px solid #D9D6CC"><sc-for list="{{ history }}" as="h" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:48px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid #D9D6CC;font-size:12px;line-height:1.5"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B66">{{ h.t }}</span><div><span style="font-weight:500">{{ h.title }}</span><span style="color:#6B6B66"> · {{ h.notes }}</span></div></div></sc-for></div></div>
+      </sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="border:1px solid #141414;padding:20px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#6B6B66">仍需 MANGO 核验</div><ul style="margin:12px 0 0;padding:0 0 0 16px;font-size:13px;line-height:1.8;color:#4A4A46"><sc-for list="{{ pendingItems }}" as="p" hint-placeholder-count="3"><li>{{ p }}</li></sc-for></ul></div>
+      <div style="border:1px solid #D9D6CC;padding:20px;background:#FAF9F5"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#0E6E6A">MANGO 接下来会做</div><ol style="margin:12px 0 0;padding:0 0 0 18px;font-size:13px;line-height:1.8;color:#4A4A46"><li>复核每位创作者的最新报价、档期与合作条件</li><li>确认商务路径，与尚无联系方式的对象建联</li><li>回复"还在确认的边界"，补充关系 Signal 与近期内容样张</li><li>返回带确认价格的最终执行方案</li></ol></div>
+      <sc-if value="{{ notConfirmed }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ confirmLineup }}" style="height:60px;background:#141414;color:#F3F1EA;border:0;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between;padding:0 22px" style-hover="background:#0E6E6A"><span>确认初步阵容</span><span>→</span></button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button onClick="{{ goLineup }}" style="height:40px;border:1px solid #141414;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">返回调整</button><button onClick="{{ requestOptimize }}" style="height:40px;border:1px solid #141414;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">请 MANGO 再优化一次</button><button onClick="{{ exportPlan }}" style="height:40px;border:1px solid #D9D6CC;background:transparent;color:#141414;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;grid-column:span 2">导出方案</button></div>
+      <p style="margin:0;font-size:11px;color:#6B6B66;line-height:1.6">确认不是购买。Mango 将继续复核最新报价、档期和合作条件，并根据这套初步阵容返回最终执行方案。</p>
+      </sc-if>
+      <sc-if value="{{ confirmed }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:24px;background:#141414;color:#F3F1EA;animation:msm-in .4s both"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#5FC4BB">已提交</div><div style="margin-top:10px;font-size:18px;font-weight:500;line-height:1.3">初步阵容已发送给 Mango。</div><p style="margin:12px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.75)">Mango 将继续复核最新报价、档期和合作条件，并根据这套初步阵容返回最终执行方案。你随时可以返回调整。</p><div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">{{ confirmedAt }}</div><button onClick="{{ unconfirm }}" style="margin-top:14px;height:36px;padding:0 14px;border:1px solid rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px">撤回并继续调整</button></div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- ================= KOL DRAWER ================= -->
+<sc-if value="{{ hasOpenKol }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeKol }}" style="position:fixed;inset:0;background:rgba(14,14,14,.55);z-index:50"></div>
+<aside data-screen-label="KOL 详情" style="position:fixed;top:0;right:0;bottom:0;width:min(600px,100vw);background:#F3F1EA;color:#141414;z-index:51;overflow:auto;border-left:1px solid #141414;animation:msm-in .25s both">
+  <div style="position:sticky;top:0;background:#F3F1EA;border-bottom:1px solid #141414;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;z-index:1"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6B6B66">KOL 详情</span><button onClick="{{ closeKol }}" style="border:0;background:transparent;font-size:22px;color:#141414;padding:0">×</button></div>
+  <div style="padding:32px;display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;gap:18px;align-items:start">
+      <div style="width:60px;height:60px;border-radius:50%;background:#141414;color:#F3F1EA;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;flex:none">{{ ok.initial }}</div>
+      <div style="flex:1;min-width:0"><div style="font-size:26px;font-weight:500;letter-spacing:-.01em">{{ ok.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6B6B66;margin-top:3px">{{ ok.handle }} · {{ ok.platform }} · {{ ok.followers }}</div><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px"><span style="padding:2px 7px;background:#141414;color:#F3F1EA;font-size:11px">{{ ok.role }}</span><sc-for list="{{ ok.tags }}" as="tg" hint-placeholder-count="3"><span style="padding:2px 7px;border:1px solid #D9D6CC;font-size:11px">{{ tg }}</span></sc-for></div></div>
+      <div style="text-align:right"><div style="font-family:'JetBrains Mono',monospace;font-size:48px;line-height:1;color:#0E6E6A">{{ ok.fit }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#6B6B66;margin-top:3px">本项目适配度</div></div>
+    </div>
+    <p style="margin:0;font-size:14px;line-height:1.7;color:#4A4A46">{{ ok.bio }}</p>
+
+    <div><div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="margin:0;font-size:15px;font-weight:500">为什么是 {{ ok.fit }}</h4><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">相对当前偏好 · 随选择变化</span></div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:12px"><sc-for list="{{ ok.parts }}" as="p" hint-placeholder-count="6"><div style="display:grid;grid-template-columns:110px 1fr 56px;gap:12px;align-items:start"><span style="font-size:12px;color:{{ p.labelColor }};padding-top:1px">{{ p.label }}</span><div><div style="height:6px;background:#E3E0D6"><div style="height:100%;background:{{ p.bar }};width:{{ p.pct }}%;transition:width .3s"></div></div><div style="font-size:11px;color:#6B6B66;margin-top:4px;line-height:1.5">{{ p.note }}</div></div><span style="font-family:'JetBrains Mono',monospace;font-size:11px;text-align:right">{{ p.pts }}</span></div></sc-for></div>
+      <sc-if value="{{ ok.hasRules }}" hint-placeholder-val="{{ false }}"><div style="margin-top:12px;padding:10px 14px;border:1px solid #D9D6CC;background:#FAF9F5;font-size:12px;line-height:1.6"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66;margin-bottom:4px">你认可的判别标准对这位的影响</div><sc-for list="{{ ok.rules }}" as="r" hint-placeholder-count="2"><div>· {{ r }}</div></sc-for></div></sc-if>
+      <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC;font-size:12px"><div style="background:#FAF9F5;padding:12px 14px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#0E6E6A">优势</div><div style="margin-top:4px;line-height:1.5">{{ ok.strengths }}</div></div><div style="background:#FAF9F5;padding:12px 14px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#8A6D00">限制 / 缺失信息</div><div style="margin-top:4px;line-height:1.5">{{ ok.limits }}</div></div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC">
+      <div style="background:#FAF9F5;padding:16px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">被看到概率</div><div style="font-family:'JetBrains Mono',monospace;font-size:30px;margin-top:6px;color:{{ ok.axisColor }}">{{ ok.seen }}</div><div style="font-size:11px;color:#6B6B66;margin-top:4px;line-height:1.5">内容进入目标 Root 日常信息流的机会</div></div>
+      <div style="background:#FAF9F5;padding:16px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">被互动概率</div><div style="font-family:'JetBrains Mono',monospace;font-size:30px;margin-top:6px;color:{{ ok.axisColor }}">{{ ok.engaged }}</div><div style="font-size:11px;color:#6B6B66;margin-top:4px;line-height:1.5">目标 Root 回复、引用或转发的机会</div></div>
+    </div>
+
+    <div><h4 style="margin:0 0 12px;font-size:15px;font-weight:500">报价对应的内容形式</h4>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #141414"><sc-for list="{{ ok.quotes }}" as="q" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid #D9D6CC;font-size:13px"><span>{{ q.label }} <span style="color:#6B6B66;font-size:11px">{{ q.raw }}</span></span><span style="font-family:'JetBrains Mono',monospace">{{ q.mark }}</span></div></sc-for></div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:12px"><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">报价状态</div><div style="margin-top:3px;color:{{ ok.qsColor }}">{{ ok.qs }}</div></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">商务路径</div><div style="margin-top:3px">{{ ok.commercial }}</div></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66">报价记录</div><div style="margin-top:3px;font-family:'JetBrains Mono',monospace">{{ ok.quoteDate }}</div></div></div>
+    </div>
+
+    <div><h4 style="margin:0 0 12px;font-size:15px;font-weight:500">与目标 Root 的关系 Signal</h4>
+      <sc-if value="{{ ok.hasSignals }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC"><sc-for list="{{ ok.signals }}" as="s" hint-placeholder-count="2"><div style="background:#FAF9F5;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:10px;font-size:12px"><div><span style="font-weight:500">{{ s.root }}</span> <span style="color:#6B6B66">· {{ s.type }} · {{ s.date }} · ×{{ s.count }}</span><div style="margin-top:3px;color:#4A4A46">{{ s.evidence }}</div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:{{ s.color }};white-space:nowrap">{{ s.status }}</span></div></sc-for></div></sc-if>
+      <sc-if value="{{ ok.noSignals }}" hint-placeholder-val="{{ true }}"><div style="padding:14px;border:1px dashed #D9D6CC;font-size:12px;color:#6B6B66;line-height:1.6">{{ ok.noSignalNote }}</div></sc-if>
+    </div>
+
+    <div style="border-left:2px solid #0E6E6A;padding:4px 0 4px 16px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#0E6E6A">MANGO 判断</div><p style="margin:6px 0 0;font-size:14px;line-height:1.7;color:#4A4A46">{{ ok.judgment }}</p></div>
+
+    <div><h4 style="margin:0 0 12px;font-size:15px;font-weight:500">相似替代人选</h4><div style="display:flex;flex-direction:column;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC"><sc-for list="{{ ok.altList }}" as="a" hint-placeholder-count="3"><div style="background:#FAF9F5;padding:10px 14px;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;font-size:13px"><div><span style="font-weight:500">{{ a.name }}</span> <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B66">{{ a.platform }} · {{ a.tierMark }}</span></div><span style="font-family:'JetBrains Mono',monospace;color:#0E6E6A">{{ a.fit }}</span><button onClick="{{ a.swap }}" style="height:30px;padding:0 12px;border:1px solid #141414;background:transparent;font-family:'JetBrains Mono',monospace;font-size:11px;color:#141414" style-hover="background:#141414;color:#F3F1EA">{{ ok.swapLabel }}</button></div></sc-for></div></div>
+
+    <div style="display:grid;grid-template-columns:1fr auto auto;gap:8px;position:sticky;bottom:0;background:#F3F1EA;padding:16px 0 4px;border-top:1px solid #D9D6CC">
+      <button onClick="{{ ok.toggleSelect }}" style="height:46px;border:1px solid #141414;background:{{ ok.selBg }};color:{{ ok.selColor }};font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em">{{ ok.selLabel }}</button>
+      <button onClick="{{ ok.toggleBench }}" style="height:46px;padding:0 14px;border:1px solid #D9D6CC;background:{{ ok.benchBg }};color:#141414;font-family:'JetBrains Mono',monospace;font-size:11px">☆ 备选</button>
+      <button onClick="{{ ok.toggleCompare }}" style="height:46px;padding:0 14px;border:1px solid #D9D6CC;background:{{ ok.cmpBg }};color:#141414;font-family:'JetBrains Mono',monospace;font-size:11px">⇄ 对比</button>
+    </div>
+  </div>
+</aside>
+</sc-if>
+
+<!-- ================= COMPARE ================= -->
+<sc-if value="{{ compareOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeCompare }}" style="position:fixed;inset:0;background:rgba(14,14,14,.6);z-index:50;display:grid;place-items:center;padding:24px">
+  <div onClick="{{ stop }}" style="width:min(1100px,100%);max-height:90vh;overflow:auto;background:#F3F1EA;color:#141414;border:1px solid #141414;padding:32px;animation:msm-in .25s both">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h3 style="margin:0;font-size:22px;font-weight:500">对比 {{ compareCount }} 人</h3><div style="display:flex;gap:12px;align-items:center"><button onClick="{{ clearCompare }}" style="border:0;background:transparent;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6B6B66">清空</button><button onClick="{{ closeCompare }}" style="border:0;background:transparent;font-size:22px;padding:0">×</button></div></div>
+    <div style="display:grid;grid-template-columns:140px repeat({{ compareCount }},1fr);gap:1px;background:#D9D6CC;border:1px solid #D9D6CC">
+      <sc-for list="{{ compareRows }}" as="r" hint-placeholder-count="8">
+        <div style="background:#FAF9F5;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6B6B66;display:flex;align-items:center">{{ r.label }}</div>
+        <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3"><div style="background:#F3F1EA;padding:10px 12px;font-size:13px;font-family:{{ c.font }};color:{{ c.color }};font-weight:{{ c.fw }};line-height:1.5">{{ c.v }}</div></sc-for>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ================= ROOT PERSON ================= -->
+<sc-if value="{{ hasOpenRoot }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeRoot }}" style="position:fixed;inset:0;background:rgba(14,14,14,.6);z-index:50;display:grid;place-items:center;padding:24px">
+  <div onClick="{{ stop }}" style="width:min(520px,100%);background:#152F31;border:1px solid rgba(243,241,234,.3);color:#F3F1EA;padding:28px;display:flex;flex-direction:column;gap:18px;animation:msm-in .25s both">
+    <div style="display:flex;gap:14px;align-items:center"><div style="width:52px;height:52px;border-radius:50%;background:#0E0E0E;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;color:#5FC4BB;font-size:18px">{{ or.initial }}</div><div><div style="font-size:22px;font-weight:500">{{ or.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:rgba(243,241,234,.55)">{{ or.handle }} · {{ or.role }}</div></div><button onClick="{{ closeRoot }}" style="margin-left:auto;border:0;background:transparent;color:#F3F1EA;font-size:20px">×</button></div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.16)">
+      <div style="padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);display:grid;grid-template-columns:100px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">圈层类型</span><span>{{ or.type }}</span></div>
+      <div style="padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);display:grid;grid-template-columns:100px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">为什么重要</span><span>{{ or.why }}</span></div>
+      <div style="padding:12px 0;display:grid;grid-template-columns:100px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">行为习惯</span><span>{{ or.behavior }}</span></div>
+    </div>
+    <p style="margin:0;font-size:11px;line-height:1.6;color:rgba(243,241,234,.45)">代表人物用于帮助理解圈层类型，不承诺任何人会看到、回复或转发。</p>
+  </div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;signalState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;project&quot;,&quot;full&quot;,&quot;partial&quot;,&quot;none&quot;],&quot;default&quot;:&quot;project&quot;,&quot;tsType&quot;:&quot;'project'|'full'|'partial'|'none'&quot;,&quot;section&quot;:&quot;数据状态&quot;,&quot;description&quot;:&quot;关系 Signal 数据状态：project=按项目配置；full/partial/none 强制切换以查看三态降级&quot;},&quot;showDemoBadge&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;界面&quot;}}">
+class Component extends DCLogic {
+  state = { loaded: false, view: 'home', project: null, draft: { domainGroup: '', markets: [], name: '', tagline: '', site: '', goal: '' }, startStep: 0, tokenEntryOpen: false, tokenInput: '', tokenError: false, editing: null, saveNote: '', meta: { kols: 0, platforms: 0, domains: 0, markets: 0 }, hasSaved: false, taxonomy: null };
+  async componentDidMount() {
+    const A = await import('./data/adapter.js'); this.A = A;
+    const kols = await A.loadKols();
+    const meta = { kols: kols.length, platforms: new Set(kols.map(k => k.platform)).size, domains: Object.keys((await import('./data/demo.js')).rootLibrary).length, markets: A.taxonomy.markets.length };
+    const token = new URLSearchParams(location.search).get('p');
+    this.setState({ loaded: true, meta, taxonomy: A.taxonomy, saved: A.listSaved(), kols, roots: [], signals: [], prefs: null, pulseNote: '', openRoot: null, revealStep: 0, revealed: false });
+    if (token) this.enter(token);
+  }
+  async enter(token) {
+    const A = this.A; const project = await A.loadProject(token);
+    if (!project || (project.token !== token && token !== 'demo')) { this.setState({ tokenError: true }); return; }
+    const saved = A.loadState(project.id) || {};
+    await this.bindProject({ ...project, ...(saved.project || {}) }, saved);
+    this.setState({ view: 'understand', tokenError: false, hasSaved: !!saved.prefs, maxStage: saved.maxStage || 0 });
+  }
+  componentDidUpdate(prevProps) { if (prevProps.signalState !== this.props.signalState && this.state.project) { const saved = this.A.loadState(this.state.project.id) || {}; this.bindProject(this.state.project, { ...saved, prefs: this.state.prefs, plans: this.state.plans, plan: this.state.plan, history: this.state.history }); } }
+  async resumeDraft(id) { const saved = this.A.loadState(id); if (!saved || !saved.project) return; await this.bindProject(saved.project, saved); this.setState({ view: saved.view === 'reveal' ? 'lineup' : (saved.view || 'configure'), maxStage: saved.maxStage || 1, hasSaved: true }); window.scrollTo(0, 0); }
+  async bindProject(project, saved) {
+    const A = this.A; const roots = A.rootsFor(project); const ov = this.props.signalState && this.props.signalState !== 'project' ? this.props.signalState : null; const signals = await A.loadSignals(project.id, ov || project.signalState);
+    const prefs = (saved && saved.prefs) || A.defaultPrefs(project);
+    if (project.budget && !(saved && saved.prefs)) prefs.budget = project.budget;
+    if (!Object.keys(prefs.rootTypes).length) roots.forEach((r, i) => { prefs.rootTypes[r.id] = i === 0 ? 'primary' : i < 3 ? 'secondary' : 'skip'; });
+    this._mc = null;
+    this.setState({ project, roots, signals, prefs, revealed: !!(saved && saved.revealed), confirmedAt: (saved && saved.confirmedAt) || null, inspect: null, plans: (saved && saved.plans) || { A: { selected: [], bench: [] }, B: { selected: [], bench: [] } }, plan: (saved && saved.plan) || 'A', history: (saved && saved.history) || [], lastDiff: null, compare: [], openKol: null, swapFor: null, filter: { q: '', platform: '', tier: 0, confirmedOnly: false } });
+  }
+  save(note) { const s = this.state; if (s.project && this.A) this.A.saveState(s.project.id, { ...(this.A.loadState(s.project.id) || {}), project: s.project, prefs: s.prefs, revealed: s.revealed, view: s.view, maxStage: Math.max(s.maxStage || 0, this.stageOf(s.view)), at: Date.now() }); clearTimeout(this._t); this.setState({ saveNote: note || '已保存' }); this._t = setTimeout(() => this.setState({ saveNote: '' }), 1600); }
+  stageOf(v) { return ['home', 'understand', 'start'].includes(v) ? 0 : ['configure', 'criteria', 'reveal'].includes(v) ? 1 : v === 'lineup' ? 2 : 3; }
+  wipeFor(v) { return { home: null, understand: ['01', '你的 BRIEF'], start: ['01', '项目起点'], configure: ['02', '表达偏好'], criteria: ['02', 'MANGO 当前理解'], reveal: null, lineup: ['03', '推荐名单'], overview: ['04', '阵容价值'] }[v] || null; }
+  playWipe(v) { const w = this.wipeFor(v); if (!w || v === this.state.view) return; clearTimeout(this._wp); this.setState({ wipe: { on: true, n: w[0], label: w[1] } }); this._wp = setTimeout(() => this.setState({ wipe: { on: false } }), 620); }
+  goView(v) { this.playWipe(v); const st = this.stageOf(v); this.setState({ view: v, tokenEntryOpen: false, openRoot: null, openKol: null, compareOpen: false, maxStage: Math.max(this.state.maxStage || 0, st) }, () => this.save('')); window.scrollTo(0, 0); }
+  applySuggestion() {
+    const s = this.state, A = this.A; const sg = A.suggestLineup(this.matches(), s.prefs, s.project); if (!sg.ids.length) return;
+    const plans = this.setPlan(p => { p.selected = [...sg.ids]; });
+    const entry = { t: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }), title: `采用 Mango 建议起点（${sg.count} 位）`, notes: [sg.note] };
+    this.persistPlans(plans, { lastDiff: entry, history: [entry, ...(s.history || [])].slice(0, 30), suggestionApplied: true });
+  }
+  // ---- preferences
+  matches() { const s = this.state; if (!s.prefs) return []; if (!this._mc || this._mc.k !== s.prefs) this._mc = { k: s.prefs, v: this.A.matchKols(s.kols, s.prefs, s.roots, s.signals) }; return this._mc.v; }
+  setPrefs(fn) {
+    const s = this.state, A = this.A; const before = this.matches().filter(m => m.eligible).length;
+    const prefs = JSON.parse(JSON.stringify(s.prefs)); fn(prefs);
+    const after = A.matchKols(s.kols, prefs, s.roots, s.signals).filter(m => m.eligible).length; const d = after - before;
+    this.setState({ prefs, pulseNote: d === 0 ? '候选数量不变，排序已更新' : d > 0 ? `新增 ${d} 位候选` : `减少 ${-d} 位候选`, pulseTick: (s.pulseTick || 0) + 1 }, () => this.save('已自动保存'));
+  }
+  toggleIn(key, id) { this.setPrefs(p => { const i = p[key].indexOf(id); i >= 0 ? p[key].splice(i, 1) : p[key].push(id); }); }
+  understandVals(el) {
+    const s = this.state, A = this.A, P = s.prefs, pj = s.project, T = A.taxonomy; const teal = '#5FC4BB', gold = '#C9A227';
+    const list = this.criteria(); const editing = s.editingCrit;
+    const item = c => ({ id: c.id, text: c.text, approved: c.status === 'approved', removed: c.status === 'removed', pending: c.status === 'pending', editing: editing === c.id, showText: editing !== c.id, statusLabel: c.status === 'approved' ? '已认可' : c.status === 'removed' ? '已移除' : '', statusColor: c.status === 'approved' ? teal : 'rgba(243,241,234,.4)', opacity: c.status === 'removed' ? .35 : 1, deco: c.status === 'removed' ? 'line-through' : 'none', mark: c.status === 'approved' ? '■' : c.status === 'removed' ? '×' : '□', markColor: c.status === 'approved' ? teal : c.status === 'removed' ? 'rgba(243,241,234,.4)' : 'rgba(243,241,234,.5)',
+      approve: () => this.setCriteria(l => { const x = l.find(y => y.id === c.id); x.status = x.status === 'approved' ? 'pending' : 'approved'; return l; }), remove: () => this.setCriteria(l => { const x = l.find(y => y.id === c.id); x.status = x.status === 'removed' ? 'pending' : 'removed'; return l; }), edit: () => this.setState({ editingCrit: c.id }), change: e => { const v = e.target.value; this.setCriteria(l => { const x = l.find(y => y.id === c.id); x.text = v; x.status = 'approved'; return l; }); }, done: () => this.setState({ editingCrit: null }), key: e => { if (e.key === 'Enter') this.setState({ editingCrit: null }); } });
+    const groups = [['want', '更想要的人', '认可会强化这些信号，进入排序加权'], ['avoid', '不想要的人', '认可会形成扣分或排除规则'], ['open', '还在确认的边界', '这些问题会进入下一轮 Mango 核对']].map(([kind, label, sub]) => ({ kind, label, sub, items: list.filter(c => c.kind === kind || (c.kind === 'custom' && c.group === kind)).map(item), adding: s.addingCrit === kind, draft: s.addingCrit === kind ? (s.critDraft || '') : '', startAdd: () => this.setState({ addingCrit: kind, critDraft: '' }), changeDraft: e => this.setState({ critDraft: e.target.value }), commitAdd: () => { const t = (s.critDraft || '').trim(); if (t) this.setCriteria(l => [...l, { id: 'custom' + Date.now().toString(36), kind: 'custom', group: kind, text: t, status: 'approved' }]); this.setState({ addingCrit: null, critDraft: '' }); }, cancelAdd: () => this.setState({ addingCrit: null, critDraft: '' }) }));
+    const counts = { approved: list.filter(c => c.status === 'approved').length, removed: list.filter(c => c.status === 'removed').length, pending: list.filter(c => c.status === 'pending').length };
+    const gl2 = pj.goals && pj.goals.length ? pj.goals : pj.goal ? [pj.goal] : [];
+    const goalLabel = gl2.map(x => (T.goals.find(g => g.id === x) || {}).label).filter(Boolean).join('、') || pj.customGoal || '被目标圈层注意到';
+    const primary = s.roots.filter(r => P.rootTypes[r.id] === 'primary').map(r => r.label);
+    const brief = `初始需求：${pj.name} 希望${goalLabel}${pj.customGoal ? '——' + pj.customGoal : ''}。当前版本先假设你真正要的是：${primary.length ? '能进入' + primary.join('、') + '信息流' : '能进入目标圈层信息流'}、${[gl2.includes('investors') && '能带来投资/BD 连接', gl2.includes('adoption') && '能带来真实试用', gl2.includes('reach') && '能把话题带出小圈层', gl2.includes('credibility') && '能让产品叙事更可信'].filter(Boolean).join('、') || '能让产品叙事更可信'}的人。`;
+    const adjust = [`认可的「更想要」条目 → 对应维度权重上调，${el.length} 位候选重新排序`, '认可的「不想要」条目 → 命中的账号扣分或直接排除（如营销账号、高风险标签）', '移除的条目 → 不进入本轮判断；编辑过的条目 → 由 Mango 人工核对后写入规则', '「还在确认的边界」→ 进入 Mango 复核清单，与报价一同回复'];
+    return { critGroups: groups, critCounts: { approved: String(counts.approved), removed: String(counts.removed), pending: String(counts.pending) }, critBrief: brief, critAdjust: adjust, approveAllWant: () => this.setCriteria(l => l.map(c => c.kind === 'want' || c.kind === 'avoid' ? { ...c, status: c.status === 'removed' ? c.status : 'approved' } : c)), goUnderstanding: () => this.goView('criteria') };
+  }
+  overviewVals(el, all, T) {
+    const s = this.state, A = this.A, P = s.prefs, roots = s.roots, sig = s.signals; const bone = '#F3F1EA', teal = '#5FC4BB', gold = '#C9A227';
+    const selected = this.selectedMatches(); const sum = A.lineupSummary(selected, P, roots, sig);
+    const people = roots.flatMap(r => r.people); const person = id => people.find(p => p.id === id); const typeOf = rid => (roots.find(rt => rt.people.some(p => p.id === rid)) || {}).id;
+    const primaryTypes = roots.filter(r => P.rootTypes[r.id] === 'primary').map(r => r.id);
+    const roleStr = Object.entries(sum.roles).map(([r, n]) => `${n} 位${r}`).join('、');
+    const headline = selected.length ? `${selected.length} 位创作者，覆盖 ${sum.platforms.length} 个平台与 ${sum.markets.length} 个市场。` : '还没有保留任何人。';
+    const statement = selected.length ? `这套阵容包含 ${roleStr}。${sum.contactable} 位可由 Mango 直接对接；${sum.unverified} 位报价为历史记录，需要复核。预算区间 ${A.fmtRange(sum.lo, sum.hi)}（按每人一条主内容）。` : '返回名单保留创作者后，这里会解释整套阵容的价值。';
+    const sigByType = Object.entries(sum.sigByType).map(([k, v]) => `${v} 条${k}`).join('、');
+    const sigStatement = sig.length === 0 ? '注意力路径待补充：Mango 尚未为该项目建立 KOL–Root 关系数据，以下按市场、语言、平台与角色展示覆盖。' : sum.signals ? `与 ${sum.rootsReached.length} 位代表性 Root 之间存在 ${sum.signals} 条已观察到的关系 Signal（${sigByType}），其中 ${sum.verifiedSignals} 条已核验。${sig.length < 12 ? '关系数据仅部分核验，其余仍在补充。' : ''}` : '当前阵容与所选 Root 之间尚无已观察到的关系 Signal。';
+    // graph
+    const es = selected.flatMap(m => m.score.signals.map(x => ({ ...x, kolId: m.kol.id })));
+    const rootIds = [...new Set(es.map(e => e.rootId))]; const typeIds = [...new Set(rootIds.map(typeOf))].filter(Boolean);
+    const rows = Math.max(selected.length, rootIds.length, typeIds.length, 2); const rowH = 52, top = 40; const H = top + rows * rowH + 16;
+    const focus = s.inspect; const lit = (kind, id) => { if (!focus || focus.kind === 'edge') return true; if (focus.kind === kind) return focus.id === id; if (focus.kind === 'kol') return kind === 'root' ? es.some(e => e.kolId === focus.id && e.rootId === id) : es.some(e => e.kolId === focus.id && typeOf(e.rootId) === id); if (focus.kind === 'root') return kind === 'kol' ? es.some(e => e.rootId === focus.id && e.kolId === id) : typeOf(focus.id) === id; if (focus.kind === 'type') return kind === 'kol' ? es.some(e => e.kolId === id && typeOf(e.rootId) === focus.id) : typeOf(id) === focus.id; return true; };
+    const colX = [0, 17, 47, 76]; const colW = [13, 26, 26, 24]; // percent
+    const yOf = (n, i) => top + (rows * rowH) / 2 - (n * rowH) / 2 + i * rowH;
+    const nodes = [{ id: 'project', kind: 'project', label: s.project.name, sub: '你的项目', x: colX[0], w: colW[0], y: yOf(1, 0), fill: bone, color: '#0E0E0E', stroke: bone, op: 1, click: () => this.setState({ inspect: null }) }];
+    selected.forEach((m, i) => nodes.push({ id: m.kol.id, kind: 'kol', label: m.kol.name, sub: m.role.label, x: colX[1], w: colW[1], y: yOf(selected.length, i), fill: '#152F31', color: bone, stroke: lit('kol', m.kol.id) ? teal : 'rgba(243,241,234,.3)', op: lit('kol', m.kol.id) ? 1 : .3, click: () => this.setState({ inspect: { kind: 'kol', id: m.kol.id } }) }));
+    rootIds.forEach((rid, i) => { const p = person(rid); nodes.push({ id: rid, kind: 'root', label: p ? p.name : rid, sub: p ? p.role : '', x: colX[2], w: colW[2], y: yOf(rootIds.length, i), fill: '#152F31', color: bone, stroke: lit('root', rid) ? teal : 'rgba(243,241,234,.3)', op: lit('root', rid) ? 1 : .3, click: () => this.setState({ inspect: { kind: 'root', id: rid } }) }); });
+    typeIds.forEach((tid, i) => { const rt = roots.find(r => r.id === tid); const pri = primaryTypes.includes(tid); nodes.push({ id: tid, kind: 'type', label: rt.label, sub: pri ? '最想进入' : '也很重要', x: colX[3], w: colW[3], y: yOf(typeIds.length, i), fill: pri ? teal : '#152F31', color: pri ? '#0E0E0E' : bone, stroke: teal, op: lit('type', tid) ? 1 : .3, click: () => this.setState({ inspect: { kind: 'type', id: tid } }) }); });
+    const pos = id => nodes.find(n => n.id === id); const edges = [];
+    const px = (n, side) => (n.x + (side === 'r' ? n.w : 0)) * 10; // viewBox 1000 wide
+    selected.forEach(m => { const a = pos('project'), b = pos(m.kol.id); edges.push({ x1: px(a, 'r'), y1: a.y + 19, x2: px(b, 'l'), y2: b.y + 19, stroke: 'rgba(243,241,234,.3)', w: 1, dash: '', op: b.op, click: () => {} }); });
+    es.forEach(e => { const a = pos(e.kolId), b = pos(e.rootId); if (!a || !b) return; const on = a.op === 1 && b.op === 1; edges.push({ x1: px(a, 'r'), y1: a.y + 19, x2: px(b, 'l'), y2: b.y + 19, stroke: e.verified ? teal : 'rgba(243,241,234,.6)', w: e.verified ? 1.6 : 1, dash: e.verified ? '' : '4 5', op: on ? 1 : .12, click: () => this.setState({ inspect: { kind: 'edge', id: e.kolId + '|' + e.rootId + '|' + e.type } }) }); });
+    rootIds.forEach(rid => { const a = pos(rid), b = pos(typeOf(rid)); if (!a || !b) return; edges.push({ x1: px(a, 'r'), y1: a.y + 19, x2: px(b, 'l'), y2: b.y + 19, stroke: 'rgba(95,196,187,.6)', w: 1, dash: '', op: Math.min(a.op, b.op), click: () => {} }); });
+    const graph = { show: sig.length > 0 && selected.length > 0, degraded: !(sig.length > 0 && selected.length > 0), badge: sig.length === 0 ? '暂无关系数据' : '尚无选择', degradeNote: sig.length === 0 ? 'Mango 尚未为该项目建立 KOL–Root 关系数据库。下方覆盖矩阵以目标人群展示阵容结构；注意力路径将在数据核验后补充，不会为视觉效果生成虚假关系。' : '返回名单保留创作者后，这里会展示他们可能连接的 Root 与圈层。', h: String(H), px: `${H}px`, nodes: nodes.map(n => ({ ...n, left: `${n.x}%`, width: `${n.w}%`, top: `${n.y}px` })), edges: edges.map(e => ({ ...e, x1: String(e.x1), x2: String(e.x2), y1: String(e.y1), y2: String(e.y2), w: String(e.w), op: String(e.op) })), title: sig.length === 0 ? '覆盖图（注意力路径待补充）' : '注意力路径图', note: sig.length === 0 ? '当前项目尚无 KOL–Root 关系数据，以市场、语言、平台与角色展示覆盖。' : '你的项目 → 已选 KOL/媒体 → 目标 Root → 目标圈层。实线为已核验 Signal，虚线待核验。点击节点高亮路径，点击连线看证据。' };
+    // inspector
+    const tn = { follow: '当前关注', reply: '直接回复', quote: '引用转发', co_appear: '共同露出', media: '媒体连接' };
+    let inspect = { title: '点击节点或连线查看', sub: '点击 KOL 会高亮他连接的 Root 与圈层；点击 Root 会显示阵容中谁可能构成桥梁；点击连线查看证据。', rows: [], judgment: '关系图展示的是已观察到的注意力关系，不承诺任何触达结果。' };
+    if (focus && focus.kind === 'kol') { const m = selected.find(m => m.kol.id === focus.id); if (m) { const ks = es.filter(e => e.kolId === focus.id); inspect = { title: m.kol.name, sub: `${m.role.label} · ${m.kol.platform}`, rows: [{ k: 'Signal', v: `${ks.length} 条（${ks.filter(x => x.verified).length} 已核验）`, color: bone }, { k: '连接 Root', v: [...new Set(ks.map(x => (person(x.rootId) || {}).name))].join('、') || '—', color: teal }, { k: '圈层', v: [...new Set(ks.map(x => (roots.find(r => r.id === typeOf(x.rootId)) || {}).label))].join('、') || '—', color: bone }], judgment: this.judgmentFor(m) }; } }
+    if (focus && focus.kind === 'root') { const p = person(focus.id); const rs = es.filter(e => e.rootId === focus.id); if (p) inspect = { title: p.name, sub: p.role, rows: [{ k: '桥梁', v: [...new Set(rs.map(x => (all.find(m => m.kol.id === x.kolId) || { kol: {} }).kol.name))].join('、'), color: teal }, { k: '关系类型', v: [...new Set(rs.map(x => tn[x.type]))].join('、'), color: bone }, { k: '行为习惯', v: p.behavior, color: 'rgba(243,241,234,.8)' }], judgment: p.why }; }
+    if (focus && focus.kind === 'type') { const rt = roots.find(r => r.id === focus.id); const rs = es.filter(e => typeOf(e.rootId) === focus.id); if (rt) inspect = { title: rt.label, sub: rt.value, rows: [{ k: '路径数', v: String(rs.length), color: bone }, { k: '经由', v: [...new Set(rs.map(x => (all.find(m => m.kol.id === x.kolId) || { kol: {} }).kol.name))].join('、') || '—', color: teal }, { k: '状态', v: P.rootTypes[focus.id] === 'primary' ? '最想进入' : '也很重要', color: bone }], judgment: rt.why }; }
+    if (focus && focus.kind === 'edge') { const [kid, rid, type] = focus.id.split('|'); const e = es.find(x => x.kolId === kid && x.rootId === rid && x.type === type); const p = person(rid); const m = all.find(x => x.kol.id === kid); if (e && m) inspect = { title: `${m.kol.name} → ${p ? p.name : rid}`, sub: tn[e.type], rows: [{ k: '时间', v: e.date, color: bone }, { k: '次数', v: `×${e.count}`, color: bone }, { k: '证据', v: e.evidence, color: 'rgba(243,241,234,.8)' }, { k: '状态', v: e.verified ? '已核验' : '待核验', color: e.verified ? teal : gold }], judgment: e.verified ? '已核验的公开关系，可作为该 KOL 内容进入此 Root 信息流的证据之一。' : '待核验：账号归属或时间尚未确认，暂不作为决策依据。' }; }
+    // matrix
+    const cell = (n, covered) => ({ v: n ? String(n) : '', bg: n ? (covered > 1 ? teal : gold) : '#1F4144', color: '#0E0E0E' });
+    let mrows, mtitle, mnote;
+    if (sig.length && selected.length) { const reachedT = new Set(es.map(e => typeOf(e.rootId))); const types = roots.filter(r => (P.rootTypes[r.id] && P.rootTypes[r.id] !== 'skip') || reachedT.has(r.id)); mtitle = '目标圈层覆盖矩阵'; mnote = '每格为该 KOL 与该圈层 Root 之间已观察到的 Signal 数。多人覆盖更稳，单点覆盖脆弱，空行是缺口。'; mrows = types.map(r => { const ns = selected.map(m => m.score.signals.filter(x => typeOf(x.rootId) === r.id).length); const covered = ns.filter(Boolean).length; const skipped = !P.rootTypes[r.id] || P.rootTypes[r.id] === 'skip'; return { label: skipped ? r.label + '（未优先）' : r.label, cells: ns.map(n => cell(n, covered)), total: covered ? String(covered) : '缺口', totColor: covered > 1 ? teal : covered ? gold : 'rgba(243,241,234,.4)' }; }); }
+    else { const auds = P.audiences.length ? P.audiences : [...new Set(selected.flatMap(m => m.kol.audiences))].slice(0, 6); mtitle = '目标人群覆盖矩阵'; mnote = sig.length ? '' : '暂无关系数据，改以目标人群展示每位 KOL 的覆盖。'; mrows = auds.map(a => { const ns = selected.map(m => m.kol.audiences.includes(a) ? 1 : 0); const covered = ns.filter(Boolean).length; return { label: A.label('audiences', a).split('与')[0], cells: ns.map(n => cell(n, covered)), total: covered ? String(covered) : '缺口', totColor: covered > 1 ? teal : covered ? gold : 'rgba(243,241,234,.4)' }; }); }
+    if (!selected.length) mrows = [{ label: '尚未选择', cells: [{ v: '', bg: '#1F4144', color: '#0E0E0E' }], total: '—', totColor: 'rgba(243,241,234,.4)' }];
+    const cols = Math.max(1, selected.length);
+    const matrix = { title: mtitle, note: mnote, heads: selected.length ? selected.map(m => m.kol.name.slice(0, 14)) : ['—'], cols: String(cols), rows: mrows, minw: `${150 + cols * 56 + 64}px` };
+    // roots reached
+    const reached = sum.rootsReached.map(rid => { const p = person(rid); if (!p) return null; const via = selected.filter(m => m.score.signals.some(x => x.rootId === rid)).map(m => m.kol.name); return { name: p.name, role: p.role, initial: p.name.slice(0, 1), why: p.why, via: `经由 ${via.join('、')}`, open: () => this.setState({ openRoot: rid }) }; }).filter(Boolean);
+    const fallbackRoots = !sig.length ? roots.filter(r => P.rootTypes[r.id] === 'primary').flatMap(r => r.people).slice(0, 4).map(p => ({ name: p.name, role: p.role, initial: p.name.slice(0, 1), why: p.why, via: '路径待补充', open: () => this.setState({ openRoot: p.id }) })) : [];
+    const qs = k => k.quoteStatus === 'confirmed' ? { qs: '已确认', qsColor: '#0E6E6A' } : { qs: '待复核', qsColor: '#8A6D00' };
+    const finalRows = selected.map((m, i) => ({ n: String(i + 1).padStart(2, '0'), name: m.kol.name, handle: m.kol.handle, platform: m.kol.platform.toUpperCase(), followers: A.compact(m.kol.followers), formats: m.kol.formats.map(f => A.label('formats', f)).join('/'), role: m.role.label, fit: String(m.score.fit), tierMark: (A.tierOf(m.kol.tier) || {}).mark, ...qs(m.kol) }));
+    const pending = []; if (sum.unverified) pending.push(`${sum.unverified} 位报价为历史记录，需确认当前有效性与内容形式对应`); const nc = selected.filter(m => m.kol.commercial !== 'contactable').length; if (nc) pending.push(`${nc} 位商务路径正在确认`); const unv = es.filter(x => !x.verified).length; if (unv) pending.push(`${unv} 条关系 Signal 待核验`); if (!sig.length) pending.push('KOL–Root 注意力路径数据待补充'); const crit = (P.criteria || []).filter(c => c.kind === 'open' && c.status !== 'removed'); if (crit.length) pending.push(`${crit.length} 条"还在确认的边界"待 Mango 回复`); const cust = [P.custom && P.custom.roots, P.custom && P.custom.audiences, s.project.customDomain].filter(Boolean); if (cust.length) pending.push('你补充的自定义 Root / 人群 / 领域，Mango 人工核查'); if (!pending.length) pending.push('当前没有待核验事项。');
+    const history = (s.history || []).map(h => ({ t: h.t, title: h.title, notes: h.notes.join('；') || '—' }));
+    return { ovHeadline: headline, ovStatement: statement, ovSignal: sigStatement, ovStats: { count: String(sum.count), range: selected.length ? A.fmtRange(sum.lo, sum.hi) : '—', plat: String(sum.platforms.length), contactable: String(sum.contactable), unverified: String(sum.unverified), sig: sig.length ? String(sum.signals) : '—', sigColor: sig.length ? teal : 'rgba(243,241,234,.4)' }, graph, inspect, matrix, reachedRoots: reached.length ? reached : fallbackRoots, noReached: !reached.length && !fallbackRoots.length, rootsNote: sig.length === 0 ? '注意力路径待补充。以下为你选择的 Root 类型中的代表人物，用于理解圈层。' : '基于已观察到的关系 Signal。点击查看这位 Root 是谁，以及阵容中谁可能构成桥梁。', finalRows, pendingItems: pending, history, hasHistory: history.length > 0,
+      notConfirmed: !s.confirmedAt, confirmed: !!s.confirmedAt, confirmedAt: s.confirmedAt ? `提交于 ${s.confirmedAt}` : '', confirmLineup: () => { const t = new Date().toLocaleString('zh-CN'); this.setState({ confirmedAt: t }, () => this.A.saveState(s.project.id, { ...(this.A.loadState(s.project.id) || {}), confirmedAt: t })); }, unconfirm: () => { this.setState({ confirmedAt: null }, () => this.A.saveState(s.project.id, { ...(this.A.loadState(s.project.id) || {}), confirmedAt: null })); }, requestOptimize: () => { this.setState({ view: 'lineup', lastDiff: { title: '已请求 Mango 再优化一次', notes: ['将基于当前判别标准补充 2–3 位人选，并回复"还在确认的边界"'] } }); window.scrollTo(0, 0); }, exportPlan: () => window.print() };
+  }
+  lineupVals(el, all, T) {
+    const s = this.state, A = this.A, P = s.prefs, roots = s.roots, sig = s.signals; const bone = '#F3F1EA', ink = '#141414', teal = '#0E6E6A', gold = '#8A6D00', line = '#D9D6CC', mute = '#6B6B66';
+    const plan = this.plan(); const selected = this.selectedMatches(); const sum = A.lineupSummary(selected, P, roots, sig);
+    const f = s.filter || { q: '', platform: '', tier: 0 }; const q = f.q.toLowerCase();
+    const filt = m => (!q || (m.kol.name + m.kol.handle).toLowerCase().includes(q)) && (!f.platform || m.kol.platform === f.platform) && (!f.tier || m.kol.tier === f.tier) && (!f.confirmedOnly || m.kol.quoteStatus === 'confirmed');
+    const qs = k => k.quoteStatus === 'confirmed' ? { qs: '已确认', qsColor: teal } : { qs: '待复核', qsColor: gold };
+    const sg = m => sig.length === 0 ? { sig: '待补充', sigColor: mute } : m.score.signals.length ? { sig: `${m.score.signals.length} 条`, sigColor: teal } : { sig: '暂无', sigColor: mute };
+    const fitColors = { 4: '#0E6E6A', 3: 'rgba(14,110,106,.72)', 2: 'rgba(14,110,106,.42)', 1: 'rgba(14,110,106,.2)' };
+    const row = m => { const k = m.kol; const tier = A.tierOf(k.tier) || {}; const inSel = plan.selected.includes(k.id), inBench = plan.bench.includes(k.id), inCmp = (s.compare || []).includes(k.id); const expanded = (s.expanded || []).includes(k.id); const band = A.fitBand(m.score.fit);
+      return { id: k.id, name: k.name, handle: k.handle, initial: k.name.slice(0, 1).toUpperCase(), platform: k.platform.toUpperCase(), followers: A.compact(k.followers), type: T.kolTypes[k.type] || k.type, fit: String(m.score.fit), fitWord: band.word, fitColor: fitColors[band.level], fitBarBg: `linear-gradient(180deg,${fitColors[band.level]} 0%,${fitColors[band.level]} 100%)`, role: m.role.label, lang: k.languages.includes('zh') && k.languages.includes('en') ? '中英双语' : k.languages.includes('zh') ? '中文' : '英文', markets: k.markets.map(x => A.label('markets', x)).join('/'), tags: k.domains.slice(0, 2).map(x => A.label('domains', x)), content: A.describeKol(k), reason: this.reasonFor(m), expanded, toggleExpand: () => this.setState({ expanded: expanded ? s.expanded.filter(x => x !== k.id) : [...(s.expanded || []), k.id] }), chevron: expanded ? '↑' : '↓', sigLines: m.score.signals.slice(0, 3).map(x => `${(roots.flatMap(r => r.people).find(p => p.id === x.rootId) || {}).name} · ${({ follow: '当前关注', reply: '直接回复', quote: '引用转发', co_appear: '共同露出', media: '媒体连接' })[x.type]}${x.verified ? '' : ' · 待核验'}`), hasSig: m.score.signals.length > 0, exclude: () => this.setPrefs(p => { p.excluded = [...(p.excluded || []), k.id]; }), tierMark: tier.mark, tierLabel: tier.label, ...qs(k), ...sg(m),
+        bg: inSel ? '#FFFFFF' : '#FAF9F5', ring: inSel ? `inset 0 0 0 1px ${ink}` : 'none', dot: inSel ? ink : 'transparent', selBg: inSel ? ink : 'transparent', selColor: inSel ? bone : ink, selLabel: inSel ? '已保留 ✓' : '保留', benchBg: inBench ? '#E3E0D6' : 'transparent', cmpBg: inCmp ? '#E3E0D6' : 'transparent', swapOpen: s.swapFor === k.id, alts: s.swapFor === k.id ? this.altsFor(m).map(a => ({ name: a.kol.name, platform: a.kol.platform.toUpperCase(), fit: String(a.score.fit), tierMark: (A.tierOf(a.kol.tier) || {}).mark, pick: () => inSel ? this.swap(k.id, a.kol.id) : this.setState({ openKol: a.kol.id, swapFor: null }) })) : [],
+        toggleSelect: () => this.toggleSelect(k.id), toggleBench: () => this.persistPlans(this.setPlan(p => { const i = p.bench.indexOf(k.id); i >= 0 ? p.bench.splice(i, 1) : p.bench.push(k.id); })), toggleCompare: () => this.setState({ compare: inCmp ? s.compare.filter(x => x !== k.id) : [...(s.compare || []), k.id].slice(-4) }), toggleSwap: () => this.setState({ swapFor: s.swapFor === k.id ? null : k.id }), open: () => this.setState({ openKol: k.id }) }; };
+    const notes = { top: '与你当前偏好高度重合', bridge: '与所选 Root 存在已观察到的 Signal', value: '中低档位、匹配尚可', media: '长内容与媒体路径', explore: '边界人选，值得看一眼' };
+    const rawGroups = A.groupMatches(all).map(g => ({ ...g, items: g.items.filter(filt) })).filter(g => g.items.length);
+    // 可补缺口
+    const gapIds = new Set(); if (selected.length && sum.audienceGaps.length) el.filter(m => !plan.selected.includes(m.kol.id) && sum.audienceGaps.some(a => m.kol.audiences.includes(a))).slice(0, 4).forEach(m => gapIds.add(m.kol.id));
+    const groups = []; if (gapIds.size) groups.push({ id: 'gap', label: '可补当前名单的缺口', note: `覆盖你尚未触达的人群：${sum.audienceGaps.map(a => A.label('audiences', a)).join('、')}`, items: el.filter(m => gapIds.has(m.kol.id) && filt(m)) });
+    rawGroups.forEach(g => groups.push({ id: g.id, label: g.label, note: notes[g.id] || '', items: g.items.filter(m => !gapIds.has(m.kol.id)) }));
+    // 按传播角色分组（默认）；「可补缺口」置顶
+    const roleNotes = { bridge: '与所选 Root 存在已观察到的关系，能把内容带进目标圈层', explain: '面向开发者与研究者，把产品机制讲清楚、讲可信', amplify: '大体量账号，负责把话题带出小圈层', media: '播客、Newsletter 与媒体账号，形成长内容与二跳路径', convert: '面向消费者与早期使用者，把人带进产品', extend: '补充平台与市场覆盖，扩大接触面' };
+    const roleOrder = ['bridge', 'explain', 'amplify', 'media', 'convert', 'extend'];
+    const byRole = {}; el.filter(filt).filter(m => !gapIds.has(m.kol.id)).forEach(m => { (byRole[m.role.id] = byRole[m.role.id] || { id: m.role.id, label: m.role.label, items: [] }).items.push(m); });
+    const groupsSrc = s.groupBy === 'match' ? groups : [...(gapIds.size ? [groups[0]] : []), ...roleOrder.filter(r => byRole[r]).map(r => ({ id: r, label: byRole[r].label, note: roleNotes[r], items: byRole[r].items }))];
+    const groupsOut = groupsSrc.filter(g => g.items.length).map((g, i) => ({ n: `3.${i + 1}`, label: g.label, note: g.note, count: String(g.items.length), items: g.items.map(row) }));
+    const excludedCount = (P.excluded || []).length;
+    const pc = {}; el.forEach(m => { pc[m.kol.platform] = 1; });
+    const fl = (label, on, pick) => ({ label, pick, border: on ? ink : line, bg: on ? ink : 'transparent', color: on ? bone : ink });
+    const setF = patch => this.setState({ filter: { ...f, ...patch } });
+    const groupTabs = [['role', '按传播角色'], ['match', '按匹配程度']].map(([id, label]) => fl(label, (s.groupBy || 'role') === id, () => this.setState({ groupBy: id })));
+    const platFilters = [fl('全部平台', !f.platform, () => setF({ platform: '' })), ...Object.keys(pc).map(p => fl(p.toUpperCase(), f.platform === p, () => setF({ platform: p })))];
+    const tierFilters = [fl('全部档位', !f.tier, () => setF({ tier: 0 })), ...T.tiers.map(x => fl(x.mark, f.tier === x.id, () => setF({ tier: x.id })))];
+    const primary = roots.filter(r => P.rootTypes[r.id] === 'primary').map(r => r.label);
+    const understanding = `在${P.markets.map(x => A.label('markets', x)).join('、') || '所选市场'}，被${primary.join('、') || '目标圈层'}注意到${P.audiences.length ? '，影响' + P.audiences.map(x => A.label('audiences', x)).join('、') : ''}。`;
+    const coverRows = [{ label: '平台', value: sum.platforms.map(x => x.toUpperCase()).join(' · ') || '—' }, { label: '市场 / 语言', value: [...sum.markets.map(x => A.label('markets', x)), ...sum.languages.map(x => A.label('languages', x))].join(' · ') || '—' }, { label: '目标圈层', value: sig.length === 0 ? '关系数据待补充' : sum.coveredTypes.length ? sum.coveredTypes.map(id => (roots.find(r => r.id === id) || {}).label).join(' · ') : '尚无 Signal 覆盖' }, { label: 'Signal', value: sig.length === 0 ? '待补充' : `${sum.signals} 条 · ${sum.verifiedSignals} 已核验` }];
+    const gapParts = []; if (sig.length && sum.gaps.length) gapParts.push(`尚无 Signal 通往 ${sum.gaps.map(id => (roots.find(r => r.id === id) || {}).label).join('、')}`); if (sum.audienceGaps.length) gapParts.push(`未覆盖人群：${sum.audienceGaps.map(x => A.label('audiences', x)).join('、')}`);
+    const planTabs = ['A', 'B'].map(p => ({ label: `${p} · ${this.plans()[p].selected.length}`, pick: () => this.setState({ plan: p, lastDiff: null }), bg: (s.plan || 'A') === p ? ink : 'transparent', color: (s.plan || 'A') === p ? bone : ink }));
+    const cmp = (s.compare || []).map(id => all.find(m => m.kol.id === id)).filter(Boolean);
+    const compareRows = cmp.length ? [['名称', m => m.kol.name, 0, 1], ['平台 · 粉丝', m => `${m.kol.platform.toUpperCase()} · ${A.compact(m.kol.followers)}`, 1], ['适配度', m => m.score.fit, 1, 1, teal], ['角色', m => m.role.label], ['档位', m => (A.tierOf(m.kol.tier) || {}).mark, 1, 1], ['市场', m => m.kol.markets.map(x => A.label('markets', x)).join('/')], ['领域', m => m.kol.domains.map(x => A.label('domains', x)).join('、')], ['人群', m => m.kol.audiences.map(x => A.label('audiences', x)).join('、')], ['Signal', m => sig.length === 0 ? '待补充' : m.score.signals.length + ' 条'], ['报价状态', m => qs(m.kol).qs], ['商务', m => m.kol.commercial === 'contactable' ? '可对接' : '确认中']].map(([label, fn, mono, bold, color]) => ({ label, cells: cmp.map(m => ({ v: String(fn(m)), font: mono ? "'JetBrains Mono',monospace" : 'inherit', fw: bold ? 500 : 300, color: color || ink })) })) : [];
+    // open kol
+    let ok = null; const om = s.openKol && all.find(m => m.kol.id === s.openKol);
+    if (om) { const k = om.kol, c = row(om); const rootPerson = rid => roots.flatMap(r => r.people).find(p => p.id === rid);
+      ok = { ...c, rules: (om.score.rules || []).map(r => r.text), hasRules: (om.score.rules || []).length > 0, bio: k.bio + (k.risk.length ? '。风险标签：' + k.risk.join('、') : ''), parts: om.score.parts.map(p => ({ label: p.label, note: p.note, pct: Math.round(p.v * 100), pts: `${Math.round(p.w * p.v)} / ${p.w}`, bar: p.pending ? '#B9B6AC' : p.v >= .8 ? teal : p.v >= .4 ? '#5FA39C' : '#C9A227', labelColor: p.pending ? '#9A978E' : ink })), strengths: om.score.strengths.join('、') || '—', limits: om.score.limits.join('、') || (sig.length === 0 ? '关系数据待补充' : '—'), seen: om.score.seen == null ? '待补充' : String(om.score.seen), engaged: om.score.engaged == null ? '待补充' : String(om.score.engaged), axisColor: om.score.seen == null ? '#9A978E' : ink,
+        quotes: k.quotes.map(x => ({ label: A.label('formats', x.format), raw: x.raw || '', mark: (A.tierOf(x.usd < 500 ? 1 : x.usd < 2000 ? 2 : x.usd < 8000 ? 3 : 4) || {}).mark })), commercial: k.commercial === 'contactable' ? '可由 Mango 对接' : '商务路径确认中', quoteDate: k.quoteDate, hasSignals: om.score.signals.length > 0, noSignals: om.score.signals.length === 0, noSignalNote: sig.length === 0 ? 'Mango 尚未为该项目建立关系数据，注意力路径待补充。' : '与所选 Root 之间暂无已观察到的 Signal。', signals: om.score.signals.map(x => ({ root: (rootPerson(x.rootId) || {}).name, type: { follow: '当前关注', reply: '直接回复', quote: '引用转发', co_appear: '共同露出', media: '媒体连接' }[x.type], date: x.date, count: String(x.count), evidence: x.evidence, status: x.verified ? '已核验' : '待核验', color: x.verified ? teal : gold })), judgment: this.judgmentFor(om), altList: this.altsFor(om).map(a => ({ name: a.kol.name, platform: a.kol.platform.toUpperCase(), tierMark: (A.tierOf(a.kol.tier) || {}).mark, fit: String(a.score.fit), swap: () => plan.selected.includes(k.id) ? this.swap(k.id, a.kol.id) : this.setState({ openKol: a.kol.id }) })), swapLabel: plan.selected.includes(k.id) ? '换成他' : '查看' }; }
+    const suggestion = A.suggestLineup(all, P, s.project);
+    const fitLegend = [4, 3, 2, 1].map(l => ({ color: fitColors[l], label: { 4: '高度符合 78+', 3: '符合 65+', 2: '部分符合 50+', 1: '边界人选' }[l] }));
+    const verdict = selected.length ? `这套阵容包含 ${Object.entries(sum.roles).map(([r, n]) => `${n} 位${r}`).join('、')}，覆盖 ${sum.platforms.map(x => x.toUpperCase()).join('、')}${sum.markets.length ? '，' + sum.markets.map(x => A.label('markets', x)).join('与') + '市场' : ''}。${sum.contactable} 位可由 Mango 直接对接，${sum.unverified} 位报价待复核。${sig.length ? (sum.signals ? `与 ${sum.rootsReached.length} 位目标 Root 之间有 ${sum.signals} 条已观察到的关系 Signal。` : '与所选 Root 之间尚无已观察到的 Signal。') : '关系 Signal 待补充。'}${gapParts.length ? ' 缺口：' + gapParts.join('；') + '。' : ''}` : `${el.length} 位候选按传播角色分组。先从「圈层桥梁」与「专业解释」里各保留 1–2 位，再看预算补充声量与转化。`;
+    return { groups: groupsOut, noResults: groupsOut.length === 0, groupTabs, verdict, fitLegend, suggestNote: suggestion.note, suggestCount: String(suggestion.count), showSuggest: suggestion.ids.length > 0 && !selected.length, applySuggestion: () => this.applySuggestion(), clearLineup: () => this.persistPlans(this.setPlan(p => { p.selected = []; }), { lastDiff: { title: '已清空名单', notes: ['可重新从推荐分组中挑选'] } }), excludedCount: String(excludedCount), hasExcluded: excludedCount > 0, restoreExcluded: () => this.setPrefs(p => { p.excluded = []; }), resultCount: `${groupsOut.reduce((a, g) => a + Number(g.count), 0)} / ${el.length}`, understanding, understandingSub: `共 ${el.length} 位候选符合当前选择，按与你偏好的关系分组。适配度是相对本项目的整数，改变偏好后重新计算；档位来自 Mango 历史报价记录，以复核为准。`, filterQ: f.q, setQuery: e => setF({ q: e.target.value }), platFilters, tierFilters, confirmedOnly: fl('只看已确认报价', f.confirmedOnly, () => setF({ confirmedOnly: !f.confirmedOnly })),
+      summary: { count: String(sum.count), range: selected.length ? A.fmtRange(sum.lo, sum.hi) : '—', roleChips: Object.entries(sum.roles).map(([r, n]) => `${r} ×${n}`), coverRows, hasGaps: gapParts.length > 0, gapText: gapParts.join('；'), contactable: String(sum.contactable), unverified: String(sum.unverified) },
+      selectedRows: selected.map(m => ({ name: m.kol.name, role: m.role.label, platform: m.kol.platform.toUpperCase(), tierMark: (A.tierOf(m.kol.tier) || {}).mark, remove: () => this.toggleSelect(m.kol.id), open: () => this.setState({ openKol: m.kol.id }) })), emptyLineup: !selected.length, confirmOpacity: selected.length ? 1 : .4, planTabs,
+      hasDiff: !!s.lastDiff, lastDiff: s.lastDiff || { title: '', notes: [] }, benchRows: plan.bench.map(id => all.find(m => m.kol.id === id)).filter(Boolean).map(m => ({ name: m.kol.name, promote: () => this.toggleSelect(m.kol.id) })), hasBench: plan.bench.length > 0,
+      hasCompare: cmp.length > 1, compareCount: String(cmp.length), compareRows, compareOpen: !!s.compareOpen, openCompare: () => this.setState({ compareOpen: true }), closeCompare: () => this.setState({ compareOpen: false }), clearCompare: () => this.setState({ compare: [], compareOpen: false }),
+      hasOpenKol: !!ok, ok: ok || {}, closeKol: () => this.setState({ openKol: null }), goOverview: () => { this.setState({ view: 'overview' }); window.scrollTo(0, 0); } };
+  }
+  // ---- understanding (criteria) generation
+  genCriteria() {
+    const s = this.state, A = this.A, P = s.prefs, T = A.taxonomy, pj = s.project; const L = (l, id) => A.label(l, id);
+    const want = [], avoid = [], open = [];
+    const gs = pj.goals && pj.goals.length ? pj.goals : pj.goal ? [pj.goal] : []; const goal = { has: id => gs.includes(id) }; const doms = (P.domains.length ? P.domains : pj.domains || []).map(x => L('domains', x));
+    if (goal.has('credibility')) want.push('在技术圈或产品圈有可信权威，能让讨论不只是硬广。');
+    if (goal.has('investors') || P.audiences.includes('investors')) want.push('能带来 warm intro、投资兴趣、BD 连接或高质量二跳可见面。');
+    if (goal.has('adoption') || P.audiences.includes('developers') || P.audiences.includes('early_adopters')) want.push('会亲自试用产品、写真实使用体验的人，而不是只转发新闻。');
+    if (goal.has('reach')) want.push('有跨圈层放大能力的账号，能把话题带出小圈层。');
+    if (doms.length) want.push(`和 ${doms.slice(0, 3).join('、')} 有真实关系，能自然解释为什么会看到这个产品。`);
+    if (P.audiences.length) want.push(`读者主要是${P.audiences.slice(0, 3).map(x => (T.audiences.find(o => o.id === x) || {}).label).join('、')}。`);
+    if (P.brand.includes('technical')) want.push('内容技术深度够，能讲清机制而不只是结论。');
+    if (P.brand.includes('review')) want.push('有产品测评习惯，观点有褒有贬。');
+    want.push('优先真实个人账号，而不是公司官方号或泛媒体账号。');
+    if (pj.customGoal) want.push(`能直接服务你写的目标：「${pj.customGoal}」。`);
+    if (P.custom && P.custom.audiences) want.push(`能触达你补充的人群：「${P.custom.audiences}」。`);
+    avoid.push('泛工具号、prompt hack 账号、纯流量型 newsletter。');
+    avoid.push('官方公司号、机构号，除非只作为远端 Root 而不是可投放 KOL。');
+    if (P.brand.includes('no_hard_sell')) avoid.push('接单密集、硬广痕迹重的账号。');
+    if (P.brand.includes('no_risk')) avoid.push('品牌、关系或竞品风险太高，容易让合作显得不自然。');
+    if (doms.length) avoid.push(`和 ${pj.name} 叙事太远，无法自然解释为什么会看到这个产品。`);
+    if (P.markets.length) avoid.push(`主要受众不在${P.markets.map(x => L('markets', x)).join('、')}的账号。`);
+    if (!P.platforms.length) open.push('平台不限：是否接受 YouTube 长视频 / 播客这类制作周期更长的形式？');
+    if (!P.tiers.length) open.push(`量级不限：预算 ${(T.budgets.find(b => b.id === P.budget) || {}).label}，头部 1 位还是中腰部多位？`);
+    if (!P.audiences.length) open.push('尚未选择目标人群：将按领域与 Root 类型推断。');
+    if (!s.signals.length) open.push('关系 Signal 数据待补充：本轮不以 Root 关系排序。');
+    if (P.custom && P.custom.roots) open.push(`你补充的 Root「${P.custom.roots}」：Mango 将人工核查是否存在可行路径。`);
+    if (pj.customDomain) open.push(`自定义领域「${pj.customDomain}」：先按科技通用库匹配，Mango 补充专属 Root。`);
+    const mk = (arr, kind) => arr.map((text, i) => ({ id: kind + i, kind, text, status: 'pending' }));
+    return [...mk(want, 'want'), ...mk(avoid, 'avoid'), ...mk(open, 'open')];
+  }
+  criteria() { const P = this.state.prefs; if (!P) return []; if (!P.criteria || P.criteriaKey !== this.criteriaKey()) { const fresh = this.genCriteria(); const prev = P.criteria || []; return fresh.map(c => { const old = prev.find(o => o.text === c.text); return old ? { ...c, status: old.status, text: old.text } : c; }).concat(prev.filter(o => o.kind === 'custom')); } return P.criteria; }
+  criteriaKey() { const P = this.state.prefs, pj = this.state.project; return JSON.stringify([pj.goal, pj.customGoal, P.domains, P.audiences, P.brand, P.markets, P.platforms, P.tiers, P.custom]); }
+  setCriteria(fn) { this.setPrefs(p => { const list = fn(JSON.parse(JSON.stringify(this.criteria()))); p.criteria = list; p.criteriaKey = this.criteriaKey(); }); }
+  // ---- lineup
+  plans() { return this.state.plans || { A: { selected: [], bench: [] }, B: { selected: [], bench: [] } }; }
+  plan() { return this.plans()[this.state.plan || 'A']; }
+  setPlan(fn) { const plans = JSON.parse(JSON.stringify(this.plans())); fn(plans[this.state.plan || 'A']); return plans; }
+  selectedMatches(plan) { const ids = (plan || this.plan()).selected; const ms = this.matches(); return ids.map(id => ms.find(m => m.kol.id === id)).filter(Boolean); }
+  persistPlans(plans, extra) { const s = this.state; this.setState({ plans, ...(extra || {}) }, () => { this.A.saveState(s.project.id, { ...(this.A.loadState(s.project.id) || {}), plans, plan: s.plan || 'A', history: this.state.history || [] }); this.save('已自动保存'); }); }
+  toggleSelect(id) {
+    const A = this.A, s = this.state; const before = A.lineupSummary(this.selectedMatches(), s.prefs, s.roots, s.signals);
+    const plans = this.setPlan(p => { const i = p.selected.indexOf(id); i >= 0 ? p.selected.splice(i, 1) : p.selected.push(id); p.bench = p.bench.filter(x => x !== id); });
+    const after = A.lineupSummary(this.selectedMatches(plans[s.plan || 'A']), s.prefs, s.roots, s.signals);
+    const m = this.matches().find(x => x.kol.id === id); const added = plans[s.plan || 'A'].selected.includes(id);
+    const notes = A.diffSummary(before, after); if (!added) { const alt = this.altsFor(m)[0]; if (alt) notes.push(`Mango 建议替代：${alt.kol.name}（适配 ${alt.score.fit}）`); }
+    const entry = { t: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }), title: `${added ? '加入' : '移除'} ${m.kol.name}`, notes };
+    this.persistPlans(plans, { lastDiff: entry, history: [entry, ...(s.history || [])].slice(0, 30), swapFor: null });
+  }
+  swap(fromId, toId) { const s = this.state; const from = this.matches().find(x => x.kol.id === fromId), to = this.matches().find(x => x.kol.id === toId); const plans = this.setPlan(p => { p.selected = p.selected.map(x => x === fromId ? toId : x); }); const entry = { t: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }), title: `用 ${to.kol.name} 替换 ${from.kol.name}`, notes: [`适配度 ${from.score.fit} → ${to.score.fit}`] }; this.persistPlans(plans, { lastDiff: entry, history: [entry, ...(s.history || [])].slice(0, 30), swapFor: null, openKol: s.openKol ? toId : null }); }
+  altsFor(m) { const sel = this.plan().selected; return this.matches().filter(x => x.eligible && x.kol.id !== m.kol.id && !sel.includes(x.kol.id) && (x.role.id === m.role.id || x.kol.platform === m.kol.platform)).slice(0, 3); }
+  reasonFor(m) { const A = this.A, P = this.state.prefs, k = m.kol; const d = k.domains.filter(x => P.domains.includes(x)).map(x => A.label('domains', x)); const a = k.audiences.filter(x => P.audiences.includes(x)).map(x => A.label('audiences', x)); const parts = []; if (d.length) parts.push(`内容围绕${d.join('、')}`); if (a.length) parts.push(`主要面向${a.join('、')}`); if (m.score.signals.length) parts.push(`与 ${m.score.signals.length} 位目标 Root 存在已观察到的关系`); if (!parts.length) parts.push(`${k.platform} 上的${A.taxonomy.kolTypes[k.type] || k.type}，与所选领域部分重合`); return parts.join('；') + '。'; }
+  judgmentFor(m) { const k = m.kol, s = m.score; const bits = [`适合承担「${m.role.label}」角色`]; if (s.fit >= 75) bits.push('与当前偏好高度一致，建议优先确认档期'); else if (s.fit >= 55) bits.push('匹配尚可，建议先看近期样张再决定'); else bits.push('匹配一般，仅在需要补充该平台或圈层时考虑'); if (k.commercial !== 'contactable') bits.push('商务路径尚未确认，需要 Mango 建联'); if (k.risk.length) bits.push('存在营销痕迹较重的风险，需控制内容角度'); return bits.join('；') + '。'; }
+  startReveal() { this.playWipe('reveal'); this.setState({ view: 'reveal', revealStep: 0, maxStage: Math.max(this.state.maxStage || 0, 1) }); window.scrollTo(0, 0); clearInterval(this._rv); let n = 0; this._rv = setInterval(() => { n++; this.setState({ revealStep: n }); if (n >= 4) { clearInterval(this._rv); } }, 1150); }
+  finishReveal() { clearInterval(this._rv); this.playWipe('lineup'); const first = !this.plan().selected.length; this.setState({ view: 'lineup', revealed: true, maxStage: Math.max(this.state.maxStage || 0, 2) }, () => { this.save(); if (first) this.applySuggestion(); }); window.scrollTo(0, 0); }
+  renderVals() {
+    const s = this.state, A = this.A; const T = s.taxonomy;
+    const bone = '#F3F1EA', teal = '#5FC4BB';
+    const go = v => () => this.goView(v);
+    const base = { wipe: s.wipe || { on: false, n: '', label: '' }, showDemo: this.props.showDemoBadge ?? true, isHome: s.view === 'home', isUnderstand: s.view === 'understand', isStart: s.view === 'start', isConfigure: s.view === 'configure', goHome: go('home'), goStart: go('start'), saveNote: s.saveNote, project: s.project || { name: '' }, meta: s.meta, demoNotice: '', slashFlow: 'AI / CRYPTO / FINTECH · 中文 / EN / 跨境 · X / YOUTUBE / PODCAST / NEWSLETTER', steps: [], tokenEntryOpen: s.tokenEntryOpen, tokenInput: s.tokenInput, tokenError: s.tokenError, resumeRows: (s.saved || []).slice(0, 3).map(x => ({ name: x.name, note: `${x.selected ? '已保留 ' + x.selected + ' 人 · ' : ''}${({ home: '起点', understand: 'BRIEF 确认', start: '项目起点', configure: '偏好配置', criteria: '判别标准', reveal: '生成中', lineup: '推荐名单', overview: '阵容价值' })[x.view] || '偏好配置'}`, open: () => x.token ? this.enter(x.token) : this.resumeDraft(x.id) })), hasResume: (s.saved || []).length > 0, openTokenEntry: () => this.setState({ tokenEntryOpen: !s.tokenEntryOpen }), setTokenInput: e => this.setState({ tokenInput: e.target.value, tokenError: false }), submitToken: () => this.enter((s.tokenInput.match(/(?:p=|\/p\/)([\w-]+)/) || [])[1] || s.tokenInput.trim()), tokenKey: e => { if (e.key === 'Enter') this.enter((s.tokenInput.match(/(?:p=|\/p\/)([\w-]+)/) || [])[1] || s.tokenInput.trim()); }, understandRows: [], lastNotes: [], goalOpts: [], hasSaved: s.hasSaved, draft: s.draft, domainCards: [], marketOpts: [], goalCards: [], draftRows: [], startBands: [], knownRows: [], hasPrefs: false, isReveal: false, isCriteria: false, ovStats: {}, graph: { nodes: [], edges: [] }, inspect: { rows: [] }, matrix: { heads: [], rows: [] }, reachedRoots: [], finalRows: [], pendingItems: [], history: [], critGroups: [], critCounts: {}, critAdjust: [], isLineup: false, isOverview: false, hasOpenRoot: false, hasOpenKol: false, compareOpen: false, groups: [], groupTabs: [], fitLegend: [], summary: { roleChips: [], coverRows: [] }, selectedRows: [], benchRows: [], platFilters: [], tierFilters: [], lastDiff: { notes: [] }, compareRows: [], ok: {}, or: {}, pulse: { count: 0, platforms: [], tiers: [], rootChips: [], top: [] }, revealLines: [], revealBands: [] };
+    if (!s.loaded) return base;
+    const cur = ['home', 'understand', 'start'].includes(s.view) ? 0 : ['configure', 'reveal', 'criteria'].includes(s.view) ? 1 : s.view === 'lineup' ? 2 : 3;
+    const maxStage = Math.max(s.maxStage || 0, cur);
+    const steps = [['01', '起点', s.project ? 'understand' : 'home'], ['02', '偏好', 'configure'], ['03', '名单', 'lineup'], ['04', '阵容', 'overview']].map(([n, label, v], i) => ({ n: i < maxStage ? '✓' : n, label, go: go(v), color: i === cur ? bone : i < maxStage ? 'rgba(243,241,234,.7)' : 'rgba(243,241,234,.4)', numColor: i === cur ? teal : i < maxStage ? teal : 'rgba(243,241,234,.3)' }));
+    // ---- understand
+    const p = s.project || {};
+    const fields = [['项目', 'name'], ['一句话定位', 'tagline'], ['领域', 'domains', v => v.map(x => A.label('domains', x)).join(' · ')], ['阶段', 'stage'], ['主要市场', 'markets', v => v.map(x => A.label('markets', x)).join(' · ')]];
+    const understandRows = fields.map(([label, key, fmt]) => { const editing = s.editing === key; const raw = p[key]; const value = editing ? (Array.isArray(raw) ? raw.join(', ') : raw) : (fmt ? fmt(raw || []) : raw);
+      return { label, value: value || '—', editing, showValue: !editing, btn: editing ? '完成' : '修改', edit: () => { if (editing) { this.setState({ editing: null }); this.save(); } else this.setState({ editing: key }); }, done: () => { this.setState({ editing: null }); this.save(); }, key: e => { if (e.key === 'Enter') { this.setState({ editing: null }); this.save(); } }, change: e => { const v = e.target.value; this.setState({ project: { ...s.project, [key]: Array.isArray(raw) ? v.split(/[,，]\s*/).filter(Boolean) : v } }); } }; });
+    const pGoals = (p.goals && p.goals.length ? p.goals : p.goal ? [p.goal] : []);
+    const goalOpts = (T.goals || []).map(g => { const on = pGoals.includes(g.id); return { label: g.label, desc: g.desc, mark: on ? '■' : '□', bg: on ? '#141414' : '#FAF9F5', color: on ? bone : '#141414', pick: () => { const next = on ? pGoals.filter(x => x !== g.id) : [...pGoals, g.id]; this.setState({ project: { ...s.project, goals: next, goal: next[0] || '' } }); this.save(); } }; });
+    // ---- start
+    const d = s.draft; const stepNames = ['领域', '市场', '介绍', '目的', '预算']; const step = s.startStep;
+    const DOMS = [{ id: 'ai', label: 'AI / 科技', desc: 'Agent、基础模型、开发者工具、企业与消费 AI。', roots: 'ROOT 库 · 创始人 / 研究者 / VC / 开发者 / 媒体' }, { id: 'crypto', label: '加密 / Web3', desc: 'Crypto、DeFi、基础设施、预测市场。', roots: 'ROOT 库 · 建设者 / 交易者 / 投资人 / 中文圈' }, { id: 'finance', label: '金融科技', desc: 'FinTech、Trading、美股与投资、AI Finance。', roots: 'ROOT 库 · 分析师 / 交易者 / 创始人 / 机构' }, { id: 'other', label: '其他 / 自己写', desc: '不在上述领域？写一句话，Mango 人工补充 Root 库与圈层。', roots: 'ROOT 库 · 先按科技通用库匹配', custom: true }];
+    const domainCards = DOMS.map((x, i) => { const on = d.domainGroup === x.id; return { n: x.custom ? '+' : String(i + 1).padStart(2, '0'), label: x.label, desc: x.desc, roots: x.roots, isCustom: !!x.custom && on, bg: on ? '#1B3A3C' : '#152F31', ring: on ? `inset 0 0 0 1px ${teal}` : 'none', dot: on ? teal : 'transparent', pick: () => this.setState({ draft: { ...d, domainGroup: x.id } }) }; });
+    const marketOpts = T.markets.map(m => { const on = d.markets.includes(m.id); return { label: m.label, en: m.en.toUpperCase(), border: on ? teal : 'rgba(243,241,234,.3)', bg: on ? teal : 'transparent', color: on ? '#0E0E0E' : bone, toggle: () => this.setState({ draft: { ...d, markets: on ? d.markets.filter(x => x !== m.id) : [...d.markets, m.id] } }) }; });
+    const dGoals = d.goals || (d.goal ? [d.goal] : []);
+    const goalCards = T.goals.map(g => { const on = dGoals.includes(g.id); return { label: g.label, desc: g.desc, mark: on ? '■' : '□', markColor: on ? teal : 'rgba(243,241,234,.45)', bg: on ? '#1B3A3C' : '#152F31', ring: on ? `inset 0 0 0 1px ${teal}` : 'none', dot: on ? teal : 'transparent', pick: () => this.setState({ draft: { ...d, goals: on ? dGoals.filter(x => x !== g.id) : [...dGoals, g.id] } }) }; });
+    const questions = ['你的项目属于哪个领域？', '本次主要面向哪些市场？', '你的项目叫什么，一句话是什么？', '本次最想解决什么？', '这一轮的预算大致在哪个区间？'];
+    const hints = ['决定加载哪一套 Root 库与圈层示例。之后可以在配置阶段细分。', '可多选。决定候选池的第一道边界与语言。', '官网可选。不需要 brief，后续可随时补充。', '可多选，决定推荐的传播角色构成。都不合适可以自己写。', '预算与目的共同决定建议阵容：偏声量会给你人数更多的中低档组合，偏可信度会给你精简的头部组合。价格只显示档位。'];
+    const finishStart = async () => { const dom = DOMS.find(x => x.id === d.domainGroup) || DOMS[0]; const project = { id: 'p_draft_' + dom.id, token: null, name: d.name || '新项目', tagline: d.tagline || '', domainGroup: dom.id === 'other' ? 'ai' : dom.id, customDomain: d.customDomain || '', domains: [], stage: '待确认', markets: d.markets, goals: dGoals, goal: dGoals[0] || 'credibility', budget: d.budget || 'b2', customGoal: d.customGoal || '', signalState: 'none', lastNotes: [], isDraft: true }; await this.bindProject(project, null); this.setState({ view: 'configure' }); window.scrollTo(0, 0); };
+    const startNext = () => { if (step < 4) this.setState({ startStep: step + 1 }); else finishStart(); };
+    const startBudgetCards = T.budgets.map(o => { const on = (d.budget || '') === o.id; const hint = { b1: '通常 3–6 位中腰部，或 1 位头部', b2: '通常 6–10 位，中腰部为主 + 1 位头部', b3: '通常 8–12 位，含 2–3 位头部', b4: '通常 10 位以上，含顶级与多市场覆盖' }[o.id]; return { label: o.label, hint, mark: on ? '■' : '□', markColor: on ? teal : 'rgba(243,241,234,.45)', bg: on ? '#1B3A3C' : '#152F31', ring: on ? `inset 0 0 0 1px ${teal}` : 'none', dot: on ? teal : 'transparent', pick: () => this.setState({ draft: { ...d, budget: o.id } }) }; });
+    const nextDisabled = (step === 4 && !d.budget) || (step === 0 && (!d.domainGroup || (d.domainGroup === 'other' && !(d.customDomain || '').trim()))) || (step === 1 && !d.markets.length);
+    const draftRows = [{ label: '领域', value: (DOMS.find(x => x.id === d.domainGroup) || {}).label || '—' }, { label: '市场', value: d.markets.map(x => A.label('markets', x)).join(' · ') || '—' }, { label: '项目', value: d.name || '—' }, { label: '目的', value: dGoals.map(x => (T.goals.find(g => g.id === x) || {}).label).join(' · ') || '—' }, { label: '预算', value: (T.budgets.find(b => b.id === d.budget) || {}).label || '—' }].map((r, i) => ({ ...r, color: r.value === '—' ? 'rgba(243,241,234,.35)' : bone }));
+    const startBands = [0, 1, 2, 3, 4].map(i => ({ d: `M0 ${3 + i * 9}H${70 + i * 34}l8 4h${162 - i * 34}`, stroke: i <= step ? teal : 'rgba(243,241,234,.2)' }));
+    // ---- configure placeholder
+    // ---- configure
+    let cfg = { cfgMeta: '', cfgProgress: '', cfgProgressPct: '0%' };
+    if (s.prefs) {
+      const P = s.prefs, roots = s.roots, sig = s.signals; const hair = 'rgba(243,241,234,.3)', mute = 'rgba(243,241,234,.8)';
+      const opt = on => ({ border: on ? teal : hair, bg: on ? teal : 'transparent', color: on ? '#0E0E0E' : mute });
+      const cnt = f => s.kols.filter(f).length;
+      const all = this.matches(); const el = all.filter(m => m.eligible);
+      const mk = (list, key, countFn) => T[list].map(o => ({ label: o.label, count: countFn ? String(cnt(k => countFn(k, o.id))) : '', toggle: () => this.toggleIn(key, o.id), ...opt(P[key].includes(o.id)) }));
+      const custom = P.custom || { audiences: '', domains: '', roots: '' };
+      const setCustom = key => e => this.setPrefs(p => { p.custom = { ...(p.custom || {}), [key]: e.target.value }; });
+      const audCards = T.audiences.map(o => { const on = P.audiences.includes(o.id); return { label: o.label, sub: o.sub, why: o.why, on, count: String(cnt(k => k.audiences.includes(o.id))), toggle: () => this.toggleIn('audiences', o.id), bg: on ? '#1B3A3C' : '#152F31', ring: on ? `inset 0 0 0 1px ${teal}` : 'none', dot: on ? teal : 'transparent', mark: on ? '■' : '□', markColor: on ? teal : 'rgba(243,241,234,.4)' }; });
+      const groupOf = s.project.domainGroup; const gl = { ai: 'AI / 科技', finance: '金融', crypto: '加密' };
+      const domainGroups = [groupOf, ...Object.keys(gl).filter(g => g !== groupOf)].map(g => ({ label: gl[g], items: T.domains.filter(d => d.group === g).map(o => ({ label: o.label, count: String(cnt(k => k.domains.includes(o.id))), toggle: () => this.toggleIn('domains', o.id), ...opt(P.domains.includes(o.id)) })) }));
+      const rootCards = roots.map((r, i) => { const v = P.rootTypes[r.id] || 'skip'; const set = val => () => this.setPrefs(p => { p.rootTypes[r.id] = val; }); const sc = sig.filter(x => r.people.some(p => p.id === x.rootId)).length;
+        return { n: String(i + 1).padStart(2, '0'), label: r.label, value: r.value, why: r.why, bg: v === 'primary' ? '#1B3A3C' : '#152F31', ring: v === 'primary' ? `inset 0 0 0 1px ${teal}` : v === 'secondary' ? 'inset 0 0 0 1px rgba(95,196,187,.45)' : 'none', dot: v === 'primary' ? teal : 'transparent', sigNote: sig.length === 0 ? 'SIGNAL 待补充' : sc ? `${sc} 条 SIGNAL` : '', people: r.people.map(p => ({ name: p.name, initial: p.name.slice(0, 1), open: () => this.setState({ openRoot: p.id }) })), setPrimary: set('primary'), setSecondary: set('secondary'), setSkip: set('skip'), pBg: v === 'primary' ? teal : 'transparent', pColor: v === 'primary' ? '#0E0E0E' : mute, sBg: v === 'secondary' ? 'rgba(95,196,187,.18)' : 'transparent', sColor: v === 'secondary' ? teal : mute, kBg: v === 'skip' ? 'rgba(243,241,234,.1)' : 'transparent', kColor: mute }; });
+      const platOpts = T.platforms.map(o => { const c = cnt(k => k.platform === o.id); return { label: o.label.toUpperCase(), count: c ? String(c) : '待接入', disabled: !c, opacity: c ? 1 : .35, toggle: () => this.toggleIn('platforms', o.id), ...opt(P.platforms.includes(o.id)) }; });
+      const budgetOpts = T.budgets.map(o => ({ label: o.label, pick: () => this.setPrefs(p => { p.budget = o.id; }), bg: P.budget === o.id ? teal : '#152F31', color: P.budget === o.id ? '#0E0E0E' : bone }));
+      const tierOpts = T.tiers.map(o => ({ mark: o.mark, label: o.label, count: String(cnt(k => k.tier === o.id)), toggle: () => this.toggleIn('tiers', o.id), ...opt(P.tiers.includes(o.id)) }));
+      // pulse
+      const pc = {}; el.forEach(m => { pc[m.kol.platform] = (pc[m.kol.platform] || 0) + 1; }); const maxP = Math.max(1, ...Object.values(pc));
+      const topN = el.slice(0, Math.min(8, el.length)); const lo = topN.reduce((a, m) => a + (A.tierOf(m.kol.tier) || {}).lo, 0), hi = topN.reduce((a, m) => a + (A.tierOf(m.kol.tier) || {}).hi, 0);
+      const tiers = [1, 2, 3, 4].map(id => { const n = el.filter(m => m.kol.tier === id).length; return { mark: (A.tierOf(id) || {}).mark, n: n || 0.001, minw: n ? '30px' : '0', bg: n ? ['#1B3A3C', '#245C58', '#3E9C94', '#5FC4BB'][id - 1] : 'transparent', color: id >= 3 ? '#0E0E0E' : bone }; });
+      const rootChips = roots.filter(r => P.rootTypes[r.id] && P.rootTypes[r.id] !== 'skip').map(r => ({ label: r.label, border: P.rootTypes[r.id] === 'primary' ? teal : hair, color: P.rootTypes[r.id] === 'primary' ? teal : mute }));
+      const answered = [P.domains.length, P.audiences.length, Object.values(P.rootTypes).some(v => v === 'primary'), P.platforms.length || P.formats.length, P.budget, P.brand.length].filter(Boolean).length;
+      cfg.cfgMeta = `约 4 分钟 · 任何一步都可跳过 · 自动保存`; cfg.cfgProgress = `已回答 ${answered} / 6`; cfg.cfgProgressPct = `${Math.round(answered / 6 * 100)}%`;
+      const known = [{ label: '领域', value: (s.project.domains || []).map(x => A.label('domains', x)).join(' · ') || gl[groupOf] }, { label: '主要市场', value: P.markets.map(x => A.label('markets', x)).join(' · ') || '—' }, { label: '本次目的', value: (s.project.goals && s.project.goals.length ? s.project.goals : [s.project.goal]).map(x => (T.goals.find(g => g.id === x) || {}).label).filter(Boolean).join(' · ') || '—' }];
+      const rp = s.openRoot && roots.flatMap(r => r.people).find(p => p.id === s.openRoot); const rt = rp && roots.find(r => r.people.some(p => p.id === rp.id));
+      const primaryLabels = roots.filter(r => P.rootTypes[r.id] === 'primary').map(r => r.label);
+      const revealLines = [`理解了你的选择：在${P.markets.map(x => A.label('markets', x)).join('、') || '所选市场'}，被${primaryLabels.join('、') || '目标圈层'}注意到。`, `从 ${s.kols.length} 位有报价记录的创作者中，筛出 ${el.length} 位符合条件的候选。`, `按传播角色组成初步阵容：${Object.entries(el.slice(0, 8).reduce((m, x) => (m[x.role.label] = (m[x.role.label] || 0) + 1, m), {})).map(([k, v]) => `${v} 位${k}`).join('、')}。`, `预算区间 ${el.length ? A.fmtRange(lo, hi) : '—'} · ${el.slice(0, 8).filter(m => m.kol.commercial === 'contactable').length} 位可由 Mango 对接 · ${sig.length ? '关系 Signal 已载入' : '关系 Signal 待补充'}。`];
+      cfg = { ...cfg, hasPrefs: true, knownRows: known, audCards, customAud: custom.audiences, setCustomAud: setCustom('audiences'), customDom: custom.domains, setCustomDom: setCustom('domains'), customRoot: custom.roots, setCustomRoot: setCustom('roots'), marketOpts2: mk('markets', 'markets', (k, id) => k.markets.includes(id)), langOpts: mk('languages', 'languages'), domainGroups, audOpts: mk('audiences', 'audiences'), rootCards, platOpts, fmtOpts: mk('formats', 'formats'), budgetOpts, tierOpts, brandOpts: mk('brandPrefs', 'brand'), domainOpen: !!s.domainOpen, domainChevron: s.domainOpen ? '−' : '+', marketChevron: s.marketOpen ? '−' : '+', toggleDomain: () => this.setState({ domainOpen: !s.domainOpen }), marketOpen: !!s.marketOpen, toggleMarket: () => this.setState({ marketOpen: !s.marketOpen }),
+        pulse: { count: el.length, note: s.pulseNote, platforms: Object.entries(pc).sort((a, b) => b[1] - a[1]).map(([label, n]) => ({ label, n: String(n), pct: Math.round(n / maxP * 100) })), tiers, budgetRange: topN.length ? A.fmtRange(lo, hi) : '—', rootChips, noRoots: !rootChips.length, top: el.slice(0, 5).map(m => ({ name: m.kol.name, platform: m.kol.platform, fit: String(m.score.fit) })) },
+        goReveal: () => this.startReveal(), revealLines: revealLines.map((text, i) => ({ text, active: (s.revealStep || 0) > i ? 'true' : 'false', op: (s.revealStep || 0) > i ? 1 : 0, y: (s.revealStep || 0) > i ? '0' : '8px' })), revealDone: (s.revealStep || 0) >= 4, revealBands: [0, 1, 2, 3, 4].map(i => ({ d: `M0 ${6 + i * 14}H${120 + i * 60}l10 6h${470 - i * 60}`, stroke: (s.revealStep || 0) > i ? teal : 'rgba(243,241,234,.18)' })), finishReveal: () => this.finishReveal(), skipReveal: () => this.finishReveal(),
+        ...this.understandVals(el), ...this.lineupVals(el, all, T), ...this.overviewVals(el, all, T), hasOpenRoot: !!rp, or: rp ? { name: rp.name, handle: rp.handle, role: rp.role, initial: rp.name.slice(0, 1), type: rt ? rt.label : '', behavior: rp.behavior, why: rp.why } : {}, closeRoot: () => this.setState({ openRoot: null }), stop: e => e.stopPropagation() };
+    }
+    return { ...base, ...cfg, isReveal: s.view === 'reveal', isCriteria: s.view === 'criteria', isLineup: s.view === 'lineup', isOverview: s.view === 'overview', steps, demoNotice: A.DEMO_NOTICE, project: p, understandRows, lastNotes: p.lastNotes || [], goalOpts, goConfigure: go('configure'), goLineup: go('lineup'), newCampaign: () => { this.setState({ project: { ...s.project, goal: '', isNewCampaign: true } }); go('configure')(); },
+      startStepLabel: `${step + 1} / 5 · ${stepNames[step]}`, startQuestion: questions[step], startHint: hints[step], startIsDomain: step === 0, startIsMarket: step === 1, startIsIntro: step === 2, startIsGoal: step === 3, startIsBudget: step === 4, startBudgetCards, startCanBack: step > 0, startBack: () => this.setState({ startStep: step - 1 }), startNext, startNextDisabled: nextDisabled, startNextOpacity: nextDisabled ? .4 : 1, startNextLabel: step === 4 ? '生成项目草稿' : '下一步',
+      setDraftName: e => this.setState({ draft: { ...d, name: e.target.value } }), customDomain: d.customDomain || '', setCustomDomain: e => this.setState({ draft: { ...d, customDomain: e.target.value } }), customGoal: d.customGoal || '', setCustomGoal: e => this.setState({ draft: { ...d, customGoal: e.target.value } }), projCustomGoal: p.customGoal || '', setProjCustomGoal: e => { this.setState({ project: { ...s.project, customGoal: e.target.value } }); }, saveProj: () => this.save(), setDraftTagline: e => this.setState({ draft: { ...d, tagline: e.target.value } }), setDraftSite: e => this.setState({ draft: { ...d, site: e.target.value } }), domainCards, marketOpts, goalCards, draftRows, startBands, startProgress: `${step + 1} / 5 · 约 ${(5 - step) * 15} 秒`,
+      configureLead: (s.project && s.project.isNewCampaign) ? '这次想被谁注意到？' : '你想被谁注意到，想进入哪些圈层？' };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#1F4144;color:#F3F1EA;font-family:Inter,"Noto Sans SC",-apple-system,"PingFang SC",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#5FC4BB;text-decoration:none}a:hover{color:#F3F1EA}
+</style>
+</helmet>
+<div style="min-height:100vh">
+<header style="height:56px;background:#0E0E0E;display:flex;align-items:center;gap:14px;padding:0 40px;border-bottom:1px solid rgba(243,241,234,.16)">
+  <img src="assets/mango-mark.png" alt="" style="height:26px;width:auto"><span style="font-size:20px;font-weight:400;letter-spacing:-.01em">MangoLabs</span><span style="width:1px;height:18px;background:rgba(243,241,234,.3)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:rgba(243,241,234,.7)">DESIGN SYSTEM</span>
+  <nav style="margin-left:auto;display:flex;gap:28px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:rgba(243,241,234,.8)"><a href="Mango Signal Map v2.dc.html" style="color:inherit">SIGNAL MAP →</a></nav>
+</header>
+
+<main style="padding:64px 40px 120px;display:flex;flex-direction:column;gap:96px;max-width:1360px;margin:0 auto">
+  <div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#5FC4BB">00 /// 视觉系统</div>
+    <h1 style="margin:20px 0 0;font-size:clamp(40px,4.6vw,64px);line-height:1.08;letter-spacing:-.02em;font-weight:300;max-width:22ch"><em style="font-weight:700;font-style:italic">Mango Signal Map，</em>从官网提炼、可复用的界面语言。</h1>
+    <p style="margin:20px 0 0;max-width:64ch;font-size:16px;line-height:1.7;color:rgba(243,241,234,.75)">深青大气层为主场，骨白为阅读区；标题用「斜体粗引子 + 轻字重陈述」；所有导航、标签、按钮、编号使用等宽大写；直角、无阴影、hairline 分隔；logo 的阶梯信号带是唯一图形母题。</p>
+  </div>
+
+  <!-- 01 色彩 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">01</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">色彩</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">单一强调色。警示用暗金，不用红绿。不用渐变按钮、光晕、紫色。</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+      <div style="background:#0E0E0E;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#0E0E0E</span><span style="font-size:12px;color:rgba(243,241,234,.6)">顶栏 · 黑条</span></div>
+      <div style="background:#1F4144;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#1F4144</span><span style="font-size:12px;color:rgba(243,241,234,.6)">主场 · 深青</span></div>
+      <div style="background:#152F31;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#152F31</span><span style="font-size:12px;color:rgba(243,241,234,.6)">面板 · 更深</span></div>
+      <div style="background:#F3F1EA;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;color:#141414"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#F3F1EA</span><span style="font-size:12px;color:#6B6B66">骨白 · 阅读区</span></div>
+      <div style="background:#5FC4BB;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;color:#0E0E0E"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#5FC4BB</span><span style="font-size:12px;color:rgba(14,14,14,.7)">强调 · 暗底用</span></div>
+      <div style="background:#0E6E6A;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#0E6E6A</span><span style="font-size:12px;color:rgba(243,241,234,.7)">强调 · 骨白页用</span></div>
+      <div style="background:#C9A227;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;color:#0E0E0E"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">#C9A227</span><span style="font-size:12px;color:rgba(14,14,14,.7)">警示 · 待复核</span></div>
+      <div style="background:#1F4144;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;border-top:1px solid rgba(243,241,234,.16)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px">rgba(243,241,234,.16)</span><span style="font-size:12px;color:rgba(243,241,234,.6)">hairline</span></div>
+    </div>
+  </section>
+
+  <!-- 02 字体 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">02</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">字体与句法</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">Inter + Noto Sans SC 轻字重做正文与标题；JetBrains Mono 大写做所有 UI 标签。</p></div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid rgba(243,241,234,.1)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">DISPLAY 72/300</span><div style="font-size:72px;line-height:1.08;letter-spacing:-.02em;font-weight:300"><em style="font-weight:700">iLands，</em>想被 AI 研究者看见。</div></div>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid rgba(243,241,234,.1)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">H1 44/300</span><div style="font-size:44px;line-height:1.15;letter-spacing:-.01em;font-weight:300">这套阵容覆盖 4 个重点圈层。</div></div>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid rgba(243,241,234,.1)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">H2 24/500</span><div style="font-size:24px;line-height:1.3;font-weight:500">高度符合当前选择</div></div>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid rgba(243,241,234,.1)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">BODY 16/300</span><div style="font-size:16px;line-height:1.7;max-width:60ch;color:rgba(243,241,234,.85)">每一个选择都会立即改变候选数量、平台构成与预算区间。可以跳过暂时不确定的部分，之后随时回来修改。</div></div>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid rgba(243,241,234,.1)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">MONO-L 56</span><div style="font-family:'JetBrains Mono',monospace;font-size:56px;line-height:1">86 <span style="font-size:14px;letter-spacing:.1em;color:rgba(243,241,234,.5)">本项目适配度</span></div></div>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.5)">MONO-S 11</span><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.8)">01 /// 项目起点 &nbsp;&nbsp; NARRATIVE / DISTRIBUTION / EXECUTION &nbsp;&nbsp; 已确认 · 待复核 · 待补充</div></div>
+    </div>
+  </section>
+
+  <!-- 03 按钮与标签 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">03</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">按钮 · 状态 · 档位</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">描边矩形，无填充主按钮；强调靠位置与箭头。状态标签独立于分数。</p></div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button style="height:48px;padding:0 24px;border:1px solid rgba(243,241,234,.45);background:rgba(0,0,0,.22);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;display:flex;align-items:center;gap:16px" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)">开始配置阵容 <span>→</span></button>
+        <button style="height:48px;padding:0 24px;border:1px solid rgba(243,241,234,.3);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em" style-hover="border-color:#F3F1EA;color:#F3F1EA">返回调整</button>
+        <button style="height:36px;padding:0 14px;border:1px solid #5FC4BB;background:#5FC4BB;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em">已选择 ✓</button>
+        <button style="height:36px;padding:0 14px;border:0;background:transparent;color:#5FC4BB;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em">/// 查看全部</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em">
+        <span style="padding:5px 10px;border:1px solid #5FC4BB;color:#5FC4BB">报价已确认</span>
+        <span style="padding:5px 10px;border:1px solid #C9A227;color:#C9A227">报价待复核</span>
+        <span style="padding:5px 10px;border:1px solid rgba(243,241,234,.3);color:rgba(243,241,234,.6)">Signal 待补充</span>
+        <span style="padding:5px 10px;border:1px solid rgba(243,241,234,.5);color:#F3F1EA">可由 Mango 对接</span>
+        <span style="padding:5px 10px;background:#F3F1EA;color:#0E0E0E">专业解释</span>
+      </div>
+      <div style="display:flex;gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16);width:fit-content">
+        <div style="padding:14px 20px;background:#152F31;font-family:'JetBrains Mono',monospace"><div style="font-size:20px">$</div><div style="font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55);margin-top:4px">入门</div></div>
+        <div style="padding:14px 20px;background:#152F31;font-family:'JetBrains Mono',monospace"><div style="font-size:20px">$$</div><div style="font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55);margin-top:4px">中腰部</div></div>
+        <div style="padding:14px 20px;background:#5FC4BB;color:#0E0E0E;font-family:'JetBrains Mono',monospace"><div style="font-size:20px">$$$</div><div style="font-size:10px;letter-spacing:.1em;color:rgba(14,14,14,.6);margin-top:4px">头部 · 已选</div></div>
+        <div style="padding:14px 20px;background:#152F31;font-family:'JetBrains Mono',monospace"><div style="font-size:20px">$$$$</div><div style="font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55);margin-top:4px">顶级</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 选择卡与三态 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">04</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">选择卡 · 三态</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">默认 hairline；选中态青色描边与左上角实心方块；Root 三态：实心 / 描边 / 灰。</p></div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+      <div style="background:#152F31;padding:20px;min-height:170px;display:flex;flex-direction:column;gap:10px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">01 · 行业背书</div><div style="font-size:18px;font-weight:500">AI 研究者</div><p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.65)">让讨论变得可信、具体、有技术含量。</p><div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(243,241,234,.5)">本次不优先</div></div>
+      <div style="background:#152F31;padding:20px;min-height:170px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px #5FC4BB;position:relative"><span style="position:absolute;left:0;top:0;width:8px;height:8px;background:#5FC4BB"></span><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">02 · 投资人关注</div><div style="font-size:18px;font-weight:500">风险投资人</div><p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.65)">看见之后可能发生 warm intro 或投资兴趣。</p><div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#5FC4BB">■ 最想进入</div></div>
+      <div style="background:#152F31;padding:20px;min-height:170px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px rgba(95,196,187,.45)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">03 · 产品采用</div><div style="font-size:18px;font-weight:500">开发者领袖</div><p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.65)">开发者圈的意见形成点。</p><div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(95,196,187,.8)">□ 也很重要</div></div>
+    </div>
+  </section>
+
+  <!-- 05 信号带母题 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">05</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">信号带母题</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">取自 logo：水平线 + 阶梯位移。用于分节装饰、加载、空状态、进度。不用 skeleton 灰块。</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+      <div style="background:#152F31;padding:24px;display:flex;gap:24px;align-items:center"><img src="assets/mango-mark.png" alt="" style="height:72px"><svg viewBox="0 0 240 72" style="width:240px;height:72px" aria-hidden="true"><g stroke="#F3F1EA" stroke-width="3"><path d="M0 6H120l8 4h112"></path><path d="M0 22H90l8 4h142"></path><path d="M0 38H150l8 4h82"></path><path d="M0 54H60l8 4h172" stroke="#5FC4BB"></path><path d="M0 70H130l8-4h102" stroke-opacity=".4"></path></g></svg></div>
+      <div style="background:#152F31;padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:center"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.5)">加载态 · 逐条点亮</div><svg viewBox="0 0 400 40" style="width:100%;height:40px" aria-hidden="true"><g stroke-width="2"><path d="M0 4H200l8 4h192" stroke="#5FC4BB"></path><path d="M0 16H120l8 4h272" stroke="#5FC4BB"></path><path d="M0 28H260l8 4h132" stroke="rgba(243,241,234,.25)"></path><path d="M0 40H80l8-4h312" stroke="rgba(243,241,234,.25)"></path></g></svg><div style="font-size:12px;color:rgba(243,241,234,.6)">正在从 262 位有报价的创作者中筛选…</div></div>
+    </div>
+  </section>
+
+  <!-- 06 hairline 表 -->
+  <section style="display:grid;grid-template-columns:220px 1fr;gap:40px;padding-top:32px;border-top:1px solid rgba(243,241,234,.16)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.55)">06</div><h2 style="margin:8px 0 0;font-size:24px;font-weight:500">Hairline 网格 · 数字</h2><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.6)">所有表格感内容用 1px 网格，数字等宽字体，成果三段式。</p></div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+        <div style="background:#1F4144;padding:20px"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1">262</div><div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">有报价创作者</div></div>
+        <div style="background:#1F4144;padding:20px"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1">4</div><div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">平台</div></div>
+        <div style="background:#1F4144;padding:20px"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1">$12k–18k</div><div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">预算区间</div></div>
+        <div style="background:#1F4144;padding:20px"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1;color:#5FC4BB">12</div><div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.55)">关系 Signal</div></div>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:rgba(243,241,234,.8)">8 位创作者 · 3 个平台 · 2 个市场 · 6 位可对接</div>
+    </div>
+  </section>
+</main>
+</div>
+</x-dc>
+</body>
+</html>
