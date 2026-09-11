@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Base44",
+    "category": "AI app builder / vibe coding platform",
+    "geography": "Tel Aviv, Israel / global",
+    "x_handle": "base44",
+    "website": "https://base44.com",
+    "evidence": [
+      {
+        "creator_or_source": "No Code MBA (@nocodemba)",
+        "content_url": "https://www.youtube.com/watch?v=AE1hrlo0f10",
+        "content_title_or_description": "Build and deploy a full app with Base44 in 2026 (full tutorial)",
+        "published_at": "2026-05-15",
+        "disclosure_type": "paid_sponsorship",
+        "evidence_text": "描述首行明确写道 'This video is sponsored by Base44. Try Base44 here: https://base44.pxf.io/c/2713558/2049275/25619?trafcat=base'（Impact 联盟网络追踪链接）。频道 4.42 万订阅。"
+      },
+      {
+        "creator_or_source": "No Code MBA (@nocodemba)",
+        "content_url": "https://www.youtube.com/watch?v=vA4mRHO1RWk",
+        "content_title_or_description": "Base44's NEW AI agents might change the way you build apps",
+        "published_at": "2026-03-09",
+        "disclosure_type": "paid_sponsorship",
+        "evidence_text": "描述首行 'This video is sponsored by Base44.'，使用与另一条相同的 Impact 追踪链接。同一创作者 3 个月内第二条赞助内容，说明是持续投放而非一次性。7,028 播放。"
+      },
+      {
+        "creator_or_source": "Kevin Stratvert (@KevinStratvert)",
+        "content_url": "https://www.youtube.com/watch?v=WF_sgw1u1NQ",
+        "content_title_or_description": "Base44 Tutorial for Beginners",
+        "published_at": "2025-11-04",
+        "disclosure_type": "paid_sponsorship",
+        "evidence_text": "描述含独立的 'Sponsor: Base44' 标注，并使用品牌为该创作者定制的短链 https://base44.kevinstratvert.com。频道 442 万订阅，属头部科技教学频道。"
+      },
+      {
+        "creator_or_source": "Metics Media (@MeticsMedia)",
+        "content_url": "https://www.youtube.com/watch?v=IWYWFlbLOYQ",
+        "content_title_or_description": "Base44 Tutorial for Beginners 2026 - How to Use Base44",
+        "published_at": "2026-07-15",
+        "disclosure_type": "affiliate",
+        "evidence_text": "描述含专属 20% 折扣联盟链接 'Base44 (20% OFF): https://meticsmedia.com/base44-TKF' 并附标准联盟披露；描述中没有任何赞助声明，因此归为 affiliate 而非 paid_sponsorship。频道 69.1 万订阅。"
+      },
+      {
+        "creator_or_source": "Cybernews (@cybernews)",
+        "content_url": "https://www.youtube.com/watch?v=_WPnF5ZdpZ0",
+        "content_title_or_description": "Base44 Review + Base44 Tutorial – How to Build No-Code Apps in 2026",
+        "published_at": "2026-06-09",
+        "disclosure_type": "affiliate",
+        "evidence_text": "描述含 30% 折扣专属追踪链接 https://cnews.link/base44-deal/ZSSyk7DRED8/，并明确声明 'We are affiliated but not sponsored by any service provider'——即自述为联盟返佣、非赞助。频道 94.1 万订阅。"
+      },
+      {
+        "creator_or_source": "VPNpro (@VPNprochannel)",
+        "content_url": "https://www.youtube.com/watch?v=mBcGU44HinU",
+        "content_title_or_description": "Base44 Tutorial: The Best AI App Builder?",
+        "published_at": "2026-06-04",
+        "disclosure_type": "affiliate",
+        "evidence_text": "描述含 30% OFF 专属追踪链接 https://vpnpro.sale/Base44-Discount/_SLMRmbKssI/，同样自述 'affiliated but not sponsored'。注意：VPNpro 与 Cybernews 同属一个媒体集团，两条证据不应视为完全独立的两个渠道。"
+      }
+    ],
+    "confidence_note": "Base44 是 2024 年成立、2025 年 7 月被 Wix 以约 8000 万美元收购的 AI 应用生成（vibe coding）平台，收购后仍以独立品牌和独立招聘线运营，不在现有 97 家名单中。本次核实到 3 条描述中明确写有 'sponsored by Base44' 的付费赞助内容（含 442 万订阅的 Kevin Stratvert）以及 3 条带品牌专属折扣追踪链接的联盟内容，说明其同时投放付费赞助与联盟返佣两条创作者预算。所有 6 条均通过直接抓取 YouTube 视频描述原文核对，非搜索摘要。补充背景信号（未作为 SponsorshipEvidence 入库）：2026-02-08 首次投放 Super Bowl LX 广告（Adweek 2026-02-03 报道）；据招聘聚合站显示 2026-09-02 在招 US-remote 的 Influencer Marketing Lead（年薪 15 万美元），但原始 JD 页面返回 403、未能直接核实，仅作参考。"
+  },
+  {
+    "name": "Emergent",
+    "category": "AI app builder and autonomous coding agents",
+    "geography": "San Francisco, United States / Bengaluru, India",
+    "x_handle": "emergentlabs",
+    "website": "https://emergent.sh",
+    "evidence": [
+      {
+        "creator_or_source": "Adrian Twarog (@AdrianTwarog)",
+        "content_url": "https://www.youtube.com/watch?v=mL45m_W4_44",
+        "content_title_or_description": "Stop Using These AI App Builders Until You Watch This - Emergent vs Lovable vs Replit vs Base44",
+        "published_at": "2026-05-20",
+        "disclosure_type": "paid_sponsorship",
+        "evidence_text": "描述写明 'A big thanks to Emergent for sponsoring todays video'，并附 Rewardful 归因链接 https://emergent.sh/?utm_shift=redirect&via=uxenhance。频道 41.9 万订阅。值得注意的是这是一条把 Emergent 与 Lovable、Replit、Base44 并列的对比测评——赞助方买的是对比场景中的首位曝光。"
+      }
+    ],
+    "program_evidence": {
+      "source_url": "https://emergent.sh/affiliates",
+      "description": "Emergent 官方联盟计划页面：被推荐客户前 6 个月 20% 收入分成、单次推荐最高 $150，30 天 cookie，PayPal 月结（$100 起付）；页面自述 1,500+ 活跃联盟伙伴、每月向合作方支付超过 100 万美元。按项目既定标准，这属于 spend_mechanism / budget_evidence 层面的证据，不作为单独一条 SponsorshipEvidence。"
+    },
+    "confidence_note": "Emergent（Emergent Labs，emergent.sh）成立于 2024 年，由 Mukund Jha 与 Madhav Jha 兄弟创办，2026-01 完成 SoftBank/Khosla 领投的 7000 万美元 B 轮，2026-07 以 15 亿美元估值完成 1.3 亿美元 C 轮，公开自述 ARR 超过 1 亿美元、用户 500 万+，不在现有 97 家名单中。本次核实到 2 条明确付费赞助（Adrian Twarog 41.9 万订阅、Daniel | Tech & Data 60.6 万订阅）与多条带专属折扣链接的联盟内容，另有官方联盟计划页面作为预算机制证据。X 账号确认为 @emergentlabs（@emergent、@EmergentLlc、@EmergenceABC 均为无关账号，注意勿混）。"
+  }
+]

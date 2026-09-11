@@ -1,0 +1,167 @@
+[
+  {
+    "company_name": "Emergent",
+    "creator_name": "Daniel | Tech & Data",
+    "creator_handle": "Daniel-Dann",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=PeXq5Jl2YKE",
+    "content_title": "Emergent AI Review - 2026 | I Built a SaaS App Using Only This AI - The Future of App Development?",
+    "published_at": "2025-10-25",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述写明 'This video was sponsored by Emergent AI.'，并带 '#ad #emergent #emergentai' 标签。频道 60.6 万订阅，6.4 万播放。该创作者已在库内（Atoms AI 证据同一人）。"
+  },
+  {
+    "company_name": "Emergent",
+    "creator_name": "Cybernews",
+    "creator_handle": "cybernews",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=ELKAZe1Ztno",
+    "content_title": "Emergent AI Review | AI App Builder That Lets You Own Your Code",
+    "published_at": "2026-08-27",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含专属折扣追踪链接 https://cnews.link/emergent-deal/ELKAZe1Ztno/（up to 17% OFF），并声明 'We are affiliated but not sponsored by any service provider'。该频道同期也在跑 Base44 的同类联盟位。"
+  },
+  {
+    "company_name": "Emergent",
+    "creator_name": "Dani's Tutorials",
+    "creator_handle": "danistutorials.",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=5FP0RDb4V3M",
+    "content_title": "Honest Emergent AI Review (Best AI App Builder?)",
+    "published_at": "2025-10-23",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含 Emergent 专属折扣链接 https://danislinks.com/Emergent 及 'Some links above include affiliate links; I may earn a commission if you use them' 披露。注意：同一 danislinks.com 追踪域名也出现在 Software Scope、SoftSavvy 两个频道的 Emergent 测评中，疑为同一联盟运营者的多频道矩阵，另两条未单独入库以免高估渠道广度。"
+  },
+  {
+    "company_name": "HeyGen",
+    "creator_name": "Kevin Stratvert",
+    "creator_handle": "KevinStratvert",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=oM_wcCJzhe4",
+    "content_title": "HeyGen AI Tutorial: How to Use AI Avatars & Video Generator",
+    "published_at": "2026-04-29",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述含独立的 'Sponsor: HeyGen' 标注（与该频道对 Base44、Lovable 的标注格式一致）。频道 442 万订阅，5.9 万播放。"
+  },
+  {
+    "company_name": "HeyGen",
+    "creator_name": "AI Master",
+    "creator_handle": "iamAImaster",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=ym9HhUlFiog",
+    "content_title": "How to Create a Realistic Talking AI Avatar in 15 Seconds (HeyGen Avatar V)",
+    "published_at": "2026-04-20",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述含 '#sponsored HeyGen Here: https://bit.ly/4e5NGuU'，为明确的付费披露。频道 32.3 万订阅，5.9 万播放。该创作者已在库内。"
+  },
+  {
+    "company_name": "HeyGen",
+    "creator_name": "Simon Crowe",
+    "creator_handle": "TheSimonCrowe",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=RTmlxuroR50",
+    "content_title": "How to Use HeyGen in 2026 (Step-by-Step Beginner Tutorial)",
+    "published_at": "2026-03-05",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含 Rewardful 联盟归因链接 https://www.heygen.com/?sid=rewardful&via=simoncrowe 及标准联盟披露；无赞助声明，故归为 affiliate。频道仅 8,570 订阅但该视频 19.8 万播放，是典型的小号跑量联盟位。"
+  },
+  {
+    "company_name": "OpusClip",
+    "creator_name": "Daniel | Tech & Data",
+    "creator_handle": "Daniel-Dann",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=sQgNFGVuaH8",
+    "content_title": "OpusClip Review - 2026 | Can This AI Actually Find Viral Moments? (Full Test)",
+    "published_at": "2026-01-15",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述写明 'This video was sponsored by OpusClip.' 并带 '#ad #opusclip #opusclipai' 标签。频道 60.6 万订阅，6.4 万播放。"
+  },
+  {
+    "company_name": "OpusClip",
+    "creator_name": "Essetino Media - Create Profitable Content",
+    "creator_handle": "EssetinoMedia",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=9sg7TxjuswM",
+    "content_title": "OpusClip Review 2026 | Is it Worth it for Your Content Creation?",
+    "published_at": "2026-01-16",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含 Rewardful 联盟链接 'Try Opus Clip for FREE: https://www.opus.pro/?via=a1394d' 及标准联盟披露。频道 6.38 万订阅。"
+  },
+  {
+    "company_name": "Lovable",
+    "creator_name": "Kevin Stratvert",
+    "creator_handle": "KevinStratvert",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=y4IJbZ1E1DM",
+    "content_title": "Lovable AI Tutorial for Beginners - Build Your First App",
+    "published_at": "2026-06-22",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述含独立的 'Sponsor: Lovable' 标注。频道 442 万订阅，3.85 万播放。"
+  },
+  {
+    "company_name": "Lovable",
+    "creator_name": "Nuno Tavares | Automated Marketer",
+    "creator_handle": "AutomatedMarketer",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=FguLWumgCFE",
+    "content_title": "Lovable AI is INSANE – Build Apps Without Coding (Full Beginner Guide)",
+    "published_at": "2025-10-23",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含 Rewardful 联盟链接 https://lovable.dev/?via=nuno-tavares，并明确提醒观众关闭广告拦截，否则 'it will block affiliate tracking and you will NOT receive any of my bonuses'——即自述靠联盟归因变现。频道 11.4 万订阅，14.7 万播放。"
+  },
+  {
+    "company_name": "Descript",
+    "creator_name": "Jerry Potter",
+    "creator_handle": "mrjerrypotter",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=z1ajPE7mmag",
+    "content_title": "Edit Pro YouTube Videos in Descript | Tutorial For Complete Beginners",
+    "published_at": "2025-12-24",
+    "disclosure_type": "paid_sponsorship",
+    "evidence_text": "描述写明 'Thanks to Descript for sponsoring the production of this video.'，同时附自建 referral 短链 https://links.donebylunch.co/9erylvw（描述中标注 'My referral link'）。频道 16.2 万订阅。"
+  },
+  {
+    "company_name": "Descript",
+    "creator_name": "Metics Media",
+    "creator_handle": "MeticsMedia",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=RgwJNOXGARI",
+    "content_title": "Complete Descript Tutorial 2026: Zero to Expert",
+    "published_at": "2025-03-12",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含品牌定制联盟短链 'Get Started With Descript: https://meticsmedia.com/descript-GARI' 及联盟披露；无赞助声明。频道 69.1 万订阅，7.18 万播放。"
+  },
+  {
+    "company_name": "Descript",
+    "creator_name": "Danie Jay",
+    "creator_handle": "DanieJay",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=L4lUwaI7NSI",
+    "content_title": "ULTIMATE Descript Tutorial for Beginners in 2026 | How to Edit Fast Using AI",
+    "published_at": "2026-02-19",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含专属短链 'Try Descript for FREE: https://heydaniejay.com/descript' 及 'I receive a small commission on some of the links provided' 披露。频道 7.72 万订阅，3.3 万播放。"
+  },
+  {
+    "company_name": "Higgsfield",
+    "creator_name": "Artturi Jalli",
+    "creator_handle": "artturijalliofficial",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=l-rFCkjJzu8",
+    "content_title": "Higgsfield AI Ultimate Tutorial — EVERY Feature Explained & Reviewed",
+    "published_at": "2026-05-28",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含多条 FirstPromoter 联盟参数链接（https://higgsfield.ai?fpr=artturi67&fp_sid=mc，以及带 fpr=artturi67 的工作流分享链接），并附佣金披露。fpr= 参数是可确认的返佣归因，非普通 utm。频道 2 万订阅但该视频 8.3 万播放。"
+  },
+  {
+    "company_name": "Higgsfield",
+    "creator_name": "David Manning",
+    "creator_handle": "DavidManningvlog",
+    "platform": "YouTube",
+    "content_url": "https://www.youtube.com/watch?v=N0X5naSpqTk",
+    "content_title": "HIGGSFIELD AI: A Beginner's Guide to Mind-Blowing AI Video!",
+    "published_at": "2026-04-07",
+    "disclosure_type": "affiliate",
+    "evidence_text": "描述含带创作者标识的专属链接 https://higgsfield.ai/s/cinema-studio-3-5-davidmanningvlog-ncftUy，频道披露为 'Most links in the description are affiliate links meaning I earn a small commission when you purchase'。频道 54 万订阅，14 万播放。归类为 affiliate 而非 paid_sponsorship：链接带创作者名但无返佣参数，仅凭频道通用联盟声明推定，置信度低于同批其他 affiliate 条目。"
+  }
+]

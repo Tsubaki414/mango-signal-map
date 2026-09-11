@@ -1,0 +1,287 @@
+{
+  "markets": [
+    {
+      "id": "us",
+      "label": "美国",
+      "en": "United States"
+    },
+    {
+      "id": "cn",
+      "label": "中国内地",
+      "en": "Mainland China"
+    },
+    {
+      "id": "hk",
+      "label": "香港及大中华",
+      "en": "HK & Greater China"
+    },
+    {
+      "id": "eu",
+      "label": "欧洲",
+      "en": "Europe"
+    },
+    {
+      "id": "global",
+      "label": "全球英文",
+      "en": "Global (EN)"
+    },
+    {
+      "id": "cross",
+      "label": "中英跨境",
+      "en": "Cross-border ZH/EN"
+    }
+  ],
+  "languages": [
+    {
+      "id": "en",
+      "label": "英文"
+    },
+    {
+      "id": "zh",
+      "label": "中文"
+    },
+    {
+      "id": "bi",
+      "label": "双语"
+    }
+  ],
+  "domains": [
+    {
+      "id": "ai_agent",
+      "label": "AI Agent",
+      "group": "ai"
+    },
+    {
+      "id": "foundation_model",
+      "label": "基础模型",
+      "group": "ai"
+    },
+    {
+      "id": "dev_tools",
+      "label": "开发者工具",
+      "group": "ai"
+    },
+    {
+      "id": "ai_coding",
+      "label": "AI 编程",
+      "group": "ai"
+    },
+    {
+      "id": "enterprise_ai",
+      "label": "企业 AI",
+      "group": "ai"
+    },
+    {
+      "id": "consumer_ai",
+      "label": "消费 AI",
+      "group": "ai"
+    },
+    {
+      "id": "creative_ai",
+      "label": "创意 AI",
+      "group": "ai"
+    },
+    {
+      "id": "fintech",
+      "label": "金融科技",
+      "group": "finance"
+    },
+    {
+      "id": "trading",
+      "label": "Trading",
+      "group": "finance"
+    },
+    {
+      "id": "us_stocks",
+      "label": "美股与投资",
+      "group": "finance"
+    },
+    {
+      "id": "crypto",
+      "label": "Crypto",
+      "group": "crypto"
+    },
+    {
+      "id": "defi",
+      "label": "DeFi",
+      "group": "crypto"
+    },
+    {
+      "id": "web3_infra",
+      "label": "Web3 基础设施",
+      "group": "crypto"
+    }
+  ],
+  "audiences": [
+    {
+      "id": "founders",
+      "label": "创始人与产品建造者",
+      "sub": "正在构建或使用同类产品的创始人和产品负责人",
+      "why": "高度相关的同类影响，加速产品可信度在创业圈内的传播"
+    },
+    {
+      "id": "investors",
+      "label": "投资人与行业研究员",
+      "sub": "VC、LP、行业分析师，持续关注新兴技术动向",
+      "why": "进入投资人信息流，可能带来 warm intro 与融资关注"
+    },
+    {
+      "id": "developers",
+      "label": "开发者与技术意见领袖",
+      "sub": "工程师、技术博主、开源社区核心参与者",
+      "why": "驱动产品试用，开发者认可能触发技术社区扩散"
+    },
+    {
+      "id": "researchers",
+      "label": "研究者与学术圈",
+      "sub": "高校与实验室研究员、论文作者",
+      "why": "让讨论具体、可信，带来学术侧背书"
+    },
+    {
+      "id": "enterprise",
+      "label": "企业采购与决策者",
+      "sub": "CTO、IT 负责人、企业数字化管理层",
+      "why": "直接影响 B2B 采购决策链，适合希望进入企业客户视野的项目"
+    },
+    {
+      "id": "tech_media",
+      "label": "科技媒体与播客主持人",
+      "sub": "科技垂类媒体编辑、播客主持、深度内容创作者",
+      "why": "进入长内容信息流，形成二跳传播路径"
+    },
+    {
+      "id": "finance_pros",
+      "label": "金融从业者",
+      "sub": "买方研究、资管、金融科技从业者",
+      "why": "适合有金融属性的产品，建立专业可信度"
+    },
+    {
+      "id": "traders",
+      "label": "金融投资者与交易者",
+      "sub": "加密投资者、量化交易者、金融科技爱好者",
+      "why": "适合有代币或金融属性的产品，扩大在全球投资社区的认知"
+    },
+    {
+      "id": "consumers",
+      "label": "普通消费者",
+      "sub": "对新产品好奇的大众用户",
+      "why": "拉动下载与注册，适合消费级产品"
+    },
+    {
+      "id": "early_adopters",
+      "label": "早期使用者",
+      "sub": "Product Hunt / HN 社区、乐于尝鲜的技术用户",
+      "why": "形成首批真实使用反馈与口碑"
+    },
+    {
+      "id": "community",
+      "label": "社区参与者",
+      "sub": "Discord / Telegram / 微信群活跃成员",
+      "why": "维持热度与讨论密度"
+    }
+  ],
+  "formats": [
+    {
+      "id": "post",
+      "label": "单条帖子"
+    },
+    {
+      "id": "thread",
+      "label": "Thread"
+    },
+    {
+      "id": "quote",
+      "label": "引用转发"
+    },
+    {
+      "id": "video",
+      "label": "视频"
+    },
+    {
+      "id": "short",
+      "label": "短视频"
+    },
+    {
+      "id": "article",
+      "label": "长文"
+    },
+    {
+      "id": "spaces",
+      "label": "Spaces"
+    },
+    {
+      "id": "podcast",
+      "label": "播客"
+    },
+    {
+      "id": "newsletter",
+      "label": "Newsletter"
+    }
+  ],
+  "tiers": [
+    {
+      "mark": "$",
+      "label": "入门",
+      "id": 1,
+      "lo": 150,
+      "hi": 500
+    },
+    {
+      "mark": "$$",
+      "label": "中腰部",
+      "id": 2,
+      "lo": 500,
+      "hi": 2000
+    },
+    {
+      "mark": "$$$",
+      "label": "头部",
+      "id": 3,
+      "lo": 2000,
+      "hi": 8000
+    },
+    {
+      "mark": "$$$$",
+      "label": "顶级",
+      "id": 4,
+      "lo": 8000,
+      "hi": 20000
+    }
+  ],
+  "budgets": [
+    {
+      "id": "b1",
+      "label": "$10k 以下",
+      "lo": 3000,
+      "hi": 10000
+    },
+    {
+      "id": "b2",
+      "label": "$10k – 30k",
+      "lo": 10000,
+      "hi": 30000
+    },
+    {
+      "id": "b3",
+      "label": "$30k – 80k",
+      "lo": 30000,
+      "hi": 80000
+    },
+    {
+      "id": "b4",
+      "label": "$80k 以上",
+      "lo": 80000,
+      "hi": 200000
+    }
+  ],
+  "_readme": [
+    "Signal Map v3 分类体系，GET /api/taxonomy 的数据源。",
+    "",
+    "抄自 design_handoff/data/demo.js。v3 的 data/v3.js 第 3 行 import 了 ./demo.js，",
+    "但 handoff_v3 包里**没有这个文件** —— v3 原型按原样跑不起来，taxonomy 只能从",
+    "v1 包取。这是交付包的缺口，不是这里的取舍。",
+    "",
+    "tiers 的 lo/hi 是**档位阈值**，用于把内部成本映射成 $ / $$ / $$$ / $$$$。",
+    "客户端只看得到 mark，看不到 lo/hi —— 泄露区间等于泄露成本。"
+  ]
+}

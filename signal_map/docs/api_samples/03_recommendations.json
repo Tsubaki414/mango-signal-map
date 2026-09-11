@@ -1,0 +1,1893 @@
+{
+  "run_id": 1,
+  "brief_id": 1,
+  "created_at": "2026-09-08T10:55:22.974808+00:00",
+  "returned_count": 12,
+  "candidate_pool_size": 276,
+  "unsupported_filters": [
+    "KOL 体量偏好：粉丝量已入库，但尚未接入排序"
+  ],
+  "rule_version": "signalmap-reco-v1",
+  "results": [
+    {
+      "rank": 1,
+      "creator": {
+        "id": 178,
+        "name": "Div_pradeep",
+        "handle": "Div_pradeep",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1840788150307680256/33rQ7zVo_normal.jpg",
+        "profile_url": "https://x.com/Div_pradeep",
+        "platform": "X",
+        "followers": 69184,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "developer_tools"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "creators"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "内容创作者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"I post on coding, AI & smart tools\"; creators:\"250k+ AI & Tech community\"",
+        "content_summary": "This account primarily posts about AI, coding, and smart tools.",
+        "quote": {
+          "deliverable": "Dedicated Thread:*",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 500.0,
+          "price_band": null,
+          "price_label": "$500",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500–1,000（Dedicated Thread:*），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 54 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500–1,000（Dedicated Thread:*），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 54 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：Dedicated Thread:*（X，$500–1,000）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 2,
+      "creator": {
+        "id": 140,
+        "name": "Kanojiyaaakash1",
+        "handle": "Kanojiyaaakash1",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1916008025782939648/tKLkY3p3_normal.jpg",
+        "profile_url": "https://x.com/Kanojiyaaakash1",
+        "platform": "X",
+        "followers": 40326,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "developer_tools"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "creators"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "内容创作者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"Full Stack Developer • Sharing insights on AI & Tech Tools\"; creators:\"Sharing insights on AI & Tech Tools\"",
+        "content_summary": "This account shares insights and discussions on AI and technology tools, showcasing original content and engaging with followers.",
+        "quote": {
+          "deliverable": "X Dedicated Thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 600.0,
+          "price_band": null,
+          "price_label": "$600",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500–1,000（X Dedicated Thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 54 个待确认账号近期多次互动（高概率推断）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500–1,000（X Dedicated Thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 54 个待确认账号近期多次互动（高概率推断）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：X Dedicated Thread（X，$500–1,000）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 3,
+      "creator": {
+        "id": 40,
+        "name": "hey_ankita",
+        "handle": "hey_ankita",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2013524539397832704/iyB2h_yo_normal.jpg",
+        "profile_url": "https://x.com/hey_ankita",
+        "platform": "X",
+        "followers": 23061,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "developer_tools",
+          "business"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "founders",
+          "marketers",
+          "creators"
+        ],
+        "audience_type_labels": [
+          "创始人",
+          "营销从业者",
+          "内容创作者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "founders:\"help people to Market & Launch SaaS and AI products\"; marketers:\"help people to Market & Launch SaaS and AI products\"; creators:\"Sharing insights on AI, Online Business & Productivity\"",
+        "content_summary": "This account shares insights and discussions on AI, online business, and productivity strategies.",
+        "quote": {
+          "deliverable": "Dedicated Thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 200.0,
+          "price_band": null,
+          "price_label": "$200",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 founders（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500 以下（Dedicated Thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 44 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500 以下（Dedicated Thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 44 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：Dedicated Thread（X，$500 以下）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 4,
+      "creator": {
+        "id": 111,
+        "name": "manishkhosiya",
+        "handle": "manishkhosiya",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1739351008713768960/lGR3_274_normal.jpg",
+        "profile_url": "https://x.com/manishkhosiya",
+        "platform": "X",
+        "followers": 93750,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "developer_tools"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "students"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "学习者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"sharing insights, tips, and opportunities\"; students:\"career development, empower your journey\"",
+        "content_summary": "This account shares insights and tips on AI and career development.",
+        "quote": {
+          "deliverable": "thread post",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 450.0,
+          "price_band": null,
+          "price_label": "$450",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500 以下（thread post），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 50 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500 以下（thread post），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 50 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：thread post（X，$500 以下）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 5,
+      "creator": {
+        "id": 88,
+        "name": "saidul_dev",
+        "handle": "saidul_dev",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1680024477906931712/WjjEpXIB_normal.jpg",
+        "profile_url": "https://x.com/saidul_dev",
+        "platform": "X",
+        "followers": 53607,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "developer_tools"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "creators"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "内容创作者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"Simplifying AI, tech tools, and no-code solutions\"; creators:\"no-code solutions\"",
+        "content_summary": "This account primarily posts about simplifying AI and tech tools, focusing on no-code solutions.",
+        "quote": {
+          "deliverable": "thread on X",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 300.0,
+          "price_band": null,
+          "price_label": "$300",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500 以下（thread on X），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 54 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500 以下（thread on X），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 54 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：thread on X（X，$500 以下）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 6,
+      "creator": {
+        "id": 167,
+        "name": "socialwithaayan",
+        "handle": "socialwithaayan",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2020385471701086209/wK66uFBP_normal.jpg",
+        "profile_url": "https://x.com/socialwithaayan",
+        "platform": "X",
+        "followers": 68994,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "developer_tools"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "consumers"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "普通消费者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"I break down top AI tools, news & workflows everyday\"; consumers:\"I break down top AI tools, news & workflows everyday\"",
+        "content_summary": "This account primarily posts about AI tools, news, and workflows.",
+        "quote": {
+          "deliverable": "\nX thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 600.0,
+          "price_band": null,
+          "price_label": "$600",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500–1,000（\nX thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 69 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500–1,000（\nX thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 69 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：\nX thread（X，$500–1,000）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 7,
+      "creator": {
+        "id": 63,
+        "name": "tylerrwayne",
+        "handle": "tylerrwayne",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2035072995614412800/krkBOewR_normal.jpg",
+        "profile_url": "https://x.com/tylerrwayne",
+        "platform": "X",
+        "followers": 407339,
+        "follower_tier": "mid",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "developer_tools",
+          "education"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "creators",
+          "developers",
+          "students"
+        ],
+        "audience_type_labels": [
+          "内容创作者",
+          "开发者",
+          "学习者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "creators:\"Sharing insights on AI, No-Code, Tech Tools\"; developers:\"insights on AI, No-Code, Tech Tools & prompts\"; students:\"Top 100 Unstoppable Education & Career Influencer\"",
+        "content_summary": "This account primarily shares insights and discussions on AI, no-code tools, and technology.",
+        "quote": {
+          "deliverable": "Thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 1000.0,
+          "price_band": null,
+          "price_label": "$1,000",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "match",
+          "detail": "覆盖 ai、developer_tools"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$1,000–2,500（Thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有采购路径，尚未验证"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 2 个待确认账号公开repost过（历史熟悉度信号，非已验证关系）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$1,000–2,500（Thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有采购路径，尚未验证",
+        "注意力路径：被 2 个待确认账号公开repost过（历史熟悉度信号，非已验证关系）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai、developer_tools",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：Thread（X，$1,000–2,500）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 8,
+      "creator": {
+        "id": 103,
+        "name": "DeRonin_",
+        "handle": "DeRonin_",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2028941027814285313/AMp-U0y8_normal.jpg",
+        "profile_url": "https://x.com/DeRonin_",
+        "platform": "X",
+        "followers": 110935,
+        "follower_tier": "mid",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "finance",
+          "consumer_tech"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "investors",
+          "founders",
+          "developers"
+        ],
+        "audience_type_labels": [
+          "投资人",
+          "创始人",
+          "开发者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "investors:\"Angel Investor\"; founders:\"CEO of Arcane\"; developers:\"engineering virality for AI companies\"",
+        "content_summary": "This account primarily posts about AI innovations, investment insights, and personal experiences.",
+        "quote": {
+          "deliverable": "(with video optionally), Thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 1200.0,
+          "price_band": null,
+          "price_label": "$1,200",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "partial",
+          "detail": "覆盖 ai"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "match",
+          "detail": "触达 developers、founders（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$1,000–2,500（(with video optionally), Thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 33 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers、founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$1,000–2,500（(with video optionally), Thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 33 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索；部分名单未采全"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers、founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：(with video optionally), Thread（X，$1,000–2,500）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 9,
+      "creator": {
+        "id": 267,
+        "name": "Gunhild Johanne Reumert",
+        "handle": "shedoesai",
+        "avatar_url": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-19/689485004_17964952680094151_6423457893223778412_n.jpg?_nc_cat=1&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=vLPyz6tV36IQ7kNvwHz5K0V&_nc_oc=AdqfBMh8poRrn90JjkEv8Es4pYlowpNMyOqTKe_fHBl-Xf1J-QiTAuxM_QSgu9frdpk&_nc_zt=24&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=QWImT_flqorheKVSBnQYmw&_nc_ss=7f289&oh=00_AQFSFkXZpiqiGcnKgYUFO73hQFL0Sw0uFiTTIMX7Q9tFiQ&oe=6A94036A",
+        "profile_url": "https://www.instagram.com/shedoesai/",
+        "platform": "Instagram",
+        "followers": 462295,
+        "follower_tier": "mid",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "marketing",
+          "business"
+        ],
+        "languages": [],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "bio_script",
+        "audience_types": [
+          "creators",
+          "founders"
+        ],
+        "audience_type_labels": [
+          "内容创作者",
+          "创始人"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "creators:\"Teaching content creators & business people\"; founders:\"how to earn money with AI\"",
+        "content_summary": "This account focuses on teaching content creators and business professionals how to monetize AI.",
+        "quote": {
+          "deliverable": "X thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": true,
+          "price_exact_usd": 1080.0,
+          "price_band": null,
+          "price_label": "$1,080",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": "套餐价，不能与单条价格直接相加"
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "partial",
+          "detail": "覆盖 ai"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "partial",
+          "detail": "覆盖欧美（依据：简介语种）；内容语言待确认"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "match",
+          "detail": "可在 X、YouTube 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "match",
+          "detail": "已有 x_thread、youtube_dedicated 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 founders（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$1,000–2,500（X thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "unknown",
+          "detail": "关系数据待补充：当前未观察到目标圈层的关注信号"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：简介语种）；内容语言待确认",
+        "平台：可在 X、YouTube 投放",
+        "内容形式：已有 x_thread、youtube_dedicated 的报价",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$1,000–2,500（X thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作",
+        "注意力路径"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：简介语种）；内容语言待确认",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：X thread（X，$1,000–2,500）"
+      ],
+      "risks": [
+        "该报价为套餐价，不能与单条价格直接相加"
+      ],
+      "next_step": null
+    },
+    {
+      "rank": 10,
+      "creator": {
+        "id": 35,
+        "name": "AIPandaX",
+        "handle": "AIPandaX",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1966513723683557376/Gzis4l2k_normal.jpg",
+        "profile_url": "https://x.com/AIPandaX",
+        "platform": "X",
+        "followers": 32151,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "developers",
+          "researchers"
+        ],
+        "audience_type_labels": [
+          "开发者",
+          "研究员"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "developers:\"Engineering leader focused on what happens after the demo works\"; researchers:\"the slow road to AGI\"",
+        "content_summary": "This account primarily posts about AI advancements, engineering insights, and personal reflections on technology.",
+        "quote": {
+          "deliverable": "Dedicated thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 500.0,
+          "price_band": null,
+          "price_label": "$500",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "partial",
+          "detail": "覆盖 ai"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 developers（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500–1,000（Dedicated thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有联系方式，采购路径待确认"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 3 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500–1,000（Dedicated thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有联系方式，采购路径待确认",
+        "注意力路径：被 3 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 developers（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：Dedicated thread（X，$500–1,000）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 11,
+      "creator": {
+        "id": 78,
+        "name": "Aria_Nawi",
+        "handle": "Aria_Nawi",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2017500753791799296/WVxJiiw7_normal.jpg",
+        "profile_url": "https://x.com/Aria_Nawi",
+        "platform": "X",
+        "followers": 147040,
+        "follower_tier": "mid",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "business",
+          "marketing",
+          "consumer_tech"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "founders",
+          "marketers",
+          "enterprise"
+        ],
+        "audience_type_labels": [
+          "创始人",
+          "营销从业者",
+          "企业决策者"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "founders:\"I help startups and brands grow with AI\"; marketers:\"I help startups and brands grow with AI\"; enterprise:\"I help startups and brands grow with AI\"",
+        "content_summary": "This account primarily shares insights and tools related to AI and digital growth for startups and brands.",
+        "quote": {
+          "deliverable": "A quality thread is",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 550.0,
+          "price_band": null,
+          "price_label": "$550",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "partial",
+          "detail": "覆盖 ai"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 founders（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500–1,000（A quality thread is），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有采购路径，尚未验证"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 6 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500–1,000（A quality thread is），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有采购路径，尚未验证",
+        "注意力路径：被 6 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：A quality thread is（X，$500–1,000）"
+      ],
+      "risks": [],
+      "next_step": null
+    },
+    {
+      "rank": 12,
+      "creator": {
+        "id": 39,
+        "name": "ElizabethhQuinn",
+        "handle": "ElizabethhQuinn",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2047003800548888576/BuM0yjBD_normal.jpg",
+        "profile_url": "https://x.com/ElizabethhQuinn",
+        "platform": "X",
+        "followers": 59381,
+        "follower_tier": "micro",
+        "creator_tier": "strategic",
+        "creator_tier_label": "战略型 KOL",
+        "verticals": [
+          "ai",
+          "consumer_tech",
+          "business"
+        ],
+        "languages": [
+          "en"
+        ],
+        "market_region": "europe_america",
+        "market_region_label": "欧美",
+        "market_region_basis": "language",
+        "audience_types": [
+          "creators",
+          "founders"
+        ],
+        "audience_type_labels": [
+          "内容创作者",
+          "创始人"
+        ],
+        "audience_types_basis": "llm",
+        "audience_evidence": "creators:\"for entrepreneurs and creators\"; founders:\"for entrepreneurs and creators\"",
+        "content_summary": "This account primarily shares insights on AI, technology, and productivity for entrepreneurs and creators.",
+        "quote": {
+          "deliverable": "Thread",
+          "content_format": "x_thread",
+          "platform": "X",
+          "quantity": 1,
+          "is_package": false,
+          "price_exact_usd": 400.0,
+          "price_band": null,
+          "price_label": "$400",
+          "status": "confirmed_valid",
+          "status_label": "报价已确认",
+          "note": null
+        },
+        "procurement": "由 Mango 对接"
+      },
+      "axes": [
+        {
+          "key": "content_vertical",
+          "label": "内容与行业",
+          "verdict": "partial",
+          "detail": "覆盖 ai"
+        },
+        {
+          "key": "market_language",
+          "label": "市场与语言",
+          "verdict": "match",
+          "detail": "覆盖欧美（依据：内容语言）；内容语言 en"
+        },
+        {
+          "key": "platform",
+          "label": "平台",
+          "verdict": "partial",
+          "detail": "可在 X 投放"
+        },
+        {
+          "key": "content_format",
+          "label": "内容形式",
+          "verdict": "partial",
+          "detail": "已有 x_thread 的报价"
+        },
+        {
+          "key": "audience",
+          "label": "目标人群",
+          "verdict": "partial",
+          "detail": "触达 founders（依据：内容判读）"
+        },
+        {
+          "key": "objective",
+          "label": "传播目标",
+          "verdict": "match",
+          "detail": "适合专业背书；适合产品试用"
+        },
+        {
+          "key": "budget",
+          "label": "预算可执行性",
+          "verdict": "match",
+          "detail": "$500 以下（Thread），在预算区间内"
+        },
+        {
+          "key": "quote_certainty",
+          "label": "报价确定程度",
+          "verdict": "match",
+          "detail": "报价已确认且可对客展示"
+        },
+        {
+          "key": "commercial",
+          "label": "商业可执行性",
+          "verdict": "partial",
+          "detail": "已有采购路径，尚未验证"
+        },
+        {
+          "key": "track_record",
+          "label": "历史合作",
+          "verdict": "unknown",
+          "detail": "暂无历史合作记录"
+        },
+        {
+          "key": "risk",
+          "label": "风险",
+          "verdict": "match",
+          "detail": "未发现明显风险信号"
+        },
+        {
+          "key": "data_confidence",
+          "label": "数据可信度",
+          "verdict": "match",
+          "detail": "关键字段均有数据支撑"
+        },
+        {
+          "key": "attention_path",
+          "label": "注意力路径",
+          "verdict": "partial",
+          "detail": "被 1 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+        }
+      ],
+      "matched": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "平台：可在 X 投放",
+        "内容形式：已有 x_thread 的报价",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "预算可执行性：$500 以下（Thread），在预算区间内",
+        "报价确定程度：报价已确认且可对客展示",
+        "商业可执行性：已有采购路径，尚未验证",
+        "注意力路径：被 1 个待确认账号关注（关注信号，非互动证据）；这些账号尚未经 Mango 人工确认，仅作研究线索"
+      ],
+      "unmet": [],
+      "missing": [
+        "历史合作"
+      ],
+      "reasons": [
+        "内容与行业：覆盖 ai",
+        "市场与语言：覆盖欧美（依据：内容语言）；内容语言 en",
+        "目标人群：触达 founders（依据：内容判读）",
+        "传播目标：适合专业背书；适合产品试用",
+        "已有报价：Thread（X，$500 以下）"
+      ],
+      "risks": [],
+      "next_step": null
+    }
+  ]
+}

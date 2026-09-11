@@ -1,0 +1,139 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--msm-topbar-h);
+  background: var(--msm-black);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 clamp(16px, 3vw, 40px);
+  border-bottom: 1px solid rgba(243, 241, 234, 0.12);
+}
+
+.mark {
+  height: 24px;
+  width: auto;
+}
+
+.wordmark {
+  font-size: 19px;
+  font-weight: var(--msm-w-mid);
+  letter-spacing: -0.01em;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(243, 241, 234, 0.28);
+}
+
+.product {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: rgba(243, 241, 234, 0.7);
+}
+
+.nav {
+  margin-left: 24px;
+  display: flex;
+  gap: 22px;
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-s);
+}
+
+.anchor {
+  color: rgba(243, 241, 234, 0.55);
+  transition: color 0.15s;
+}
+.anchor:hover {
+  color: var(--msm-text);
+}
+/* 已经过的阶段用骨白，未到的保持低对比 —— 单页滚动里这是唯一的方位感来源。 */
+.anchorReached {
+  color: var(--msm-text);
+}
+
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.save {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-s);
+  color: var(--msm-accent);
+  min-width: 56px;
+  text-align: right;
+}
+
+.brief {
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid rgba(243, 241, 234, 0.28);
+  background: transparent;
+  color: rgba(243, 241, 234, 0.85);
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}
+.brief:hover {
+  border-color: var(--msm-text);
+  color: var(--msm-text);
+}
+
+/* Brief 码输入条，贴在顶栏下方 */
+.briefBar {
+  position: sticky;
+  top: var(--msm-topbar-h);
+  z-index: 39;
+  background: var(--msm-black);
+  border-bottom: 1px solid rgba(243, 241, 234, 0.12);
+  padding: 12px clamp(16px, 3vw, 40px);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  animation: msm-in 0.25s both;
+}
+
+.briefHint {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-s);
+  color: rgba(243, 241, 234, 0.66);
+}
+
+.briefInput {
+  height: 34px;
+  width: 200px;
+  padding: 0 12px;
+  border: 1px solid rgba(243, 241, 234, 0.35);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--msm-text);
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  outline: none;
+}
+
+.briefGo {
+  height: 34px;
+  padding: 0 16px;
+  border: 1px solid rgba(243, 241, 234, 0.45);
+  background: var(--msm-bone);
+  color: var(--msm-black);
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}
+
+.briefMsg {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+}

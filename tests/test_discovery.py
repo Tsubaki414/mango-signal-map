@@ -1,8 +1,17 @@
 import json
+import importlib.util
 import unittest
 from pathlib import Path
 
 from mangobd.discovery import classify_sponsor_disclosure, cluster_campaigns, score_candidate
+
+_BUILD_SPEC = importlib.util.spec_from_file_location(
+    "root_build_v4_candidates", Path(__file__).resolve().parents[1] / "scripts" / "build_v4_candidates.py"
+)
+assert _BUILD_SPEC and _BUILD_SPEC.loader
+_BUILD_MODULE = importlib.util.module_from_spec(_BUILD_SPEC)
+_BUILD_SPEC.loader.exec_module(_BUILD_MODULE)
+infer_spend_level = _BUILD_MODULE.infer_spend_level
 
 
 class DiscoveryTests(unittest.TestCase):
@@ -31,6 +40,36 @@ class DiscoveryTests(unittest.TestCase):
             "penalties":[], **common,
         }, config)
         self.assertGreater(mid["overall_priority"], famous["overall_priority"])
+
+    def test_negative_cash_language_never_becomes_active_cash_spend(self):
+        fixtures = {
+            "Talus Network": {
+                "live_metric": "Launched an accelerator with technical and go-to-market support.",
+                "budget_interpretation": "No public cash pool or per-team spend was identified.",
+                "funding_signal": "$9M funding.",
+            },
+            "Allora Network": {
+                "live_metric": "The agent accelerator supports storytelling and positioning.",
+                "budget_interpretation": "No public cash campaign pool was found.",
+                "funding_signal": "$35M funding.",
+            },
+            "MyShell": {
+                "live_metric": "Creator monetization mechanics and thousands of agents.",
+                "risk": "Verify the cash campaign budget before outreach.",
+                "funding_signal": "$16.6M funding.",
+            },
+            "Sapien": {
+                "live_metric": "Contributor network with completed tasks.",
+                "budget_interpretation": "USDC payouts exist, but available campaign cash needs verification.",
+                "funding_signal": "$10.5M funding.",
+            },
+        }
+        inferred = {name: infer_spend_level(record) for name, record in fixtures.items()}
+        self.assertEqual(inferred["Talus Network"], "formal_paid_program")
+        self.assertEqual(inferred["Allora Network"], "formal_paid_program")
+        self.assertEqual(inferred["MyShell"], "funding_or_token_value_only")
+        self.assertEqual(inferred["Sapien"], "funding_or_token_value_only")
+        self.assertNotIn("active_creator_or_partner_budget", inferred.values())
 
 
 if __name__ == "__main__":

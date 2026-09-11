@@ -10,16 +10,18 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 from pathlib import Path
 from typing import Any
 
-from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, field_validator
 from sqlalchemy.orm import joinedload
 
 from . import classify as classify_mod
+from .access import install_access_gate
 from .bd_api import router as bd_router
 from .compute import primary_account
 from .db import get_session, init_db
@@ -27,6 +29,7 @@ from .enrichment import enrich_x_account
 from .models import (
     CREATOR_CLASSES,
     Creator,
+    CreatorEntityAlias,
     PROMOTION_LEVELS,
     RateCard,
     Shortlist,
@@ -46,6 +49,7 @@ from .youtube_client import YouTubeClient, YouTubeError
 from .youtube_enrichment import enrich_youtube_account
 
 app = FastAPI(title="Mango KOL database")
+install_access_gate(app)
 app.include_router(bd_router)
 
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
@@ -54,6 +58,13 @@ FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 @app.on_event("startup")
 def _startup() -> None:
     init_db()
+
+
+@app.get("/healthz", include_in_schema=False)
+def healthz():
+    """Minimal unauthenticated liveness probe; returns no business data."""
+
+    return {"status": "ok"}
 
 
 def _sort_nulls_last(rows: list[dict], key_fn, reverse: bool) -> list[dict]:
@@ -181,7 +192,7 @@ class _CreatorFilters:
 
     def __init__(
         self,
-        tab: str = Query("strategic", pattern="^(strategic|distribution|needs_review)$"),
+        tab: str = Query("strategic", pattern="^(strategic|distribution|media|needs_review)$"),
         search: str | None = None,
         creator_class: list[str] | None = Query(None),
         platform: list[str] | None = Query(None),
@@ -319,7 +330,7 @@ def filter_options():
                 languages.add(c.language)
             if c.categories:
                 categories.update(x.strip() for x in c.categories.split(",") if x.strip())
-        tab_counts: dict[str, int] = {"strategic": 0, "distribution": 0, "needs_review": 0}
+        tab_counts: dict[str, int] = {"strategic": 0, "distribution": 0, "media": 0, "needs_review": 0}
         for c in creators:
             tab_counts[tab_for_creator(c)] += 1
         return {
@@ -341,11 +352,11 @@ def filter_options():
 
 
 @app.get("/api/creators/{creator_id}")
-def get_creator(creator_id: int):
+def get_creator(creator_id: int, request: Request):
     session = get_session()
     try:
         creator = _get_creator_or_404(session, creator_id)
-        return creator_detail(creator)
+        return creator_detail(creator, include_internal=bool(getattr(request.state, "write_access", False)))
     finally:
         session.close()
 
@@ -378,6 +389,13 @@ def _get_creator_or_404(session, creator_id: int) -> Creator:
         .one_or_none()
     )
     if creator is None:
+        alias = (
+            session.query(CreatorEntityAlias)
+            .filter(CreatorEntityAlias.alias_creator_id == creator_id)
+            .one_or_none()
+        )
+        if alias is not None:
+            return _get_creator_or_404(session, alias.canonical_creator_id)
         raise HTTPException(404, f"Creator {creator_id} not found")
     return creator
 
@@ -598,7 +616,7 @@ def enrich_batch(req: BatchEnrichRequest):
 class ShortlistCreate(BaseModel):
     name: str
     client_or_campaign: str | None = None
-    budget_usd: float | None = None
+    budget_usd: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     company_id: str | None = None
     objective: str | None = None
     target_audience: str | None = None
@@ -606,12 +624,27 @@ class ShortlistCreate(BaseModel):
     language_pref: str | None = None
     platforms_pref: str | None = None
     timing: str | None = None
+
+    @field_validator("name")
+    @classmethod
+    def validate_name(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("name must not be blank")
+        return value
+
+    @field_validator("objective")
+    @classmethod
+    def normalize_optional_objective(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        return value.strip() or None
 
 
 class ShortlistEdit(BaseModel):
     name: str | None = None
     client_or_campaign: str | None = None
-    budget_usd: float | None = None
+    budget_usd: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     company_id: str | None = None
     objective: str | None = None
     target_audience: str | None = None
@@ -620,18 +653,64 @@ class ShortlistEdit(BaseModel):
     platforms_pref: str | None = None
     timing: str | None = None
 
+    @field_validator("name")
+    @classmethod
+    def validate_name(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        value = value.strip()
+        if not value:
+            raise ValueError("name must not be blank")
+        return value
+
+    @field_validator("objective")
+    @classmethod
+    def normalize_optional_objective(cls, value: str | None) -> str | None:
+        return value.strip() if value is not None else None
+
 
 class ShortlistItemCreate(BaseModel):
     creator_id: int
     rate_card_id: int | None = None
-    quote_usd_override: float | None = None
+    quote_usd_override: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     notes: str | None = None
 
 
 class ShortlistItemEdit(BaseModel):
     rate_card_id: int | None = None
-    quote_usd_override: float | None = None
+    quote_usd_override: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     notes: str | None = None
+
+
+def _apply_shortlist_item_edit(item: ShortlistItem, body: ShortlistItemEdit) -> None:
+    """Apply exactly the fields present in a PATCH body.
+
+    Explicit JSON ``null`` is meaningful: it clears a manual quote override
+    so pricing falls back to the selected rate card.  An omitted field leaves
+    the stored value untouched.
+    """
+
+    fields = set(body.model_fields_set)
+    if "rate_card_id" in fields:
+        item.rate_card_id = body.rate_card_id
+    if "quote_usd_override" in fields:
+        item.quote_usd_override = body.quote_usd_override
+    if "notes" in fields:
+        item.notes = body.notes or None
+
+
+def _validate_rate_card_for_creator(session, rate_card_id: int | None, creator_id: int) -> None:
+    """Reject missing or cross-creator rate cards before a shortlist write."""
+
+    if rate_card_id is None:
+        return
+    owned = (
+        session.query(RateCard.id)
+        .filter(RateCard.id == rate_card_id, RateCard.creator_id == creator_id)
+        .one_or_none()
+    )
+    if owned is None:
+        raise HTTPException(422, "rate_card_id 不存在或不属于该 creator")
 
 
 def _shortlist_or_404(session, shortlist_id: int) -> Shortlist:
@@ -663,8 +742,12 @@ def _item_quote_usd(item: ShortlistItem) -> float | None:
 
 def _shortlist_detail(shortlist: Shortlist) -> dict:
     items = []
-    kol_spend = 0.0
-    koc_spend = 0.0
+    spend_by_tab = {
+        "strategic": 0.0,
+        "distribution": 0.0,
+        "media": 0.0,
+        "needs_review": 0.0,
+    }
     total_spend = 0.0
     unpriced = 0
     for item in shortlist.items:
@@ -673,10 +756,12 @@ def _shortlist_detail(shortlist: Shortlist) -> dict:
         tab = tab_for_creator(creator)
         if quote is not None:
             total_spend += quote
-            if tab == "distribution":
-                koc_spend += quote
-            else:
-                kol_spend += quote
+            # Keep every directory class in its own budget bucket.  Media
+            # channels and Needs Review records are selectable, but neither
+            # is a strategic KOL; folding them into KOL spend made the total
+            # category mix materially misleading even though the grand total
+            # happened to remain correct.
+            spend_by_tab[tab] += quote
         else:
             unpriced += 1
         account = primary_account(creator)
@@ -706,6 +791,10 @@ def _shortlist_detail(shortlist: Shortlist) -> dict:
             }
         )
     budget = shortlist.budget_usd
+    try:
+        pricing_assumptions = json.loads(shortlist.pricing_assumptions_json or "null")
+    except (TypeError, json.JSONDecodeError):
+        pricing_assumptions = None
     return {
         "id": shortlist.id,
         "name": shortlist.name,
@@ -719,12 +808,19 @@ def _shortlist_detail(shortlist: Shortlist) -> dict:
         "language_pref": shortlist.language_pref,
         "platforms_pref": shortlist.platforms_pref,
         "timing": shortlist.timing,
+        "pricing_assumptions": pricing_assumptions,
         "created_at": shortlist.created_at.isoformat() if shortlist.created_at else None,
         "updated_at": shortlist.updated_at.isoformat() if shortlist.updated_at else None,
         "selected_count": len(items),
         "unpriced_count": unpriced,
-        "kol_spend_usd": round(kol_spend, 2),
-        "koc_spend_usd": round(koc_spend, 2),
+        "strategic_spend_usd": round(spend_by_tab["strategic"], 2),
+        "distribution_spend_usd": round(spend_by_tab["distribution"], 2),
+        "media_spend_usd": round(spend_by_tab["media"], 2),
+        "needs_review_spend_usd": round(spend_by_tab["needs_review"], 2),
+        # Backwards-compatible aliases.  They now mean only their named
+        # directory buckets and deliberately exclude media / needs-review.
+        "kol_spend_usd": round(spend_by_tab["strategic"], 2),
+        "koc_spend_usd": round(spend_by_tab["distribution"], 2),
         "total_spend_usd": round(total_spend, 2),
         "remaining_budget_usd": round(budget - total_spend, 2) if budget is not None else None,
         "over_budget": (budget is not None and total_spend > budget),
@@ -841,6 +937,7 @@ def add_shortlist_item(shortlist_id: int, body: ShortlistItemCreate):
             raise HTTPException(409, "Creator is already on this shortlist")
 
         rate_card_id = body.rate_card_id
+        _validate_rate_card_for_creator(session, rate_card_id, creator.id)
         if rate_card_id is None:
             confident = [rc for rc in creator.rate_cards if rc.is_confident]
             if confident:
@@ -869,12 +966,9 @@ def edit_shortlist_item(shortlist_id: int, item_id: int, body: ShortlistItemEdit
         ).one_or_none()
         if item is None:
             raise HTTPException(404, "Shortlist item not found")
-        if body.rate_card_id is not None:
-            item.rate_card_id = body.rate_card_id
-        if body.quote_usd_override is not None:
-            item.quote_usd_override = body.quote_usd_override
-        if body.notes is not None:
-            item.notes = body.notes or None
+        if "rate_card_id" in body.model_fields_set:
+            _validate_rate_card_for_creator(session, body.rate_card_id, item.creator_id)
+        _apply_shortlist_item_edit(item, body)
         session.commit()
         return _shortlist_detail(_shortlist_or_404(session, shortlist_id))
     finally:

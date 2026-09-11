@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#1F4144;color:#F3F1EA;font-family:Inter,"Noto Sans SC",-apple-system,"PingFang SC",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+*{box-sizing:border-box}
+a{color:#5FC4BB;text-decoration:none}a:hover{color:#F3F1EA}
+button,input{font-family:inherit}
+input{color:#F3F1EA}
+::selection{background:#5FC4BB;color:#0E0E0E}
+button:focus-visible,input:focus-visible{outline:2px solid #5FC4BB;outline-offset:2px}
+@keyframes msm-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes msm-line{to{stroke-dashoffset:0}}
+@keyframes msm-band{0%,100%{opacity:.35}50%{opacity:1}}
+type-line{min-height:1.4em;display:block}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important}}
+</style>
+<script src="motion.js?v=3"></script>
+<script src="gradient-waves.js"></script>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<!-- ══════════ TOP BAR ══════════ -->
+<header style="position:sticky;top:0;z-index:40;height:56px;background:#0E0E0E;display:flex;align-items:center;gap:14px;padding:0 clamp(16px,3vw,40px);border-bottom:1px solid rgba(243,241,234,.12)">
+  <img src="assets/mango-mark.png" alt="Mango Labs" style="height:24px;width:auto">
+  <span style="font-size:19px;font-weight:400;letter-spacing:-.01em">MangoLabs</span>
+  <span style="width:1px;height:16px;background:rgba(243,241,234,.28)"></span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(243,241,234,.7)">SIGNAL MAP</span>
+  <nav style="margin-left:24px;display:flex;gap:22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em">
+    <sc-for list="{{ anchors }}" as="a" hint-placeholder-count="3"><a href="{{ a.href }}" style="color:{{ a.color }}">{{ a.label }}</a></sc-for>
+  </nav>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5FC4BB;min-width:56px;text-align:right">{{ saveNote }}</span>
+    <button onClick="{{ toggleBrief }}" style="height:30px;padding:0 12px;border:1px solid rgba(243,241,234,.28);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em" style-hover="border-color:#F3F1EA;color:#F3F1EA">{{ briefLabel }}</button>
+  </div>
+</header>
+<sc-if value="{{ briefOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:sticky;top:56px;z-index:39;background:#0E0E0E;border-bottom:1px solid rgba(243,241,234,.12);padding:12px clamp(16px,3vw,40px);display:flex;gap:10px;align-items:center;animation:msm-in .25s both">
+  <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.66)">已有项目资料？输入 Mango 给你的 Brief 码</span>
+  <input value="{{ briefCode }}" onChange="{{ setBriefCode }}" onKeyDown="{{ briefKey }}" placeholder="演示输入 demo" style="height:34px;width:200px;padding:0 12px;border:1px solid rgba(243,241,234,.35);background:rgba(0,0,0,.4);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none">
+  <button onClick="{{ applyBrief }}" style="height:34px;padding:0 16px;border:1px solid rgba(243,241,234,.45);background:#F3F1EA;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em">带入</button>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:{{ briefMsgColor }}">{{ briefMsg }}</span>
+</div>
+</sc-if>
+
+<!-- ══════════ HERO ══════════ -->
+<section data-screen-label="Hero" style="position:relative;min-height:max(calc(100vh - 56px),600px);overflow:hidden;background:linear-gradient(180deg,#2C5A5D 0%,#1F4144 58%,#14302F 100%);display:grid;grid-template-columns:minmax(min(100%,430px),1.05fr) minmax(0,.95fr);align-items:center;gap:0;padding:clamp(36px,6vh,72px) clamp(24px,6vw,96px) 152px">
+  <x-import component-from-global-scope="gradient-waves" horizon="#14302F" wave="#24605C" crest="#7FD8CE" speed="0.22" amplitude="2.2" tilt="1.18" zoom="1.05" height="6" fogdepth="26" opacity="0.9" brightness="1.15" grainintensity="0.04" parallax="0.6" detail="medium" blend="screen" layeropacity="0.72" style="position:absolute;left:0;right:0;top:0;bottom:0;width:100%;height:100%" hint-size="100%,100%"></x-import>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:132px;z-index:2;background:#0F2526;border-top:1px solid rgba(243,241,234,.45);pointer-events:none;overflow:hidden">
+    <svg viewBox="0 0 1440 132" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
+      <g stroke="#F3F1EA" stroke-width="1.5" vector-effect="non-scaling-stroke">
+        <path d="M0 26H520l10 6h910" opacity=".5"></path><path d="M0 54H300l10 6h1130" opacity=".33"></path>
+        <path d="M0 82H760l10 6h670" opacity=".22"></path><path d="M0 110H180l10 6h1250" opacity=".13"></path>
+      </g>
+    </svg>
+    <div style="position:absolute;right:22.6%;top:-56px;width:4px;height:56px;background:#0E0E0E"></div>
+  </div>
+  <div style="position:relative;grid-column:1;min-width:0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:rgba(243,241,234,.72);animation:msm-in .6s both">01 /// KOL LINEUP CONFIGURATOR</div>
+    <h1 style="margin:26px 0 0;font-size:clamp(30px,4vw,62px);line-height:1.14;letter-spacing:-.02em;font-weight:300;animation:msm-in .7s .1s both"><em style="display:block;font-weight:700;font-style:italic">Mango Signal Map，</em><span style="display:block;white-space:nowrap">让重要的人，看见你。</span></h1>
+    <p style="margin:26px 0 0;max-width:min(30em,90%);font-size:clamp(15px,1.25vw,19px);line-height:1.7;color:rgba(243,241,234,.8);animation:msm-in .7s .18s both">说出你想影响的人，<span style="white-space:nowrap">我们反向找出</span><span style="white-space:nowrap">能把内容送进他们信息流的创作者。</span></p>
+    <div style="margin-top:34px;animation:msm-in .7s .26s both"><a href="#prefs" style="display:inline-flex;height:52px;align-items:center;gap:18px;padding:0 26px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08);color:#F3F1EA">开始选择 <span>↓</span></a></div>
+    <div style="margin-top:22px;display:flex;gap:12px;align-items:baseline;max-width:min(44em,92%);animation:msm-in .7s .34s both"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7FD8CE;flex:none;padding-top:3px">交付</span><span style="font-size:13px;line-height:1.7;color:rgba(243,241,234,.62)">一份可执行的传播阵容——每一位都附与目标人物的公开连接记录、合作可行性与预算区间。</span></div>
+  </div>
+  <div style="position:relative;grid-column:2;align-self:stretch;min-width:0">
+    <svg viewBox="0 0 620 900" preserveAspectRatio="xMidYMax slice" style="position:absolute;left:0;right:0;top:-72px;bottom:-152px;width:100%;height:auto;min-height:calc(100% + 224px);pointer-events:none" aria-hidden="true">
+      <defs><filter id="v3glow" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter></defs>
+      <circle cx="310" cy="600" r="258" fill="none" stroke="#F3F1EA" stroke-width="6" opacity=".4" filter="url(#v3glow)"></circle>
+      <circle cx="310" cy="600" r="258" fill="none" stroke="#F3F1EA" stroke-width="1.5" stroke-dasharray="2400" stroke-dashoffset="2400" vector-effect="non-scaling-stroke" style="animation:msm-line 2.4s cubic-bezier(.2,.8,.2,1) both"></circle>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════ TOOL ══════════ -->
+<div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,25vw,360px)">
+<main style="padding:0 clamp(20px,4vw,64px) 140px;display:flex;flex-direction:column">
+
+  <!-- ── A · 偏好 ── -->
+  <section id="prefs" data-screen-label="偏好" style="padding-top:72px;scroll-margin-top:72px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5FC4BB">01 /// 你想进入什么方向</div>
+    <h2 style="margin:16px 0 0;font-size:clamp(26px,2.8vw,40px);line-height:1.15;letter-spacing:-.02em;font-weight:300;max-width:min(12em,100%)">先选一个领域，其余选项会跟着展开。</h2>
+
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}">
+    <div style="margin-top:28px;padding:32px;border:1px solid rgba(243,241,234,.16);background:#152F31;display:flex;flex-direction:column;gap:16px">
+      <svg viewBox="0 0 400 44" style="width:min(400px,100%);height:44px" aria-hidden="true"><g stroke-width="2"><path d="M0 5H200l8 5h192" stroke="#5FC4BB" style="animation:msm-band 1.4s infinite"></path><path d="M0 18H120l8 5h272" stroke="#5FC4BB" style="animation:msm-band 1.4s .2s infinite"></path><path d="M0 31H260l8 5h132" stroke="rgba(243,241,234,.3)" style="animation:msm-band 1.4s .4s infinite"></path><path d="M0 44H80l8-5h312" stroke="rgba(243,241,234,.2)" style="animation:msm-band 1.4s .6s infinite"></path></g></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.66)">正在读取创作者资源与公开关系记录…</div>
+    </div>
+    </sc-if>
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:transparent">
+      <sc-for list="{{ groupCards }}" as="g" hint-placeholder-count="3">
+        <button onClick="{{ g.pick }}" style="text-align:left;padding:22px;min-height:150px;border:0;background:{{ g.bg }};color:#F3F1EA;display:flex;flex-direction:column;gap:10px;box-shadow:{{ g.ring }};position:relative" style-hover="background:#1B3A3C">
+          <span style="position:absolute;left:0;top:0;width:8px;height:8px;background:{{ g.dot }}"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(243,241,234,.66)">{{ g.n }}</span>
+          <span style="font-size:21px;font-weight:500">{{ g.label }}</span>
+          <span style="font-size:12px;line-height:1.6;color:rgba(243,241,234,.62)">{{ g.desc }}</span>
+          <span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#5FC4BB">{{ g.count }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ hasGroup }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:36px;display:flex;flex-direction:column;gap:28px;animation:msm-in .4s both">
+      <div style="display:grid;grid-template-columns:130px minmax(0,1fr);gap:24px;align-items:start;padding-top:22px;border-top:1px solid rgba(243,241,234,.16)">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.66);padding-top:10px">细分方向</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ domainOpts }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.toggle }}" style="height:38px;padding:0 15px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px">{{ o.label }}</button></sc-for></div>
+      </div>
+      <div style="display:grid;grid-template-columns:130px minmax(0,1fr);gap:24px;align-items:start">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.66);padding-top:10px">市场与语言</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ marketOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="height:38px;padding:0 15px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px">{{ o.label }}</button></sc-for></div>
+      </div>
+      <div style="display:grid;grid-template-columns:130px minmax(0,1fr);gap:24px;align-items:start">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.66);padding-top:10px">想影响的人群</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ audOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="height:38px;padding:0 15px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:13px">{{ o.label }}</button></sc-for></div>
+      </div>
+      <div style="display:grid;grid-template-columns:130px minmax(0,1fr);gap:24px;align-items:start">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(243,241,234,.66);padding-top:10px">预算</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ budgetOpts }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.pick }}" style="height:38px;padding:0 15px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:'JetBrains Mono',monospace;font-size:12px">{{ o.label }}</button></sc-for></div>
+      </div>
+      <div>
+        <button onClick="{{ toggleMore }}" style="height:36px;padding:0 14px;border:1px solid rgba(243,241,234,.22);background:transparent;color:rgba(243,241,234,.75);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">更多偏好 {{ moreChevron }}</button>
+        <sc-if value="{{ moreOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;animation:msm-in .3s both"><sc-for list="{{ brandOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.toggle }}" style="height:34px;padding:0 13px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-size:12px">{{ o.label }}</button></sc-for></div>
+        </sc-if>
+      </div>
+    </div>
+    </sc-if>
+  </section>
+
+  <!-- ── B · 你会进入谁的视野 ── -->
+  <sc-if value="{{ hasGroup }}" hint-placeholder-val="{{ false }}">
+  <section id="targets" data-screen-label="目标圈层" style="padding-top:80px;scroll-margin-top:72px;animation:msm-in .4s both">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5FC4BB">02 /// 你会进入谁的视野</div>
+    <h2 style="margin:16px 0 0;font-size:clamp(26px,2.8vw,40px);line-height:1.15;letter-spacing:-.02em;font-weight:300;max-width:min(18em,100%)">先确定要让哪几类人看到，再反推可投放的创作者。</h2>
+    <p style="margin:12px 0 0;font-size:13px;line-height:1.75;color:rgba(243,241,234,.66);max-width:min(46em,100%)">这里列的不是要接单的 KOL，而是你想影响的人。点开任一名字，可以看到他是谁、以及名单里谁能连接到他。这一轮如果有特别想先进入的一类，标记为重点即可——名单只重排，不会变少。</p>
+
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.14);border:1px solid rgba(243,241,234,.14)">
+      <sc-for list="{{ circleCards }}" as="c" hint-placeholder-count="5">
+        <div style="background:{{ c.bg }};display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,3vw,40px);padding:24px clamp(18px,2.4vw,28px);box-shadow:{{ c.ring }}">
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <div style="display:flex;align-items:center;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(243,241,234,.66)">{{ c.n }} · {{ c.count }} 人</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#5FC4BB">{{ c.value }}</span></div>
+            <div style="font-size:21px;font-weight:500;line-height:1.2">{{ c.label }}</div>
+            <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.78)">{{ c.who }}</p>
+            <div style="margin-top:2px;padding-left:12px;border-left:1px solid rgba(95,196,187,.45)"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;color:#5FC4BB">KOL 选择逻辑</div><p style="margin:6px 0 0;font-size:12.5px;line-height:1.7;color:rgba(243,241,234,.72)">{{ c.pick }}</p></div>
+            <button onClick="{{ c.toggle }}" style="margin-top:auto;align-self:flex-start;height:34px;padding:0 14px;border:1px solid {{ c.btnBorder }};background:{{ c.btnBg }};color:{{ c.btnColor }};font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">{{ c.btnLabel }}</button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px">
+              <sc-for list="{{ c.people }}" as="p" hint-placeholder-count="6">
+                <button onClick="{{ p.open }}" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid rgba(243,241,234,.16);background:rgba(0,0,0,.16);color:#F3F1EA;text-align:left;min-width:0" style-hover="border-color:#5FC4BB;background:rgba(95,196,187,.1)">
+                  <span style="position:relative;width:30px;height:30px;flex:none;display:inline-block"><span style="position:absolute;inset:0;border-radius:50%;background:#0E0E0E;border:1px solid rgba(243,241,234,.2);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#5FC4BB">{{ p.initial }}</span><img onError="{{ onImgErr }}" src="{{ p.avatar }}" alt="" loading="lazy" referrerPolicy="no-referrer" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;border:1px solid rgba(243,241,234,.2);display:{{ p.avatarShow }}"></span>
+                  <span style="min-width:0"><span style="display:block;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.name }}</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:rgba(243,241,234,.6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.handle }}</span></span>
+                </button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ c.hasMore }}" hint-placeholder-val="{{ false }}"><button onClick="{{ c.showAll }}" style="align-self:flex-start;height:30px;padding:0 12px;border:1px solid rgba(243,241,234,.2);background:transparent;color:rgba(243,241,234,.7);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em">{{ c.moreLabel }}</button></sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="库里没有你在意的人？搜一下" style="height:36px;width:240px;padding:0 12px;border:1px solid rgba(243,241,234,.25);background:rgba(0,0,0,.2);font-size:13px;outline:none">
+      <sc-if value="{{ hasHit }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:#5FC4BB">{{ hitNote }}</span></sc-if>
+      <sc-if value="{{ noMatch }}" hint-placeholder-val="{{ false }}"><button onClick="{{ addCustom }}" style="height:36px;padding:0 12px;border:1px solid #5FC4BB;background:transparent;color:#5FC4BB;font-size:12px">记为希望补充的目标，交 Mango 核查</button></sc-if>
+      <sc-for list="{{ customRows }}" as="cu" hint-placeholder-count="0"><span style="display:flex;align-items:center;gap:8px;height:32px;padding:0 10px;border:1px dashed rgba(243,241,234,.35);font-size:12px">{{ cu.name }}<sc-if value="{{ cu.hasHint }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#5FC4BB">{{ cu.hint }}</span></sc-if><button onClick="{{ cu.remove }}" style="border:0;background:transparent;color:rgba(243,241,234,.66);font-size:14px">×</button></span></sc-for>
+    </div>
+
+    <div style="margin-top:26px;padding-top:22px;border-top:1px solid rgba(243,241,234,.16);display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <button onClick="{{ buildList }}" style="height:50px;padding:0 24px;border:1px solid rgba(243,241,234,.5);background:rgba(0,0,0,.28);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:16px" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08)">{{ buildLabel }} <span>↓</span></button>
+      <span style="font-size:12px;line-height:1.7;color:rgba(243,241,234,.66);max-width:40em">{{ buildNote }}</span>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ── C · 推荐名单 ── -->
+  <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
+  <section id="list" data-screen-label="推荐名单" style="padding-top:80px;scroll-margin-top:72px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5FC4BB">03 /// 精准进入目标信息流</div>
+    <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+      <h2 style="margin:0;font-size:clamp(24px,2.6vw,38px);line-height:1.2;letter-spacing:-.02em;font-weight:300;max-width:min(17em,100%)">{{ listHeadline }}</h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button onClick="{{ openMethod }}" style="height:36px;padding:0 14px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em" style-hover="border-color:#5FC4BB;color:#5FC4BB">判定依据</button>
+        <button onClick="{{ toggleGraph }}" style="height:36px;padding:0 14px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">{{ graphLabel }}</button>
+        <button onClick="{{ applySuggestion }}" style="height:36px;padding:0 14px;border:1px solid #5FC4BB;background:transparent;color:#5FC4BB;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">一键采用建议名单</button>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:#F3F1EA;color:#141414;padding:24px clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:14px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#0E6E6A">{{ conclusionKicker }}</div>
+      <p style="margin:0;font-size:clamp(15px,1.5vw,20px);line-height:1.65;font-weight:300;max-width:64ch;text-wrap:pretty">{{ conclusion }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1px;background:#D9D6CC;border:1px solid #D9D6CC">
+        <sc-for list="{{ conclusionStats }}" as="c" hint-placeholder-count="4"><div style="flex:1;min-width:120px;background:#FAF9F5;padding:12px 14px"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;line-height:1;color:{{ c.color }}"><count-up value="{{ c.v }}"></count-up></div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#6B6B66">{{ c.k }}</div></div></sc-for>
+      </div>
+    </div>
+    <p style="margin:14px 0 0;font-size:12px;line-height:1.7;color:rgba(243,241,234,.66);max-width:70ch">{{ listNote }}</p>
+
+    <sc-if value="{{ revealing }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:26px;padding:26px 0;border-top:1px solid rgba(243,241,234,.16);border-bottom:1px solid rgba(243,241,234,.16);display:flex;flex-direction:column;gap:12px;animation:msm-in .3s both">
+      <sc-for list="{{ revealLines }}" as="l" hint-placeholder-count="4"><type-line text="{{ l.text }}" active="{{ l.active }}" speed="16" style="font-size:clamp(15px,1.4vw,20px);line-height:1.5;font-weight:300;color:{{ l.color }}"></type-line></sc-for>
+      <button onClick="{{ skipReveal }}" style="align-self:flex-start;margin-top:6px;height:30px;padding:0 12px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.66);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em">跳过</button>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ graphOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:24px;border:1px solid rgba(243,241,234,.16);background:#152F31;position:relative;animation:msm-in .35s both">
+      <dot-grid gap="24" dot="1" shift="4" color="rgba(243,241,234,0.1)" style="position:absolute;inset:0"></dot-grid>
+      <div style="position:relative;padding:18px 20px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(243,241,234,.12)">
+        <div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(243,241,234,.66)">已保留创作者 —— 目标人物 —— 圈层</span></div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;padding:3px 8px;border:1px solid #C9A227;color:#C9A227">演示数据</span>
+      </div>
+      <div style="position:relative;padding:20px;min-height:220px">
+        <sc-if value="{{ graph.empty }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:rgba(243,241,234,.66);line-height:1.7">保留几位创作者后，这里会画出他们与目标人物之间的公开连接。</div></sc-if>
+        <sc-if value="{{ graph.show }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative;height:{{ graph.h }}px">
+          <svg viewBox="0 0 1000 {{ graph.vh }}" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%">
+            <sc-for list="{{ graph.edges }}" as="e" hint-placeholder-count="8"><line x1="{{ e.x1 }}" y1="{{ e.y1 }}" x2="{{ e.x2 }}" y2="{{ e.y2 }}" stroke="{{ e.stroke }}" stroke-width="{{ e.w }}" stroke-dasharray="{{ e.dash }}" opacity="{{ e.op }}" vector-effect="non-scaling-stroke"></line></sc-for>
+          </svg>
+          <sc-for list="{{ graph.nodes }}" as="n" hint-placeholder-count="8">
+            <button onClick="{{ n.click }}" style="position:absolute;left:{{ n.lx }}%;top:{{ n.ty }}px;width:{{ n.lw }}%;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px;border:1px solid {{ n.border }};background:{{ n.bg }};color:#F3F1EA;font-size:12px;opacity:{{ n.op }};text-align:left">
+              <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ n.label }}</span>
+              <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(243,241,234,.66)">{{ n.sub }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:rgba(243,241,234,.7)"><span><span style="display:inline-block;width:16px;border-top:1px solid #5FC4BB;vertical-align:middle;margin-right:6px"></span>已核验记录</span><span><span style="display:inline-block;width:16px;border-top:1px dashed rgba(243,241,234,.6);vertical-align:middle;margin-right:6px"></span>核查中</span><span>{{ graph.note }}</span></div>
+        </sc-if>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ hasKept }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:32px">
+      <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(243,241,234,.3)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#5FC4BB">已保留</span><span style="font-family:'JetBrains Mono',monospace;font-size:18px"><count-up value="{{ keptCount }}"></count-up></span><span style="font-size:12px;color:rgba(243,241,234,.66)">这份名单会交给 Mango 跟进</span></div>
+      <div style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px">
+        <sc-for list="{{ keptCards }}" as="m" hint-placeholder-count="4">
+          <article style="border:1px solid #5FC4BB;background:#1B3A3C;padding:14px;display:flex;flex-direction:column;gap:10px;animation:msm-in .3s both">
+            <div style="display:flex;gap:11px;align-items:center">
+              <span style="position:relative;width:40px;height:40px;flex:none;display:inline-block"><span style="position:absolute;inset:0;border-radius:50%;background:#0E0E0E;border:1px solid rgba(243,241,234,.2);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;color:#5FC4BB">{{ m.initial }}</span><img onError="{{ onImgErr }}" src="{{ m.avatar }}" alt="" loading="lazy" referrerPolicy="no-referrer" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;border:1px solid rgba(243,241,234,.2);display:{{ m.avatarShow }}"></span>
+              <div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(243,241,234,.66);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.handle }} · {{ m.followers }}</div></div>
+              <div style="text-align:right"><div style="font-family:'JetBrains Mono',monospace;font-size:20px;line-height:1;color:#5FC4BB"><count-up value="{{ m.fit }}"></count-up></div><div style="font-size:9px;color:rgba(243,241,234,.66);margin-top:2px">{{ m.band }}</div></div>
+            </div>
+            <div style="font-size:11px;color:#5FC4BB;font-family:'JetBrains Mono',monospace">{{ m.overlapText }}</div>
+            <div style="display:flex;gap:1px;background:rgba(243,241,234,.16);border:1px solid rgba(243,241,234,.16)">
+              <sc-for list="{{ m.formats }}" as="f" hint-placeholder-count="3"><button onClick="{{ f.pick }}" style="flex:1;height:30px;border:0;background:{{ f.bg }};color:{{ f.color }};font-size:11px">{{ f.label }}</button></sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px">{{ m.tier }}</span><span style="color:{{ m.bdColor }}">{{ m.bd }}</span><button onClick="{{ m.remove }}" style="height:28px;padding:0 12px;border:1px solid rgba(243,241,234,.3);background:transparent;color:rgba(243,241,234,.8);font-size:11px">移出名单</button></div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <div style="margin-top:32px">
+      <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(243,241,234,.2)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(243,241,234,.66)">推荐候选</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:rgba(243,241,234,.8)"><count-up value="{{ candCount }}"></count-up></span></div>
+      <div style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px">
+        <sc-for list="{{ candCards }}" as="m" hint-placeholder-count="6">
+          <article style="border:1px solid rgba(243,241,234,.16);background:#152F31;display:flex;flex-direction:column;animation:msm-in .3s both">
+            <div style="height:3px;background:{{ m.fitColor }}"></div>
+            <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;gap:11px;align-items:center">
+                <span style="position:relative;width:40px;height:40px;flex:none;display:inline-block"><span style="position:absolute;inset:0;border-radius:50%;background:#0E0E0E;border:1px solid rgba(243,241,234,.2);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;color:#5FC4BB">{{ m.initial }}</span><img onError="{{ onImgErr }}" src="{{ m.avatar }}" alt="" loading="lazy" referrerPolicy="no-referrer" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;border:1px solid rgba(243,241,234,.2);display:{{ m.avatarShow }}"></span>
+                <div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(243,241,234,.66);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.handle }} · {{ m.followers }}</div></div>
+                <div style="text-align:right"><div style="font-family:'JetBrains Mono',monospace;font-size:20px;line-height:1;color:#5FC4BB"><count-up value="{{ m.fit }}"></count-up></div><div style="font-size:9px;color:rgba(243,241,234,.66);margin-top:2px">{{ m.band }}</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;row-gap:6px">
+                <div style="display:flex;flex:none">
+                  <sc-for list="{{ m.faces }}" as="f" hint-placeholder-count="3"><span style="position:relative;width:22px;height:22px;flex:none;display:inline-block"><span style="position:absolute;inset:0;border-radius:50%;background:#0E0E0E;border:1px solid rgba(243,241,234,.2);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:9px;color:#5FC4BB">{{ f.initial }}</span><img onError="{{ onImgErr }}" src="{{ f.avatar }}" alt="" loading="lazy" referrerPolicy="no-referrer" title="{{ f.name }}" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;border:1px solid rgba(243,241,234,.2);display:{{ f.avatarShow }}"></span></sc-for>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#5FC4BB;min-width:0;overflow:hidden;text-overflow:ellipsis">{{ m.overlapText }}</span><sc-if value="{{ m.hasFocusNote }}" hint-placeholder-val="{{ false }}"><span style="padding:2px 7px;background:rgba(95,196,187,.16);border:1px solid rgba(95,196,187,.5);font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5FC4BB">{{ m.focusNote }}</span></sc-if>
+              </div>
+              <p style="margin:0;font-size:12px;line-height:1.6;color:rgba(243,241,234,.72)">{{ m.reason }}</p>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;flex-wrap:wrap"><span style="font-family:'JetBrains Mono',monospace;font-size:13px">{{ m.tier }}</span><span style="padding:2px 7px;border:1px solid {{ m.bdBorder }};color:{{ m.bdColor }};font-size:10px">{{ m.bd }}</span></div>
+              <sc-if value="{{ m.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:10px;padding-top:10px;border-top:1px solid rgba(243,241,234,.14);animation:msm-in .25s both">
+                <div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ m.parts }}" as="p" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:104px 1fr 30px;gap:8px;align-items:center"><span style="font-size:10.5px;color:rgba(243,241,234,.66)">{{ p.label }}</span><div style="height:5px;background:rgba(243,241,234,.12)"><div style="height:100%;background:{{ p.bar }};width:{{ p.pct }}%"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right;color:rgba(243,241,234,.7)">{{ p.pts }}</span></div></sc-for></div>
+                <div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(243,241,234,.66);margin-bottom:6px">公开连接记录</div>
+                <div style="display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.12)"><sc-for list="{{ m.evidence }}" as="e" hint-placeholder-count="3"><div style="background:#152F31;padding:7px 9px;display:grid;grid-template-columns:1fr auto;gap:8px;font-size:11px"><span>{{ e.who }} <span style="color:rgba(243,241,234,.66)">· {{ e.type }} · {{ e.date }}</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:{{ e.color }}">{{ e.status }}</span></div></sc-for></div></div>
+                <div style="font-size:11px;line-height:1.6;color:rgba(243,241,234,.66)">{{ m.sample }}</div>
+              </div>
+              </sc-if>
+              <div style="display:grid;grid-template-columns:1fr auto auto;gap:6px">
+                <button onClick="{{ m.keep }}" style="height:34px;border:1px solid #5FC4BB;background:#5FC4BB;color:#0E0E0E;font-size:13px;font-weight:500">保留</button>
+                <button onClick="{{ m.swap }}" style="height:34px;padding:0 12px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.85);font-size:12px">换一个</button>
+                <button onClick="{{ m.expand }}" style="height:34px;width:34px;border:1px solid rgba(243,241,234,.25);background:transparent;color:rgba(243,241,234,.85);font-size:12px">{{ m.chevron }}</button>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <sc-if value="{{ noCands }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:16px;padding:26px;border:1px dashed rgba(243,241,234,.25);display:flex;flex-direction:column;gap:14px"><div style="font-size:14px;line-height:1.7;color:rgba(243,241,234,.85);max-width:56ch">{{ noCandNote }}</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ relaxActions }}" as="r" hint-placeholder-count="2"><button onClick="{{ r.act }}" style="height:36px;padding:0 14px;border:1px solid #5FC4BB;background:transparent;color:#5FC4BB;font-size:12px">{{ r.label }}</button></sc-for></div></div>
+      </sc-if>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ── D · 确认 ── -->
+  <sc-if value="{{ hasKept }}" hint-placeholder-val="{{ false }}">
+  <section id="confirm" data-screen-label="确认" style="padding-top:80px;scroll-margin-top:72px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5FC4BB">04 /// Mango 这样理解你的需求</div>
+    <div style="margin-top:18px;border:1px solid rgba(243,241,234,.18);background:#152F31">
+      <div style="padding:24px 26px;border-bottom:1px solid rgba(243,241,234,.14)">
+        <p style="margin:0;font-size:clamp(15px,1.4vw,19px);line-height:1.7;font-weight:300;max-width:72ch">{{ understanding }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:transparent">
+        <sc-for list="{{ confirmRows }}" as="r" hint-placeholder-count="6"><div style="background:#152F31;box-shadow:0 0 0 1px rgba(243,241,234,.14);padding:14px 18px"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(243,241,234,.66)">{{ r.k }}</div><div style="margin-top:6px;font-size:13px;line-height:1.6">{{ r.v }}</div></div></sc-for>
+      </div>
+      <div style="padding:20px 26px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(243,241,234,.14)">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.66)">名单方案</span>
+        <div style="display:flex;gap:1px;border:1px solid rgba(243,241,234,.25)"><sc-for list="{{ planTabs }}" as="p" hint-placeholder-count="2"><button onClick="{{ p.pick }}" style="height:30px;padding:0 14px;border:0;background:{{ p.bg }};color:{{ p.color }};font-family:'JetBrains Mono',monospace;font-size:11px">{{ p.label }}</button></sc-for></div>
+        <span style="font-size:12px;color:rgba(243,241,234,.66)">可以并行准备两份名单，确认时只提交当前这份。</span>
+      </div>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:22px 26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;border-top:1px solid rgba(243,241,234,.14)">
+        <button onClick="{{ submit }}" style="height:52px;padding:0 24px;border:1px solid #F3F1EA;background:#F3F1EA;color:#0E0E0E;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:16px" style-hover="background:#5FC4BB;border-color:#5FC4BB">确认这份名单 <span>→</span></button>
+        <button onClick="{{ exportPdf }}" style="height:52px;padding:0 20px;border:1px solid rgba(243,241,234,.3);background:transparent;color:rgba(243,241,234,.85);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em">导出 PDF</button>
+        <span style="font-size:12px;line-height:1.6;color:rgba(243,241,234,.66);max-width:44ch">确认不是购买。Mango 会复核最新报价、档期与合作条件，并返回执行方案。</span>
+      </div>
+      </sc-if>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:26px;background:#0E0E0E;animation:msm-in .4s both"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#5FC4BB">已提交</div><div style="margin-top:10px;font-size:19px;font-weight:400">名单已发送给 Mango。</div><p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:rgba(243,241,234,.7);max-width:60ch">我们会复核报价、档期与合作条件，并把可执行方案发回给你。随时回到本页调整。</p><div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(243,241,234,.66)">{{ submittedAt }}</div><button onClick="{{ unsubmit }}" style="margin-top:14px;height:34px;padding:0 14px;border:1px solid rgba(243,241,234,.3);background:transparent;color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px">继续调整</button></div>
+      </sc-if>
+    </div>
+    <p style="margin:18px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:rgba(243,241,234,.7);line-height:1.8">{{ demoNote }}</p>
+  </section>
+  </sc-if>
+</main>
+
+<!-- ══════════ RIGHT RAIL ══════════ -->
+<aside data-screen-label="实时反馈" style="border-left:1px solid rgba(243,241,234,.14);background:#152F31;position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column;align-self:start">
+  <div style="padding:24px 24px 18px;border-bottom:1px solid rgba(243,241,234,.14)">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(243,241,234,.66);display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;background:#5FC4BB;animation:msm-band 1.6s infinite"></span>{{ rail.title }}</div>
+    <div style="margin-top:14px;display:flex;align-items:baseline;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:52px;line-height:1"><count-up value="{{ rail.big }}"></count-up></span><span style="font-size:12px;color:rgba(243,241,234,.66)">{{ rail.bigLabel }}</span></div>
+    <div style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#5FC4BB;min-height:15px;line-height:1.5">{{ rail.tick }}</div>
+  </div>
+  <div style="padding:18px 24px;display:flex;flex-direction:column;gap:20px;overflow:auto;flex:1">
+    <sc-for list="{{ rail.blocks }}" as="b" hint-placeholder-count="3">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(243,241,234,.66);margin-bottom:8px">{{ b.title }}</div>
+        <sc-if value="{{ b.isText }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;line-height:1.65;color:{{ b.color }}">{{ b.text }}</div></sc-if>
+        <sc-if value="{{ b.isChips }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ b.chips }}" as="c" hint-placeholder-count="3"><span style="padding:3px 8px;border:1px solid rgba(95,196,187,.5);font-size:11px;color:#5FC4BB">{{ c }}</span></sc-for></div></sc-if>
+        <sc-if value="{{ b.isRows }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:1px;background:rgba(243,241,234,.12)"><sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="4"><div style="background:#152F31;padding:7px 9px;display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.k }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5FC4BB">{{ r.v }}</span></div></sc-for></div></sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <sc-if value="{{ rail.hasCta }}" hint-placeholder-val="{{ false }}">
+  <div style="padding:16px 24px;border-top:1px solid rgba(243,241,234,.14)"><a href="{{ rail.ctaHref }}" style="display:flex;height:48px;align-items:center;justify-content:space-between;padding:0 18px;border:1px solid rgba(243,241,234,.45);background:rgba(0,0,0,.25);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em" style-hover="border-color:#F3F1EA;background:rgba(243,241,234,.08);color:#F3F1EA">{{ rail.cta }} <span>→</span></a></div>
+  </sc-if>
+</aside>
+</div>
+
+<!-- ══════════ 判定依据 ══════════ -->
+<sc-if value="{{ methodOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeMethod }}" style="position:fixed;inset:0;background:rgba(14,14,14,.66);z-index:52;display:grid;place-items:center;padding:24px;overflow:auto">
+  <div onClick="{{ stop }}" style="width:min(660px,100%);background:#F3F1EA;color:#141414;padding:32px clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:22px;animation:msm-in .25s both">
+    <div style="display:flex;justify-content:space-between;align-items:start;gap:20px">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#0E6E6A">判定依据</div><h3 style="margin:12px 0 0;font-size:26px;font-weight:300;line-height:1.25;letter-spacing:-.01em">三道验证，只保留真正走得通的路径。</h3></div>
+      <button onClick="{{ closeMethod }}" style="border:0;background:transparent;font-size:22px;color:#141414;line-height:1">×</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#D9D6CC;border-top:1px solid #141414;border-bottom:1px solid #141414">
+      <sc-for list="{{ methodSteps }}" as="m" hint-placeholder-count="3">
+        <div style="background:#F3F1EA;padding:18px 0;display:grid;grid-template-columns:32px 1fr;gap:16px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#0E6E6A;padding-top:3px">{{ m.n }}</span>
+          <div><div style="font-size:16px;font-weight:500">{{ m.title }}</div><p style="margin:7px 0 0;font-size:13px;line-height:1.7;color:#4A4A46;max-width:56ch">{{ m.body }}</p></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:transparent">
+      <sc-for list="{{ methodStats }}" as="c" hint-placeholder-count="3"><div style="background:#FAF9F5;box-shadow:0 0 0 1px #D9D6CC;padding:14px"><div style="font-family:'JetBrains Mono',monospace;font-size:20px;line-height:1">{{ c.v }}</div><div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#6B6B66">{{ c.k }}</div></div></sc-for>
+    </div>
+    <div style="border-left:2px solid #C9A227;padding:2px 0 2px 14px"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;color:#8A6D00">我们不承诺</div><p style="margin:6px 0 0;font-size:13px;line-height:1.7;color:#4A4A46">连接记录说明的是内容进入某人信息流的<strong style="font-weight:500">可能路径</strong>，不代表任何目标人物一定会看到、回复或转发。所有报价以 Mango 复核为准。</p></div>
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.7;letter-spacing:.04em;color:#6B6B66">{{ demoNote }}</p>
+  </div>
+</div>
+</sc-if>
+
+<!-- ══════════ 人物弹窗 ══════════ -->
+<sc-if value="{{ hasInfo }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeInfo }}" style="position:fixed;inset:0;background:rgba(14,14,14,.62);z-index:50;display:grid;place-items:center;padding:24px">
+  <div onClick="{{ stop }}" style="width:min(500px,100%);background:#152F31;border:1px solid rgba(243,241,234,.3);padding:26px;display:flex;flex-direction:column;gap:16px;animation:msm-in .25s both">
+    <div style="display:flex;gap:14px;align-items:center">
+      <div style="width:52px;height:52px;border-radius:50%;flex:none;background-color:#0E0E0E;background-image:{{ info.avatarBg }};background-size:cover;background-position:center;border:1px solid rgba(243,241,234,.25);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:18px;color:#5FC4BB">{{ info.initial }}</div>
+      <div style="flex:1"><div style="font-size:20px;font-weight:500">{{ info.name }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(243,241,234,.66)">{{ info.handle }} · {{ info.role }}</div></div>
+      <button onClick="{{ closeInfo }}" style="border:0;background:transparent;color:#F3F1EA;font-size:20px">×</button>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,241,234,.16)">
+      <div style="padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.66)">圈层</span><span>{{ info.circle }}</span></div>
+      <div style="padding:12px 0;border-bottom:1px solid rgba(243,241,234,.1);display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.66)">为什么值得触达</span><span>{{ info.why }}</span></div>
+      <div style="padding:12px 0;display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13px;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(243,241,234,.66)">当前名单</span><span style="color:#5FC4BB">{{ info.bridge }}</span></div>
+    </div>
+    <div style="display:flex;gap:10px"><button onClick="{{ info.toggle }}" style="flex:1;height:42px;border:1px solid #5FC4BB;background:{{ info.btnBg }};color:{{ info.btnColor }};font-size:13px">{{ info.btnLabel }}</button><a href="{{ info.url }}" target="_blank" rel="noopener" style="height:42px;display:flex;align-items:center;padding:0 16px;border:1px solid rgba(243,241,234,.3);color:#F3F1EA;font-family:'JetBrains Mono',monospace;font-size:11px">在 X 上查看 ↗</a></div>
+    <p style="margin:0;font-size:11px;line-height:1.6;color:rgba(243,241,234,.66)">目标人物用于表达你希望影响谁；连接记录是公开可观察的关注与互动，不代表对方一定会看到或转发。</p>
+  </div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showDemoBadge&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;界面&quot;}}">
+class Component extends DCLogic {
+  state = { ready: false, prefs: null, focus: [], custom: [], expandCircle: {}, query: '',
+    plan: 'A', plans: { A: [], B: [] }, expanded: {}, swapped: {}, graphOpen: false, focus: null,
+    revealing: false, revealStep: 0, revealed: false, info: null, briefOpen: false, briefCode: '', briefMsg: '', tick: '', saveNote: '', submittedAt: null };
+
+  async componentDidMount() {
+    const V = await import(new URL('./data/v3.js?v=17', document.baseURI).href); this.V = V;
+    const kols = await V.loadKols();
+    const saved = V.load('main') || {};
+    const prefs = saved.prefs || { group: '', domains: [], markets: [], languages: [], audiences: [], budget: '', brand: [] };
+    this.setState({ ready: true, kols, prefs, focus: saved.focus || [], custom: saved.custom || [], plans: saved.plans || { A: [], B: [] }, plan: saved.plan || 'A', revealed: !!saved.revealed, listOpen: !!saved.listOpen, submittedAt: saved.submittedAt || null, project: saved.project || null });
+  }
+  persist(extra) {
+    const s = { ...this.state, ...(extra || {}) };
+    this.V.save('main', { prefs: s.prefs, focus: s.focus, custom: s.custom, plans: s.plans, plan: s.plan, revealed: s.revealed, listOpen: s.listOpen, submittedAt: s.submittedAt, project: s.project });
+    clearTimeout(this._sv); this.setState({ saveNote: '已保存' }); this._sv = setTimeout(() => this.setState({ saveNote: '' }), 1500);
+  }
+  kept() { return this.state.plans[this.state.plan] || []; }
+  setKept(list, tick) { const plans = { ...this.state.plans, [this.state.plan]: list }; this.setState({ plans, tick: tick || '' }, () => this.persist({ plans })); }
+  effTargets() { const s = this.state; return s.prefs && s.prefs.group ? this.V.groupTargetIds(s.prefs.group) : []; }
+  ranked() {
+    const s = this.state; if (!s.prefs || !s.prefs.group) return [];
+    const key = JSON.stringify([s.prefs, s.focus]);
+    if (this._rk && this._rk.key === key) return this._rk.v;
+    const pool = s.kols.filter(k => k.group === s.prefs.group);
+    const v = this.V.rankKols(pool, s.prefs, s.focus || []);
+    const all = this.V.scoreOnly(pool, s.prefs, s.focus || []);
+    this._rk = { key, v, all }; return v;
+  }
+  // 已保留的人始终能被解析出来，即使当前目标人物选择下没有公开连接记录
+  scored() { this.ranked(); return (this._rk && this._rk.all) || []; }
+  setPrefs(fn, note) {
+    const before = this.ranked().length;
+    const prefs = JSON.parse(JSON.stringify(this.state.prefs)); fn(prefs);
+    this.setState({ prefs }, () => {
+      const after = this.ranked().length; const d = after - before;
+      this.setState({ tick: note || (d === 0 ? '排序已更新' : d > 0 ? `新增 ${d} 位可连接的创作者` : `收窄到 ${after} 位`) });
+      this.persist({ prefs });
+    });
+  }
+  toggleIn(key, id) { this.setPrefs(p => { const i = p[key].indexOf(id); i >= 0 ? p[key].splice(i, 1) : p[key].push(id); }); }
+  startReveal() {
+    clearInterval(this._rv); this.setState({ listOpen: true, revealing: true, revealStep: 0 }, () => { this.persist({ listOpen: true }); setTimeout(() => { const el = document.getElementById('list'); if (el) window.scrollTo(0, el.offsetTop - 72); }, 120); });
+    let n = 0; this._rv = setInterval(() => { n++; this.setState({ revealStep: n }); if (n >= 4) { clearInterval(this._rv); setTimeout(() => this.setState({ revealing: false, revealed: true }, () => this.persist({ revealed: true })), 900); } }, 1000);
+  }
+  render_() {}
+  renderVals() {
+    const s = this.state, teal = '#5FC4BB', hair = 'rgba(243,241,234,.25)', mute = 'rgba(243,241,234,.8)';
+    const base = { anchors: [], saveNote: s.saveNote, briefOpen: s.briefOpen, briefLabel: s.briefOpen ? '收起' : '我有 BRIEF 码', briefCode: s.briefCode, briefMsg: s.briefMsg, briefMsgColor: '#C9A227',
+      toggleBrief: () => this.setState({ briefOpen: !s.briefOpen }), setBriefCode: e => this.setState({ briefCode: e.target.value, briefMsg: '' }),
+      hasGroup: false, loading: !s.ready, groupCards: [], domainOpts: [], marketOpts: [], audOpts: [], budgetOpts: [], brandOpts: [], moreOpen: false, moreChevron: '+',
+      hasProject: !!s.project, projectName: (s.project || {}).name || '', projectMeta: (s.project || {}).meta || '',
+      conclusionKicker: '当前判断', conclusion: '', conclusionStats: [], relaxActions: [], showList: false, buildLabel: '生成名单', buildNote: '',
+      methodOpen: !!s.methodOpen, openMethod: () => this.setState({ methodOpen: true }), closeMethod: () => this.setState({ methodOpen: false }),
+      methodSteps: [], methodStats: [], demoNote: '',
+      onImgErr: e => { const u = e.currentTarget.getAttribute('src'); if (u && !(this.state.imgErr || {})[u]) this.setState(st => ({ imgErr: { ...(st.imgErr || {}), [u]: 1 } })); },
+      circleCards: [], customRows: [], query: s.query, noMatch: false, hasHit: false, hitNote: '',
+      keptCards: [], candCards: [], keptCount: '0', candCount: '0', hasKept: false, noCands: false, revealing: false, revealLines: [], graphOpen: false, graph: { empty: true },
+      confirmRows: [], planTabs: [], understanding: '', notSubmitted: true, submitted: false, demoNote: '',
+      rail: { title: '实时反馈', big: '0', bigLabel: '', tick: '', blocks: [], hasCta: false }, hasInfo: false, info: { avatarBg: 'none', url: '#', initial: '' }, stop: e => e.stopPropagation() };
+    if (!s.ready) return base;
+    const V = this.V, P = s.prefs, T = V.taxonomy;
+    const IMGERR = s.imgErr || {};
+    const show = u => (u && IMGERR[u]) ? 'none' : 'block';
+    const opt = on => ({ border: on ? teal : hair, bg: on ? teal : 'transparent', color: on ? '#0E0E0E' : mute });
+    const steps = [['#prefs', '偏好', true], ['#targets', '目标圈层', !!(s.prefs && s.prefs.group)], ['#list', '推荐名单', !!s.listOpen]];
+    const anchors = steps.filter(x => x[2]).map(([href, label]) => ({ href, label, color: 'rgba(243,241,234,.75)' }));
+    const groupCards = V.groups.map((g, i) => { const on = P.group === g.id; const n = s.kols.filter(k => k.group === g.id).length;
+      return { n: String(i + 1).padStart(2, '0'), label: g.label, desc: g.desc, count: `${n} 位有报价创作者`, bg: on ? '#1B3A3C' : '#152F31', ring: `0 0 0 1px rgba(243,241,234,.16)${on ? `, inset 0 0 0 1px ${teal}` : ''}`, dot: on ? teal : 'transparent',
+        pick: () => { if (P.group === g.id) return;
+          // 目标人物按领域分套，换领域必须连同已选人物与名单一起重置
+          this.setState({ focus: [], custom: [], expandCircle: {}, query: '', listOpen: false, revealed: false, plans: { A: [], B: [] }, expanded: {}, swapped: {} },
+            () => this.setPrefs(p => { p.group = g.id; p.domains = []; }, `已切换到${g.label}，重新选择目标人物`));
+        } }; });
+    if (!P.group) return { ...base, anchors, groupCards, rail: { title: '实时反馈', big: String(s.kols.length), bigLabel: '位有报价的 X 创作者', tick: '选一个领域后，这里会显示可连接的候选数量。', blocks: [{ title: '接下来', isText: true, text: '选领域 → 选想触达的人 → 拿到名单 → 保留你要的。', color: 'rgba(243,241,234,.75)' }], hasCta: false } };
+
+    const grp = V.groups.find(g => g.id === P.group);
+    const domainOpts = grp.domains.map(d => ({ label: V.label('domains', d), toggle: () => this.toggleIn('domains', d), ...opt(P.domains.includes(d)) }));
+    const marketOpts = T.markets.map(m => ({ label: m.label, toggle: () => this.toggleIn('markets', m.id), ...opt(P.markets.includes(m.id)) }));
+    const audOpts = T.audiences.map(a => ({ label: a.label, toggle: () => this.toggleIn('audiences', a.id), ...opt(P.audiences.includes(a.id)) }));
+    const budgetOpts = [...T.budgets.map(b => ({ id: b.id, label: b.label })), { id: '', label: '暂时不确定' }].map(b => ({ label: b.label, pick: () => this.setPrefs(p => { p.budget = b.id; }), ...opt(P.budget === b.id) }));
+    const brandOpts = T.brandPrefs.map(b => ({ label: b.label, toggle: () => this.toggleIn('brand', b.id), ...opt(P.brand.includes(b.id)) }));
+
+    // ── 目标圈层（展示 + 重点加权，不做筛选）
+    const eff = V.groupTargetIds(P.group);
+    const cList = V.circles[P.group] || [];
+    const focus = s.focus || [];
+    const all = V.targetsFor({ ...P, circle: null });
+    const q = s.query.trim().toLowerCase();
+    const hits = q ? all.filter(t => (t.name + t.handle + t.role).toLowerCase().includes(q)) : [];
+    const circleCards = cList.map((c, i) => {
+      const on = focus.includes(c.id);
+      let people = all.filter(t => t.circle === c.id);
+      if (q) people = people.filter(t => hits.includes(t));
+      const openAll = !!(s.expandCircle || {})[c.id];
+      const shown = openAll ? people : people.slice(0, 6);
+      return { n: String(i + 1).padStart(2, '0'), label: c.label, value: c.value, who: c.who, pick: c.pick,
+        count: String(all.filter(t => t.circle === c.id).length),
+        bg: on ? '#1B3A3C' : '#152F31', ring: on ? 'inset 0 0 0 1px #5FC4BB' : 'none',
+        btnLabel: on ? '■ 已设为重点' : '□ 设为本轮重点', btnBorder: on ? teal : hair, btnBg: on ? 'rgba(95,196,187,.16)' : 'transparent', btnColor: on ? teal : mute,
+        toggle: () => { const next = on ? focus.filter(x => x !== c.id) : [...focus, c.id].slice(-3);
+          const dropped = !on && focus.length >= 3 ? V.circleLabel(P.group, focus[0]) : '';
+          this.setState({ focus: next, tick: on ? `取消重点：${c.label}` : `重点：${c.label}` + (dropped ? `（最多 3 个，已让出「${dropped}」）` : '，相关创作者已排到前面') }, () => this.persist({ focus: next })); },
+        people: shown.map(t => { const au = V.avatarUrl(t.handle); return { name: t.name, handle: t.handle, initial: (t.name || '?').slice(0, 1), avatar: au, avatarShow: show(au), open: () => this.setState({ info: t.id }) }; }),
+        hasMore: people.length > 6, moreLabel: openAll ? '收起' : `展开其余 ${people.length - 6} 位`,
+        showAll: () => this.setState({ expandCircle: { ...(s.expandCircle || {}), [c.id]: !openAll } }) };
+    }).filter(c => !q || c.people.length);
+    const noMatch = !!q && hits.length === 0;
+    const custom = s.custom.map(c => ({ name: c.name, hint: c.hint, hasHint: !!c.hint, remove: () => { const next = s.custom.filter(x => x.name !== c.name); this.setState({ custom: next }, () => this.persist({ custom: next })); } }));
+
+    // ── ranking
+    const rk = this.ranked(); const keptList = this.kept(); const keptIds = new Set(keptList.map(k => k.id));
+    const swapped = s.swapped || {};
+    const scored = this.scored();
+    const kept = keptList.map(k => scored.find(m => m.kol.id === k.id)).filter(Boolean);
+    const cands = rk.filter(m => !keptIds.has(m.kol.id) && !swapped[m.kol.id]).slice(0, 12);
+    const keptBudgetRows = keptList.map(k => { const m = scored.find(x => x.kol.id === k.id); return m ? { kol: m.kol, format: k.format } : null; }).filter(Boolean);
+    const budget = V.budgetOf(keptBudgetRows);
+    const FITC = { 4: '#5FC4BB', 3: 'rgba(95,196,187,.75)', 2: 'rgba(95,196,187,.45)', 1: 'rgba(95,196,187,.25)' };
+    const bdOf = k => k.commercial === 'contactable' ? { bd: '可赞助已确认', bdColor: teal, bdBorder: 'rgba(95,196,187,.5)' } : { bd: '商务待验证', bdColor: '#C9A227', bdBorder: 'rgba(201,162,39,.5)' };
+    const face = e => { const t = V.targetsById[e.targetId] || {}; const a = V.avatarUrl(t.handle); return { name: t.name, initial: (t.name || '?').slice(0, 1), avatar: a, avatarShow: show(a) }; };
+    const VB = { cofollow: '关注', reply: '回复', quote: '引用', co_appear: '同场' };
+    const overlapText = m => V.sp(m.overlap.length ? `${m.overlap.length} 位目标人物 · ${[...new Set(m.overlap.map(e => VB[e.type]))].join('、')}` : '暂无公开路径 · 下一步可拓展');
+
+    // ── 结论前置（圈层口径）
+    const CL = id => V.circleLabel(P.group, id);
+    const focusLabels = focus.map(CL);
+    const circlesAll = [...new Set(rk.flatMap(m => m.circles))].filter(Boolean);
+    const circlesKept = [...new Set(kept.flatMap(m => m.circles))].filter(Boolean);
+    const strongOf = m => m.overlap.filter(e => e.type !== 'cofollow').length;
+    const readyN = kept.filter(m => m.kol.commercial === 'contactable').length;
+    const listHeadline = V.sp(!rk.length ? '调整上方选择，名单会立刻重排。'
+      : focus.length ? `${rk.length} 位创作者，能把内容送进这些圈层的视野：${focusLabels.join('、')}。`
+      : `${rk.length} 位创作者，在这 ${cList.length} 个圈层里都有可循的公开路径。`);
+    const conclusion = V.sp(keptList.length
+      ? `这 ${keptList.length} 位打通了 ${cList.length} 个目标圈层中的 ${circlesKept.length} 个${cList.length - circlesKept.length ? `，余下 ${cList.length - circlesKept.length} 个下一步可拓展` : '，全部覆盖'}。${readyN} 位可即刻推进档期${keptList.length - readyN ? `，另 ${keptList.length - readyN} 位由我们出面建联` : ''}。`
+      : `${cList.length} 个目标圈层里，${circlesAll.length} 个有路径可走。${rk.filter(m => strongOf(m) > 0).length} 位创作者被圈层内的人真实回复或引用过，不只是共同关注。`);
+    const conclusionStats = keptList.length
+      ? [{ k: '已保留', v: String(keptList.length), color: '#141414' }, { k: '覆盖圈层', v: `${circlesKept.length}/${cList.length}`, color: '#0E6E6A' }, { k: '可立即确认', v: String(readyN), color: '#141414' }, { k: '预算区间', v: V.fmtRange(budget.lo, budget.hi), color: '#141414' }]
+      : [{ k: '可触及圈层', v: `${circlesAll.length}/${cList.length}`, color: '#0E6E6A' }, { k: '可连接创作者', v: String(rk.length), color: '#141414' }, { k: '其中有过互动', v: String(rk.filter(m => strongOf(m) > 0).length), color: '#141414' }, { k: '可立即确认', v: String(rk.filter(m => m.kol.commercial === 'contactable').length), color: '#141414' }];
+    const relaxActions = [];
+    if (P.markets.length) relaxActions.push({ label: `不限市场（当前 ${P.markets.map(m => V.label('markets', m)).join('、')}）`, act: () => this.setPrefs(p => { p.markets = []; }, '已放开市场限制') });
+    if (P.audiences.length) relaxActions.push({ label: '不限人群', act: () => this.setPrefs(p => { p.audiences = []; }, '已放开人群限制') });
+    if (P.domains.length) relaxActions.push({ label: '不限细分方向', act: () => this.setPrefs(p => { p.domains = []; }, '已放开方向限制') });
+    relaxActions.push({ label: '回到目标圈层 ↑', act: () => { const el = document.getElementById('targets'); if (el) window.scrollTo(0, el.offsetTop - 72); } });
+
+    const keptCards = kept.map(m => { const rec = keptList.find(x => x.id === m.kol.id) || {};
+      return { name: m.kol.name, handle: m.kol.handle, initial: (m.kol.name || '?').slice(0, 1), avatar: V.avatarUrl(m.kol.handle), avatarShow: show(V.avatarUrl(m.kol.handle)), followers: V.compact(m.kol.followers), fit: String(m.fit), band: m.band.word,
+        overlapText: overlapText(m), tier: (V.tierOf(m.kol.tier) || {}).mark, ...bdOf(m.kol),
+        formats: V.FORMATS.map(f => ({ label: f.label, bg: rec.format === f.id ? teal : '#152F31', color: rec.format === f.id ? '#0E0E0E' : mute,
+          pick: () => this.setKept(keptList.map(x => x.id === m.kol.id ? { ...x, format: f.id } : x), `${m.kol.name} 改为${f.label}，预算已更新`) })),
+        remove: () => this.setKept(keptList.filter(x => x.id !== m.kol.id), `移出 ${m.kol.name}，预算下调`) }; });
+
+    const candCards = cands.map(m => { const open = !!s.expanded[m.kol.id];
+      return { name: m.kol.name, handle: m.kol.handle, initial: (m.kol.name || '?').slice(0, 1), avatar: V.avatarUrl(m.kol.handle), avatarShow: show(V.avatarUrl(m.kol.handle)), followers: V.compact(m.kol.followers), fit: String(m.fit), band: m.band.word,
+        fitColor: FITC[m.band.level], overlapText: overlapText(m), focusNote: m.focusNote, hasFocusNote: !!m.focusNote, reason: V.reasonFor(m, P, eff), tier: (V.tierOf(m.kol.tier) || {}).mark, ...bdOf(m.kol),
+        faces: m.overlap.slice(0, 4).map((e, i) => ({ ...face(e), ml: i ? '-7px' : '0' })),
+        open, chevron: open ? '−' : '+', expand: () => this.setState({ expanded: { ...s.expanded, [m.kol.id]: !open } }),
+        parts: m.parts.map(p => ({ label: p.label, pct: Math.round(p.v * 100), pts: `${Math.round(p.w * p.v)}/${p.w}`, bar: p.v >= .75 ? teal : p.v >= .45 ? 'rgba(95,196,187,.6)' : '#C9A227' })),
+        evidence: m.overlap.map(e => { const t = V.targetsById[e.targetId] || {}; return { who: t.name, type: e.label, date: e.date, status: e.verified ? '已核验' : '核查中', color: e.verified ? teal : '#C9A227' }; }),
+        sample: `近期内容方向：${(m.kol.domains || []).map(d => V.label('domains', d)).join('、')}；读者以${(m.kol.audiences || []).map(a => V.label('audiences', a)).join('、')}为主。`,
+        keep: () => this.setKept([...keptList, { id: m.kol.id, format: 'post' }], `保留 ${m.kol.name}，覆盖 ${m.overlap.length} 位目标人物`),
+        swap: () => this.setState({ swapped: { ...swapped, [m.kol.id]: 1 }, tick: `已换下 ${m.kol.name}，补入下一位` }) }; });
+
+    // ── graph
+    const graph = this.buildGraph(kept, eff);
+    // ── reveal
+    const revealLines = [
+      `读取你的方向：${grp.label}${P.markets.length ? ' · ' + P.markets.map(m => V.label('markets', m)).join('、') : ''}${P.audiences.length ? ' · 面向' + P.audiences.map(a => V.label('audiences', a)).join('、') : ''}`,
+      `展开 ${cList.length} 个圈层、${eff.length} 位代表人物的公开关注网络` + (focus.length ? `，重点：${focus.map(id => V.circleLabel(P.group, id)).join('、')}` : ''),
+      `在 ${s.kols.filter(k => k.group === P.group).length} 位创作者中，收敛出 ${rk.length} 位有可循路径的人选`,
+      `按"谁更可能被他们看到"排序完成，可以开始挑了`,
+    ].map((text, i) => ({ text: V.sp(text), active: s.revealStep > i ? 'true' : 'false', color: s.revealStep > i ? '#F3F1EA' : 'rgba(243,241,234,.34)' }));
+
+    // ── rail
+    const phase = keptList.length ? 'list' : 'prefs';
+    const rail = phase === 'prefs'
+      ? { title: '实时反馈', big: String(rk.length), bigLabel: '位可连接的创作者', tick: s.tick || '每次选择都会立刻重排名单。',
+          blocks: [
+            { title: focus.length ? '本轮重点圈层' : '目标圈层', isChips: true, chips: (focus.length ? focusLabels : cList.map(c => c.label)) },
+            { title: '代表人物', isText: true, text: `${eff.length} 位 · 覆盖 ${cList.length} 个圈层`, color: '#F3F1EA' },
+            { title: '当前最匹配', isRows: true, rows: rk.slice(0, 5).map(m => ({ k: m.kol.name, v: String(m.fit) })) },
+          ], hasCta: rk.length > 0, cta: '看推荐名单', ctaHref: '#list' }
+      : { title: '你的名单', big: String(keptList.length), bigLabel: '位已保留', tick: s.tick || '按你选的合作形式实时汇总。',
+          blocks: [
+            { title: '预算区间', isText: true, text: V.fmtRange(budget.lo, budget.hi), color: '#5FC4BB' },
+            { title: '已覆盖圈层', isChips: true, chips: circlesKept.map(CL) },
+            { title: '名单构成', isRows: true, rows: kept.map(m => ({ k: m.kol.name, v: (V.tierOf(m.kol.tier) || {}).mark })) },
+            { title: '下一步可拓展', isText: true, text: this.expandNote(kept, eff, cList), color: 'rgba(243,241,234,.7)' },
+          ], hasCta: true, cta: '确认这份名单', ctaHref: '#confirm' };
+
+    const confirmRows = [
+      { k: '领域', v: grp.label + (P.domains.length ? ' · ' + P.domains.map(d => V.label('domains', d)).join('、') : '') },
+      { k: '市场与语言', v: P.markets.map(m => V.label('markets', m)).join(' · ') || '不限' },
+      { k: '想影响的人群', v: P.audiences.map(a => V.label('audiences', a)).join(' · ') || '不限' },
+      { k: '目标圈层', v: `${cList.length} 个 · ${eff.length} 位代表人物` + (focus.length ? `；重点：${focus.map(id => V.circleLabel(P.group, id)).join('、')}` : '') + (s.custom.length ? ` · ${s.custom.length} 位待核查` : '') },
+      { k: '保留名单', v: `${keptList.length} 位 · ${V.fmtRange(budget.lo, budget.hi)}` },
+      { k: '商务状态', v: `${kept.filter(m => m.kol.commercial === 'contactable').length} 位可赞助已确认 · ${kept.filter(m => m.kol.commercial !== 'contactable').length} 位商务待验证` },
+    ];
+    const planTabs = ['A', 'B'].map(p => ({ label: `方案 ${p} · ${(s.plans[p] || []).length}`, pick: () => this.setState({ plan: p }, () => this.persist({ plan: p })), bg: s.plan === p ? teal : 'transparent', color: s.plan === p ? '#0E0E0E' : mute }));
+
+    let info = null; const it = s.info && V.targetsById[s.info];
+    if (it) { const on = focus.includes(it.circle); const bridges = kept.filter(m => m.overlap.some(e => e.targetId === it.id)).map(m => m.kol.name);
+      const au = V.avatarUrl(it.handle);
+      info = { name: it.name, handle: it.handle, role: it.role, initial: (it.name || '?').slice(0, 1), avatarBg: au ? `url("${au}")` : 'none', circle: (cList.find(c => c.id === it.circle) || {}).label || '', why: it.why,
+        bridge: bridges.length ? `${bridges.join('、')} 与他有公开连接记录` : '保留创作者后，这里会显示谁能连接到他',
+        url: `https://x.com/${it.handle.replace('@', '')}`, toggle: () => { const c = it.circle; const nf = on ? focus.filter(x => x !== c) : [...focus, c].slice(-3); this.setState({ focus: nf, info: null, tick: on ? `取消重点：${V.circleLabel(P.group, c)}` : `重点：${V.circleLabel(P.group, c)}，相关创作者已排到前面` }, () => this.persist({ focus: nf })); },
+        btnLabel: on ? `取消「${(cList.find(c => c.id === it.circle) || {}).label}」重点` : `把「${(cList.find(c => c.id === it.circle) || {}).label}」设为重点`, btnBg: on ? 'transparent' : teal, btnColor: on ? teal : '#0E0E0E' }; }
+
+    return { ...base, anchors, hasGroup: true, groupCards, domainOpts, marketOpts, audOpts, budgetOpts, brandOpts,
+      moreOpen: !!s.moreOpen, moreChevron: s.moreOpen ? '−' : '+', toggleMore: () => this.setState({ moreOpen: !s.moreOpen }),
+      circleCards, setQuery: e => this.setState({ query: e.target.value }),
+      
+      hasHit: !!q && hits.length > 0, hitNote: `库内找到 ${hits.length} 位，已在下方高亮所属圈层`,
+      noMatch, addCustom: () => { const name = s.query.trim(); if (!name) return; const hint = this.weakMatch(name); const next = [...s.custom, { name, hint }]; this.setState({ custom: next, query: '', tick: `已记录「${name}」，交 Mango 核查` }, () => this.persist({ custom: next })); },
+      hasCustom: custom.length > 0, customRows: custom,
+      showList: !!s.listOpen, buildList: () => this.startReveal(),
+      buildLabel: s.listOpen ? '重新生成名单' : '生成可投放名单',
+      buildNote: focus.length ? `已标记重点：${focus.map(id => V.circleLabel(P.group, id)).join('、')}。名单不会因此变少，只会把相关创作者排到前面。` : '不标记也可以——名单会覆盖上面全部圈层，按整体连接强度排序。',
+      listHeadline, listNote: '只收录与上述圈层人物之间有公开连接记录的创作者。价格为档位区间而非报价，最终以 Mango 复核为准。',
+      conclusionKicker: keptList.length ? '你的名单' : '路径概览', conclusion, conclusionStats, relaxActions,
+      methodOpen: !!s.methodOpen, openMethod: () => this.setState({ methodOpen: true }), closeMethod: () => this.setState({ methodOpen: false }),
+      methodSteps: [
+        { n: '01', title: '关系溯源', body: '以你选定的目标人物为起点，取其公开关注与近期互动网络的交集，得到有路径可循的候选创作者。没有连接记录的账号不会出现在名单里。' },
+        { n: '02', title: '表达面验证', body: '只保留近期持续产出、受众可查、内容方向与你的叙事相关的账号；纯流量号与话题无关的账号在这一步被过滤。' },
+        { n: '03', title: '合作可行性', body: '核验公开合作入口、历史合作记录与可建联路径，标注为可立即确认档期，或需 Mango 主动建联并询价。' },
+      ],
+      methodStats: [{ k: '目标人物库', v: String(V.targets.filter(t => t.group === P.group).length) }, { k: '候选创作者', v: String(s.kols.filter(k => k.group === P.group).length) }, { k: '连接记录', v: String(rk.reduce((a, m) => a + m.overlap.length, 0)) }],
+      hasProject: !!s.project, projectName: (s.project || {}).name || '', projectMeta: (s.project || {}).meta || '', loading: false,
+      revealing: s.revealing, revealLines, skipReveal: () => { clearInterval(this._rv); this.setState({ revealing: false, revealed: true }, () => this.persist({ revealed: true })); },
+      graphOpen: s.graphOpen, graphLabel: s.graphOpen ? '收起关系图' : '展开关系图', toggleGraph: () => this.setState({ graphOpen: !s.graphOpen }), graph,
+      applySuggestion: () => { const pick = rk.slice(0, 7).map(m => ({ id: m.kol.id, format: 'post' })); this.setKept(pick, `已采用建议名单 ${pick.length} 位，可继续增减`); },
+      hasKept: keptList.length > 0, keptCards, keptCount: String(keptList.length), candCards, candCount: String(cands.length),
+      noCands: cands.length === 0, noCandNote: rk.length ? '当前候选都已在你的名单里。放宽市场或人群，可以带出更多有连接路径的创作者。' : '按当前组合，暂时没有能连接到这些目标人物的创作者。放宽一项限制，或多选 1–2 位目标人物，路径就会出现。',
+      confirmRows, planTabs, understanding: V.understandingText(P, focus, keptBudgetRows),
+      notSubmitted: !s.submittedAt, submitted: !!s.submittedAt, submittedAt: s.submittedAt ? `提交于 ${s.submittedAt}` : '',
+      submit: () => { const at = new Date().toLocaleString('zh-CN'); this.setState({ submittedAt: at }, () => this.persist({ submittedAt: at })); },
+      unsubmit: () => this.setState({ submittedAt: null }, () => this.persist({ submittedAt: null })), exportPdf: () => window.print(),
+      demoNote: V.DEMO_NOTE, rail, hasInfo: !!info, info: info || {}, closeInfo: () => this.setState({ info: null }),
+      applyBrief: () => this.applyBrief(), briefKey: e => { if (e.key === 'Enter') this.applyBrief(); } };
+  }
+  weakMatch(name) {
+    const V = this.V; const n = name.toLowerCase().replace('@', '');
+    const hit = V.targets.find(t => t.name.toLowerCase().includes(n) || t.handle.toLowerCase().includes(n));
+    return hit ? `库内相近：${hit.name}` : '';
+  }
+  applyBrief() {
+    const code = this.state.briefCode.trim().toLowerCase();
+    if (code !== 'demo') { this.setState({ briefMsg: '未找到该 Brief 码，可直接开始选择' }); return; }
+    this.setPrefs(p => { p.group = 'ai'; p.domains = ['ai_agent', 'consumer_ai']; p.markets = ['us']; p.audiences = ['developers', 'investors']; p.budget = 'b2'; }, '已带入 iLands 的项目资料，可随时修改');
+    this.setState({ briefOpen: false, briefMsg: '', project: { name: 'iLands', meta: 'AI · 美国' } }, () => this.persist({}));
+  }
+  expandNote(kept, eff, cList) {
+    const V = this.V;
+    const covered = new Set(kept.flatMap(m => m.overlap.map(e => (V.targetsById[e.targetId] || {}).circle)));
+    const rest = [...new Set(eff.map(id => (V.targetsById[id] || {}).circle))].filter(c => c && !covered.has(c));
+    if (!kept.length) return '保留几位后，这里会提示还能往哪些圈层拓展。';
+    if (!rest.length) return '你选的圈层都已有创作者连接，可以继续加深覆盖。';
+    return `再保留 1–2 位，可以把${rest.map(c => (cList.find(x => x.id === c) || {}).label).filter(Boolean).join('、')}一并覆盖。`;
+  }
+  buildGraph(kept, eff) {
+    const V = this.V, teal = '#5FC4BB';
+    if (!kept.length) return { empty: true, show: false };
+    const tIds = [...new Set(kept.flatMap(m => m.overlap.map(e => e.targetId)))];
+    if (!tIds.length) return { empty: true, show: false };
+    const circleIds = [...new Set(tIds.map(id => (V.targetsById[id] || {}).circle))].filter(Boolean);
+    const cList = V.circles[this.state.prefs.group] || [];
+    const rowH = 42, top = 8;
+    const rows = Math.max(kept.length, tIds.length, circleIds.length);
+    const h = top + rows * rowH + 8;
+    const yOf = (n, i) => top + (h - top - 8) / 2 - (n * rowH) / 2 + i * rowH + 4;
+    const cols = [{ x: 0, w: 30 }, { x: 36, w: 32 }, { x: 74, w: 26 }];
+    const nodes = [];
+    kept.forEach((m, i) => nodes.push({ id: m.kol.id, kind: 'k', lx: cols[0].x, lw: cols[0].w, ty: yOf(kept.length, i), label: m.kol.name, sub: (V.tierOf(m.kol.tier) || {}).mark, bg: '#1B3A3C', border: teal, op: 1, click: () => this.setState({ focus: this.state.focus === m.kol.id ? null : m.kol.id }) }));
+    tIds.forEach((id, i) => { const t = V.targetsById[id] || {}; nodes.push({ id, kind: 't', lx: cols[1].x, lw: cols[1].w, ty: yOf(tIds.length, i), label: t.name, sub: '', bg: '#152F31', border: 'rgba(243,241,234,.3)', op: 1, click: () => this.setState({ focus: this.state.focus === id ? null : id }) }); });
+    circleIds.forEach((c, i) => { const cc = cList.find(x => x.id === c) || {}; nodes.push({ id: c, kind: 'c', lx: cols[2].x, lw: cols[2].w, ty: yOf(circleIds.length, i), label: cc.label || c, sub: '', bg: '#1B3A3C', border: teal, op: 1, click: () => this.setState({ focus: this.state.focus === c ? null : c }) }); });
+    const f = this.state.focus;
+    if (f) nodes.forEach(n => { n.op = this.linked(n, f, kept) ? 1 : .28; });
+    const pos = id => nodes.find(n => n.id === id);
+    const edges = [];
+    const px = n => ({ x1: (n.lx + n.lw) * 10, y1: n.ty + 17, x2: 0, y2: 0 });
+    kept.forEach(m => m.overlap.forEach(e => {
+      const a = pos(m.kol.id), b = pos(e.targetId); if (!a || !b) return;
+      edges.push({ x1: (a.lx + a.lw) * 10, y1: a.ty + 17, x2: b.lx * 10, y2: b.ty + 17, stroke: e.verified ? teal : 'rgba(243,241,234,.55)', w: e.verified ? 1.4 : 1, dash: e.verified ? '' : '4 5', op: Math.min(a.op, b.op) });
+    }));
+    tIds.forEach(id => { const a = pos(id), b = pos((V.targetsById[id] || {}).circle); if (!a || !b) return; edges.push({ x1: (a.lx + a.lw) * 10, y1: a.ty + 17, x2: b.lx * 10, y2: b.ty + 17, stroke: 'rgba(95,196,187,.5)', w: 1, dash: '', op: Math.min(a.op, b.op) }); });
+    return { empty: false, show: true, h, vh: h, nodes, edges, note: f ? '再次点击节点取消高亮' : '点击任一节点高亮它的路径' };
+  }
+  linked(n, f, kept) {
+    if (n.id === f) return true;
+    const V = this.V;
+    const edgesOf = id => { const m = kept.find(x => x.kol.id === id); return m ? m.overlap : []; };
+    if (n.kind === 'k') return edgesOf(n.id).some(e => e.targetId === f || (V.targetsById[e.targetId] || {}).circle === f);
+    if (n.kind === 't') return kept.some(m => m.kol.id === f && m.overlap.some(e => e.targetId === n.id)) || (V.targetsById[n.id] || {}).circle === f;
+    return kept.some(m => (m.kol.id === f && m.overlap.some(e => (V.targetsById[e.targetId] || {}).circle === n.id))) || (V.targetsById[f] || {}).circle === n.id;
+  }
+}
+</script>
+</body>
+</html>

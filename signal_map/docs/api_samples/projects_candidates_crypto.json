@@ -1,0 +1,1793 @@
+{
+  "projectId": 1,
+  "targetIds": [
+    "vitalikbuterin",
+    "cz_binance",
+    "brian_armstrong",
+    "saylor",
+    "gavofyork",
+    "haydenzadams",
+    "stanikulechov",
+    "sreeramkannan",
+    "cdixon",
+    "arjunblj",
+    "punk6529",
+    "ryansadams",
+    "trustlessstate",
+    "santiagoroel",
+    "0xmaki",
+    "lightcrypto",
+    "smyyguy",
+    "ljin18",
+    "hasufl",
+    "_prestwich",
+    "samczsun",
+    "danrobinson",
+    "0xfoobar",
+    "tayvano_",
+    "zachxbt",
+    "epolynya",
+    "adamscochran",
+    "rewkang"
+  ],
+  "counts": {
+    "priced": 9,
+    "discovered": 4,
+    "total": 13
+  },
+  "targets": {
+    "selected": 28,
+    "resolved": 28,
+    "withRelationshipData": 28
+  },
+  "candidates": [
+    {
+      "id": "x:101584084",
+      "name": "Brian Roemmele",
+      "handle": "BrianRoemmele",
+      "url": "https://x.com/BrianRoemmele",
+      "platform": "X",
+      "followers": 487813,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1492616506/Brian-Med-Green-Fin_400x400.png",
+      "bio": "we can only see what we think is possible...",
+      "contentLine": "面向普通消费者的ai、consumer_tech内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "902926941413453824",
+          "targetHandle": "cz_binance",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "244647486",
+          "targetHandle": "saylor",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2529971",
+          "targetHandle": "cdixon",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1269408213876846592",
+          "targetHandle": "0xMaki",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "19748227",
+          "targetHandle": "tayvano_",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 7,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "consumer_tech"
+      ],
+      "audiences": [
+        "普通消费者"
+      ],
+      "formats": [
+        "unknown"
+      ],
+      "engagement": {
+        "medianViews": 7575.0,
+        "postsCounted": null,
+        "latestPostAt": null,
+        "observedAt": "2026-08-26",
+        "basis": "取自 Mango 既有记录",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、consumer_tech"
+    },
+    {
+      "id": "x:2588345408",
+      "name": "Rohan Paul",
+      "handle": "rohanpaul_ai",
+      "url": "https://x.com/rohanpaul_ai",
+      "platform": "X",
+      "followers": 156260,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1816185267037859840/Fd18CH0v_400x400.jpg",
+      "bio": "Compiling in real-time, the race towards AGI.\n\n🗞️ Get my daily AI analysis newsletter to your email  👉 https://t.co/6LBxO81tfN",
+      "contentLine": "面向研究员、开发者的ai、education内容",
+      "source": "priced",
+      "tier": 1,
+      "price": "$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "medium",
+          "strengthLabel": "单次公开互动，或双向关注",
+          "via": []
+        },
+        {
+          "targetId": "116328126",
+          "targetHandle": "adamscochran",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "medium",
+          "strengthLabel": "单次公开互动，或双向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "737132550",
+          "targetHandle": "santiagoroel",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 4,
+      "topLinkStrength": "medium",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "education"
+      ],
+      "audiences": [
+        "研究员",
+        "开发者"
+      ],
+      "formats": [
+        "linkedin_post",
+        "newsletter",
+        "unknown",
+        "x_quote_repost",
+        "x_repost"
+      ],
+      "engagement": {
+        "medianViews": 5145.5,
+        "postsCounted": 30,
+        "latestPostAt": "2026-09-10",
+        "observedAt": "2026-09-10",
+        "basis": "最近 30 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、education"
+    },
+    {
+      "id": "x:1573399256836309009",
+      "name": "Chubby♨️",
+      "handle": "kimmonismus",
+      "url": "https://x.com/kimmonismus",
+      "platform": "X",
+      "followers": 140994,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1728327996375719936/RW7VBJfD_400x400.jpg",
+      "bio": "Tech Analyst & Content Creator. Editor-in-Chief @getsuperintel - Community of 300k+ in total: 🔗 https://t.co/jHMmImmI5I //📧 ［联系方式由 Mango 对接］",
+      "contentLine": "面向普通消费者、内容创作者的consumer_tech、business内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "medium",
+          "strengthLabel": "单次公开互动，或双向关注",
+          "via": []
+        },
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 3,
+      "topLinkStrength": "medium",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "consumer_tech",
+        "business"
+      ],
+      "audiences": [
+        "普通消费者",
+        "内容创作者"
+      ],
+      "formats": [
+        "x_single_post"
+      ],
+      "engagement": {
+        "medianViews": 39744.0,
+        "postsCounted": 19,
+        "latestPostAt": "2026-09-09",
+        "observedAt": "2026-09-10",
+        "basis": "最近 19 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [
+        "公开邮箱为工作/媒体联系，商务合作路径另需确认"
+      ],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 consumer_tech、business"
+    },
+    {
+      "id": "x:3888491",
+      "name": "Linus ✦ Ekenstam",
+      "handle": "LinusEkenstam",
+      "url": "https://x.com/LinusEkenstam",
+      "platform": "X",
+      "followers": 240607,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/2000865949298176002/0GW70YnP_400x400.jpg",
+      "bio": "Everything AI + Robotics, deep dives, hottakes. I help business and individuals overcome in the age of AI. Optimist\n［联系方式由 Mango 对接］ for partnerships 🤝",
+      "contentLine": "面向普通消费者、内容创作者的ai、robotics内容",
+      "source": "priced",
+      "tier": 3,
+      "price": "$$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "952921795316912133",
+          "targetHandle": "StaniKulechov",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "medium",
+          "strengthLabel": "单次公开互动，或双向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "medium",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "robotics",
+        "business"
+      ],
+      "audiences": [
+        "普通消费者",
+        "内容创作者"
+      ],
+      "formats": [
+        "x_single_post"
+      ],
+      "engagement": {
+        "medianViews": 12439.0,
+        "postsCounted": 9,
+        "latestPostAt": "2026-09-09",
+        "observedAt": "2026-09-10",
+        "basis": "最近 9 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、robotics、business"
+    },
+    {
+      "id": "x:1618975370488999936",
+      "name": "AshutoshShrivastava",
+      "handle": "ai_for_success",
+      "url": "https://x.com/ai_for_success",
+      "platform": "X",
+      "followers": 81304,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1687401026805256192/uQ1o2wVQ_400x400.jpg",
+      "bio": "Post about latest AI news, tools, tutorials and memes.",
+      "contentLine": "面向普通消费者、学习者的ai内容",
+      "source": "priced",
+      "tier": 1,
+      "price": "$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "circle:0xMaki",
+          "targetHandle": "0xMaki",
+          "type": "shared_circle",
+          "count": 4,
+          "lastSeen": null,
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "同圈层：你的目标关注的创作者也在关注他（间接关系）",
+          "via": [
+            "HBCoop_",
+            "VaibhavSisinty",
+            "egeberkina",
+            "kimmonismus"
+          ]
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai"
+      ],
+      "audiences": [
+        "普通消费者",
+        "学习者"
+      ],
+      "formats": [
+        "unknown",
+        "x_quote_repost",
+        "x_repost",
+        "x_thread"
+      ],
+      "engagement": {
+        "medianViews": 6317.0,
+        "postsCounted": 32,
+        "latestPostAt": "2026-09-09",
+        "observedAt": "2026-09-10",
+        "basis": "最近 32 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai"
+    },
+    {
+      "id": "x:1414948050817196037",
+      "name": "Ronin",
+      "handle": "DeRonin_",
+      "url": "https://x.com/DeRonin_",
+      "platform": "X",
+      "followers": 117460,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/2028941027814285313/AMp-U0y8_400x400.jpg",
+      "bio": "20 / CEO of Arcane / Angel Investor / engineering virality for AI companies",
+      "contentLine": "面向投资人、创始人的ai、finance内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "774642558853009408",
+          "targetHandle": "ljin18",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "finance",
+        "consumer_tech"
+      ],
+      "audiences": [
+        "投资人",
+        "创始人",
+        "开发者"
+      ],
+      "formats": [
+        "article",
+        "x_quote_repost",
+        "x_single_post",
+        "x_thread"
+      ],
+      "engagement": {
+        "medianViews": 10986.0,
+        "postsCounted": null,
+        "latestPostAt": null,
+        "observedAt": "2026-08-26",
+        "basis": "取自 Mango 既有记录",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、finance、consumer_tech"
+    },
+    {
+      "id": "x:20810416",
+      "name": "Dr. Roman Yampolskiy",
+      "handle": "romanyam",
+      "url": "https://x.com/romanyam",
+      "platform": "X",
+      "followers": 162131,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1803853599837163523/KaW52Ey9_400x400.jpg",
+      "bio": "Prof. of CS. AI Safety Researcher. Host of The Roman Forum Podcast https://t.co/832CyJbPkR  Talks/Interviews: ［联系方式由 Mango 对接］",
+      "contentLine": "面向研究员、学习者的ai、science内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "science"
+      ],
+      "audiences": [
+        "研究员",
+        "学习者"
+      ],
+      "formats": [
+        "unknown"
+      ],
+      "engagement": {
+        "medianViews": 9432.0,
+        "postsCounted": null,
+        "latestPostAt": null,
+        "observedAt": "2026-08-26",
+        "basis": "取自 Mango 既有记录",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、science"
+    },
+    {
+      "id": "x:1271482878958940160",
+      "name": "Turing Post",
+      "handle": "TheTuringPost",
+      "url": "https://x.com/TheTuringPost",
+      "platform": "X",
+      "followers": 87532,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/2052479476605333508/_-CG4lvC_400x400.jpg",
+      "bio": "On X we surface the AI research that matters and explain the ideas behind it. In the newsletter, we connect the dots between AI’s past, present, and future ⬇️",
+      "contentLine": "面向研究员、开发者的ai、education内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "circle:Rewkang",
+          "targetHandle": "Rewkang",
+          "type": "shared_circle",
+          "count": 2,
+          "lastSeen": null,
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "同圈层：你的目标关注的创作者也在关注他（间接关系）",
+          "via": [
+            "DeRonin_",
+            "rohanpaul_ai"
+          ]
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "ai",
+        "education"
+      ],
+      "audiences": [
+        "研究员",
+        "开发者"
+      ],
+      "formats": [
+        "newsletter",
+        "x_single_post",
+        "x_thread"
+      ],
+      "engagement": {
+        "medianViews": 3055.0,
+        "postsCounted": 26,
+        "latestPostAt": "2026-09-09",
+        "observedAt": "2026-09-10",
+        "basis": "最近 26 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 ai、education"
+    },
+    {
+      "id": "x:391160098",
+      "name": "Ben Geskin",
+      "handle": "BenGeskin",
+      "url": "https://x.com/BenGeskin",
+      "platform": "X",
+      "followers": 354355,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1637906569370148870/m7Xw5tZ8_400x400.jpg",
+      "bio": "Tech Enthusiast 📱🕶 Content Creator 🎬 AR/VR/AI ᯅ Business via DM/email: bengeskin gmail",
+      "contentLine": "面向普通消费者、内容创作者的consumer_tech、ai内容",
+      "source": "priced",
+      "tier": 2,
+      "price": "$$",
+      "priceNote": "档位区间，非报价；以 Mango 复核为准",
+      "quoteStatus": "confirmed",
+      "bizState": "ready",
+      "bizStateLabel": "可立即确认档位与档期",
+      "bizEvidence": "已在 Mango 报价库，档位与档期可直接确认",
+      "links": [
+        {
+          "targetId": "circle:Rewkang",
+          "targetHandle": "Rewkang",
+          "type": "shared_circle",
+          "count": 2,
+          "lastSeen": null,
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "同圈层：你的目标关注的创作者也在关注他（间接关系）",
+          "via": [
+            "LinusEkenstam",
+            "kimmonismus"
+          ]
+        }
+      ],
+      "linkCount": 1,
+      "topLinkStrength": "weak",
+      "discoveryPath": null,
+      "markets": [
+        "欧美"
+      ],
+      "languages": [
+        "en"
+      ],
+      "domains": [
+        "consumer_tech",
+        "ai"
+      ],
+      "audiences": [
+        "普通消费者",
+        "内容创作者"
+      ],
+      "formats": [
+        "x_single_post",
+        "x_thread"
+      ],
+      "engagement": {
+        "medianViews": 11318.5,
+        "postsCounted": null,
+        "latestPostAt": null,
+        "observedAt": "2026-08-26",
+        "basis": "取自 Mango 既有记录",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "可直接确认档位与档期",
+      "dataNote": null,
+      "projectFit": "mismatch",
+      "projectFitBasis": "内容方向为 consumer_tech、ai"
+    },
+    {
+      "id": "x:26377478",
+      "name": "Laura Shin",
+      "handle": "laurashin",
+      "url": "https://x.com/laurashin",
+      "platform": "X",
+      "followers": 296748,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1539462748173746176/hxR80FYT_400x400.png",
+      "bio": "Crypto journalist 🎧 Host @unchained_pod 📚 Author, The Cryptopians 💌 Sign up https://t.co/gf90Q5GrXy Ads ［联系方式由 Mango 对接］",
+      "contentLine": "面向交易者的crypto、media_video内容",
+      "source": "discovered",
+      "tier": null,
+      "price": null,
+      "priceNote": "报价待询",
+      "quoteStatus": "pending_inquiry",
+      "bizState": "open_channel",
+      "bizStateLabel": "有公开合作入口，待接洽",
+      "bizEvidence": "公开资料里有合作入口：…p https://t.co/gf90Q5GrXy Ads ［联系方式由 Mango 对接］…",
+      "links": [
+        {
+          "targetId": "3012852462",
+          "targetHandle": "zachxbt",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "14379660",
+          "targetHandle": "brian_armstrong",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "244647486",
+          "targetHandle": "saylor",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2529971",
+          "targetHandle": "cdixon",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "116328126",
+          "targetHandle": "adamscochran",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "702654540387127296",
+          "targetHandle": "haydenzadams",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "737132550",
+          "targetHandle": "santiagoroel",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "952921795316912133",
+          "targetHandle": "StaniKulechov",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "14571055",
+          "targetHandle": "RyanSAdams",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "774642558853009408",
+          "targetHandle": "ljin18",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "424304399",
+          "targetHandle": "smyyguy",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "981208355115974656",
+          "targetHandle": "TrustlessState",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "273288231",
+          "targetHandle": "danrobinson",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "25552514",
+          "targetHandle": "arjunblj",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "566534886",
+          "targetHandle": "hasufl",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1269408213876846592",
+          "targetHandle": "0xMaki",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "19748227",
+          "targetHandle": "tayvano_",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 20,
+      "topLinkStrength": "weak",
+      "discoveryPath": {
+        "via": [
+          "zachxbt",
+          "brian_armstrong",
+          "saylor",
+          "punk6529",
+          "sreeramkannan",
+          "cdixon",
+          "adamscochran",
+          "haydenzadams"
+        ],
+        "count": 20,
+        "text": "经由 @zachxbt、@brian_armstrong、@saylor 等 20 位目标人物发现"
+      },
+      "markets": [
+        "欧美"
+      ],
+      "languages": [],
+      "domains": [
+        "crypto",
+        "media_video"
+      ],
+      "audiences": [
+        "交易者"
+      ],
+      "formats": [],
+      "engagement": {
+        "medianViews": 7828.0,
+        "postsCounted": 27,
+        "latestPostAt": "2026-09-10",
+        "observedAt": "2026-09-10",
+        "basis": "最近 27 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "Mango 将通过其公开合作入口接洽并取得报价",
+      "dataNote": "该对象由你选定的目标人物公开关注关系发现，Mango 尚未与其建立合作；关注关系表示内容有机会出现在对方信息流，不代表对方一定会看到或回应",
+      "projectFit": "match",
+      "projectFitBasis": "符合 内容方向"
+    },
+    {
+      "id": "x:987634087274823680",
+      "name": "Darren Lau",
+      "handle": "Darrenlautf",
+      "url": "https://x.com/Darrenlautf",
+      "platform": "X",
+      "followers": 154291,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/2019670651595046912/8WQ1WI8M_400x400.jpg",
+      "bio": "Shitposter: @not3lau_capital | Founder: The Daily Ape | Author: How To DeFi https://t.co/xBqTcb1K8U",
+      "contentLine": "面向创始人、交易者的crypto、finance内容",
+      "source": "discovered",
+      "tier": null,
+      "price": null,
+      "priceNote": "报价待询",
+      "quoteStatus": "pending_inquiry",
+      "bizState": "needs_bd",
+      "bizStateLabel": "需 Mango 主动建联",
+      "bizEvidence": "未发现公开合作入口，需 Mango 主动建联",
+      "links": [
+        {
+          "targetId": "3012852462",
+          "targetHandle": "zachxbt",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2529971",
+          "targetHandle": "cdixon",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "116328126",
+          "targetHandle": "adamscochran",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1356386110847377408",
+          "targetHandle": "0xfoobar",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "737132550",
+          "targetHandle": "santiagoroel",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "952921795316912133",
+          "targetHandle": "StaniKulechov",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "774642558853009408",
+          "targetHandle": "ljin18",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "424304399",
+          "targetHandle": "smyyguy",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "981208355115974656",
+          "targetHandle": "TrustlessState",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "273288231",
+          "targetHandle": "danrobinson",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "25552514",
+          "targetHandle": "arjunblj",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "566534886",
+          "targetHandle": "hasufl",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1269408213876846592",
+          "targetHandle": "0xMaki",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "889183928053104642",
+          "targetHandle": "lightcrypto",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "19748227",
+          "targetHandle": "tayvano_",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 18,
+      "topLinkStrength": "weak",
+      "discoveryPath": {
+        "via": [
+          "zachxbt",
+          "punk6529",
+          "sreeramkannan",
+          "cdixon",
+          "adamscochran",
+          "Rewkang",
+          "0xfoobar",
+          "santiagoroel"
+        ],
+        "count": 18,
+        "text": "经由 @zachxbt、@punk6529、@sreeramkannan 等 18 位目标人物发现"
+      },
+      "markets": [
+        "欧美"
+      ],
+      "languages": [],
+      "domains": [
+        "crypto",
+        "finance"
+      ],
+      "audiences": [
+        "创始人",
+        "交易者"
+      ],
+      "formats": [],
+      "engagement": {
+        "medianViews": 43568.0,
+        "postsCounted": 27,
+        "latestPostAt": "2026-02-14",
+        "observedAt": "2026-09-10",
+        "basis": "最近 27 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "Mango 将主动建联并取得报价",
+      "dataNote": "该对象由你选定的目标人物公开关注关系发现，Mango 尚未与其建立合作；关注关系表示内容有机会出现在对方信息流，不代表对方一定会看到或回应",
+      "projectFit": "match",
+      "projectFitBasis": "符合 内容方向"
+    },
+    {
+      "id": "x:1304447544576167942",
+      "name": "pplpleasr",
+      "handle": "pplpleasr1",
+      "url": "https://x.com/pplpleasr1",
+      "platform": "X",
+      "followers": 70669,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1925022757210714112/2XUgLz7f_400x400.jpg",
+      "bio": "high quality meme generator @shibuyafilm @pleasrDAO @plsA0k1",
+      "contentLine": "crypto、media_video方向的内容",
+      "source": "discovered",
+      "tier": null,
+      "price": null,
+      "priceNote": "报价待询",
+      "quoteStatus": "pending_inquiry",
+      "bizState": "needs_bd",
+      "bizStateLabel": "需 Mango 主动建联",
+      "bizEvidence": "未发现公开合作入口，需 Mango 主动建联",
+      "links": [
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2166711024",
+          "targetHandle": "sreeramkannan",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2529971",
+          "targetHandle": "cdixon",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "702654540387127296",
+          "targetHandle": "haydenzadams",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "737132550",
+          "targetHandle": "santiagoroel",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "952921795316912133",
+          "targetHandle": "StaniKulechov",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "774642558853009408",
+          "targetHandle": "ljin18",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "424304399",
+          "targetHandle": "smyyguy",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "981208355115974656",
+          "targetHandle": "TrustlessState",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "273288231",
+          "targetHandle": "danrobinson",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "25552514",
+          "targetHandle": "arjunblj",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "566534886",
+          "targetHandle": "hasufl",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1269408213876846592",
+          "targetHandle": "0xMaki",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "19748227",
+          "targetHandle": "tayvano_",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 15,
+      "topLinkStrength": "weak",
+      "discoveryPath": {
+        "via": [
+          "punk6529",
+          "sreeramkannan",
+          "cdixon",
+          "haydenzadams",
+          "Rewkang",
+          "santiagoroel",
+          "StaniKulechov",
+          "ljin18"
+        ],
+        "count": 15,
+        "text": "经由 @punk6529、@sreeramkannan、@cdixon 等 15 位目标人物发现"
+      },
+      "markets": [
+        "欧美"
+      ],
+      "languages": [],
+      "domains": [
+        "crypto",
+        "media_video"
+      ],
+      "audiences": [],
+      "formats": [],
+      "engagement": {
+        "medianViews": 44703.0,
+        "postsCounted": 23,
+        "latestPostAt": "2026-08-23",
+        "observedAt": "2026-09-10",
+        "basis": "最近 23 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "Mango 将主动建联并取得报价",
+      "dataNote": "该对象由你选定的目标人物公开关注关系发现，Mango 尚未与其建立合作；关注关系表示内容有机会出现在对方信息流，不代表对方一定会看到或回应",
+      "projectFit": "match",
+      "projectFitBasis": "符合 内容方向"
+    },
+    {
+      "id": "x:1469101279",
+      "name": "Andreas (aantonop Team)",
+      "handle": "aantonop",
+      "url": "https://x.com/aantonop",
+      "platform": "X",
+      "followers": 784129,
+      "avatarUrl": "https://pbs.twimg.com/profile_images/1362967502247129090/Q2ypSr9W_400x400.jpg",
+      "bio": "My team uses this account now. Find me on https://t.co/xXqqqjq7Mt or https://t.co/DrzRPDF6ug\n\n#Bitcoin & Open Blockchains, since 2012. \n\nAuthor of 6 books.",
+      "contentLine": "面向交易者的crypto、finance内容",
+      "source": "discovered",
+      "tier": null,
+      "price": null,
+      "priceNote": "报价待询",
+      "quoteStatus": "pending_inquiry",
+      "bizState": "needs_bd",
+      "bizStateLabel": "需 Mango 主动建联",
+      "bizEvidence": "未发现公开合作入口，需 Mango 主动建联",
+      "links": [
+        {
+          "targetId": "14379660",
+          "targetHandle": "brian_armstrong",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "244647486",
+          "targetHandle": "saylor",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1388487332093997057",
+          "targetHandle": "punk6529",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "702654540387127296",
+          "targetHandle": "haydenzadams",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1138033434",
+          "targetHandle": "Rewkang",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "737132550",
+          "targetHandle": "santiagoroel",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "952921795316912133",
+          "targetHandle": "StaniKulechov",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "424304399",
+          "targetHandle": "smyyguy",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "981208355115974656",
+          "targetHandle": "TrustlessState",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "33962758",
+          "targetHandle": "gavofyork",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "273288231",
+          "targetHandle": "danrobinson",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "566534886",
+          "targetHandle": "hasufl",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "1269408213876846592",
+          "targetHandle": "0xMaki",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "2556480187",
+          "targetHandle": "_prestwich",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        },
+        {
+          "targetId": "19748227",
+          "targetHandle": "tayvano_",
+          "type": "follow",
+          "count": 1,
+          "lastSeen": "2026-09-09",
+          "verified": false,
+          "strength": "weak",
+          "strengthLabel": "单向关注",
+          "via": []
+        }
+      ],
+      "linkCount": 15,
+      "topLinkStrength": "weak",
+      "discoveryPath": {
+        "via": [
+          "brian_armstrong",
+          "saylor",
+          "punk6529",
+          "haydenzadams",
+          "Rewkang",
+          "santiagoroel",
+          "StaniKulechov",
+          "smyyguy"
+        ],
+        "count": 15,
+        "text": "经由 @brian_armstrong、@saylor、@punk6529 等 15 位目标人物发现"
+      },
+      "markets": [
+        "欧美"
+      ],
+      "languages": [],
+      "domains": [
+        "crypto",
+        "finance"
+      ],
+      "audiences": [
+        "交易者"
+      ],
+      "formats": [],
+      "engagement": {
+        "medianViews": 83061.0,
+        "postsCounted": 22,
+        "latestPostAt": "2024-12-15",
+        "observedAt": "2026-09-10",
+        "basis": "最近 22 条原创帖的播放中位数（不含转推）",
+        "replyQuality": null
+      },
+      "risk": [],
+      "nextStep": "Mango 将主动建联并取得报价",
+      "dataNote": "该对象由你选定的目标人物公开关注关系发现，Mango 尚未与其建立合作；关注关系表示内容有机会出现在对方信息流，不代表对方一定会看到或回应",
+      "projectFit": "match",
+      "projectFitBasis": "符合 内容方向"
+    }
+  ],
+  "budget": {
+    "known": {
+      "lo": 5300,
+      "hi": 21000
+    },
+    "pendingCount": 4,
+    "note": "档位区间之和，非报价；以 Mango 复核为准。待询价对象未计入。"
+  },
+  "narrowedByProject": {
+    "offProjectDirection": 1254,
+    "beyondCurrentBatch": 65,
+    "note": "本批之外还有 65 位同样与你的目标人物有公开关系，可在下一批展开"
+  },
+  "pricedSupply": {
+    "matchingDomain": 8,
+    "total": 276,
+    "note": "已有报价的对象共 276 位，其中 8 位内容方向与本项目一致；本轮名单以新发现对象为主 —— 这些人由你选定的目标人物的公开关注关系反推得出，Mango 将逐位建联并取得报价。"
+  },
+  "method": "名单由你选定的目标人物的公开关注与互动关系反推得出，按连接数量与强度排序；内容方向、人群与市场作次要修正。",
+  "limits": "公开关注表示内容有机会出现在对方信息流，不代表对方一定会看到、回复或转发。未取得报价的对象标注为待询价，不计入已知预算。"
+}

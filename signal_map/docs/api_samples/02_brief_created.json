@@ -1,0 +1,37 @@
+{
+  "id": 1,
+  "name": "AI 开发者工具发布 · 欧美",
+  "product_description": "面向开发者的 AI coding agent，首次公开发布",
+  "verticals": [
+    "ai",
+    "developer_tools"
+  ],
+  "target_markets": [
+    "europe_america"
+  ],
+  "content_languages": [
+    "en"
+  ],
+  "target_audiences": [
+    "developers",
+    "founders"
+  ],
+  "objectives": [
+    "credibility",
+    "trial"
+  ],
+  "platforms": [
+    "X",
+    "YouTube"
+  ],
+  "content_formats": [
+    "x_thread",
+    "youtube_dedicated"
+  ],
+  "total_budget_usd": 40000.0,
+  "per_creator_budget_min_usd": 200.0,
+  "per_creator_budget_max_usd": 8000.0,
+  "risk_tolerance": "low",
+  "notes": null,
+  "updated_at": "2026-09-08T10:55:22.185620+00:00"
+}

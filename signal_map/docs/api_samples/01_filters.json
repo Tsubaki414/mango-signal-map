@@ -1,0 +1,134 @@
+{
+  "verticals": [
+    "ai",
+    "developer_tools",
+    "crypto",
+    "finance",
+    "robotics",
+    "marketing",
+    "business",
+    "design",
+    "media_video",
+    "education",
+    "consumer_tech",
+    "gaming",
+    "science"
+  ],
+  "markets": [
+    {
+      "key": "europe_america",
+      "label": "欧美"
+    },
+    {
+      "key": "latam",
+      "label": "拉美"
+    },
+    {
+      "key": "africa",
+      "label": "非洲"
+    }
+  ],
+  "audiences": [
+    {
+      "key": "founders",
+      "label": "创始人"
+    },
+    {
+      "key": "investors",
+      "label": "投资人"
+    },
+    {
+      "key": "developers",
+      "label": "开发者"
+    },
+    {
+      "key": "researchers",
+      "label": "研究员"
+    },
+    {
+      "key": "marketers",
+      "label": "营销从业者"
+    },
+    {
+      "key": "traders",
+      "label": "交易者"
+    },
+    {
+      "key": "designers",
+      "label": "设计师"
+    },
+    {
+      "key": "creators",
+      "label": "内容创作者"
+    },
+    {
+      "key": "enterprise",
+      "label": "企业决策者"
+    },
+    {
+      "key": "students",
+      "label": "学习者"
+    },
+    {
+      "key": "consumers",
+      "label": "普通消费者"
+    }
+  ],
+  "objectives": [
+    {
+      "key": "credibility",
+      "label": "专业背书"
+    },
+    {
+      "key": "awareness",
+      "label": "品牌认知"
+    },
+    {
+      "key": "trial",
+      "label": "产品试用"
+    },
+    {
+      "key": "conversion",
+      "label": "注册转化"
+    },
+    {
+      "key": "funding_narrative",
+      "label": "融资叙事"
+    }
+  ],
+  "platforms": [
+    "X",
+    "YouTube",
+    "Instagram",
+    "TikTok",
+    "LinkedIn",
+    "Threads",
+    "Newsletter",
+    "Podcast",
+    "Multi",
+    "Unknown"
+  ],
+  "content_formats": [
+    "x_single_post",
+    "x_thread",
+    "x_quote_repost",
+    "x_repost",
+    "youtube_dedicated",
+    "youtube_integration",
+    "youtube_short",
+    "instagram_post",
+    "instagram_reel",
+    "instagram_story",
+    "tiktok_video",
+    "linkedin_post",
+    "threads_post",
+    "newsletter",
+    "article",
+    "podcast",
+    "voiceover",
+    "package",
+    "other",
+    "unknown"
+  ],
+  "pool_size": 276
+}

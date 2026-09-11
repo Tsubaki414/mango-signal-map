@@ -1,0 +1,347 @@
+{
+  "checks": [
+    {
+      "company_id": "company:olas",
+      "target_handle": "david_enim",
+      "bridge_handle": "cheryldchan",
+      "from_handle": "cheryldchan",
+      "to_handle": "david_enim",
+      "query_string": "from:cheryldchan to:david_enim",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:olas",
+      "target_handle": "david_enim",
+      "bridge_handle": "cheryldchan",
+      "from_handle": "david_enim",
+      "to_handle": "cheryldchan",
+      "query_string": "from:david_enim to:cheryldchan",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": [
+        {
+          "tweet_id": "1857054706767454246",
+          "tweet_url": "https://x.com/david_enim/status/1857054706767454246",
+          "posted_at": "2024-11-14T13:35:19",
+          "author_handle": "david_enim",
+          "recipient_handle": "cheryldchan",
+          "context_text": "@cheryldchan @ethan_myshell @myshell_ai @dcbuilder @worldnetwork @autonolas @ethermage Great panel - thanks for moderating @cheryldchan 🙌",
+          "interaction_type": "reply",
+          "is_auditable": true
+        }
+      ]
+    },
+    {
+      "company_id": "company:sapien",
+      "target_handle": "RowanRK6",
+      "bridge_handle": "roxinft",
+      "from_handle": "roxinft",
+      "to_handle": "RowanRK6",
+      "query_string": "from:roxinft to:RowanRK6",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:sapien",
+      "target_handle": "RowanRK6",
+      "bridge_handle": "roxinft",
+      "from_handle": "RowanRK6",
+      "to_handle": "roxinft",
+      "query_string": "from:RowanRK6 to:roxinft",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:sapien",
+      "target_handle": "RowanRK6",
+      "bridge_handle": "calchulus",
+      "from_handle": "calchulus",
+      "to_handle": "RowanRK6",
+      "query_string": "from:calchulus to:RowanRK6",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:sapien",
+      "target_handle": "RowanRK6",
+      "bridge_handle": "calchulus",
+      "from_handle": "RowanRK6",
+      "to_handle": "calchulus",
+      "query_string": "from:RowanRK6 to:calchulus",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": [
+        {
+          "tweet_id": "1403217223699898368",
+          "tweet_url": "https://x.com/RowanRK6/status/1403217223699898368",
+          "posted_at": "2021-06-11T05:07:11",
+          "author_handle": "RowanRK6",
+          "recipient_handle": "calchulus",
+          "context_text": "@calchulus Please tell me you haven’t been eating dry cereal?!",
+          "interaction_type": "reply",
+          "is_auditable": true
+        }
+      ]
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "cyrilxuq",
+      "from_handle": "cyrilxuq",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:cyrilxuq to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "cyrilxuq",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "cyrilxuq",
+      "query_string": "from:Mathilda_Sun_ to:cyrilxuq",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "UnicornBitcoin",
+      "from_handle": "UnicornBitcoin",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:UnicornBitcoin to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "UnicornBitcoin",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "UnicornBitcoin",
+      "query_string": "from:Mathilda_Sun_ to:UnicornBitcoin",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "momochenming",
+      "from_handle": "momochenming",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:momochenming to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "momochenming",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "momochenming",
+      "query_string": "from:Mathilda_Sun_ to:momochenming",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "lijiuer1",
+      "from_handle": "lijiuer1",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:lijiuer1 to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "lijiuer1",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "lijiuer1",
+      "query_string": "from:Mathilda_Sun_ to:lijiuer1",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "BroLeon",
+      "from_handle": "BroLeon",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:BroLeon to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "BroLeon",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "BroLeon",
+      "query_string": "from:Mathilda_Sun_ to:BroLeon",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "KuiGas",
+      "from_handle": "KuiGas",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:KuiGas to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "KuiGas",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "KuiGas",
+      "query_string": "from:Mathilda_Sun_ to:KuiGas",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "yuyue_chris",
+      "from_handle": "yuyue_chris",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:yuyue_chris to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": [
+        {
+          "tweet_id": "1908560520040636927",
+          "tweet_url": "https://x.com/yuyue_chris/status/1908560520040636927",
+          "posted_at": "2025-04-05T16:41:01",
+          "author_handle": "yuyue_chris",
+          "recipient_handle": "Mathilda_Sun_",
+          "context_text": "@Mathilda_Sun_ 百年好合！（？）",
+          "interaction_type": "reply",
+          "is_auditable": true
+        },
+        {
+          "tweet_id": "1862356971875442936",
+          "tweet_url": "https://x.com/yuyue_chris/status/1862356971875442936",
+          "posted_at": "2024-11-29T04:44:37",
+          "author_handle": "yuyue_chris",
+          "recipient_handle": "Mathilda_Sun_",
+          "context_text": "@Mathilda_Sun_ 让 degen 的人提供 insights，让 tradfi 的人做 execution 就行了",
+          "interaction_type": "reply",
+          "is_auditable": true
+        }
+      ]
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "yuyue_chris",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "yuyue_chris",
+      "query_string": "from:Mathilda_Sun_ to:yuyue_chris",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "xincctnnq",
+      "from_handle": "xincctnnq",
+      "to_handle": "Mathilda_Sun_",
+      "query_string": "from:xincctnnq to:Mathilda_Sun_",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:gaib",
+      "target_handle": "Mathilda_Sun_",
+      "bridge_handle": "xincctnnq",
+      "from_handle": "Mathilda_Sun_",
+      "to_handle": "xincctnnq",
+      "query_string": "from:Mathilda_Sun_ to:xincctnnq",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "xingpt",
+      "from_handle": "xingpt",
+      "to_handle": "0takuwaifu",
+      "query_string": "from:xingpt to:0takuwaifu",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "xingpt",
+      "from_handle": "0takuwaifu",
+      "to_handle": "xingpt",
+      "query_string": "from:0takuwaifu to:xingpt",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "RaccoonHKG",
+      "from_handle": "RaccoonHKG",
+      "to_handle": "0takuwaifu",
+      "query_string": "from:RaccoonHKG to:0takuwaifu",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "RaccoonHKG",
+      "from_handle": "0takuwaifu",
+      "to_handle": "RaccoonHKG",
+      "query_string": "from:0takuwaifu to:RaccoonHKG",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "mrdudu",
+      "from_handle": "mrdudu",
+      "to_handle": "0takuwaifu",
+      "query_string": "from:mrdudu to:0takuwaifu",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "mrdudu",
+      "from_handle": "0takuwaifu",
+      "to_handle": "mrdudu",
+      "query_string": "from:0takuwaifu to:mrdudu",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "zepump",
+      "from_handle": "zepump",
+      "to_handle": "0takuwaifu",
+      "query_string": "from:zepump to:0takuwaifu",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    },
+    {
+      "company_id": "company:heurist",
+      "target_handle": "0takuwaifu",
+      "bridge_handle": "zepump",
+      "from_handle": "0takuwaifu",
+      "to_handle": "zepump",
+      "query_string": "from:0takuwaifu to:zepump",
+      "coverage_note": "基于 X 搜索接口单次查询结果（search_type=Latest, count=20），接口对历史推文的索引范围不透明、不保证完整覆盖；未命中仅代表本次查询范围内未发现，不代表两人不认识或历史上从无互动。",
+      "evidence": []
+    }
+  ]
+}

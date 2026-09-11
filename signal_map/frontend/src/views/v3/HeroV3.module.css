@@ -1,0 +1,166 @@
+/* v3 Hero. 值转自 design_handoff_v3/Mango Signal Map v3.dc.html 的内联样式。
+ * 与 v1 的关键差别：两栏 grid（文案左、圆环右），圆环从 1440 画布挪进右栏自己的
+ * 620x900 画布，地平线信号带铺满整宽。 */
+
+.hero {
+  position: relative;
+  min-height: max(calc(100vh - var(--msm-topbar-h)), 600px);
+  overflow: hidden;
+  background: linear-gradient(180deg, #2c5a5d 0%, #1f4144 58%, #14302f 100%);
+  display: grid;
+  grid-template-columns: minmax(min(100%, 430px), 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 0;
+  padding: clamp(36px, 6vh, 72px) clamp(24px, 6vw, 96px) 152px;
+}
+
+.horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 132px;
+  z-index: 2;
+  background: var(--msm-horizon);
+  border-top: 1px solid rgba(243, 241, 234, 0.45);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bands {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 地平线上方那一小段黑色竖线，是 logo 阶梯母题的收束点。 */
+.tick {
+  position: absolute;
+  right: 22.6%;
+  top: -56px;
+  width: 4px;
+  height: 56px;
+  background: var(--msm-black);
+}
+
+.copy {
+  position: relative;
+  grid-column: 1;
+  min-width: 0;
+}
+
+.eyebrow {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: rgba(243, 241, 234, 0.72);
+  animation: msm-in 0.6s both;
+}
+
+.title {
+  margin: 26px 0 0;
+  font-size: clamp(30px, 4vw, 62px);
+  line-height: 1.14;
+  letter-spacing: var(--msm-ls-tight);
+  font-weight: var(--msm-w-body);
+  animation: msm-in 0.7s 0.1s both;
+}
+
+.title em {
+  display: block;
+  font-weight: var(--msm-w-em);
+  font-style: italic;
+}
+
+/* 不断行：标题第二行拆开会毁掉 标题句法 的节奏。 */
+.title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.lede {
+  margin: 26px 0 0;
+  max-width: min(30em, 90%);
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: var(--msm-lh-body);
+  color: rgba(243, 241, 234, 0.8);
+  animation: msm-in 0.7s 0.18s both;
+}
+
+.lede span {
+  white-space: nowrap;
+}
+
+.ctaRow {
+  margin-top: 34px;
+  animation: msm-in 0.7s 0.26s both;
+}
+
+.cta {
+  display: inline-flex;
+  height: 52px;
+  align-items: center;
+  gap: 18px;
+  padding: 0 26px;
+  border: 1px solid var(--msm-line-strong);
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--msm-text);
+  font-family: var(--msm-mono);
+  font-size: 13px;
+  letter-spacing: var(--msm-ls-mono-s);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cta:hover {
+  border-color: var(--msm-text);
+  background: rgba(243, 241, 234, 0.08);
+  color: var(--msm-text);
+}
+
+.deliver {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  max-width: min(44em, 92%);
+  animation: msm-in 0.7s 0.34s both;
+}
+
+.deliverTag {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: #7fd8ce;
+  flex: none;
+  padding-top: 3px;
+}
+
+.deliverText {
+  font-size: 13px;
+  line-height: var(--msm-lh-body);
+  color: rgba(243, 241, 234, 0.62);
+}
+
+.ringCol {
+  position: relative;
+  grid-column: 2;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.ring {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -72px;
+  bottom: -152px;
+  width: 100%;
+  height: auto;
+  min-height: calc(100% + 224px);
+  pointer-events: none;
+}
+
+.ringDraw {
+  animation: msm-line var(--msm-dur-line) var(--msm-ease) both;
+}

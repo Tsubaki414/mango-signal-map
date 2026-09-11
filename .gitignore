@@ -10,5 +10,37 @@ Screenshot*.png
 outputs/
 data/cache/
 kol_database/data/kol.db
+kol_database/data/backups/
 kol_database/data/cache/
+# Signal Map's database is rebuilt from kol.db by
+# signal_map/scripts/migrate_from_bd.py -- it is a derived artifact, not source.
+signal_map/data/*.db
+# 例外：部署种子库。由 build_deploy_seed.py 从工作库裁出（176MB -> 35MB），
+# Railway 从 Git 构建镜像，不提交它线上就没有数据。
+!signal_map/data/deploy_seed.db
+# Cached X/YouTube profile responses -- refetchable, and profile text is not
+# ours to redistribute.
+signal_map/data/cache/
 .venv/
+
+# ---------------------------------------------------------------------------
+# 业务资料：留在本机，不进 Git 历史
+#
+# 仓库要给同事协作用，所以放的是**代码**。下面这些是客户名单、建联草稿、
+# 研究产出和带联系方式的旧库 —— 同事写代码不需要它们，而 Git 历史是永久的：
+# 推上去之后即使删掉仓库，也无法保证彻底消失。
+# 需要共享时走 Drive / Notion，那里能撤销访问。
+# ---------------------------------------------------------------------------
+ai_kol_outreach_drafts.md
+ai_kol_outreach_execution_pack.md
+head_ai_kol_shortlist.csv
+head_ai_kol_and_supplier_shortlist.html
+frontrun_tracking_annotated.csv
+ilands_client_review_*.html
+data/pilot_v5/
+kol_database/data/pilot_v*/
+assets/head_ai_kol_supplier_shortlist.template.html
+kol_database/data/kol.seed.db
+kol_database/deploy_seed.db
+kol_database/reports/
+signal_map/reports/

@@ -1,0 +1,2 @@
+[console_scripts]
+mangobd = mangobd.cli:main

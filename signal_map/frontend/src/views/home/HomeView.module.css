@@ -1,0 +1,336 @@
+/* Home. Values transcribed from the handoff prototype's inline styles.
+ *
+ * Home uses a fixed 96px page gutter rather than the global
+ * --msm-page-x clamp: the hero is composed against the SVG ring and the
+ * horizon bands, so a fluid gutter would slide the title out of register with
+ * the artwork. Every other view uses the token. */
+
+.hero {
+  position: relative;
+  /* 720px floor: below that the ring and the horizon band collide. */
+  min-height: max(calc(100vh - var(--msm-topbar-h)), 720px);
+  overflow: hidden;
+  background: var(--msm-home-gradient);
+  display: flex;
+  flex-direction: column;
+}
+
+/* There is deliberately no .waves class.
+ *
+ * gradient-waves.js styles itself inline (position/width/height/pointer-events/
+ * mix-blend-mode/opacity), and inline beats a class, so any rule here is dead
+ * on arrival. Worse, its line
+ *     this.style.position = this.style.position || 'relative'
+ * reads the INLINE value only -- a class saying `position:absolute` does not
+ * satisfy it, so the element falls back to `relative`, joins the flow, and
+ * pushes the hero copy 460px down the page. The layer must therefore be
+ * positioned by an inline style attribute on the element itself, and the
+ * blend/opacity passed as attributes. See HomeView.tsx. */
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ringDraw {
+  animation: msm-line var(--msm-dur-line) var(--msm-ease) both;
+}
+
+.horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: var(--msm-horizon);
+  border-top: 1px solid var(--msm-line-strong);
+  pointer-events: none;
+}
+
+.bands {
+  position: absolute;
+  left: 55%;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 45%;
+}
+
+.content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 64px 96px 160px;
+  max-width: 1120px;
+}
+
+.eyebrow {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: rgba(243, 241, 234, 0.7);
+  animation: msm-in 0.6s both;
+}
+
+.title {
+  margin: 28px 0 0;
+  font-size: var(--msm-display);
+  line-height: var(--msm-lh-display);
+  letter-spacing: var(--msm-ls-tight);
+  font-weight: var(--msm-w-body);
+  max-width: 16ch;
+  text-wrap: pretty;
+  animation: msm-in 0.7s 0.1s both;
+}
+
+/* 标题句法: italic 700 lead-in + weight-300 statement. Brand signature -- the
+ * handoff calls it out as non-negotiable. */
+.title em {
+  font-weight: var(--msm-w-em);
+  font-style: italic;
+}
+
+.lede {
+  margin: 32px 0 0;
+  max-width: 50ch;
+  font-size: clamp(16px, 1.3vw, 20px);
+  line-height: 1.65;
+  color: rgba(243, 241, 234, 0.78);
+  text-wrap: pretty;
+  animation: msm-in 0.7s 0.2s both;
+}
+
+.ctas {
+  margin-top: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  animation: msm-in 0.7s 0.3s both;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  height: 52px;
+  padding: 0 26px;
+  font-family: var(--msm-mono);
+  font-size: 13px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.ctaPrimary {
+  border: 1px solid var(--msm-line-strong);
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--msm-text);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ctaPrimary:hover {
+  border-color: var(--msm-text);
+  background: rgba(243, 241, 234, 0.08);
+}
+
+.ctaSecondary {
+  border: 1px solid rgba(243, 241, 234, 0.3);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(243, 241, 234, 0.9);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--msm-text);
+  color: var(--msm-text);
+}
+
+.tokenEntry {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: msm-in 0.3s both;
+}
+
+.tokenRow {
+  display: flex;
+}
+
+/* No right border: the field and the bone button read as one 52px object. */
+.tokenInput {
+  height: 52px;
+  width: min(420px, 100%);
+  padding: 0 16px;
+  border: 1px solid var(--msm-line-strong);
+  border-right: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--msm-text);
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  outline: none;
+}
+
+.tokenSubmit {
+  height: 52px;
+  padding: 0 20px;
+  border: 1px solid var(--msm-line-strong);
+  background: var(--msm-bone);
+  color: var(--msm-black);
+  font-family: var(--msm-mono);
+  font-size: 13px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}
+
+.tokenError {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  color: var(--msm-warn);
+}
+
+.slashFlow {
+  position: absolute;
+  left: 96px;
+  bottom: 48px;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slashFlow > div {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.6);
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* ---- 三段式说明 ------------------------------------------------------- */
+/* 1px grid done the handoff way: gap:1px over a hairline background, children
+ * paint their own fill. No borders, so no double-line seams. */
+.flow {
+  padding: 96px 96px 120px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--msm-line);
+  border-top: 1px solid var(--msm-line);
+  border-bottom: 1px solid var(--msm-line);
+}
+
+.flowCell {
+  background: var(--msm-deep);
+  padding: 40px;
+}
+
+.flowNum {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.flowTitle {
+  margin: 18px 0 0;
+  font-size: 26px;
+  font-weight: var(--msm-w-mid);
+  line-height: 1.25;
+}
+
+.flowBody {
+  margin: 14px 0 0;
+  font-size: var(--msm-body);
+  line-height: var(--msm-lh-body);
+  color: rgba(243, 241, 234, 0.7);
+  text-wrap: pretty;
+}
+
+/* ---- 你最终会拿到 ----------------------------------------------------- */
+.outcome {
+  padding: 96px 96px 120px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.outcomeEyebrow {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.outcomeTitle {
+  margin: 18px 0 0;
+  font-size: clamp(28px, 2.6vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: var(--msm-w-body);
+  max-width: 18ch;
+  text-wrap: pretty;
+}
+
+.outcomeBody {
+  margin: 16px 0 0;
+  font-size: var(--msm-body);
+  line-height: var(--msm-lh-body);
+  color: rgba(243, 241, 234, 0.7);
+  max-width: 44ch;
+}
+
+.outcomeList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(243, 241, 234, 0.3);
+}
+
+.outcomeRow {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--msm-line);
+  align-items: baseline;
+}
+
+.outcomeNum {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  color: var(--msm-accent);
+}
+
+.outcomeRowTitle {
+  font-size: 18px;
+  font-weight: var(--msm-w-mid);
+}
+
+.outcomeRowBody {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(243, 241, 234, 0.6);
+}
+
+/* ---- footer ----------------------------------------------------------- */
+.footer {
+  padding: 24px 96px;
+  border-top: 1px solid var(--msm-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(243, 241, 234, 0.45);
+}

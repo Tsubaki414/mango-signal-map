@@ -1,0 +1,42 @@
+[
+  {
+    "company_name": "Photoroom",
+    "name": "Olivier Lemarié",
+    "role": "VP of Growth (head of Growth & Marketing)",
+    "x_handle": "",
+    "source_url": "https://www.crunchbase.com/person/olivier-lemari%C3%A9 | https://www.linkedin.com/posts/olivierlemarie_the-photoroom-growth-marketing-team-is-activity-7041338430194077696-inoE | https://www.purchasely.com/blog/how-to-grow-a-subscription-app-business-and-its-user-base-globally-by-olivier-lemarie-photoroom",
+    "confidence_note": "多个独立来源一致显示其为 Photoroom 的 VP of Growth：Crunchbase 个人档案、Purchasely / Subscription League 播客的嘉宾介绍、本人 LinkedIn 关于 'The PhotoRoom Growth & Marketing team is growing fast (and hiring)' 的帖子、以及 RocketReach 的管理层列表。2020 年作为第 2 号员工加入并直接负责 Growth & Marketing。置信度限制：可查到的最新来源为 2025 年年中，未找到 2026 年的在职确认；Photoroom 官网 /company 页面不公布团队名单，无法作为二次确认。需人工在 LinkedIn/X 复核是否仍在职后再外联。未找到公开 X 账号。"
+  },
+  {
+    "company_name": "Arcads",
+    "name": "Romain Torres",
+    "role": "Co-founder (leads marketing & sales)",
+    "x_handle": "rom1trs",
+    "source_url": "https://getlatka.com/blog/arcads-revenue-ceo | https://x.com/rom1trs | https://fr.linkedin.com/in/romain-torres-arcads",
+    "confidence_note": "Latka 的创始人专访原文写道 'he leads marketing, Fournier leads product, nobody led sales'，并记录 Torres 后来亲自花约两个月搭建销售职能。X 账号 @rom1trs（约 4.17 万粉丝）简介为 'Building arcads.ai Make top performing ads with AI'，发帖内容全部为 Arcads 产品发布，身份一致。相关性：Arcads 自述三大收入渠道之一即为 influencer marketing，且其产品本身就是 AI UGC 广告生成——市场负责人即预算决策人的概率高。"
+  },
+  {
+    "company_name": "Arcads",
+    "name": "Dylan Fournier",
+    "role": "Co-founder & Co-CEO (product)",
+    "x_handle": "",
+    "source_url": "https://www.arcads.ai/blog/arcads-raises-16m-seed",
+    "confidence_note": "Arcads 官方 2025-12-17 融资新闻稿（1600 万美元种子轮，Eurazeo 领投）中直接署名引用 'Dylan Fournier, Co-founder & Co-CEO'，为公司官方口径，本批次中来源等级最高。注意其分工是产品而非市场，作为 Arcads 的备用联系人记录——该公司此前在库内 0 个联系人，且团队仅约 8 人，联合 CEO 实际参与预算决策的可能性高。"
+  },
+  {
+    "company_name": "Base44",
+    "name": "Shay Korin",
+    "role": "VP of Marketing",
+    "x_handle": "",
+    "source_url": "https://www.adweek.com/creativity/base44s-super-bowl-debut-is-as-simple-as-its-app-building-platform/ | https://www.globenewswire.com/news-release/2026/01/28/3227646/0/en/Base44-to-Air-its-First-Super-Bowl-Ad.html",
+    "confidence_note": "母公司 Wix 的官方新闻稿（2026-01-28，GlobeNewswire/Nasdaq 同步发布）与 Adweek 报道（2026-02-03）均以 'Shay Korin, vice president of marketing, Base44' 的身份直接引用其发言，属公司官方口径且时效为 2026 年初，是本批次中时效性最好的联系人。未找到公开的 X 账号，x_handle 留空待核；媒体联络邮箱为 PR@base44.com。"
+  },
+  {
+    "company_name": "Emergent",
+    "name": "Mukund Jha",
+    "role": "Co-founder & CEO",
+    "x_handle": "mukundjha",
+    "source_url": "https://techcrunch.com/2026/01/20/indian-vibe-coding-startup-emergent-raises-70m-at-300m-valuation-from-softbank-khosla-ventures/ | https://www.crunchbase.com/person/mukund-jha | https://x.com/mukundjha",
+    "confidence_note": "TechCrunch（2026-01-20 B 轮报道）与 Crunchbase 均确认其为 Emergent 联合创始人兼 CEO（与孪生兄弟 Madhav Jha 共同创办，Madhav 任 CTO）；X 账号 @mukundjha 简介与公司一致，本人在 X 上公开发布招聘信息。注意：这是 CEO 而非市场/增长负责人。本次未入库 Emergent 的 creator partnerships 负责人——搜索结果中同一段 '350+ creators / 1,400+ campaigns' 的描述同时出现在两个不同的 LinkedIn 档案（Priyanka Paul、Sudarshan Kailash）下，归属无法确认，按项目标准宁缺勿滥。Emergent 目前在 Greenhouse 上公开招聘 influencer marketing 方向的 Marketing Manager，说明该职能仍在搭建中。"
+  }
+]

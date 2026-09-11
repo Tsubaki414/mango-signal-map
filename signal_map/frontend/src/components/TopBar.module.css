@@ -1,0 +1,83 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--msm-topbar-h);
+  background: var(--msm-black);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(243, 241, 234, 0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 0;
+  color: var(--msm-text);
+  padding: 0;
+  cursor: pointer;
+}
+
+.mark {
+  height: 26px;
+  width: auto;
+}
+
+.wordmark {
+  font-size: 20px;
+  font-weight: var(--msm-w-mid);
+  letter-spacing: -0.01em;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(243, 241, 234, 0.3);
+}
+
+.product {
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-text-2);
+}
+
+.steps {
+  margin-left: auto;
+  display: flex;
+  gap: 28px;
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.step {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* A stage the client has not reached is not a link. Leaving it clickable would
+ * drop them into a view with no data behind it. */
+.step:disabled {
+  cursor: default;
+}
+
+.save {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(243, 241, 234, 0.5);
+  min-width: 64px;
+  text-align: right;
+}

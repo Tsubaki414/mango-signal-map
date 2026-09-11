@@ -1,0 +1,111 @@
+/* Mango Signal Map -- design tokens.
+ *
+ * Transcribed from the Claude Design handoff:
+ *   design_handoff/README.md          (Design Tokens table -- the stated final values)
+ *   design_handoff/Design System.dc.html
+ *   design_handoff/Mango Signal Map v2.dc.html  (inline values, cross-checked)
+ *
+ * These are FINAL values, not suggestions. The handoff is marked 高保真 (hifi):
+ * colours, sizes, weights, spacing and motion durations are all settled, so a
+ * change here is a design change, not an implementation detail.
+ *
+ * Two rules that are easy to break by reflex and are load-bearing to the look:
+ *   - border-radius is 0 everywhere. The single exception is a round avatar.
+ *   - there are no shadows. A selected state is an inset 1px ring, never a drop
+ *     shadow. --msm-ring-* below exist so nobody reaches for box-shadow offsets.
+ */
+
+:root {
+  /* ---- surfaces ------------------------------------------------------- */
+  --msm-black: #0e0e0e; /* top bar, stage-transition wipe */
+  --msm-deep: #1f4144; /* 主场背景, dark teal */
+  --msm-panel: #152f31; /* panel / card, deeper than the stage */
+  --msm-root-selected: #1b3a3c; /* Root card selected background */
+  --msm-horizon: #0f2526; /* near-black horizon block on the home hero */
+
+  --msm-bone: #f3f1ea; /* 骨白 reading surface */
+  --msm-bone-panel: #faf9f5; /* panel on a bone page */
+  --msm-bone-panel-deep: #e3e0d6; /* deeper panel on a bone page */
+
+  /* ---- accent --------------------------------------------------------- */
+  --msm-accent: #5fc4bb; /* on dark */
+  --msm-accent-bone: #0e6e6a; /* on bone -- never swap these two */
+
+  /* ---- warning (暗金; deliberately not red/green) --------------------- */
+  --msm-warn: #c9a227; /* on dark */
+  --msm-warn-bone: #8a6d00; /* warning TEXT on bone */
+
+  /* ---- text on dark --------------------------------------------------- */
+  --msm-text: #f3f1ea;
+  --msm-text-2: rgba(243, 241, 234, 0.75);
+  --msm-text-3: rgba(243, 241, 234, 0.55);
+
+  /* ---- text on bone --------------------------------------------------- */
+  --msm-ink: #141414;
+  --msm-ink-2: #4a4a46;
+  --msm-ink-3: #6b6b66;
+
+  /* ---- hairlines ------------------------------------------------------ */
+  --msm-line: rgba(243, 241, 234, 0.14);
+  --msm-line-soft: rgba(243, 241, 234, 0.25);
+  --msm-line-strong: rgba(243, 241, 234, 0.5);
+  --msm-line-bone: #d9d6cc;
+  --msm-line-bone-strong: #141414;
+
+  /* ---- fit scale, bone pages (四级色阶) ------------------------------- */
+  --msm-fit-4: #0e6e6a;
+  --msm-fit-3: rgba(14, 110, 106, 0.72);
+  --msm-fit-2: rgba(14, 110, 106, 0.42);
+  --msm-fit-1: rgba(14, 110, 106, 0.2);
+
+  /* ---- the one gradient in the product, home hero only ---------------- */
+  --msm-home-gradient: linear-gradient(180deg, #2c5a5d 0%, #1f4144 55%, #14302f 100%);
+
+  /* ---- type ----------------------------------------------------------- */
+  --msm-font: Inter, "Noto Sans SC", -apple-system, "PingFang SC", sans-serif;
+  --msm-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Weight 300 is the DEFAULT body weight, not a light variant. */
+  --msm-w-body: 300;
+  --msm-w-mid: 400;
+  --msm-w-title: 500;
+  --msm-w-em: 700; /* italic lead-in only */
+
+  /* 字阶, 1440 baseline */
+  --msm-display: clamp(44px, 5.4vw, 80px);
+  --msm-h1: clamp(32px, 3.6vw, 54px);
+  --msm-h2: 24px;
+  --msm-h3: 18px;
+  --msm-body: 15px;
+  --msm-small: 12px;
+
+  --msm-lh-display: 1.08;
+  --msm-lh-h1: 1.1;
+  --msm-lh-h2: 1.25;
+  --msm-lh-body: 1.7;
+  --msm-ls-tight: -0.02em;
+
+  /* mono tracking runs .06--.16em and is always uppercase */
+  --msm-ls-mono-s: 0.1em;
+  --msm-ls-mono-m: 0.12em;
+  --msm-ls-mono-l: 0.14em;
+
+  /* ---- spacing -------------------------------------------------------- */
+  --msm-page-x: clamp(24px, 4vw, 64px);
+  --msm-page-top: 56px;
+  --msm-page-bottom: 140px;
+  --msm-topbar-h: 56px;
+
+  /* ---- form ----------------------------------------------------------- */
+  --msm-radius: 0; /* the only value */
+  --msm-ring: inset 0 0 0 1px var(--msm-accent);
+  --msm-ring-bone: inset 0 0 0 1px var(--msm-accent-bone);
+
+  /* ---- motion --------------------------------------------------------- */
+  --msm-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --msm-dur-in: 0.6s;
+  --msm-dur-line: 2.4s;
+  --msm-dur-band: 1.6s;
+  --msm-dur-wipe: 0.58s;
+  --msm-dur-count: 420ms;
+}

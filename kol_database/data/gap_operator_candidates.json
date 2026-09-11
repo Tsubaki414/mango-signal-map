@@ -1,0 +1,58 @@
+[
+  {
+    "company_name": "Notion",
+    "name": "Rachel Hepworth",
+    "role": "Chief Marketing Officer (CMO)",
+    "x_handle": "rachelhepworth",
+    "source_url": "https://www.notion.com/blog/rachel-hepworth-notions-chief-marketing-officer",
+    "confidence_note": "Notion's own company blog announced Rachel Hepworth by name as Notion's first CMO. Her X profile (x.com/rachelhepworth) bio explicitly states she is affiliated with @notionhq, confirming the handle belongs to her."
+  },
+  {
+    "company_name": "Pika",
+    "name": "Anthony Fernandez",
+    "role": "Global Partnerships",
+    "x_handle": null,
+    "source_url": "https://www.linkedin.com/in/anthony-fernandez-15ab8785/",
+    "confidence_note": "LinkedIn profile explicitly lists current role as 'Global Partnerships @ Pika' (ex-TikTok, ex-NBCUniversal). Searched for a personal X/Twitter account but could not confirm one belongs to him with confidence, so left blank rather than guessing."
+  },
+  {
+    "company_name": "MyShell",
+    "name": "Bobo Zhou",
+    "role": "Co-founder (Engineering & Marketing)",
+    "x_handle": null,
+    "source_url": "https://pathmonk.com/myshell-ai-agents-seo-marketing/",
+    "confidence_note": "Interview page identifies him by name as a MyShell AI co-founder describing his 'hybrid role across engineering and marketing,' covering messaging, distribution, and product-market alignment. An X account with a similar name (@boboclawhunt) surfaced but its bio ties it to an unrelated project ('Clawhunt'), so no handle is reported."
+  },
+  {
+    "company_name": "GAIB",
+    "name": "Mathilda Sun",
+    "role": "Head of Strategy",
+    "x_handle": "Mathilda_Sun_",
+    "source_url": "https://x.com/gaib_ai/status/1906967209534222364",
+    "confidence_note": "GAIB's own official X account (@gaib_ai) named her in an event announcement as 'Mathilda Sun @Mathilda_Sun_, Head of Strategy @gaib_ai,' directly tying her name, title, and handle to the company. Her strategy role covers market strategy and key ecosystem partnerships."
+  },
+  {
+    "company_name": "GAIB",
+    "name": "Antonio Gai",
+    "role": "Business Development",
+    "x_handle": null,
+    "source_url": "https://hk.linkedin.com/in/antoniogai0930",
+    "confidence_note": "LinkedIn profile headline explicitly states 'BD@GAIB.AI.' No verified X/Twitter handle found for this specific individual (a similarly-named X account appears to belong to an unrelated Italian civil engineer), so left blank."
+  },
+  {
+    "company_name": "Hyperbolic",
+    "name": "Joelly Gloria",
+    "role": "Marketing Lead",
+    "x_handle": "JoellyGloria",
+    "source_url": "https://twitter.com/hyperbolic_labs/status/1820863533363720669",
+    "confidence_note": "Hyperbolic's own official X account (@hyperbolic_labs) introduced her by name, title ('Marketing Lead'), and handle (@JoellyGloria) in a team-introduction post. She has also spoken publicly at industry events (e.g. Consensus Hong Kong 2025, DeAI Summit) identified as Hyperbolic's Head of Marketing."
+  },
+  {
+    "company_name": "Heurist",
+    "name": "Cher",
+    "role": "Chief Business Officer",
+    "x_handle": "0takuwaifu",
+    "source_url": "https://www.heurist.ai/blog/heurist-april-highlights",
+    "confidence_note": "Heurist's own company blog post announcing her appointment as CBO links directly to her X/Twitter handle (twitter.com/0takuwaifu). Her role explicitly covers driving business development and partnership efforts."
+  }
+]

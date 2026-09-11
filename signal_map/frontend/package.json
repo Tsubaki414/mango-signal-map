@@ -1,0 +1,25 @@
+{
+  "name": "signal-map-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mango Signal Map -- client-facing surface. Reproduction of the Claude Design handoff.",
+  "scripts": {
+    "dev": "next dev -p 3100",
+    "build": "next build",
+    "start": "next start -p 3100",
+    "typecheck": "tsc --noEmit",
+    "shot": "node scripts/shoot.mjs"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "playwright-core": "^1.49.1",
+    "typescript": "^5.7.3"
+  }
+}

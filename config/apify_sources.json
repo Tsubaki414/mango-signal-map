@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "default_review_status": "unreviewed",
+    "default_fact_status": "observed_unreviewed",
+    "auto_promote_to_confirmed": false,
+    "credential_location": ".env:APIFY_TOKEN",
+    "raw_cache_gitignored": true
+  },
+  "sources": {
+    "official_web": {
+      "actor_id": "apify/website-content-crawler",
+      "build": "version-0",
+      "status": "pilot",
+      "max_items": 12,
+      "max_total_charge_usd": 2.0,
+      "purpose": "官网、团队页、招聘、partner/affiliate/community 与公开联系入口的首方快照"
+    },
+    "linkedin": {
+      "actor_id": "harvestapi/linkedin-company-employees",
+      "build": "latest",
+      "reviewed_build_number": "0.0.158",
+      "actor_metadata_checked_at": "2026-09-01",
+      "status": "pilot",
+      "max_items": 25,
+      "max_total_charge_usd": 2.0,
+      "purpose": "公司页、当前员工、岗位与公开职业身份；不用于虚构 LinkedIn 二度关系"
+    },
+    "youtube_sponsorship": {
+      "actor_id": "streamers/youtube-scraper",
+      "build": "latest",
+      "reviewed_build_number": "0.0.287",
+      "actor_metadata_checked_at": "2026-09-01",
+      "status": "configured_not_run",
+      "max_items": 50,
+      "max_total_charge_usd": 2.0,
+      "purpose": "视频描述、赞助披露、affiliate 链接、发布时间与重复合作候选"
+    },
+    "public_contact": {
+      "actor_id": "logiover/website-contact-scraper",
+      "build": "latest",
+      "reviewed_build_number": "1.0.48",
+      "actor_metadata_checked_at": "2026-09-01",
+      "status": "configured_not_run",
+      "max_items": 30,
+      "max_total_charge_usd": 1.0,
+      "purpose": "官网公开 business email、contact/partner/affiliate form；不绕过登录或访问控制"
+    },
+    "campaign_creator": {
+      "actor_id": "apify/instagram-scraper",
+      "build": "latest",
+      "reviewed_build_number": "0.0.776",
+      "actor_metadata_checked_at": "2026-09-01",
+      "status": "configured_not_run",
+      "max_items": 30,
+      "max_total_charge_usd": 1.0,
+      "purpose": "从已验证 campaign/sponsor 扩展相关 creator；所有商业关系先作为候选观察"
+    }
+  }
+}

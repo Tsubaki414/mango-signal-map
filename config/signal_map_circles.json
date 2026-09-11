@@ -1,0 +1,907 @@
+{
+  "_readme": [
+    "Signal Map v3 的领域 / 圈层 / 目标人物配置。这份文件是给人改的。",
+    "",
+    "来源：signal_map/design_handoff_v3/data/v3.js —— 圈层的 value/who/pick 三段文案",
+    "由 Claude Design 撰写，是名单可解释性的来源，改动等于改产品文案。",
+    "",
+    "targets 是**提案**，不是已确认的目标人物。落库时一律以 x_accounts.root_review_status",
+    "为准；当前 282,877 个账号全部是 pending，accepted 与 rejected 均为 0，",
+    "所以任何目标人物在客户端都必须以「未核验」呈现。",
+    "",
+    "config/root_seeds.json 是 Mango 自己的 crypto/finance 种子提案，圈层划分与",
+    "这里不同（三层 vs 四层），尚未合并 —— 合并前不要假设两者的 circle id 可互换。"
+  ],
+  "groups": [
+    {
+      "id": "ai",
+      "label": "AI / 科技",
+      "desc": "Agent、基础模型、开发者工具、企业与消费 AI",
+      "domains": [
+        "ai_agent",
+        "foundation_model",
+        "dev_tools",
+        "ai_coding",
+        "enterprise_ai",
+        "consumer_ai",
+        "creative_ai"
+      ]
+    },
+    {
+      "id": "crypto",
+      "label": "加密 / Web3",
+      "desc": "Crypto、DeFi、基础设施、链上生态",
+      "domains": [
+        "crypto",
+        "defi",
+        "web3_infra"
+      ]
+    },
+    {
+      "id": "finance",
+      "label": "金融科技",
+      "desc": "FinTech、Trading、美股与投资",
+      "domains": [
+        "fintech",
+        "trading",
+        "us_stocks"
+      ]
+    }
+  ],
+  "circles": {
+    "ai": [
+      {
+        "id": "founders",
+        "label": "顶级科技创始人",
+        "value": "公共讨论 · 声量",
+        "who": "AI 圈公共议题的第一层声量在这里形成。目标不是让他们接单，而是让你的内容出现在他们会顺手转发、会接一句话的位置。",
+        "pick": "优先挑他们共同关注的账号，以及历史上被他们回复过的人；内容偏短、有观点、有 demo。"
+      },
+      {
+        "id": "researchers",
+        "label": "AI 研究者",
+        "value": "行业背书 · 可信度",
+        "who": "一个说法在技术圈能不能立住，看这群人认不认。他们不带货，但他们的认可会被整个圈子反复引用。",
+        "pick": "优先挑做技术拆解、有真实工程经验的创作者，排除资讯搬运号与纯 prompt 内容。"
+      },
+      {
+        "id": "vc",
+        "label": "风险投资人",
+        "value": "投资人关注 · BD 连接",
+        "who": "被他们看到之后，常见的结果不是一次转发，而是一次 warm intro 或一通电话。",
+        "pick": "优先挑投资人长期在看的播客、newsletter 与创始人型账号，而不是泛流量号。"
+      },
+      {
+        "id": "devs",
+        "label": "开发者领袖",
+        "value": "产品采用",
+        "who": "工具选型的口碑在他们那里形成。一句\"我自己用了\"，胜过十次曝光。",
+        "pick": "优先挑会把产品真的跑一遍的创作者，有开源或实操内容的人排在前面。"
+      },
+      {
+        "id": "media",
+        "label": "科技媒体与播客",
+        "value": "媒体路径 · 二跳",
+        "who": "长内容是进入投资人与从业者信息流最稳的通道，起效慢但留存久。",
+        "pick": "优先挑有公开赞助或选题入口的媒体与播客，商务路径清晰、可排期。"
+      }
+    ],
+    "crypto": [
+      {
+        "id": "builders",
+        "label": "协议建设者",
+        "value": "行业背书",
+        "who": "生态叙事由他们定调，被引用一次，胜过投十个号。",
+        "pick": "优先挑长期做机制解释、被协议方引用过的创作者。"
+      },
+      {
+        "id": "cvc",
+        "label": "加密投资人",
+        "value": "融资与合作",
+        "who": "融资、上所与合作的判断在这一层形成，看见之后往往走私下渠道。",
+        "pick": "优先挑研究型账号与深度长文作者，排除喊单与短期热点号。"
+      },
+      {
+        "id": "traders",
+        "label": "活跃交易者",
+        "value": "流动性注意力",
+        "who": "市场情绪与话题热度的起点，短期声量在这里放大最快。",
+        "pick": "优先挑观点鲜明、更新高频、评论区活跃的交易类账号。"
+      },
+      {
+        "id": "cnzh",
+        "label": "中文加密圈",
+        "value": "中文市场",
+        "who": "中文市场的信息入口，扩散主要靠转载与社群，而不是单条曝光。",
+        "pick": "优先挑中文原生的媒体与研究账号，能承接专访与转载。"
+      }
+    ],
+    "finance": [
+      {
+        "id": "analysts",
+        "label": "研究与分析师",
+        "value": "专业可信度",
+        "who": "机构读者的第一手来源，一个议题从这里进入正式讨论。",
+        "pick": "优先挑做数据与结构化分析的账号，宁少勿滥。"
+      },
+      {
+        "id": "fintechs",
+        "label": "金融科技创始人",
+        "value": "同行认可",
+        "who": "同行认不认，决定你的产品叙事能不能立住。",
+        "pick": "优先挑做产品与商业模式拆解的创作者，而不是行业资讯号。"
+      },
+      {
+        "id": "ftraders",
+        "label": "活跃交易者",
+        "value": "交易社群",
+        "who": "散户社群的情绪与话题起点，转化最快也最短暂。",
+        "pick": "优先挑高频、贴近盘面、内容可操作的账号。"
+      },
+      {
+        "id": "inst",
+        "label": "机构与交易所",
+        "value": "BD 与合作",
+        "who": "渠道与合作的决策层。公开内容在这里只用于建立认知，推进在私下。",
+        "pick": "优先挑行业媒体与机构侧栏目，为后续 BD 铺垫。"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "id": "t_elon",
+      "name": "Elon Musk",
+      "handle": "elonmusk",
+      "role": "xAI · Tesla · X",
+      "circle": "founders",
+      "group": "ai",
+      "why": "极端放大节点，被卷入讨论能把话题带出 AI 圈层。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "founders",
+        "consumers"
+      ]
+    },
+    {
+      "id": "t_sama",
+      "name": "Sam Altman",
+      "handle": "sama",
+      "role": "OpenAI CEO",
+      "circle": "founders",
+      "group": "ai",
+      "why": "frontier AI 叙事中心，决定行业注意力的二跳方向。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "founders",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_amasad",
+      "name": "Amjad Masad",
+      "handle": "amasad",
+      "role": "Replit CEO",
+      "circle": "founders",
+      "group": "ai",
+      "why": "AI-native 开发者叙事的活跃发声者，评论区常下场。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "developers",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_levelsio",
+      "name": "Pieter Levels",
+      "handle": "levelsio",
+      "role": "Indie founder",
+      "circle": "founders",
+      "group": "ai",
+      "why": "独立开发者圈的高信任节点，产品叙事传播极快。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "founders",
+        "early_adopters"
+      ]
+    },
+    {
+      "id": "t_alexandr",
+      "name": "Alexandr Wang",
+      "handle": "alexandr_wang",
+      "role": "Scale AI",
+      "circle": "founders",
+      "group": "ai",
+      "why": "连接企业 AI 与政策圈的少数创始人。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "enterprise",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_karpathy",
+      "name": "Andrej Karpathy",
+      "handle": "karpathy",
+      "role": "AI researcher / educator",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "技术圈公认权威，可见面直接提升 builder 对机制的信任。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "developers",
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_ylecun",
+      "name": "Yann LeCun",
+      "handle": "ylecun",
+      "role": "Turing Award · AI debate",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "公开辩论型节点，带来学术侧关注。",
+      "markets": [
+        "us",
+        "eu"
+      ],
+      "audiences": [
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_lilian",
+      "name": "Lilian Weng",
+      "handle": "lilianweng",
+      "role": "Agent research · AI safety",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "agent 研究的高信任节点，低频但精选转发。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "researchers",
+        "developers"
+      ]
+    },
+    {
+      "id": "t_jimfan",
+      "name": "Jim Fan",
+      "handle": "DrJimFan",
+      "role": "NVIDIA · embodied AI",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "研究与产品之间的翻译者，长文传播力强。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "researchers",
+        "developers"
+      ]
+    },
+    {
+      "id": "t_sarahookr",
+      "name": "Sara Hooker",
+      "handle": "sarahookr",
+      "role": "AI research lead",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "研究社区组织者，覆盖非美研究者网络。",
+      "markets": [
+        "global",
+        "eu"
+      ],
+      "audiences": [
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_saranormous",
+      "name": "Sarah Guo",
+      "handle": "saranormous",
+      "role": "Founder, Conviction",
+      "circle": "vc",
+      "group": "ai",
+      "why": "活跃 AI 投资人，播客与 X 双通道，常回复创始人。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_venturetwins",
+      "name": "Justine Moore",
+      "handle": "venturetwins",
+      "role": "Partner, a16z",
+      "circle": "vc",
+      "group": "ai",
+      "why": "消费 AI 趋势的 VC 侧放大节点，高频引用新产品。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "consumers"
+      ]
+    },
+    {
+      "id": "t_eladgil",
+      "name": "Elad Gil",
+      "handle": "eladgil",
+      "role": "Investor / operator",
+      "circle": "vc",
+      "group": "ai",
+      "why": "创业者广泛信任的投资人，长文观点影响面广。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_pmarca",
+      "name": "Marc Andreessen",
+      "handle": "pmarca",
+      "role": "a16z co-founder",
+      "circle": "vc",
+      "group": "ai",
+      "why": "同时覆盖 VC 圈与科技舆论场的超级节点。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_natfriedman",
+      "name": "Nat Friedman",
+      "handle": "natfriedman",
+      "role": "Investor · ex-GitHub CEO",
+      "circle": "vc",
+      "group": "ai",
+      "why": "开发者工具与 AI 投资的交点，口碑极高。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "developers",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_simonw",
+      "name": "Simon Willison",
+      "handle": "simonw",
+      "role": "AI engineering · tools",
+      "circle": "devs",
+      "group": "ai",
+      "why": "开发者信任度极高的工具评论者，亲自试用并长文记录。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "developers"
+      ]
+    },
+    {
+      "id": "t_swyx",
+      "name": "swyx",
+      "handle": "swyx",
+      "role": "AI Engineer · Latent.Space",
+      "circle": "devs",
+      "group": "ai",
+      "why": "AI Engineer 社区核心，播客主，常发出邀约。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "developers",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_hwchase",
+      "name": "Harrison Chase",
+      "handle": "hwchase17",
+      "role": "LangChain founder",
+      "circle": "devs",
+      "group": "ai",
+      "why": "agent 框架生态中心，转发生态项目。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "developers"
+      ]
+    },
+    {
+      "id": "t_jeremyphoward",
+      "name": "Jeremy Howard",
+      "handle": "jeremyphoward",
+      "role": "fast.ai",
+      "circle": "devs",
+      "group": "ai",
+      "why": "教育与实践社区的长期权威。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "developers",
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_omarsar",
+      "name": "Elvis Saravia",
+      "handle": "omarsar0",
+      "role": "DAIR.AI",
+      "circle": "devs",
+      "group": "ai",
+      "why": "AI 工程内容的高频聚合者，覆盖学习者与从业者。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "developers",
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_dwarkesh",
+      "name": "Dwarkesh Patel",
+      "handle": "dwarkesh_sp",
+      "role": "Dwarkesh Podcast",
+      "circle": "media",
+      "group": "ai",
+      "why": "深度 AI 访谈，VC 与研究者高频收听。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_jackclark",
+      "name": "Jack Clark",
+      "handle": "jackclarksf",
+      "role": "Import AI · policy",
+      "circle": "media",
+      "group": "ai",
+      "why": "AI 政策与研究 newsletter 权威，精选引用。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "researchers",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "t_bhorowitz",
+      "name": "Ben Thompson",
+      "handle": "benthompson",
+      "role": "Stratechery",
+      "circle": "media",
+      "group": "ai",
+      "why": "战略分析的行业标准读物，覆盖高管与投资人。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "enterprise",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_alexkantro",
+      "name": "Alex Kantrowitz",
+      "handle": "kantrowitz",
+      "role": "Big Technology",
+      "circle": "media",
+      "group": "ai",
+      "why": "科技行业访谈与 newsletter，媒体二跳入口。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "tech_media",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "t_rowancheung",
+      "name": "Rowan Cheung",
+      "handle": "rowancheung",
+      "role": "The Rundown AI",
+      "circle": "media",
+      "group": "ai",
+      "why": "覆盖面最广的 AI 日报之一，扩散速度快。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "early_adopters",
+        "consumers"
+      ]
+    },
+    {
+      "id": "t_vitalik",
+      "name": "Vitalik Buterin",
+      "handle": "VitalikButerin",
+      "role": "Ethereum",
+      "circle": "builders",
+      "group": "crypto",
+      "why": "生态最高信任节点，长文与回复都会被广泛引用。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "developers",
+        "community"
+      ]
+    },
+    {
+      "id": "t_sreeram",
+      "name": "Sreeram Kannan",
+      "handle": "sreeramkannan",
+      "role": "EigenLayer",
+      "circle": "builders",
+      "group": "crypto",
+      "why": "基础设施叙事的核心解释者。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "developers",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_dabit3",
+      "name": "Nader Dabit",
+      "handle": "dabit3",
+      "role": "Web3 developer relations",
+      "circle": "builders",
+      "group": "crypto",
+      "why": "开发者教育与生态连接点。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "developers"
+      ]
+    },
+    {
+      "id": "t_sassal",
+      "name": "sassal.eth",
+      "handle": "sassal0x",
+      "role": "The Daily Gwei",
+      "circle": "builders",
+      "group": "crypto",
+      "why": "以太坊社区的日更叙事者。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "community",
+        "traders"
+      ]
+    },
+    {
+      "id": "t_hasu",
+      "name": "Hasu",
+      "handle": "hasufl",
+      "role": "Flashbots · research",
+      "circle": "cvc",
+      "group": "crypto",
+      "why": "研究型投资人，深度回复带来实质讨论。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "investors",
+        "researchers"
+      ]
+    },
+    {
+      "id": "t_cdixon",
+      "name": "Chris Dixon",
+      "handle": "cdixon",
+      "role": "a16z crypto",
+      "circle": "cvc",
+      "group": "crypto",
+      "why": "加密叙事的机构侧代表声音。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "founders"
+      ]
+    },
+    {
+      "id": "t_smyyguy",
+      "name": "Mike Dudas",
+      "handle": "mdudas",
+      "role": "6th Man Ventures",
+      "circle": "cvc",
+      "group": "crypto",
+      "why": "连接媒体与投资的活跃节点。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "tech_media"
+      ]
+    },
+    {
+      "id": "t_cobie",
+      "name": "Cobie",
+      "handle": "cobie",
+      "role": "Trader · UpOnly",
+      "circle": "traders",
+      "group": "crypto",
+      "why": "交易圈意见形成点，讥讽式引用传播极广。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "traders"
+      ]
+    },
+    {
+      "id": "t_hsaka",
+      "name": "Hsaka",
+      "handle": "HsakaTrades",
+      "role": "Trader",
+      "circle": "traders",
+      "group": "crypto",
+      "why": "交易社群高信任度账号。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "traders"
+      ]
+    },
+    {
+      "id": "t_gainzy",
+      "name": "Gainzy",
+      "handle": "gainzy222",
+      "role": "Trader",
+      "circle": "traders",
+      "group": "crypto",
+      "why": "高活跃度交易叙事者。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "traders",
+        "community"
+      ]
+    },
+    {
+      "id": "t_cnbtc",
+      "name": "中文加密媒体主编（示例）",
+      "handle": "—",
+      "role": "中文媒体",
+      "circle": "cnzh",
+      "group": "crypto",
+      "why": "中文加密市场的信息入口，专访与转载路径清晰。",
+      "markets": [
+        "cn",
+        "hk"
+      ],
+      "audiences": [
+        "community",
+        "traders"
+      ]
+    },
+    {
+      "id": "t_cnkol",
+      "name": "中文研究型 KOL（示例）",
+      "handle": "—",
+      "role": "中文研究",
+      "circle": "cnzh",
+      "group": "crypto",
+      "why": "中文圈层的深度内容来源。",
+      "markets": [
+        "cn"
+      ],
+      "audiences": [
+        "researchers",
+        "traders"
+      ]
+    },
+    {
+      "id": "t_lisaabramowicz",
+      "name": "Lisa Abramowicz",
+      "handle": "lisaabramowicz1",
+      "role": "Bloomberg",
+      "circle": "analysts",
+      "group": "finance",
+      "why": "机构信息流的重要入口，宏观议题设定者。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "finance_pros",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_carlquintanilla",
+      "name": "Carl Quintanilla",
+      "handle": "carlquintanilla",
+      "role": "CNBC",
+      "circle": "analysts",
+      "group": "finance",
+      "why": "市场叙事的广播节点。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "finance_pros",
+        "traders"
+      ]
+    },
+    {
+      "id": "t_biancoresearch",
+      "name": "Jim Bianco",
+      "handle": "biancoresearch",
+      "role": "Bianco Research",
+      "circle": "analysts",
+      "group": "finance",
+      "why": "深度宏观研究，专业读者密度高。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "finance_pros",
+        "investors"
+      ]
+    },
+    {
+      "id": "t_patrickc",
+      "name": "Patrick Collison",
+      "handle": "patrickc",
+      "role": "Stripe",
+      "circle": "fintechs",
+      "group": "finance",
+      "why": "金融科技同行认可度最高的声音之一。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "founders",
+        "developers"
+      ]
+    },
+    {
+      "id": "t_maxlevchin",
+      "name": "Max Levchin",
+      "handle": "mlevchin",
+      "role": "Affirm",
+      "circle": "fintechs",
+      "group": "finance",
+      "why": "支付与信贷叙事的资深节点。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "founders",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "t_immad",
+      "name": "Immad Akhund",
+      "handle": "immad",
+      "role": "Mercury",
+      "circle": "fintechs",
+      "group": "finance",
+      "why": "创业者社群中的高互动创始人。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "founders",
+        "early_adopters"
+      ]
+    },
+    {
+      "id": "t_unusual_whales",
+      "name": "unusual_whales",
+      "handle": "unusual_whales",
+      "role": "Market data",
+      "circle": "ftraders",
+      "group": "finance",
+      "why": "散户交易社群的高频聚合账号。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "traders",
+        "consumers"
+      ]
+    },
+    {
+      "id": "t_zerohedge",
+      "name": "zerohedge",
+      "handle": "zerohedge",
+      "role": "Market commentary",
+      "circle": "ftraders",
+      "group": "finance",
+      "why": "争议型放大节点，触达广但需控制角度。",
+      "markets": [
+        "global"
+      ],
+      "audiences": [
+        "traders"
+      ]
+    },
+    {
+      "id": "t_saylor",
+      "name": "Michael Saylor",
+      "handle": "saylor",
+      "role": "Strategy",
+      "circle": "inst",
+      "group": "finance",
+      "why": "连接机构资金与公开叙事的少数人物。",
+      "markets": [
+        "us",
+        "global"
+      ],
+      "audiences": [
+        "investors",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "t_cathiedwood",
+      "name": "Cathie Wood",
+      "handle": "CathieDWood",
+      "role": "ARK Invest",
+      "circle": "inst",
+      "group": "finance",
+      "why": "成长股与创新叙事的机构侧代表。",
+      "markets": [
+        "us"
+      ],
+      "audiences": [
+        "investors",
+        "consumers"
+      ]
+    }
+  ]
+}

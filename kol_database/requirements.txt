@@ -1,5 +1,8 @@
-fastapi>=0.110
-uvicorn[standard]>=0.29
-sqlalchemy>=2.0
-openpyxl>=3.1
-certifi>=2024.8
+# Release-candidate versions verified by the 2026-08-28 UAT suite.
+# Exact pins keep Railway from silently resolving a different runtime on a
+# later deploy; update these deliberately and rerun the full UAT before bumping.
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+sqlalchemy==2.0.52
+openpyxl==3.1.5
+certifi==2026.7.22

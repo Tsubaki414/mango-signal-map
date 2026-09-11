@@ -22,10 +22,25 @@ SocialAccount is created with creator_class="Unknown" (Needs Review) and
 no rate card -- this creator is known from research, not yet quoted --
 exactly the "no Mango quote yet" state the product spec calls for.
 
-Safe to re-run: companies/operators/intro paths/action items/sponsorship
-evidence/gtm cases are deleted and re-inserted from source each run
-(the source SQLite is the source of truth); newly-created Creators from a
-previous run are matched by handle on subsequent runs, not duplicated.
+Safe to re-run, and safe against clobbering human edits made through the
+API since the data-integrity sprint:
+  - GtmCase/CompanySource/CompanyAlias/ConnectorBrief have no human-editable
+    fields, so they're simply deleted and re-inserted from source each run.
+  - Company is upserted by company_id: source-owned fields (name, stage,
+    score, priority_tier, spend levels, x_handle) always refresh; fields a
+    human can edit via PATCH (category, geography, why_now, budget_evidence,
+    buyer_or_route, internal_notes) are only filled in when still empty,
+    never overwritten once set; last_verified_at is pure human state and is
+    never touched here.
+  - Operator/IntroPath/ActionItem/SponsorshipEvidence are upserted by a
+    stable source key (Operator.source_id, IntroPath.source_id,
+    ActionItem.source_id, SponsorshipEvidence.source_id) -- an already-seen
+    source row is left completely alone on re-run (an edited role, a
+    Confirm/Reject review, an action-item status change, etc. all survive);
+    only genuinely new source rows get created. Rows a human added directly
+    (source_id=None) are never touched by this script at all.
+  - Newly-created Creators from a previous run are matched by (platform,
+    handle) on subsequent runs, not duplicated.
 """
 
 from __future__ import annotations
@@ -51,6 +66,8 @@ from backend.models import (  # noqa: E402
     SocialAccount,
     SponsorshipEvidence,
 )
+from scripts.add_intro_path_direction_columns import ensure_intro_path_direction_columns  # noqa: E402
+from scripts.backfill_intro_path_directions import direction_provenance as _direction_provenance  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 BD_SQLITE_PATH = REPO_ROOT / "outputs" / "pilot_v4" / "mango_bd_v4.sqlite"
@@ -74,7 +91,7 @@ CONNECTOR_BRIEFS = [
         "connector_name": "Jennie Liu",
         "connector_x_handle": "@jenniekusu",
         "company_ids": ["company:replit", "company:cursor", "company:runway", "company:perplexity", "company:pika"],
-        "best_current_action": "Ask one structured question per company: actual person, nature of relationship, last interaction, and willingness to make a contextual intro. Runway already has a verified Jennie -> Cristobal path.",
+        "best_current_action": "Ask one structured question per company: actual person, nature of relationship, last interaction, and willingness to make a contextual intro. For Runway, Jennie -> Runway/Cristobal is only a one-way public-follow research clue; real acquaintance and willingness to introduce remain unconfirmed.",
     },
     {
         "connector_name": "Evie Yang",
@@ -109,14 +126,40 @@ def _norm_platform(raw: str | None) -> str:
     return PLATFORM_NORMALIZE.get(raw.strip().lower(), raw.strip())
 
 
+def _backfill_source_path_directions(
+    path: IntroPath,
+    direction_json: str | None,
+    raw_json: str | None,
+) -> None:
+    """Fill only never-migrated direction fields on a source-owned path.
+
+    A non-NULL ``edge_directions`` value (including the explicit JSON value
+    ``[]``) means the row has already been migrated or subsequently curated;
+    preserve it and its availability metadata.  Human-created paths have no
+    source_id and never enter this helper.
+    """
+
+    if path.source_id is None or path.edge_directions is not None:
+        return
+    directions, unavailable, reason = _direction_provenance(direction_json, raw_json)
+    path.edge_directions = directions
+    path.direction_data_unavailable = unavailable
+    path.direction_data_unavailable_reason = reason
+
+
 def migrate() -> dict[str, int]:
     if not BD_SQLITE_PATH.exists():
         raise SystemExit(f"Source BD SQLite not found at {BD_SQLITE_PATH}")
 
+    # ``create_all`` cannot ALTER an existing SQLite table.  Ensure the new
+    # mapped IntroPath columns before SQLAlchemy performs any SELECT against
+    # that model; this also makes direct CLI use safe outside entrypoint.sh.
     init_db()
+    ensure_intro_path_direction_columns()
     bd = sqlite3.connect(str(BD_SQLITE_PATH))
     bd.row_factory = sqlite3.Row
     session = get_session()
+    canonical_company_ids = {row[0] for row in bd.execute("SELECT company_id FROM companies")}
 
     stats = {
         "companies": 0,
@@ -132,35 +175,62 @@ def migrate() -> dict[str, int]:
         "creators_created": 0,
     }
 
-    # Clear and re-import the BD tables (source SQLite is authoritative);
-    # Creator/SocialAccount rows are never deleted here, only matched or
-    # created, so the quote library is untouched.
-    for model in (SponsorshipEvidence, ActionItem, IntroPath, Operator, GtmCase, CompanySource, CompanyAlias, ConnectorBrief, Company):
-        session.query(model).delete()
+    # Only the tables with zero human-editable fields get the simple
+    # delete-and-reinsert treatment (source SQLite is fully authoritative
+    # for these, nothing to lose). Company/Operator/IntroPath/ActionItem/
+    # SponsorshipEvidence are upserted by a stable source key instead (see
+    # each section below) -- a human edit via the API (category, operator
+    # role, action-item status, sponsorship review, ...) must survive a
+    # re-run of this script, not get silently clobbered by the next refresh.
+    # Only canonical v4 rows are source-authoritative.  Keep provenance and
+    # related research attached to locally discovered companies outside the
+    # v4 universe; a full-table delete used to erase those 12 companies'
+    # CompanySource rows on every refresh.
+    for model in (GtmCase, CompanySource, CompanyAlias):
+        session.query(model).filter(model.company_id.in_(canonical_company_ids)).delete(synchronize_session=False)
+    session.query(ConnectorBrief).delete()
     session.commit()
 
-    # --- Companies ---
+    # --- Companies: upsert by company_id ---
+    # Fields the source can always safely refresh (never exposed via
+    # PATCH /api/companies, so no human edit to protect). Fields NOT in
+    # this list (category, geography, why_now, budget_evidence,
+    # buyer_or_route, internal_notes) are only filled in when currently
+    # empty -- a human-provided or human-corrected value is never
+    # overwritten by a later source re-import. last_verified_at is pure
+    # human state and this migration never touches it at all.
+    existing_companies = {c.company_id: c for c in session.query(Company).all()}
     for row in bd.execute("SELECT * FROM companies"):
         raw = json.loads(row["raw_json"]) if row["raw_json"] else {}
-        company = Company(
-            company_id=row["company_id"],
-            name=row["company"],
-            category=row["category"] or None,
-            geography=row["geography"] or None,
-            stage=row["cohort"] or None,
-            score_value=row["score_value"],
-            score_comparison_group=row["score_comparison_group"],
-            priority_tier=row["priority_tier"],
-            spend_evidence_level=row["spend_evidence_level"],
-            spend_mechanism_level=row["spend_mechanism_level"],
-            why_now=row["why_now"] or None,
-            budget_evidence=row["budget_evidence"] or None,
-            buyer_or_route=row["buyer_or_route"] or raw.get("recommended_next_action"),
-            x_handle=(raw.get("x_handle_candidate") or "").lstrip("@") or None,
-            internal_notes=raw.get("risk"),
-            raw_json=row["raw_json"],
-        )
-        session.add(company)
+        company = existing_companies.get(row["company_id"])
+        if company is None:
+            company = Company(company_id=row["company_id"])
+            session.add(company)
+            existing_companies[row["company_id"]] = company
+
+        company.name = row["company"]
+        company.stage = row["cohort"] or None
+        company.score_value = row["score_value"]
+        company.score_comparison_group = row["score_comparison_group"]
+        company.priority_tier = row["priority_tier"]
+        company.spend_evidence_level = row["spend_evidence_level"]
+        company.spend_mechanism_level = row["spend_mechanism_level"]
+        company.x_handle = (raw.get("x_handle_candidate") or "").lstrip("@") or company.x_handle
+        company.raw_json = row["raw_json"]
+
+        if not company.category:
+            company.category = row["category"] or None
+        if not company.geography:
+            company.geography = row["geography"] or None
+        if not company.why_now:
+            company.why_now = row["why_now"] or None
+        if not company.budget_evidence:
+            company.budget_evidence = row["budget_evidence"] or None
+        if not company.buyer_or_route:
+            company.buyer_or_route = row["buyer_or_route"] or raw.get("recommended_next_action")
+        if not company.internal_notes:
+            company.internal_notes = raw.get("risk")
+
         stats["companies"] += 1
     session.commit()
 
@@ -172,12 +242,24 @@ def migrate() -> dict[str, int]:
         stats["sources"] += 1
     session.commit()
 
-    # --- Operators ---
+    # --- Operators: upsert by source_id (operator_identities.company_id) ---
+    # On a match, every human-editable field (name, role, x_handle,
+    # identity_confirmed, budget_authority_confirmed, evidence_urls) is left
+    # completely alone -- only x_rest_id refreshes, since it's never exposed
+    # via PATCH and purely technical. New source_ids create a new row as
+    # before; this never deletes an operator (including human-added ones,
+    # which have source_id=None and are never touched by this loop at all).
+    existing_operators = {o.source_id: o for o in session.query(Operator).filter(Operator.source_id.isnot(None)).all()}
     for row in bd.execute("SELECT * FROM operator_identities WHERE operator_name IS NOT NULL"):
+        if row["company_id"] in existing_operators:
+            existing_operators[row["company_id"]].x_rest_id = row["x_rest_id"]
+            stats["operators"] += 1
+            continue
         urls = json.loads(row["official_evidence_urls_json"] or "[]")
         session.add(
             Operator(
                 company_id=row["company_id"],
+                source_id=row["company_id"],
                 name=row["operator_name"],
                 role=row["operator_role"],
                 x_handle=row["x_handle"],
@@ -192,11 +274,27 @@ def migrate() -> dict[str, int]:
     session.commit()
 
     # --- Intro paths: company-account routes (x_paths) + operator-person routes ---
+    # Upsert by source_id (path_id / operator_path_id); an existing path is
+    # left alone (a human may have corrected human_intro_status or added
+    # path_labels via PATCH /api/intro-paths).
+    existing_paths = {p.source_id: p for p in session.query(IntroPath).filter(IntroPath.source_id.isnot(None)).all()}
     for row in bd.execute("SELECT * FROM x_paths"):
+        if row["path_id"] in existing_paths:
+            _backfill_source_path_directions(
+                existing_paths[row["path_id"]],
+                row["edge_directions_json"],
+                row["raw_json"],
+            )
+            stats["intro_paths"] += 1
+            continue
         labels = json.loads(row["path_labels_json"] or "[]")
+        directions, directions_unavailable, directions_reason = _direction_provenance(
+            row["edge_directions_json"], row["raw_json"]
+        )
         session.add(
             IntroPath(
                 company_id=row["company_id"],
+                source_id=row["path_id"],
                 target_type="company_account",
                 root=row["root"],
                 is_primary=bool(row["is_primary"]),
@@ -204,6 +302,9 @@ def migrate() -> dict[str, int]:
                 hop_count=row["hop_count"],
                 connector_handle=row["connector_handle"],
                 path_labels=" -> ".join(labels) if labels else None,
+                edge_directions=directions,
+                direction_data_unavailable=directions_unavailable,
+                direction_data_unavailable_reason=directions_reason,
                 graph_reachable=bool(row["graph_reachable"]),
                 human_intro_status=row["human_intro_status"],
                 evidence_scope=row["evidence_scope"],
@@ -213,10 +314,22 @@ def migrate() -> dict[str, int]:
         stats["intro_paths"] += 1
 
     for row in bd.execute("SELECT * FROM operator_person_paths"):
+        if row["operator_path_id"] in existing_paths:
+            _backfill_source_path_directions(
+                existing_paths[row["operator_path_id"]],
+                row["primary_edge_directions_json"],
+                row["raw_json"],
+            )
+            stats["intro_paths"] += 1
+            continue
         labels = json.loads(row["primary_path_labels_json"] or "[]")
+        directions, directions_unavailable, directions_reason = _direction_provenance(
+            row["primary_edge_directions_json"], row["raw_json"]
+        )
         session.add(
             IntroPath(
                 company_id=row["company_id"],
+                source_id=row["operator_path_id"],
                 target_type="operator_person",
                 root=row["root"],
                 is_primary=True,
@@ -224,6 +337,9 @@ def migrate() -> dict[str, int]:
                 hop_count=row["hop_count"],
                 connector_handle=None,
                 path_labels=" -> ".join(labels) if labels else None,
+                edge_directions=directions,
+                direction_data_unavailable=directions_unavailable,
+                direction_data_unavailable_reason=directions_reason,
                 graph_reachable=bool(row["graph_reachable"]) if row["graph_reachable"] is not None else False,
                 human_intro_status=row["human_intro_status"],
                 evidence_scope=None,
@@ -233,11 +349,19 @@ def migrate() -> dict[str, int]:
         stats["intro_paths"] += 1
     session.commit()
 
-    # --- Action items ---
+    # --- Action items: upsert by source_id (action_queue.action_id) ---
+    # An existing item is left alone -- owner/status/due_date/outcome_notes
+    # (and the original recommendation text, in case a human edited it) all
+    # survive a re-migration untouched.
+    existing_actions = {a.source_id: a for a in session.query(ActionItem).filter(ActionItem.source_id.isnot(None)).all()}
     for row in bd.execute("SELECT * FROM action_queue"):
+        if row["action_id"] in existing_actions:
+            stats["action_items"] += 1
+            continue
         session.add(
             ActionItem(
                 company_id=row["company_id"],
+                source_id=row["action_id"],
                 execution_wave=row["execution_wave"],
                 action_band=row["action_band"],
                 owner=row["owner"],
@@ -275,7 +399,13 @@ def migrate() -> dict[str, int]:
     session.commit()
 
     # --- Sponsorship evidence, with Creator entity resolution ---
+    # Upsert by source_id (sponsor_observations.observation_id): an existing
+    # row is left completely alone, so a Confirm/Reject review
+    # (PATCH /api/sponsorship-evidence) survives a source data refresh.
     obs_by_id = {row["observation_id"]: row for row in bd.execute("SELECT * FROM sponsor_observations")}
+    existing_evidence_ids = {
+        s for (s,) in session.query(SponsorshipEvidence.source_id).filter(SponsorshipEvidence.source_id.isnot(None)).all()
+    }
     for row in bd.execute("SELECT * FROM sponsor_edges"):
         # sponsor_edges is a rollup; re-walk the atomic observations for this
         # (company, creator) pair so each SponsorshipEvidence row stays a
@@ -287,6 +417,12 @@ def migrate() -> dict[str, int]:
         ]
         if not matching_obs:
             continue
+
+        new_obs = [o for o in matching_obs if o["observation_id"] not in existing_evidence_ids]
+        stats["sponsorship_evidence"] += len(matching_obs) - len(new_obs)
+        if not new_obs:
+            continue
+
         platform = _norm_platform(matching_obs[0]["platform"])
         handle = (row["creator_handle_or_channel"] or "").lstrip("@")
 
@@ -308,10 +444,11 @@ def migrate() -> dict[str, int]:
             session.add(SocialAccount(creator_id=creator.id, platform=platform, handle=handle))
             stats["creators_created"] += 1
 
-        for obs in matching_obs:
+        for obs in new_obs:
             session.add(
                 SponsorshipEvidence(
                     company_id=row["company_id"],
+                    source_id=obs["observation_id"],
                     creator_id=creator.id if creator else None,
                     creator_name_raw=obs["creator"],
                     creator_handle_raw=obs["creator_handle_or_channel"],

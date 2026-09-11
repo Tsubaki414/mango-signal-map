@@ -1,0 +1,134 @@
+.section {
+  padding: 0 clamp(20px, 4vw, 64px) 140px;
+  scroll-margin-top: var(--msm-topbar-h);
+}
+
+.eyebrow {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: var(--msm-accent);
+}
+
+.title {
+  margin: 16px 0 0;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.2;
+  letter-spacing: var(--msm-ls-tight);
+  font-weight: var(--msm-w-body);
+}
+
+.note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(243, 241, 234, 0.62);
+  max-width: 52em;
+}
+
+.counts {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.16);
+  border: 1px solid rgba(243, 241, 234, 0.16);
+}
+
+.count {
+  background: var(--msm-panel);
+  padding: 18px 20px;
+}
+
+.countK {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.55);
+}
+
+.countV {
+  margin-top: 8px;
+  font-family: var(--msm-mono);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.14);
+  border: 1px solid rgba(243, 241, 234, 0.14);
+}
+
+.card {
+  background: var(--msm-panel);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: var(--msm-w-title);
+}
+
+.handle {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  color: rgba(243, 241, 234, 0.55);
+}
+
+.srcTag {
+  margin-left: auto;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-s);
+  padding: 3px 8px;
+}
+
+.srcPriced {
+  color: var(--msm-black);
+  background: var(--msm-accent);
+}
+
+/* discovered 是"我们还会为你去找并建联新的人" —— 用描边而不是实底，
+ * 因为它是一个尚未成立的商务关系，不该和已有报价长得一样确定。 */
+.srcDiscovered {
+  color: var(--msm-accent);
+  box-shadow: var(--msm-ring);
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  color: rgba(243, 241, 234, 0.62);
+}
+
+.biz {
+  font-size: 12px;
+  color: rgba(243, 241, 234, 0.7);
+}
+
+.edges {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(243, 241, 234, 0.55);
+  border-top: 1px solid rgba(243, 241, 234, 0.12);
+  padding-top: 10px;
+}
+
+.unverified {
+  color: var(--msm-warn);
+}

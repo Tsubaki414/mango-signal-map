@@ -1,74 +1,86 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mango KOL database</title>
+  <title>Mango Growth &amp; BD Intelligence 工作台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-left">
-      <span class="logo"><span class="logo-mark"></span><em>Mango</em>&nbsp;Cockpit</span>
-      <nav class="section-nav" id="sectionNav">
-        <button class="section-btn active" data-section="home">Home</button>
-        <button class="section-btn" data-section="opportunities">Opportunities</button>
-        <button class="section-btn" data-section="network">Network</button>
-        <button class="section-btn" data-section="creators">Creators</button>
+      <span class="logo"><img class="logo-mark" src="assets/mango-logo.png" alt="Mango Labs" /><em>Mango Labs</em>&nbsp;工作台</span>
+      <nav class="section-nav" id="sectionNav" aria-label="主要功能">
+        <button type="button" class="section-btn active" data-section="home" aria-current="page">首页</button>
+        <button type="button" class="section-btn" data-section="opportunities">商机</button>
+        <button type="button" class="section-btn" data-section="network">人脉网络</button>
+        <button type="button" class="section-btn" data-section="creators">创作者</button>
       </nav>
     </div>
     <div class="topbar-right">
+      <span id="accessModeBadge" class="access-mode-badge hidden" role="status"></span>
       <div class="global-search-wrap" id="globalSearchWrap">
-        <input id="globalSearch" class="search-input" type="text" placeholder="Search companies, people, creators" autocomplete="off" />
-        <div id="globalSearchResults" class="search-results hidden"></div>
+        <input id="globalSearch" class="search-input" type="text" placeholder="搜索公司、联系人、创作者" aria-label="全局搜索" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="globalSearchResults" />
+        <div id="globalSearchResults" class="search-results hidden" role="listbox"></div>
       </div>
-      <button id="shortlistManagerBtn" class="btn btn-ghost">Shortlists</button>
+      <button id="openCurrentShortlistBtn" class="btn btn-ghost" disabled>打开当前名单</button>
+      <button id="shortlistManagerBtn" class="btn btn-ghost">管理名单</button>
     </div>
   </header>
 
-  <!-- ============================ Home ============================ -->
+  <!-- ============================ 首页 ============================ -->
   <section id="homeSection" class="app-section">
     <main class="content wide">
-      <div id="homeBody">Loading</div>
+      <h1 class="sr-only">首页行动队列</h1>
+      <div id="homeBody">加载中</div>
     </main>
   </section>
 
-  <!-- ======================== Opportunities ======================== -->
+  <!-- ======================== 商机 ======================== -->
   <section id="opportunitiesSection" class="app-section hidden">
     <div class="layout">
       <aside class="filters" id="oppFilters">
         <div class="filters-header">
-          <span>Filters</span>
-          <button id="oppClearFilters" class="link-btn">Clear all</button>
+          <span>筛选</span>
+          <div class="filter-header-actions">
+            <button type="button" class="link-btn mobile-filter-toggle" data-filter-panel="oppFilters" aria-expanded="false">展开筛选</button>
+            <button id="oppClearFilters" class="link-btn">清除全部</button>
+          </div>
         </div>
         <div id="oppFilterBody"></div>
       </aside>
       <main class="content">
+        <h1 class="sr-only">公司商机</h1>
         <div class="content-header">
           <div id="oppResultCount" class="result-count"></div>
           <div class="sort-controls">
-            <label>Sort by
+            <label>排序方式
               <select id="oppSortField">
-                <option value="priority">Priority</option>
-                <option value="reachability">Reachability</option>
-                <option value="sponsorship_count">Sponsorship evidence</option>
-                <option value="name">Name</option>
+                <option value="canonical_decision" selected>最终商业判断</option>
+                <option value="commercial_priority">内部研究排序</option>
+                <option value="sponsorship_count">赞助证据</option>
+                <option value="name">名称</option>
               </select>
             </label>
-            <button id="oppSortOrderBtn" class="btn btn-ghost" data-order="desc">High to low</button>
+            <button id="oppSortOrderBtn" class="btn btn-ghost" data-order="desc">从高到低</button>
           </div>
         </div>
+        <div id="oppPriorityStrip" class="priority-strip"></div>
         <div id="oppTableWrap" class="table-wrap">
           <table id="oppTable">
+            <caption class="sr-only">公司商机、时机、买方、进入方式和下一步行动</caption>
             <thead>
               <tr>
-                <th>Company</th>
-                <th>Priority</th>
-                <th>Reachability</th>
-                <th data-col="category">Category</th>
-                <th data-col="geography">Geography</th>
-                <th class="num">Sponsorships</th>
-                <th>Next action</th>
+                <th class="col-company" data-legacy-label="公司 / 判断摘要">公司 / ICP</th>
+                <th class="col-priority">商机价值</th>
+                <th class="col-reach" data-legacy-label="关系事实">为什么现在 / 亚洲信号</th>
+                <th class="col-exec">买方</th>
+                <th class="col-route">最佳进入方式</th>
+                <th class="col-priority">执行准备度</th>
+                <th class="col-action">下一步行动</th>
               </tr>
             </thead>
             <tbody id="oppRows"></tbody>
@@ -81,89 +93,96 @@
     </div>
   </section>
 
-  <!-- ============================ Network ============================ -->
+  <!-- ============================ 人脉网络 ============================ -->
   <section id="networkSection" class="app-section hidden">
     <main class="content wide">
-      <div id="networkBody">Loading</div>
+      <h1 class="sr-only">人脉网络与内部核实任务</h1>
+      <div id="networkBody">加载中</div>
     </main>
   </section>
 
-  <!-- ============================ Creators ============================ -->
+  <!-- ============================ 创作者 ============================ -->
   <section id="creatorsSection" class="app-section hidden">
     <div class="layout">
       <aside class="filters" id="filters">
         <div class="filters-header">
-          <span>Filters</span>
-          <button id="clearFilters" class="link-btn">Clear all</button>
+          <span>筛选</span>
+          <div class="filter-header-actions">
+            <button type="button" class="link-btn mobile-filter-toggle" data-filter-panel="filters" aria-expanded="false">展开筛选</button>
+            <button id="clearFilters" class="link-btn">清除全部</button>
+          </div>
         </div>
         <div id="filterBody"></div>
       </aside>
 
       <main class="content">
+        <h1 class="sr-only">创作者数据库</h1>
         <div class="content-header">
           <nav class="tabs" id="tabs">
-            <button class="tab active" data-tab="strategic">Strategic KOLs<span class="tab-count" id="countStrategic"></span></button>
-            <button class="tab" data-tab="distribution">KOC / Distribution<span class="tab-count" id="countDistribution"></span></button>
-            <button class="tab" data-tab="needs_review">Needs Review<span class="tab-count" id="countNeedsReview"></span></button>
+            <button class="tab active" data-tab="strategic">核心 KOL<span class="tab-count" id="countStrategic"></span></button>
+            <button class="tab" data-tab="distribution">KOC / 分发号<span class="tab-count" id="countDistribution"></span></button>
+            <button class="tab" data-tab="media">媒体 / 社区<span class="tab-count" id="countMedia"></span></button>
+            <button class="tab" data-tab="needs_review">待复核<span class="tab-count" id="countNeedsReview"></span></button>
           </nav>
-          <input id="search" class="search-input" type="text" placeholder="Search name, handle, category" />
+          <input id="search" class="search-input" type="text" placeholder="搜索名称、账号、类别" />
         </div>
         <div class="content-header">
           <div id="resultCount" class="result-count"></div>
           <div class="sort-controls">
-            <label>Sort by
+            <label>排序方式
               <select id="sortField">
-                <option value="followers">Followers</option>
-                <option value="avg_views">Avg views</option>
-                <option value="engagement_rate">Engagement rate</option>
-                <option value="quote">Quote</option>
-                <option value="cpm">Estimated CPM</option>
-                <option value="creator_class">Creator class</option>
-                <option value="promotion_level">Promotion level</option>
-                <option value="name">Name</option>
+                <option value="engagement_rate" selected>互动率</option>
+                <option value="avg_views">平均播放量</option>
+                <option value="followers">粉丝数</option>
+                <option value="quote">报价</option>
+                <option value="cpm">预估 CPM</option>
+                <option value="creator_class">创作者分类</option>
+                <option value="promotion_level">推广等级</option>
+                <option value="name">名称</option>
               </select>
             </label>
-            <button id="sortOrderBtn" class="btn btn-ghost" data-order="desc">High to low</button>
+            <button id="sortOrderBtn" class="btn btn-ghost" data-order="desc">从高到低</button>
             <div class="columns-toggle-wrap">
-              <button id="columnsToggleBtn" class="btn btn-ghost">Columns</button>
+              <button id="columnsToggleBtn" class="btn btn-ghost">列设置</button>
               <div id="columnsMenu" class="columns-menu hidden"></div>
             </div>
-            <button id="exportFilteredBtn" class="btn btn-ghost" title="Export every creator matching the current tab + filters, not just the shortlist">Export list</button>
-            <button id="batchEnrichBtn" class="btn btn-ghost" title="Pull fresh data for rows on this page that have never been enriched">Refresh data</button>
+            <button id="exportFilteredBtn" class="btn btn-ghost" title="导出当前标签页 + 筛选条件下匹配的全部创作者，而不仅是候选名单">导出列表</button>
+            <button id="batchEnrichBtn" class="btn btn-ghost" title="为本页尚未补充过数据的行拉取最新数据">刷新数据</button>
           </div>
         </div>
 
         <div id="bulkBar" class="bulk-bar hidden">
-          <span id="bulkBarSummary">0 selected</span>
+          <span id="bulkBarSummary">已选 0 项</span>
           <div class="actions">
-            <button id="bulkAddBtn" class="btn btn-primary btn-sm">Add to shortlist</button>
-            <button id="bulkClearBtn" class="link-btn">Clear selection</button>
+            <button id="bulkAddBtn" class="btn btn-primary btn-sm">加入候选名单</button>
+            <button id="bulkClearBtn" class="link-btn">清除选择</button>
           </div>
         </div>
 
         <div id="tableWrap" class="table-wrap">
           <table id="creatorTable">
+            <caption class="sr-only">创作者分类、受众、表现、报价和联系方式</caption>
             <thead>
               <tr id="headerRow">
-                <th class="col-select"><input type="checkbox" id="selectAllCheckbox" class="row-checkbox" title="Select all on this page" /></th>
-                <th>Creator</th>
-                <th>Class</th>
-                <th data-col="platform">Platform</th>
-                <th data-col="category">Category</th>
-                <th data-col="region">Region / Lang</th>
-                <th class="num">Followers</th>
-                <th class="num" data-col="avg_views">Avg views</th>
-                <th class="num" data-col="engagement">Engagement</th>
-                <th>Deliverable &amp; quote</th>
-                <th class="num" data-col="cpm">Est. CPM</th>
-                <th data-col="contact">Contact</th>
+                <th class="col-select"><input type="checkbox" id="selectAllCheckbox" class="row-checkbox" title="选择本页全部" aria-label="选择本页全部创作者" /></th>
+                <th>创作者</th>
+                <th>分类</th>
+                <th data-col="platform">平台</th>
+                <th data-col="category">类别</th>
+                <th data-col="region">地区 / 语言</th>
+                <th class="num">粉丝数</th>
+                <th class="num" data-col="avg_views">平均播放量</th>
+                <th class="num" data-col="engagement">互动率</th>
+                <th>交付物与报价</th>
+                <th class="num" data-col="cpm">预估 CPM</th>
+                <th data-col="contact">联系方式</th>
                 <th></th>
               </tr>
             </thead>
             <tbody id="creatorRows"></tbody>
           </table>
           <div id="emptyState" class="empty-state" style="display:none"></div>
-          <div id="loadingState" class="empty-state" style="display:none">Loading</div>
+          <div id="loadingState" class="empty-state" style="display:none">加载中</div>
           <div id="errorState" class="empty-state error" style="display:none"></div>
         </div>
 
@@ -173,40 +192,40 @@
   </section>
 
   <div class="sticky-bar hidden" id="stickyBar">
-    <span id="stickySummary">Selected 0 creators, total $0</span>
-    <button id="openShortlistBtn" class="btn btn-primary">View shortlist</button>
+    <span id="stickySummary">已选 0 位创作者，共 $0</span>
+    <button id="openShortlistBtn" class="btn btn-primary">查看候选名单</button>
   </div>
 
-  <!-- Creator detail drawer -->
+  <!-- 创作者详情抽屉 -->
   <div id="drawerOverlay" class="overlay hidden"></div>
-  <aside id="drawer" class="drawer hidden">
+  <aside id="drawer" class="drawer hidden" role="dialog" aria-modal="true" aria-label="详情" aria-hidden="true" tabindex="-1">
     <div class="drawer-header">
-      <button id="drawerClose" class="link-btn">✕ Close</button>
+      <button id="drawerClose" class="link-btn">✕ 关闭</button>
     </div>
     <div id="drawerBody" class="drawer-body"></div>
   </aside>
 
-  <!-- Shortlist modal -->
+  <!-- 候选名单弹窗 -->
   <div id="shortlistOverlay" class="overlay hidden"></div>
-  <div id="shortlistModal" class="modal hidden">
+  <div id="shortlistModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="shortlistModalTitle" aria-hidden="true" tabindex="-1">
     <div class="modal-header">
-      <span>Shortlist</span>
-      <button id="shortlistClose" class="link-btn">✕ Close</button>
+      <span id="shortlistModalTitle">候选名单</span>
+      <button id="shortlistClose" class="link-btn">✕ 关闭</button>
     </div>
     <div id="shortlistBody" class="modal-body"></div>
   </div>
 
-  <!-- Shortlist manager modal -->
+  <!-- 候选名单管理弹窗 -->
   <div id="managerOverlay" class="overlay hidden"></div>
-  <div id="managerModal" class="modal hidden">
+  <div id="managerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="managerModalTitle" aria-hidden="true" tabindex="-1">
     <div class="modal-header">
-      <span>All shortlists</span>
-      <button id="managerClose" class="link-btn">✕ Close</button>
+      <span id="managerModalTitle">全部候选名单</span>
+      <button id="managerClose" class="link-btn">✕ 关闭</button>
     </div>
     <div id="managerBody" class="modal-body"></div>
   </div>
 
-  <div id="toast" class="toast hidden"></div>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

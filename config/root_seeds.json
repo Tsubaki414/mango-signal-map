@@ -1,0 +1,111 @@
+{
+  "_readme": [
+    "各领域 Root 库的**种子提案**。这份文件是给人改的，不是给机器最终决定的。",
+    "",
+    "这里的每一个名字都是机器提出的候选，写入数据库时一律标记为 pending，",
+    "并且 root_type 留空 —— 谁是这个领域的目标人物，必须由人确认。",
+    "build_root_library.py 会逐个调 X 公开资料接口核验：账号不存在、改名或",
+    "读不到的，直接跳过并报出来，绝不建占位记录。",
+    "",
+    "group 是圈层，沿用 iLands 那套结构：一层是决定公共议题的头部，一层是",
+    "可能带来资金与 BD 连接的投资人，一层是让讨论变得具体可信的垂类核心人物。",
+    "三层服务的目的不同，客户会按目的挑不同的层。",
+    "",
+    "why 是「为什么值得作为目标」的一句话，同样是提案，落库后标 unverified。",
+    "改这份文件之后重跑 build_root_library.py 即可，脚本是幂等的。"
+  ],
+  "crypto": {
+    "label": "加密",
+    "groups": [
+      {
+        "name": "行业超级大佬",
+        "note": "决定加密圈公共议题的第一层声量。目标不是让他们接单，而是让内容有机会进入他们会看到、会回复或会转发的语境。",
+        "people": [
+          {"handle": "VitalikButerin", "why": "以太坊联合创始人；协议与公共议题的最强放大节点"},
+          {"handle": "cz_binance", "why": "币安创始人；交易所与全球用户侧的议题中心"},
+          {"handle": "brian_armstrong", "why": "Coinbase CEO；美国合规与机构叙事入口"},
+          {"handle": "saylor", "why": "MicroStrategy；机构持有 BTC 叙事的核心发声者"},
+          {"handle": "aeyakovenko", "why": "Solana 联合创始人；高性能链技术议题"},
+          {"handle": "gavofyork", "why": "Polkadot / Parity 创始人；跨链与协议架构"},
+          {"handle": "haydenzadams", "why": "Uniswap 创始人；DeFi 基础设施"},
+          {"handle": "StaniKulechov", "why": "Aave 创始人；借贷与 DeFi 协议"},
+          {"handle": "sreeramkannan", "why": "EigenLayer 创始人；再质押赛道"},
+          {"handle": "TusharJain_", "why": "Multicoin 联合创始人；论文式投资叙事"}
+        ]
+      },
+      {
+        "name": "加密 VC 与基金",
+        "note": "可能带来投资、BD 连接或高质量二跳可见面。选择逻辑与头部不同：更看重投资 fit 与 warm intro。",
+        "people": [
+          {"handle": "cdixon", "why": "a16z crypto 负责人；决定赛道叙事"},
+          {"handle": "arjunblj", "why": "Variant；消费级加密与所有权经济"},
+          {"handle": "punk6529", "why": "NFT / 开放元宇宙的长期观点输出者"},
+          {"handle": "RyanSAdams", "why": "Bankless 联合创始人；以太坊生态媒体与基金"},
+          {"handle": "TrustlessState", "why": "Bankless 联合创始人；面向 DeFi 用户"},
+          {"handle": "santiagoroel", "why": "Delphi Digital;研究驱动的投资观点"},
+          {"handle": "0xMaki", "why": "早期 DeFi 建设者与投资人"},
+          {"handle": "lightcrypto", "why": "长期市场结构观察者"},
+          {"handle": "smyyguy", "why": "Delphi Ventures；早期项目视角"},
+          {"handle": "ljin18", "why": "Variant；创作者经济与所有权"}
+        ]
+      },
+      {
+        "name": "垂类专家 / 核心人物",
+        "note": "负责让讨论变得可信、具体、有技术含量。适合作为二跳评论位与权威语境。",
+        "people": [
+          {"handle": "hasufl", "why": "加密经济学与市场结构研究"},
+          {"handle": "_prestwich", "why": "跨链与桥安全"},
+          {"handle": "samczsun", "why": "Paradigm；智能合约安全权威"},
+          {"handle": "danrobinson", "why": "Paradigm 研究；机制设计"},
+          {"handle": "0xfoobar", "why": "链上分析与安全"},
+          {"handle": "tayvano_", "why": "钱包安全与用户资产保护"},
+          {"handle": "zachxbt", "why": "链上调查；行业风险议题"},
+          {"handle": "epolynya", "why": "Rollup 与扩容研究"},
+          {"handle": "adamscochran", "why": "尽调式长文分析"},
+          {"handle": "Rewkang", "why": "交易与市场微观结构"}
+        ]
+      }
+    ]
+  },
+  "finance": {
+    "label": "金融",
+    "groups": [
+      {
+        "name": "行业超级大佬",
+        "note": "决定金融与宏观公共议题的第一层声量。",
+        "people": [
+          {"handle": "RayDalio", "why": "Bridgewater 创始人；宏观周期叙事"},
+          {"handle": "elerianm", "why": "Allianz 首席经济顾问；宏观政策解读"},
+          {"handle": "CathieDWood", "why": "ARK Invest；成长股与创新投资叙事"},
+          {"handle": "BillAckman", "why": "Pershing Square；公开市场议题放大"},
+          {"handle": "jimcramer", "why": "CNBC；零售投资者注意力"},
+          {"handle": "howardmarksbook", "why": "Oaktree；风险与周期的长期观点"}
+        ]
+      },
+      {
+        "name": "机构投资人与分析师",
+        "note": "可能带来机构侧连接与专业背书。",
+        "people": [
+          {"handle": "SquawkCNBC", "why": "机构日程与议题入口"},
+          {"handle": "LizAnnSonders", "why": "嘉信首席投资策略师；数据驱动解读"},
+          {"handle": "michaelbatnick", "why": "Ritholtz；面向理财顾问人群"},
+          {"handle": "awealthofcs", "why": "Ben Carlson；长期投资科普"},
+          {"handle": "morganhousel", "why": "行为金融叙事"},
+          {"handle": "GunjanJS", "why": "WSJ 市场记者；机构议题"}
+        ]
+      },
+      {
+        "name": "垂类专家 / 核心人物",
+        "note": "让讨论具体、可信、有数据支撑。",
+        "people": [
+          {"handle": "conorsen", "why": "宏观与劳动力市场"},
+          {"handle": "TheStalwart", "why": "Odd Lots；市场结构深访"},
+          {"handle": "tracyalloway", "why": "Odd Lots；金融管道与市场机制"},
+          {"handle": "biancoresearch", "why": "利率与固定收益"},
+          {"handle": "SoberLook", "why": "宏观数据图表"},
+          {"handle": "carlquintanilla", "why": "CNBC；市场叙事传播节点"}
+        ]
+      }
+    ]
+  }
+}

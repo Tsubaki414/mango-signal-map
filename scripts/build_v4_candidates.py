@@ -154,6 +154,37 @@ def combined_text(record: dict[str, Any]) -> str:
     return json.dumps(record, ensure_ascii=False).lower()
 
 
+def affirmative_spend_text(record: dict[str, Any]) -> str:
+    """Return only fields that can positively assert a spend mechanism.
+
+    The old implementation searched the entire source record.  That made
+    explicit *negative* caveats such as ``"no public cash pool was found"``
+    and research tasks such as ``"verify the cash campaign budget"`` score
+    as evidence of an active cash budget.  ``risk``, ``budget_interpretation``
+    and ``collaboration_angle`` describe uncertainty or a proposed Mango
+    tactic; they are not evidence and must never drive classification.
+
+    Source records may still carry an explicit, curated
+    ``spend_mechanism_level``.  That is handled before this helper.  For
+    heuristic fallback we restrict matching to affirmative evidence/program
+    fields and keep financing in a separate, lowest-priority field.
+    """
+
+    positive_fields = (
+        "budget_evidence",
+        "programs_or_campaigns",
+        "program_evidence",
+        "live_metric",
+        "evidence",
+        "sources",
+    )
+    return " ".join(
+        json.dumps(record.get(field), ensure_ascii=False).lower()
+        for field in positive_fields
+        if record.get(field)
+    )
+
+
 def infer_spend_level(record: dict[str, Any]) -> str:
     allowed = {
         "repeated_paid_campaign", "active_creator_or_partner_budget", "formal_paid_program",
@@ -164,7 +195,7 @@ def infer_spend_level(record: dict[str, Any]) -> str:
         return str(explicit)
     if explicit in EXPLICIT_SPEND_MAP:
         return EXPLICIT_SPEND_MAP[str(explicit)]
-    text = combined_text(record)
+    text = affirmative_spend_text(record)
     if any(term in text for term in ("repeated paid", "repeat campaign", "multi-creator paid")):
         return "repeated_paid_campaign"
     if any(term in text for term in ("cash campaign", "paid creator", "paid campaign", "cash pool", "usdc payout")):
@@ -173,7 +204,14 @@ def infer_spend_level(record: dict[str, Any]) -> str:
         return "formal_paid_program"
     if any(term in text for term in ("affiliate", "referral", "token reward", "token incentive", "yapper", "airdrop")):
         return "affiliate_or_referral_only"
-    if any(term in text for term in ("funding", "raised", "financing", "tvl", "tokenomics", "cloud credits")):
+    capacity_text = " ".join(
+        str(record.get(field) or "").lower()
+        for field in ("funding_signal", "funding", "financing", "tokenomics", "tvl")
+    )
+    if any(
+        term in f"{text} {capacity_text}"
+        for term in ("funding", "raised", "financing", "tvl", "tokenomics", "cloud credits")
+    ):
         return "funding_or_token_value_only"
     return "unknown"
 

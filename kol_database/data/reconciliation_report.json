@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-28T19:25:15.189374+00:00",
+  "ok": true,
+  "summary": {
+    "companies": 89,
+    "creators_total": 340,
+    "creators_bd_created": 39,
+    "creators_bd_created_still_unknown": 1,
+    "creators_bd_created_classified": 38,
+    "operators": 29,
+    "operators_canonical_source_backed": 10,
+    "operators_local_research_or_human": 19,
+    "operators_confirmed": 10,
+    "intro_paths": 640,
+    "action_items": 42,
+    "sponsorship_evidence": 64,
+    "sponsorship_evidence_paid": 42,
+    "gtm_cases": 8,
+    "companies_canonical_source_backed": 77,
+    "companies_local_research": 12,
+    "companies_missing_category_or_geography": 0
+  },
+  "findings": []
+}

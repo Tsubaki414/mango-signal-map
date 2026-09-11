@@ -110,8 +110,11 @@ class TestTabForCreator(unittest.TestCase):
         return c
 
     def test_strategic_classes(self):
-        for cls in ("Top KOL", "Community Leader", "KOL", "Media / Community Account"):
+        for cls in ("Top KOL", "Community Leader", "KOL"):
             self.assertEqual(tab_for_creator(self._creator(cls)), "strategic")
+
+    def test_media_is_a_distinct_directory_tab(self):
+        self.assertEqual(tab_for_creator(self._creator("Media / Community Account")), "media")
 
     def test_distribution_classes(self):
         for cls in ("KOC", "Marketing Account"):

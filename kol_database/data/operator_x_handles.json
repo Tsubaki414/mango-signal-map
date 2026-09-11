@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Raman Malik",
+    "company": "Perplexity",
+    "x_handle": "ramanrmalik",
+    "source_url": "https://x.com/ramanrmalik",
+    "confidence_note": "The X profile's own bio reads 'vp growth @ perplexity', matching his confirmed title of VP of Product and Growth at Perplexity exactly. Profile is also cross-referenced by third-party bio aggregators (e.g. me.sh, growthtalent.org) as his account."
+  },
+  {
+    "name": "Max Brodeur-Urbas",
+    "company": "Gumloop",
+    "x_handle": "MaxBrodeurUrbas",
+    "source_url": "https://x.com/MaxBrodeurUrbas",
+    "confidence_note": "Profile bio explicitly states 'co-founder of @gumloop', directly confirming his role as Co-founder & CEO of Gumloop. He also posts first-person company updates from the account (e.g. announcing Gumloop's Series B raise), consistent with being the actual founder rather than a lookalike."
+  },
+  {
+    "name": "Victor Perez",
+    "company": "Krea",
+    "x_handle": "viccpoes",
+    "source_url": "https://krea-ai.com/krea-ai-founders/",
+    "confidence_note": "Krea's own official 'Krea AI Founders' page lists Victor Perez (Co-founder & CEO) with a direct link to his X/Twitter profile at twitter.com/viccpoes, alongside his GitHub and personal site — this is a first-party company source naming him and linking the handle directly."
+  },
+  {
+    "name": "Keith Messick",
+    "company": "Vercel (v0)",
+    "x_handle": "keithmessick",
+    "source_url": "https://x.com/CRV/status/1947672992953339928",
+    "confidence_note": "VC firm CRV's official X account posted: 'The @vercel team just recently welcomed @keithmessick as its first CMO,' explicitly tying the handle to his confirmed name, role (CMO), and company (Vercel). Consistent with Vercel's own blog post announcing 'Keith Messick joins Vercel as CMO.'"
+  }
+]

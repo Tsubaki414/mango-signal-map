@@ -1,0 +1,43 @@
+{
+  "id": 1,
+  "creator": {
+    "id": 178,
+    "name": "Div_pradeep",
+    "handle": "Div_pradeep",
+    "avatar_url": "https://pbs.twimg.com/profile_images/1840788150307680256/33rQ7zVo_normal.jpg",
+    "profile_url": "https://x.com/Div_pradeep",
+    "platform": "X",
+    "followers": 69184,
+    "follower_tier": "micro",
+    "creator_tier": "strategic",
+    "creator_tier_label": "战略型 KOL",
+    "verticals": [
+      "ai",
+      "consumer_tech",
+      "developer_tools"
+    ],
+    "languages": [
+      "en"
+    ],
+    "market_region": "europe_america",
+    "market_region_label": "欧美",
+    "market_region_basis": "language",
+    "audience_types": [
+      "developers",
+      "creators"
+    ],
+    "audience_type_labels": [
+      "开发者",
+      "内容创作者"
+    ],
+    "audience_types_basis": "llm",
+    "audience_evidence": "developers:\"I post on coding, AI & smart tools\"; creators:\"250k+ AI & Tech community\"",
+    "content_summary": "This account primarily posts about AI, coding, and smart tools.",
+    "quote": null,
+    "procurement": "由 Mango 对接"
+  },
+  "selected_content_format": null,
+  "quantity": 1,
+  "client_note": null,
+  "added_at": "2026-09-08T10:55:23.004474"
+}

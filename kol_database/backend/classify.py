@@ -43,6 +43,7 @@ Classes (pick exactly one): {", ".join(CREATOR_CLASSES)}
 - Media / Community Account: media outlet, aggregator, or official community/brand account rather than a single creator's personal voice.
 - KOC: small-to-mid reach, promotes for pay/product but without heavy bulk-distribution signatures; still a plausible low-cost distribution node.
 - Marketing Account: templated copy, heavy cross-project promotion of many unrelated things, task/engagement-farm patterns, little to no original opinion.
+- Non-creator / Irrelevant: not an individual creator at all -- a news outlet, product/tool account, bot, or brand entity that showed up only because it was mentioned somewhere, not because it has its own creator relationship with an audience. Distinct from Marketing Account (which is still a promotional *creator* voice, just a low-quality one). This is a terminal, reviewed verdict, not a placeholder.
 - Unknown: genuinely not enough signal to tell (e.g. near-empty bio AND no metrics AND no content) -- a legitimate answer, use it rather than guessing. Creators classified Unknown go to a "Needs Review" queue for a human to check, they do NOT default into Strategic.
 
 Judge using ALL available evidence, not followers alone: bio and stated identity, original-content ratio, sustained focus on one vertical vs. scattergun, community/media role, engagement quality (real replies vs. bot-like), posting frequency and burstiness, promotional-content ratio, breadth of unrelated projects promoted, how templated the copy reads, and whether the account shows a real point of view.
@@ -92,47 +93,50 @@ def _build_user_prompt(payload: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def _cache_path(cache_key: str) -> Path:
+def _cache_path(cache_key: str, namespace: str = "classify") -> Path:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     digest = hashlib.sha256(cache_key.encode()).hexdigest()[:24]
-    return CACHE_DIR / f"classify-{digest}.json"
+    return CACHE_DIR / f"{namespace}-{digest}.json"
 
 
 def is_configured() -> bool:
     return bool(get_env("OPENAI_API_KEY"))
 
 
-def classify_account(payload: dict[str, Any], *, force: bool = False) -> dict[str, Any]:
+def call_openai_json(
+    system_prompt: str,
+    user_prompt: str,
+    *,
+    cache_namespace: str,
+    force: bool = False,
+    temperature: float = 0.2,
+) -> dict[str, Any]:
+    """Shared plumbing for every GPT-JSON call in this app: raw urllib (no
+    SDK dependency), disk cache keyed on (model, system_prompt, user_prompt)
+    so a prompt edit invalidates stale cached verdicts, 30-day TTL. Returns
+    the raw parsed JSON object -- callers own their own normalization,
+    since different callers validate against different enums."""
     api_key = get_env("OPENAI_API_KEY")
     if not api_key:
         raise ClassifyError("Missing OPENAI_API_KEY. Set it in the repo-root .env before classifying.")
 
     model = get_env("OPENAI_MODEL") or "gpt-4o-mini"
-    user_prompt = _build_user_prompt(payload)
-    # SYSTEM_PROMPT is part of the cache key (not just model+user_prompt):
-    # editing the classification rules must invalidate old cached verdicts
-    # rather than silently keep serving results reasoned under the old
-    # rules forever.
-    cache_key = json.dumps([model, SYSTEM_PROMPT, user_prompt], ensure_ascii=False)
-    cache_path = _cache_path(cache_key)
+    cache_key = json.dumps([model, system_prompt, user_prompt], ensure_ascii=False)
+    cache_path = _cache_path(cache_key, cache_namespace)
     if cache_path.exists() and not force:
         age = time.time() - cache_path.stat().st_mtime
         if age <= CACHE_TTL_SECONDS:
-            # Re-normalize on every read, not just on a fresh API call: a
-            # cache entry written before a normalize_classification_result()
-            # fix (e.g. the literal-string-"null" cleanup) must not keep
-            # serving the unfixed value forever just because it's cached.
-            return normalize_classification_result(json.loads(cache_path.read_text(encoding="utf-8")))
+            return json.loads(cache_path.read_text(encoding="utf-8"))
 
     body = json.dumps(
         {
             "model": model,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             "response_format": {"type": "json_object"},
-            "temperature": 0.2,
+            "temperature": temperature,
         }
     ).encode("utf-8")
 
@@ -161,9 +165,14 @@ def classify_account(payload: dict[str, Any], *, force: bool = False) -> dict[st
     except (KeyError, IndexError, json.JSONDecodeError) as exc:
         raise ClassifyError(f"Unexpected OpenAI response shape: {exc}") from exc
 
-    result = normalize_classification_result(result)
     cache_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     return result
+
+
+def classify_account(payload: dict[str, Any], *, force: bool = False) -> dict[str, Any]:
+    user_prompt = _build_user_prompt(payload)
+    result = call_openai_json(SYSTEM_PROMPT, user_prompt, cache_namespace="classify", force=force)
+    return normalize_classification_result(result)
 
 
 _NULLISH_STRINGS = {"null", "none", "n/a", "unknown", ""}

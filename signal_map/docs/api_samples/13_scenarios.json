@@ -1,0 +1,961 @@
+{
+  "brief_id": 1,
+  "budget_usd": 40000.0,
+  "scenarios": [
+    {
+      "key": "credibility",
+      "label": "专业可信度方案",
+      "thesis": "少而精：优先有专业受众和可验证注意力信号的战略型 KOL，接受更高单价",
+      "tradeoff": "覆盖面较窄，单价高，适合背书与融资叙事，不适合铺量",
+      "size": 6,
+      "picks": [
+        {
+          "creator_id": 103,
+          "name": "DeRonin_",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "开发者",
+              "创始人",
+              "投资人"
+            ],
+            "markets": [
+              "欧美"
+            ],
+            "formats": [
+              "article",
+              "x_quote_repost",
+              "x_single_post",
+              "x_thread"
+            ],
+            "roots": 33
+          }
+        },
+        {
+          "creator_id": 29,
+          "name": "HeyZoyaKhan",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "普通消费者",
+              "内容创作者",
+              "学习者"
+            ],
+            "markets": [],
+            "formats": [
+              "instagram_post",
+              "threads_post"
+            ],
+            "roots": 18
+          }
+        },
+        {
+          "creator_id": 59,
+          "name": "rohanpaul_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "研究员"
+            ],
+            "markets": [],
+            "formats": [
+              "linkedin_post",
+              "newsletter",
+              "unknown",
+              "x_repost"
+            ],
+            "roots": 33
+          }
+        },
+        {
+          "creator_id": 72,
+          "name": "dee_naliaks",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "企业决策者",
+              "营销从业者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 6
+          }
+        },
+        {
+          "creator_id": 64,
+          "name": "marcusyul",
+          "role": "解释者",
+          "adds": {
+            "audiences": [],
+            "markets": [
+              "拉美"
+            ],
+            "formats": [],
+            "roots": 9
+          }
+        },
+        {
+          "creator_id": 53,
+          "name": "aiwithsynthia",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "设计师"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 6
+          }
+        }
+      ],
+      "coverage": {
+        "audiences": [
+          "企业决策者",
+          "内容创作者",
+          "创始人",
+          "学习者",
+          "开发者",
+          "投资人",
+          "普通消费者",
+          "研究员",
+          "营销从业者",
+          "设计师"
+        ],
+        "markets": [
+          "拉美",
+          "欧美"
+        ],
+        "content_formats": [
+          "article",
+          "instagram_post",
+          "linkedin_post",
+          "newsletter",
+          "threads_post",
+          "unknown",
+          "x_quote_repost",
+          "x_repost",
+          "x_single_post",
+          "x_thread"
+        ],
+        "roots_reached": 105,
+        "audience_overlap": 0.375
+      },
+      "budget": {
+        "line_count": 6,
+        "priced_line_count": 6,
+        "total_usd": 2875.0,
+        "total_label": "$2,875",
+        "budget_usd": 40000.0,
+        "needs_mango_confirmation": true,
+        "notes": [
+          "6 项报价未经复核，金额可能变动"
+        ]
+      },
+      "risks": [
+        "总价包含套餐或未复核报价，需要 Mango 确认后才能作为承诺"
+      ],
+      "alternates": [
+        "nrqa__",
+        "darshal_",
+        "Ubermenscchh"
+      ],
+      "notes": [
+        "本方案未用满预算：该方案已达 6 人上限，且候选池单价偏低。可考虑增加单人投放条数、放宽方案类型，或扩大名单。"
+      ]
+    },
+    {
+      "key": "coverage",
+      "label": "圈层覆盖方案",
+      "thesis": "最大化不重复的受众圈层与市场，接受单个账号量级较小",
+      "tradeoff": "单点声量弱，胜在广度；专业背书强度不如可信度方案",
+      "size": 12,
+      "picks": [
+        {
+          "creator_id": 119,
+          "name": "HeyAmit_",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [
+              "创始人",
+              "营销从业者"
+            ],
+            "markets": [
+              "欧美"
+            ],
+            "formats": [
+              "x_repost",
+              "x_single_post"
+            ],
+            "roots": 35
+          }
+        },
+        {
+          "creator_id": 165,
+          "name": "Trathoa",
+          "role": "圈层桥梁",
+          "adds": {
+            "audiences": [
+              "内容创作者",
+              "投资人",
+              "交易者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 3
+          }
+        },
+        {
+          "creator_id": 179,
+          "name": "shmidtqq",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "普通消费者",
+              "开发者"
+            ],
+            "markets": [],
+            "formats": [
+              "x_quote_repost"
+            ],
+            "roots": 7
+          }
+        },
+        {
+          "creator_id": 59,
+          "name": "rohanpaul_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "研究员"
+            ],
+            "markets": [],
+            "formats": [
+              "linkedin_post",
+              "newsletter",
+              "unknown"
+            ],
+            "roots": 41
+          }
+        },
+        {
+          "creator_id": 53,
+          "name": "aiwithsynthia",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "设计师"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 8
+          }
+        },
+        {
+          "creator_id": 163,
+          "name": "Rana_kamran43",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "企业决策者"
+            ],
+            "markets": [],
+            "formats": [
+              "youtube_integration"
+            ],
+            "roots": 16
+          }
+        },
+        {
+          "creator_id": 292,
+          "name": "Gumvue（据邮箱推测，邮件未说明具体品牌/平台）",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 7
+          }
+        },
+        {
+          "creator_id": 141,
+          "name": "EyeingAI",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "学习者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 17
+          }
+        },
+        {
+          "creator_id": 30,
+          "name": "iamfakhrealam",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 18
+          }
+        },
+        {
+          "creator_id": 122,
+          "name": "shushant_l",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [
+              "x_thread"
+            ],
+            "roots": 15
+          }
+        },
+        {
+          "creator_id": 91,
+          "name": "umesh_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 12
+          }
+        },
+        {
+          "creator_id": 21,
+          "name": "PabloEvans0",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [
+              "拉美"
+            ],
+            "formats": [
+              "threads_post"
+            ],
+            "roots": 3
+          }
+        }
+      ],
+      "coverage": {
+        "audiences": [
+          "交易者",
+          "企业决策者",
+          "内容创作者",
+          "创始人",
+          "学习者",
+          "开发者",
+          "投资人",
+          "普通消费者",
+          "研究员",
+          "营销从业者",
+          "设计师"
+        ],
+        "markets": [
+          "拉美",
+          "欧美"
+        ],
+        "content_formats": [
+          "linkedin_post",
+          "newsletter",
+          "threads_post",
+          "unknown",
+          "x_quote_repost",
+          "x_repost",
+          "x_single_post",
+          "x_thread",
+          "youtube_integration"
+        ],
+        "roots_reached": 182,
+        "audience_overlap": 0.621
+      },
+      "budget": {
+        "line_count": 12,
+        "priced_line_count": 12,
+        "total_usd": 865.0,
+        "total_label": "$865",
+        "budget_usd": 40000.0,
+        "needs_mango_confirmation": true,
+        "notes": [
+          "1 项为套餐价，不能与单条价格直接相加，需要 Mango 确认",
+          "12 项报价未经复核，金额可能变动"
+        ]
+      },
+      "risks": [
+        "受众重叠较高（62%），新增覆盖有限",
+        "总价包含套餐或未复核报价，需要 Mango 确认后才能作为承诺"
+      ],
+      "alternates": [
+        "IslamRashi2000",
+        "Fran_actua",
+        "nrqa__"
+      ],
+      "notes": [
+        "本方案未用满预算：该方案已达 12 人上限，且候选池单价偏低。可考虑增加单人投放条数、放宽方案类型，或扩大名单。"
+      ]
+    },
+    {
+      "key": "conversion",
+      "label": "产品转化方案",
+      "thesis": "面向消费者与学习者的高频次投放，单价低、条数多",
+      "tradeoff": "偏铺量，品牌调性控制较弱，需要更强的内容审核",
+      "size": 16,
+      "picks": [
+        {
+          "creator_id": 119,
+          "name": "HeyAmit_",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [
+              "创始人",
+              "营销从业者"
+            ],
+            "markets": [
+              "欧美"
+            ],
+            "formats": [
+              "x_repost",
+              "x_single_post"
+            ],
+            "roots": 35
+          }
+        },
+        {
+          "creator_id": 165,
+          "name": "Trathoa",
+          "role": "圈层桥梁",
+          "adds": {
+            "audiences": [
+              "内容创作者",
+              "投资人",
+              "交易者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 3
+          }
+        },
+        {
+          "creator_id": 179,
+          "name": "shmidtqq",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "普通消费者",
+              "开发者"
+            ],
+            "markets": [],
+            "formats": [
+              "x_quote_repost"
+            ],
+            "roots": 7
+          }
+        },
+        {
+          "creator_id": 59,
+          "name": "rohanpaul_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "研究员"
+            ],
+            "markets": [],
+            "formats": [
+              "linkedin_post",
+              "newsletter",
+              "unknown"
+            ],
+            "roots": 41
+          }
+        },
+        {
+          "creator_id": 53,
+          "name": "aiwithsynthia",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "设计师"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 8
+          }
+        },
+        {
+          "creator_id": 163,
+          "name": "Rana_kamran43",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "企业决策者"
+            ],
+            "markets": [],
+            "formats": [
+              "youtube_integration"
+            ],
+            "roots": 16
+          }
+        },
+        {
+          "creator_id": 292,
+          "name": "Gumvue（据邮箱推测，邮件未说明具体品牌/平台）",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 7
+          }
+        },
+        {
+          "creator_id": 21,
+          "name": "PabloEvans0",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [
+              "拉美"
+            ],
+            "formats": [
+              "threads_post"
+            ],
+            "roots": 5
+          }
+        },
+        {
+          "creator_id": 30,
+          "name": "iamfakhrealam",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 25
+          }
+        },
+        {
+          "creator_id": 141,
+          "name": "EyeingAI",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "学习者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 8
+          }
+        },
+        {
+          "creator_id": 122,
+          "name": "shushant_l",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [
+              "x_thread"
+            ],
+            "roots": 15
+          }
+        },
+        {
+          "creator_id": 91,
+          "name": "umesh_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 12
+          }
+        },
+        {
+          "creator_id": 146,
+          "name": "aaliya_va",
+          "role": "解释者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 5
+          }
+        },
+        {
+          "creator_id": 51,
+          "name": "ginacostag_",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 4
+          }
+        },
+        {
+          "creator_id": 173,
+          "name": "techyoutbe",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [
+              "article"
+            ],
+            "roots": 1
+          }
+        },
+        {
+          "creator_id": 112,
+          "name": "karankendre",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 1
+          }
+        }
+      ],
+      "coverage": {
+        "audiences": [
+          "交易者",
+          "企业决策者",
+          "内容创作者",
+          "创始人",
+          "学习者",
+          "开发者",
+          "投资人",
+          "普通消费者",
+          "研究员",
+          "营销从业者",
+          "设计师"
+        ],
+        "markets": [
+          "拉美",
+          "欧美"
+        ],
+        "content_formats": [
+          "article",
+          "linkedin_post",
+          "newsletter",
+          "threads_post",
+          "unknown",
+          "x_quote_repost",
+          "x_repost",
+          "x_single_post",
+          "x_thread",
+          "youtube_integration"
+        ],
+        "roots_reached": 193,
+        "audience_overlap": 0.703
+      },
+      "budget": {
+        "line_count": 16,
+        "priced_line_count": 16,
+        "total_usd": 1435.0,
+        "total_label": "$1,435",
+        "budget_usd": 40000.0,
+        "needs_mango_confirmation": true,
+        "notes": [
+          "1 项为套餐价，不能与单条价格直接相加，需要 Mango 确认",
+          "16 项报价未经复核，金额可能变动"
+        ]
+      },
+      "risks": [
+        "受众重叠较高（70%），新增覆盖有限",
+        "总价包含套餐或未复核报价，需要 Mango 确认后才能作为承诺"
+      ],
+      "alternates": [
+        "IslamRashi2000",
+        "Fran_actua",
+        "nrqa__"
+      ],
+      "notes": [
+        "本方案未用满预算：该方案已达 16 人上限，且候选池单价偏低。可考虑增加单人投放条数、放宽方案类型，或扩大名单。"
+      ]
+    },
+    {
+      "key": "cross_border",
+      "label": "中英文跨境方案",
+      "thesis": "覆盖多个语言与市场，用于跨境同步传播",
+      "tradeoff": "各市场深度有限；非目标市场的支出需要客户确认是否值得",
+      "size": 10,
+      "picks": [
+        {
+          "creator_id": 119,
+          "name": "HeyAmit_",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [
+              "创始人",
+              "营销从业者"
+            ],
+            "markets": [
+              "欧美"
+            ],
+            "formats": [
+              "x_repost",
+              "x_single_post"
+            ],
+            "roots": 35
+          }
+        },
+        {
+          "creator_id": 179,
+          "name": "shmidtqq",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "普通消费者",
+              "开发者"
+            ],
+            "markets": [],
+            "formats": [
+              "x_quote_repost"
+            ],
+            "roots": 7
+          }
+        },
+        {
+          "creator_id": 165,
+          "name": "Trathoa",
+          "role": "圈层桥梁",
+          "adds": {
+            "audiences": [
+              "内容创作者",
+              "投资人",
+              "交易者"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 3
+          }
+        },
+        {
+          "creator_id": 59,
+          "name": "rohanpaul_ai",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "研究员"
+            ],
+            "markets": [],
+            "formats": [
+              "linkedin_post",
+              "newsletter",
+              "unknown"
+            ],
+            "roots": 41
+          }
+        },
+        {
+          "creator_id": 173,
+          "name": "techyoutbe",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "学习者"
+            ],
+            "markets": [],
+            "formats": [
+              "article",
+              "x_thread"
+            ],
+            "roots": 6
+          }
+        },
+        {
+          "creator_id": 163,
+          "name": "Rana_kamran43",
+          "role": "专业验证者",
+          "adds": {
+            "audiences": [
+              "企业决策者"
+            ],
+            "markets": [],
+            "formats": [
+              "youtube_integration"
+            ],
+            "roots": 18
+          }
+        },
+        {
+          "creator_id": 292,
+          "name": "Gumvue（据邮箱推测，邮件未说明具体品牌/平台）",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 8
+          }
+        },
+        {
+          "creator_id": 21,
+          "name": "PabloEvans0",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [
+              "拉美"
+            ],
+            "formats": [
+              "threads_post"
+            ],
+            "roots": 6
+          }
+        },
+        {
+          "creator_id": 82,
+          "name": "rovvmut_",
+          "role": "转化推动者",
+          "adds": {
+            "audiences": [
+              "设计师"
+            ],
+            "markets": [],
+            "formats": [],
+            "roots": 9
+          }
+        },
+        {
+          "creator_id": 30,
+          "name": "iamfakhrealam",
+          "role": "回声节点",
+          "adds": {
+            "audiences": [],
+            "markets": [],
+            "formats": [],
+            "roots": 19
+          }
+        }
+      ],
+      "coverage": {
+        "audiences": [
+          "交易者",
+          "企业决策者",
+          "内容创作者",
+          "创始人",
+          "学习者",
+          "开发者",
+          "投资人",
+          "普通消费者",
+          "研究员",
+          "营销从业者",
+          "设计师"
+        ],
+        "markets": [
+          "拉美",
+          "欧美"
+        ],
+        "content_formats": [
+          "article",
+          "linkedin_post",
+          "newsletter",
+          "threads_post",
+          "unknown",
+          "x_quote_repost",
+          "x_repost",
+          "x_single_post",
+          "x_thread",
+          "youtube_integration"
+        ],
+        "roots_reached": 152,
+        "audience_overlap": 0.522
+      },
+      "budget": {
+        "line_count": 10,
+        "priced_line_count": 10,
+        "total_usd": 665.0,
+        "total_label": "$665",
+        "budget_usd": 40000.0,
+        "needs_mango_confirmation": true,
+        "notes": [
+          "1 项为套餐价，不能与单条价格直接相加，需要 Mango 确认",
+          "10 项报价未经复核，金额可能变动"
+        ]
+      },
+      "risks": [
+        "总价包含套餐或未复核报价，需要 Mango 确认后才能作为承诺"
+      ],
+      "alternates": [
+        "IslamRashi2000",
+        "Fran_actua",
+        "nrqa__"
+      ],
+      "notes": [
+        "本方案未用满预算：该方案已达 10 人上限，且候选池单价偏低。可考虑增加单人投放条数、放宽方案类型，或扩大名单。"
+      ]
+    },
+    {
+      "key": "head_and_vertical",
+      "label": "头部与垂直混合方案",
+      "thesis": "1–2 个量级头部账号带声量，其余垂直账号承接细分人群",
+      "tradeoff": "头部账号占用大部分预算，若头部表现不佳则整体风险集中",
+      "size": 1,
+      "picks": [
+        {
+          "creator_id": 287,
+          "name": "Linus Tech Tips",
+          "role": "引爆者",
+          "adds": {
+            "audiences": [
+              "普通消费者",
+              "学习者"
+            ],
+            "markets": [
+              "欧美"
+            ],
+            "formats": [
+              "youtube_dedicated",
+              "youtube_integration"
+            ],
+            "roots": 0
+          }
+        }
+      ],
+      "coverage": {
+        "audiences": [
+          "学习者",
+          "普通消费者"
+        ],
+        "markets": [
+          "欧美"
+        ],
+        "content_formats": [
+          "youtube_dedicated",
+          "youtube_integration"
+        ],
+        "roots_reached": 0,
+        "audience_overlap": 0.0
+      },
+      "budget": {
+        "line_count": 1,
+        "priced_line_count": 1,
+        "total_usd": 40000.0,
+        "total_label": "$40,000",
+        "budget_usd": 40000.0,
+        "needs_mango_confirmation": true,
+        "notes": [
+          "1 项报价未经复核，金额可能变动"
+        ]
+      },
+      "risks": [
+        "该组合暂无已观察到的注意力信号，圈层进入路径待补充",
+        "总价包含套餐或未复核报价，需要 Mango 确认后才能作为承诺",
+        "仅一个投放对象，结果高度依赖单点表现",
+        "仅有头部账号，垂直承接部分未能在预算内组成"
+      ],
+      "alternates": [
+        "IslamRashi2000",
+        "Fran_actua",
+        "nrqa__"
+      ],
+      "notes": []
+    }
+  ]
+}

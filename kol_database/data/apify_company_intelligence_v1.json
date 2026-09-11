@@ -1,0 +1,3072 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-02T03:21:52Z",
+  "companies": {
+    "company:gamma": {
+      "company_id": "company:gamma",
+      "company": "Gamma",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 5,
+        "linkedin": 20,
+        "youtube": 60,
+        "public_contact": 0,
+        "instagram_creator_posts": 18
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 4,
+        "operator_candidates": 10,
+        "brand_attributed_commercial_candidates": 9,
+        "brand_attribution_holds": 6,
+        "creator_expansion_candidates": 14,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 2
+      },
+      "why_now_observed": [
+        "Gamma 当前 Growth Marketing 职位明确负责 top-of-funnel 实验与 partner ecosystem。",
+        "Gamma 当前 Japan Regional Community 职位明确提到本地 creator、workshop、localized learning 与 community activation。",
+        "以上是官网首方页面观察，仍待人工复核；本轮测试的 API/Ecosystem 职位链接已经返回 404，不能继续作为当前招聘信号。"
+      ],
+      "mango_offer_hypothesis": "以日本/APAC creator 教育和社区激活为主线，并配套可复制的 productivity tutorial 分发。官网日本岗位支持区域需求判断；creator 结果支持教程渠道判断，但已发现 creator 的 APAC 受众匹配仍未知。",
+      "best_route_hypothesis": "Creator 采购优先核验 Fiona Turko（Creator Partnerships Lead）；区域社区激活优先核验 Amanda Rothbard（Community Lead）；获客实验优先核验 Ravish Agrawal（Head of Growth Marketing）。三者目前都只是未复核的公开职业资料观察。",
+      "contact_gap": "本轮未找到 Gamma 的通用公开公司邮箱；已找到官方 affiliate 申请和官方社区两条可执行公开路线。",
+      "public_contact_routes": [
+        {
+          "label": "Gamma Affiliate 官方申请",
+          "route_type": "Direct official program",
+          "route_url": "https://gammaapp.partnerstack.com/?group=affiliates",
+          "evidence_url": "https://help.gamma.app/en/articles/11048092-how-do-i-join-the-gamma-affiliate-program",
+          "why_this_route": "Gamma 官方帮助中心明确面向 creator、educator 与 community leader，并要求通过 PartnerStack 提交申请。",
+          "required_first_step": "先以 Mango 的 creator cohort、受众类型和推广方式完成申请；不要用泛合作介绍代替具体 activation 方案。",
+          "confidence": "high",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Gamma 官方社区",
+          "route_type": "Intermediary / community",
+          "route_url": "https://community.gamma.app/",
+          "evidence_url": "https://community.gamma.app/",
+          "why_this_route": "可观察本地活动、Gambassador 与社区 operator，但社区参与不等于买方同意合作。",
+          "required_first_step": "先核验日本相关活动、主办人和 Amanda Rothbard 的公开职责，再提出具体 workshop 或 creator education 方案。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Growth Marketing Manager",
+          "source_url": "https://careers.gamma.app/growth-marketing-manager",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization",
+              "verbatim_candidate": "💸 We’ve reached a $2.1B valuation, crossed $100M in annual recurring revenue, and have been profitable since 2023."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "As our Senior Growth Manager, you'll own top-of-funnel growth: finding the channels, experiments, and levers that bring the right users to Gamma and turn them into active creators."
+            },
+            {
+              "signal_type": "growth_marketing",
+              "verbatim_candidate": "As our Senior Growth Manager, you'll own top-of-funnel growth: finding the channels, experiments, and levers that bring the right users to Gamma and turn them into active creators."
+            },
+            {
+              "signal_type": "growth_marketing",
+              "verbatim_candidate": "You'll work closely with product, engineering, and design to identify high-impact growth opportunities and turn them into shipped initiatives."
+            },
+            {
+              "signal_type": "growth_marketing",
+              "verbatim_candidate": "If you're the kind of person who builds the playbook rather than follows one, and who gets genuinely excited about finding growth in unexpected places, this role is for you."
+            },
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "Even with our lean team, our marketing is full-stack, operating in every channel, surrounded by an ecosystem of partners that make us look like a team 10x our size."
+            }
+          ]
+        },
+        {
+          "source_title": "Regional Community Manager - Japan",
+          "source_url": "https://careers.gamma.app/regional-community-manager-japan",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "regional_expansion",
+              "verbatim_candidate": "Regional Community Manager - Japan"
+            },
+            {
+              "signal_type": "community_events",
+              "verbatim_candidate": "Regional Community Manager - Japan"
+            },
+            {
+              "signal_type": "commercialization",
+              "verbatim_candidate": "💸 We’ve reached a $2.1B valuation, crossed $100M in annual recurring revenue, and have been profitable since 2023."
+            },
+            {
+              "signal_type": "regional_expansion",
+              "verbatim_candidate": "As our global footprint expands, we need boots on the ground in key markets to help us connect with users where they are, in the languages they speak, and through the communities they trust."
+            },
+            {
+              "signal_type": "regional_expansion",
+              "verbatim_candidate": "You'll be a regional advocate and activator for Gamma, responsible for building local presence, hosting events, and creating educational content that helps people in your region discover and master the platform."
+            },
+            {
+              "signal_type": "community_events",
+              "verbatim_candidate": "You'll be a regional advocate and activator for Gamma, responsible for building local presence, hosting events, and creating educational content that helps people in your region discover and master the platform."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "This is a part-time contractor role designed for someone who's already embedded in their local creator, startup, or education community, and who wants to help shape how Gamma shows up in their market."
+            },
+            {
+              "signal_type": "community_events",
+              "verbatim_candidate": "This is a part-time contractor role designed for someone who's already embedded in their local creator, startup, or education community, and who wants to help shape how Gamma shows up in their market."
+            },
+            {
+              "signal_type": "regional_expansion",
+              "verbatim_candidate": "You'll work closely with our Community team to identify active users, run workshops or hackathons, produce localized learning resources (including a region-specific Gamma 101 course), and gather feedback that helps us build a better product for your audience."
+            },
+            {
+              "signal_type": "community_events",
+              "verbatim_candidate": "You'll work closely with our Community team to identify active users, run workshops or hackathons, produce localized learning resources (including a region-specific Gamma 101 course), and gather feedback that helps us build a better product for your audience."
+            },
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "Even with our lean team, our marketing is full-stack, operating in every channel, surrounded by an ecosystem of partners that make us look like a team 10x our size."
+            }
+          ]
+        },
+        {
+          "source_title": "Gamma Community",
+          "source_url": "https://community.gamma.app/",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "Hi — two API limitations that are blocking us, both around adjusting presentations after they've been generated."
+            },
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "PROBLEM 1 — no way to edit an existing presentation via the API The API creates presentations but can't update them."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "At our volume it isn't, and it means any styling improvement we make can only ever apply to future output, never to what we've already shipped to clients."
+            },
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "PROBLEM 2 — fixed card sizes shrink content instead of giving it more room, and we can't tune that from the API We need 16x9, because our clients export to PowerPoint."
+            },
+            {
+              "signal_type": "partnership_ecosystem",
+              "verbatim_candidate": "The auto-fit behaviour doesn't appear to be exposed as an API parameter at all — cardOptions only offers dimensions and headerFooter — so we can't influence it at generation time."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Related: textOptions.amount is documented as applying only when textMode is generate or condense."
+            }
+          ]
+        },
+        {
+          "source_title": "How do I join the Gamma affiliate program? | Gamma Help Center",
+          "source_url": "https://help.gamma.app/en/articles/11048092-how-do-i-join-the-gamma-affiliate-program",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "How do I join the Gamma affiliate program?"
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "How to apply to become a Gamma affiliate partner, promote Gamma, and earn commissions."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "How to apply to become a Gamma affiliate partner, promote Gamma, and earn commissions."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "Gamma’s affiliate program lets you earn rewards by sharing Gamma with your audience."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "Whether you’re a content creator, educator, or community leader, you can generate income by referring others through a unique referral link."
+            },
+            {
+              "signal_type": "community_events",
+              "verbatim_candidate": "Whether you’re a content creator, educator, or community leader, you can generate income by referring others through a unique referral link."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "How to Join the Gamma Affiliate Program"
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Step 1: Access the application form"
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Step 2: Fill out the application"
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Complete the form with your details, including your name, email, audience type, and promotional methods."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Submit your application for review."
+            },
+            {
+              "signal_type": "creator_affiliate",
+              "verbatim_candidate": "Gamma reviews affiliate applications to ensure brand alignment."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "Gamma reviews affiliate applications to ensure brand alignment."
+            },
+            {
+              "signal_type": "public_contact",
+              "verbatim_candidate": "You will be notified by email once your application is approved."
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:b2706f370ce0a0225713dda7",
+          "company_id": "company:gamma",
+          "name": "Fiona Turko",
+          "current_role": "Creator Partnerships Lead (Global)",
+          "headline": "Leading Global Creator Marketing @ Gamma",
+          "location": "Canada",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/laurenfionaturko",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T03:28:06.200Z"
+        },
+        {
+          "observation_id": "apify:120d7b07b16185f2fe370ce0",
+          "company_id": "company:gamma",
+          "name": "Conor Irvine",
+          "current_role": "Head of Partnerships",
+          "headline": "Head of Partnerships at Gamma | AI, Ecosystems, Strategic Partnerships",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/conorirvine",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T03:28:06.200Z"
+        },
+        {
+          "observation_id": "apify:007fc3ed7828839e6d22d42b",
+          "company_id": "company:gamma",
+          "name": "Amanda Rothbard",
+          "current_role": "Community Lead",
+          "headline": "Community @ Gamma",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/amandarothbard",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T03:28:06.200Z"
+        }
+      ],
+      "campaign": {
+        "schema_version": 1,
+        "generated_at": "2026-09-02T03:21:52Z",
+        "company_id": "company:gamma",
+        "company": "Gamma",
+        "campaign_thesis": "围绕 Gamma 的 presentation/productivity 工作流构建三层组合：旗舰教育、垂类教程、affiliate 长尾。",
+        "company_specific_evidence": [
+          "Gamma 当前 Growth Marketing 岗位强调 top-of-funnel 实验与 partner ecosystem。",
+          "Gamma 当前 Japan Regional Community 岗位强调本地 creator、workshop、localized course 与 community activation。",
+          "本次 YouTube 数据找到品牌归因的既往商业候选，但这些 creator 的 APAC/日语适配尚无证据。"
+        ],
+        "cohorts": [
+          {
+            "cohort": "旗舰工作流教育",
+            "objective": "用真实知识工作流证明 Gamma，而不是泛 AI 曝光。",
+            "creator_candidates": [
+              {
+                "creator": "Kevin Stratvert",
+                "why_fit": "大型软件教程频道；Gamma 视频带 Sponsor: Gamma、paid-content 标记和 gam.link，适合旗舰工作流教程。",
+                "youtube_channel_url": "https://www.youtube.com/@KevinStratvert",
+                "evidence_url": "https://www.youtube.com/watch?v=Slr6iP5roLU",
+                "evidence_date": "2026-07-13T07:00:02.000Z",
+                "commercial_type_candidate": "paid_sponsorship",
+                "youtube_subscribers": 4410000,
+                "observed_video_views": 20396,
+                "existing_creator_id": 342,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Jeff Su",
+                "why_fit": "职场生产力与大型科技生态受众；Gamma 视频带 paid-content 标记和 gam.link，适合知识工作者叙事。",
+                "youtube_channel_url": "https://www.youtube.com/@JeffSu",
+                "evidence_url": "https://www.youtube.com/watch?v=ZpXN9M0WLQ4",
+                "evidence_date": "2026-03-03T13:01:04.000Z",
+                "commercial_type_candidate": "unknown_commercial_relationship",
+                "youtube_subscribers": 1870000,
+                "observed_video_views": 122442,
+                "existing_creator_id": 343,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Tiago Forte",
+                "why_fit": "知识管理与 AI workflow 受众；Gamma 视频带 paid-content 标记和 #gammapartner，适合思想领导力案例。",
+                "youtube_channel_url": "https://www.youtube.com/@TiagoForte",
+                "evidence_url": "https://www.youtube.com/watch?v=vsso7vFU0qU",
+                "evidence_date": "2025-12-02T17:01:37.000Z",
+                "commercial_type_candidate": "unknown_commercial_relationship",
+                "youtube_subscribers": 388000,
+                "observed_video_views": 40019,
+                "existing_creator_id": 346,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              }
+            ],
+            "pricing_status": "partial_only; do not publish a cohort total until missing quotes are obtained"
+          },
+          {
+            "cohort": "演示文稿垂类教程",
+            "objective": "覆盖强 presentation intent 用户，并测试教程到激活的转化。",
+            "creator_candidates": [
+              {
+                "creator": "One Skill PPT",
+                "why_fit": "演示文稿垂类专家；本次视频明确写 Gamma 赞助，产品与受众匹配直接。",
+                "youtube_channel_url": "https://www.youtube.com/@oneskill_ppt",
+                "evidence_url": "https://www.youtube.com/watch?v=gMW_IOfI-2o",
+                "evidence_date": "2025-10-21T16:01:31.000Z",
+                "commercial_type_candidate": "paid_sponsorship",
+                "youtube_subscribers": 826000,
+                "observed_video_views": 7511,
+                "existing_creator_id": 310,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Mike Dee",
+                "why_fit": "演示文稿教程频道；本次视频明确写 Gamma.app 赞助并带 gam.link，适合教程型复核。",
+                "youtube_channel_url": "https://www.youtube.com/@MikeDeeOfficial",
+                "evidence_url": "https://www.youtube.com/watch?v=tv8mPUUszKc",
+                "evidence_date": "2025-10-29T12:02:10.000Z",
+                "commercial_type_candidate": "paid_sponsorship",
+                "youtube_subscribers": 1130000,
+                "observed_video_views": 5812,
+                "existing_creator_id": 315,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Daniel | Tech & Data",
+                "why_fit": "现有库中已有报价；本次视频明确写 Gamma 赞助并带 gam.link，适合可定价的 tutorial 执行位。",
+                "youtube_channel_url": "https://www.youtube.com/@Daniel-Dann",
+                "evidence_url": "https://www.youtube.com/watch?v=inHeGw1e2zM",
+                "evidence_date": "2026-08-07T17:29:46.000Z",
+                "commercial_type_candidate": "paid_sponsorship",
+                "youtube_subscribers": 602000,
+                "observed_video_views": 30594,
+                "existing_creator_id": 216,
+                "rate_on_file": true,
+                "rates": [
+                  {
+                    "creator_id": 216,
+                    "platform": "YouTube",
+                    "deliverable": "10-11min视频",
+                    "quote_amount_usd": 1500.0,
+                    "quote_currency": "USD"
+                  },
+                  {
+                    "creator_id": 216,
+                    "platform": "YouTube",
+                    "deliverable": "7-9min",
+                    "quote_amount_usd": 1350.0,
+                    "quote_currency": "USD"
+                  },
+                  {
+                    "creator_id": 216,
+                    "platform": "YouTube",
+                    "deliverable": "5-6min",
+                    "quote_amount_usd": 1200.0,
+                    "quote_currency": "USD"
+                  },
+                  {
+                    "creator_id": 216,
+                    "platform": "YouTube",
+                    "deliverable": "Shorts",
+                    "quote_amount_usd": 400.0,
+                    "quote_currency": "USD"
+                  },
+                  {
+                    "creator_id": 216,
+                    "platform": "YouTube",
+                    "deliverable": "Bundle(5-6min+Shorts)  (原价$1600)",
+                    "quote_amount_usd": 1500.0,
+                    "quote_currency": "USD"
+                  }
+                ],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              }
+            ],
+            "pricing_status": "partial_only; do not publish a cohort total until missing quotes are obtained"
+          },
+          {
+            "cohort": "评测与 affiliate 长尾",
+            "objective": "用可追踪链接测试常青搜索与转化，不与旗舰内容混算。",
+            "creator_candidates": [
+              {
+                "creator": "Tool Finder",
+                "why_fit": "软件发现与比较受众；Gamma 视频带 paid-content 标记和品牌导向链接，适合评测/affiliate 层。",
+                "youtube_channel_url": "https://www.youtube.com/@toolfinderhq",
+                "evidence_url": "https://www.youtube.com/watch?v=KO9jKIOt9Zk",
+                "evidence_date": "2026-07-13T14:52:58.000Z",
+                "commercial_type_candidate": "affiliate",
+                "youtube_subscribers": 451000,
+                "observed_video_views": 1389,
+                "existing_creator_id": 341,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Marketing Island",
+                "why_fit": "小型营销软件评测渠道；有 Gamma 导向 affiliate URL，适合绩效型长尾测试。",
+                "youtube_channel_url": "https://www.youtube.com/@MarketingIsland",
+                "evidence_url": "https://www.youtube.com/watch?v=lmkxGUlFDvM",
+                "evidence_date": "2026-02-12T13:02:54.000Z",
+                "commercial_type_candidate": "affiliate",
+                "youtube_subscribers": 44000,
+                "observed_video_views": 3081,
+                "existing_creator_id": 344,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              },
+              {
+                "creator": "Julian Weber",
+                "why_fit": "小型 AI 工具教程渠道；有 Gamma 导向 affiliate URL，适合低成本转化实验。",
+                "youtube_channel_url": "https://www.youtube.com/@julian_weber",
+                "evidence_url": "https://www.youtube.com/watch?v=rhNzKR2g300",
+                "evidence_date": "2026-05-03T23:30:32.000Z",
+                "commercial_type_candidate": "affiliate",
+                "youtube_subscribers": 10000,
+                "observed_video_views": 2949,
+                "existing_creator_id": 345,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "unknown",
+                "fact_status": "observed_unreviewed"
+              }
+            ],
+            "pricing_status": "partial_only; do not publish a cohort total until missing quotes are obtained"
+          },
+          {
+            "cohort": "Japan 日语内容适配候选",
+            "objective": "验证日语教程、比较评测与本地教育内容的 creator fit；这一层是 discovery，不是已验证合作。",
+            "creator_candidates": [
+              {
+                "creator": "#usutaku_channel",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 94,431 播放，频道约 168,000 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@usutaku",
+                "evidence_url": "https://www.youtube.com/watch?v=9rOLHo0PReQ",
+                "evidence_date": "2026-06-20T11:00:06.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 168000,
+                "observed_video_views": 94431,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "チャエン【AI研究所】〜仕事で使える最新のAI情報を発信〜 Byデジライズ",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 8,517 播放，频道约 53,400 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@chaen-ai-lab",
+                "evidence_url": "https://www.youtube.com/watch?v=x_6p7aDHfwo",
+                "evidence_date": "2025-10-05T11:08:27.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 53400,
+                "observed_video_views": 8517,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "久保直樹 | AI先生",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 6,722 播放，频道约 2,740 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@kubo_menext",
+                "evidence_url": "https://www.youtube.com/watch?v=wFLtpjZmBmI",
+                "evidence_date": "2025-09-24T11:00:06.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 2740,
+                "observed_video_views": 6722,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "仕事で即実践できるAI情報 | Noda Shuichi",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 5,011 播放，频道约 1,470 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@nodashuichi",
+                "evidence_url": "https://www.youtube.com/watch?v=KgYRu0rn5sQ",
+                "evidence_date": "2026-01-13T10:00:26.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 1470,
+                "observed_video_views": 5011,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "エクセル兄さん Jun Tatebayashi",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 2,546 播放，频道约 113,000 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@jun_tate",
+                "evidence_url": "https://www.youtube.com/watch?v=8fZt7pMlNTQ",
+                "evidence_date": "2025-09-26T12:00:26.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 113000,
+                "observed_video_views": 2546,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "HIROCODE.",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 1,174 播放，频道约 78,300 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@hirocode",
+                "evidence_url": "https://www.youtube.com/watch?v=A1udtHPYqPA",
+                "evidence_date": "2026-02-10T12:00:26.000Z",
+                "commercial_type_candidate": "commercial_candidate_needs_review",
+                "youtube_subscribers": 78300,
+                "observed_video_views": 1174,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "株式会社メディアラボ",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 1,152 播放，频道约 1,190 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@media-labo",
+                "evidence_url": "https://www.youtube.com/watch?v=A0WIASmsdH0",
+                "evidence_date": "2025-09-16T08:00:11.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 1190,
+                "observed_video_views": 1152,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              },
+              {
+                "creator": "AIで経営を強くする | 元CEO たくわん",
+                "why_fit": "已观察到 1 条日语 Gamma 教程/评测；样本最高 1,112 播放，频道约 305 订阅。地域、报价和商业合作意愿仍待验证。",
+                "youtube_channel_url": "https://www.youtube.com/@takuwan_theory",
+                "evidence_url": "https://www.youtube.com/watch?v=wAcjJ4VSS10",
+                "evidence_date": "2025-11-18T11:02:00.000Z",
+                "commercial_type_candidate": "no_gamma_commercial_disclosure_found",
+                "youtube_subscribers": 305,
+                "observed_video_views": 1112,
+                "existing_creator_id": null,
+                "rate_on_file": false,
+                "rates": [],
+                "region_evidence": "Japanese-language content observed; creator location and audience geography unverified",
+                "fact_status": "content_fit_observed_commercial_fit_unverified"
+              }
+            ],
+            "pricing_status": "unknown; request rate and audience geography before campaign budgeting"
+          }
+        ],
+        "apac_gap": {
+          "status": "japanese_language_candidate_set_found_not_commercially_validated",
+          "reason": "已找到 21 个日语 Gamma 内容候选，但内容语言不等于创作者所在地，且绝大多数没有赞助披露或现成报价。",
+          "next_collection": [
+            "核验 shortlist 的所在地、受众地域、business email 和报价",
+            "查找 shortlist 对其他 AI/SaaS 品牌的付费合作披露",
+            "从 Gamma Japan Regional Community 公开活动、讲师与本地课程继续扩展"
+          ]
+        },
+        "pricing_guardrail": "当前仅 Daniel | Tech & Data 有现成报价；其他候选不得用占位价拼出 Recommended/Premium 总价。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:creatify": {
+      "company_id": "company:creatify",
+      "company": "Creatify",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 3,
+        "linkedin": 6,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 3,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "两次 paid observations、联盟项目和 DeNA/Alibaba sellers/LAIFE 等亚洲客户案例形成可销售窗口。",
+        "About Us | Leading the AdTech & AIGC Innovation：观察到社区与活动信号，待人工回查原文。",
+        "Announcing Our $15.5M Series A – A New Chapter for Creatify：观察到商业化、社区与活动、creator / affiliate信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "creator-led ad laboratory，生产本地化广告工作流，并同时衡量内容表现与 trial quality。",
+      "best_route_hypothesis": "Yinan Na，联合创始人兼 CEO；可路由聚焦提案，creator/affiliate budget owner 尚未公开；从 Affiliate Program 进入，并以亚洲 performance-creative 案例请求升级合作。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "About Us | Leading the AdTech & AIGC Innovation",
+          "route_type": "Direct official program",
+          "route_url": "https://creatify.ai/about",
+          "evidence_url": "https://creatify.ai/about",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Announcing Our $15.5M Series A – A New Chapter for Creatify",
+          "route_type": "Direct official program",
+          "route_url": "https://creatify.ai/blog/announcing-our-15-5m-series-a-a-new-chapter-for-creatify",
+          "evidence_url": "https://creatify.ai/blog/announcing-our-15-5m-series-a-a-new-chapter-for-creatify",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Creatify Affiliate Program",
+          "route_type": "Direct",
+          "route_url": "https://creatify.ai/affiliate",
+          "evidence_url": "https://creatify.ai/affiliate",
+          "why_this_route": "It is the clearest maintained public commercial route.",
+          "required_first_step": "Submit creator profiles, ad-workflow formats, and attribution plan.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "About Us | Leading the AdTech & AIGC Innovation",
+          "source_url": "https://creatify.ai/about",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            }
+          ]
+        },
+        {
+          "source_title": "Creatify - The AI Ad Generator | Create Winning Ads with AI",
+          "source_url": "https://creatify.ai/affiliate",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": []
+        },
+        {
+          "source_title": "Announcing Our $15.5M Series A – A New Chapter for Creatify",
+          "source_url": "https://creatify.ai/blog/announcing-our-15-5m-series-a-a-new-chapter-for-creatify",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:82d37e2f928dacb0a5810e70",
+          "company_id": "company:creatify",
+          "name": "Ben Pashman",
+          "current_role": "Head of Business Development and Partnerships",
+          "headline": "Innovative Revenue Leader | SaaS, Martech, & Adtech Expert | Strategic Growth & Partnership Architect",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/benpashman",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.479Z"
+        },
+        {
+          "observation_id": "apify:6b7cd4717266340d42c953ff",
+          "company_id": "company:creatify",
+          "name": "Garrett Totten",
+          "current_role": "GTM & Partnerships",
+          "headline": "Creatify AI | GTM (Ex-Synthesia, Stability AI)",
+          "location": "Newport Beach, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/garrett-totten",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.479Z"
+        },
+        {
+          "observation_id": "apify:1d7eaa90bda4f2b345288210",
+          "company_id": "company:creatify",
+          "name": "Niyah A.",
+          "current_role": "Product Marketing Manager",
+          "headline": "Product Designer & Creative Strategist | Product Marketing Manager @ Creatify | AI, Growth & Storytelling",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/niyahsahar",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.479Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "两次 paid observations、联盟项目和 DeNA/Alibaba sellers/LAIFE 等亚洲客户案例形成可销售窗口。",
+          "About Us | Leading the AdTech & AIGC Innovation：观察到社区与活动信号，待人工回查原文。",
+          "Announcing Our $15.5M Series A – A New Chapter for Creatify：观察到商业化、社区与活动、creator / affiliate信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:cursor": {
+      "company_id": "company:cursor",
+      "company": "Cursor",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 3,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 3,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Cursor 正在把 ambassador、校园和 startup events 变成可度量的 activation、usage 与 retention funnel。",
+        "Cursor · Ambassadors：观察到社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "Cursor · Campus Leads：观察到社区与活动、公开申请 / 联系路径信号，待人工回查原文。",
+        "Cursor · Marketing Manager, Startup Events & Programs：观察到社区与活动、增长营销、伙伴生态信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "中文开发者 cohort，将教程、build night 与 retained-usage 报告组合成区域试点。",
+      "best_route_hypothesis": "Lee Robinson，Developer Experience；职责匹配技术内容和社区激活，当前职位需复核；向 Developer Experience 提交一页区域 builder cohort。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Cursor · Ambassadors",
+          "route_type": "Direct official program",
+          "route_url": "https://cursor.com/ambassadors",
+          "evidence_url": "https://cursor.com/ambassadors",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Cursor · Campus Leads",
+          "route_type": "Direct official program",
+          "route_url": "https://cursor.com/campus-leads",
+          "evidence_url": "https://cursor.com/campus-leads",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Cursor · Marketing Manager, Startup Events & Programs",
+          "route_type": "Direct official program",
+          "route_url": "https://cursor.com/careers/marketing-manager-startup-events-programs",
+          "evidence_url": "https://cursor.com/careers/marketing-manager-startup-events-programs",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Cursor · Ambassadors",
+          "source_url": "https://cursor.com/ambassadors",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Cursor · Campus Leads",
+          "source_url": "https://cursor.com/campus-leads",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Cursor · Marketing Manager, Startup Events & Programs",
+          "source_url": "https://cursor.com/careers/marketing-manager-startup-events-programs",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:65ca89be21bbf67ba3e403bf",
+          "company_id": "company:cursor",
+          "name": "Malery Lassen",
+          "current_role": "Head of Partner Marketing",
+          "headline": "Partner Marketing | Ecosystem Growth Strategist | GTM Leader",
+          "location": "Menlo Park, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/malerylassen",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:31.100Z"
+        },
+        {
+          "observation_id": "apify:ec94cbf8ff5158fa5331203a",
+          "company_id": "company:cursor",
+          "name": "Arun Dharmalingam",
+          "current_role": "Regional Vice President - GSI Partnerships, EMEA",
+          "headline": "Building Cursor",
+          "location": "United Kingdom, United Kingdom",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/arun-dharmalingam-51513a5",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:31.100Z"
+        },
+        {
+          "observation_id": "apify:9d13a81219410e50cca5b214",
+          "company_id": "company:cursor",
+          "name": "Sarah Thornton",
+          "current_role": "Head of Global Field & Strategic Account Marketing",
+          "headline": "Head of Global Field & Strategic Account Marketing at Cursor",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/sarahlaynethornton",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:31.100Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "Cursor 正在把 ambassador、校园和 startup events 变成可度量的 activation、usage 与 retention funnel。",
+          "Cursor · Ambassadors：观察到社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "Cursor · Campus Leads：观察到社区与活动、公开申请 / 联系路径信号，待人工回查原文。",
+          "Cursor · Marketing Manager, Startup Events & Programs：观察到社区与活动、增长营销、伙伴生态信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:elevenlabs": {
+      "company_id": "company:elevenlabs",
+      "company": "ElevenLabs",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 5,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 5,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "ElevenLabs 正在从零扩建联盟增长、扩大 ElevenCreative 代理商合作，并首次补齐 APAC GTM enablement。",
+        "Affiliate program：观察到区域扩张信号，待人工回查原文。",
+        "Host events, create content with the ElevenLabs Ambassador Program：观察到社区与活动、creator / affiliate信号，待人工回查原文。",
+        "Dustin Blank：观察到creator / affiliate、伙伴生态信号，待人工回查原文。",
+        "Brand Marketing | ElevenLabs careers：观察到商业化、creator / affiliate、增长营销、伙伴生态、区域扩张信号，待人工回查原文。",
+        "Affiliate Marketing Manager | ElevenLabs careers：观察到商业化、creator / affiliate、增长营销、伙伴生态、区域扩张信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "六周 APAC 创作者组合：创作者工作流教程、开发者 API 实作、本地化素材和可追踪转化。",
+      "best_route_hypothesis": "Dustin Blank，Partnerships lead；公开职责覆盖 creator 与 media deals，预算权限仍需会谈确认；直接联系 Dustin Blank / Partnerships，并附一页式 APAC cohort 与归因方案。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Host events, create content with the ElevenLabs Ambassador Program",
+          "route_type": "Direct official program",
+          "route_url": "https://elevenlabs.io/ambassador",
+          "evidence_url": "https://elevenlabs.io/ambassador",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Dustin Blank",
+          "route_type": "Direct official program",
+          "route_url": "https://elevenlabs.io/blog/authors/dustin-blank",
+          "evidence_url": "https://elevenlabs.io/blog/authors/dustin-blank",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Brand Marketing | ElevenLabs careers",
+          "route_type": "Direct official program",
+          "route_url": "https://elevenlabs.io/careers/31b1c0e3-ca53-428d-8f15-2e3ffda491b8/brand-marketing",
+          "evidence_url": "https://elevenlabs.io/careers/31b1c0e3-ca53-428d-8f15-2e3ffda491b8/brand-marketing",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Affiliate program",
+          "source_url": "https://elevenlabs.io/affiliate",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "Host events, create content with the ElevenLabs Ambassador Program",
+          "source_url": "https://elevenlabs.io/ambassador",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        },
+        {
+          "source_title": "Dustin Blank",
+          "source_url": "https://elevenlabs.io/blog/authors/dustin-blank",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        },
+        {
+          "source_title": "Brand Marketing | ElevenLabs careers",
+          "source_url": "https://elevenlabs.io/careers/31b1c0e3-ca53-428d-8f15-2e3ffda491b8/brand-marketing",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "Affiliate Marketing Manager | ElevenLabs careers",
+          "source_url": "https://elevenlabs.io/careers/b0a0fdb7-f202-4d58-b2e2-38e847b96e49/affiliate-marketing-manager",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:4356efad01941930706a9d40",
+          "company_id": "company:elevenlabs",
+          "name": "Connie Yao",
+          "current_role": "Influencer & Affiliate Marketing",
+          "headline": "Influencer & Affiliate Marketing @ ElevenLabs",
+          "location": "United Kingdom, United Kingdom",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/connieyao",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.860Z"
+        },
+        {
+          "observation_id": "apify:7086d76d5d379609bf76a0a8",
+          "company_id": "company:elevenlabs",
+          "name": "Jonathan Chang",
+          "current_role": "Startup Partnerships",
+          "headline": "Startup Partnerships @ ElevenLabs | Investing in the preseed and seed companies of the future at DayDream | Forbes 30 Under 30",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/thejonathanchang",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.860Z"
+        },
+        {
+          "observation_id": "apify:ba94379e476f7f83423edaa3",
+          "company_id": "company:elevenlabs",
+          "name": "Mitra Zaimi",
+          "current_role": "GTM Partnerships",
+          "headline": "GTM Partnerships at ElevenLabs",
+          "location": "Toronto, Canada",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/mitra-zaimi",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.860Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "ElevenLabs 正在从零扩建联盟增长、扩大 ElevenCreative 代理商合作，并首次补齐 APAC GTM enablement。",
+          "Affiliate program：观察到区域扩张信号，待人工回查原文。",
+          "Host events, create content with the ElevenLabs Ambassador Program：观察到社区与活动、creator / affiliate信号，待人工回查原文。",
+          "Dustin Blank：观察到creator / affiliate、伙伴生态信号，待人工回查原文。",
+          "Brand Marketing | ElevenLabs careers：观察到商业化、creator / affiliate、增长营销、伙伴生态、区域扩张信号，待人工回查原文。",
+          "Affiliate Marketing Manager | ElevenLabs careers：观察到商业化、creator / affiliate、增长营销、伙伴生态、区域扩张信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:gumloop": {
+      "company_id": "company:gumloop",
+      "company": "Gumloop",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 2,
+        "linkedin": 8,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 2,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "5,000 万美元 B 轮、企业扩张与活跃 creator program 同时出现。",
+        "Announcing Gumloop's $50M Series B：观察到社区与活动、公开申请 / 联系路径信号，待人工回查原文。",
+        "Become a Gumloop Creator：观察到商业化、社区与活动、creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "自动化 workflow challenge，以激活账户、团队 use case 和模板复用衡量。",
+      "best_route_hypothesis": "Max Brodeur-Urbas，联合创始人兼 CEO；适合早期路由，但 creator-program owner 未公开；通过 Gumloop Creator Program 提交 creator 样本和三个自动化 use case。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Announcing Gumloop's $50M Series B",
+          "route_type": "Direct official program",
+          "route_url": "https://www.gumloop.com/blog/series-b",
+          "evidence_url": "https://www.gumloop.com/blog/series-b",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Become a Gumloop Creator",
+          "route_type": "Direct official program",
+          "route_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+          "evidence_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Gumloop Creator Program",
+          "route_type": "Direct",
+          "route_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+          "evidence_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+          "why_this_route": "The maintained program has explicit creator economics.",
+          "required_first_step": "Submit sample creators and three automation use cases.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Announcing Gumloop's $50M Series B",
+          "source_url": "https://www.gumloop.com/blog/series-b",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Become a Gumloop Creator",
+          "source_url": "https://www.gumloop.com/partners/apply-to-be-a-creator",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:286600f4785d8ca034af5608",
+          "company_id": "company:gumloop",
+          "name": "Aron Korenblit",
+          "current_role": "Head of Community and Education",
+          "headline": "Principal Yapper @ Gumloop",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/aronkorenblit",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.097Z"
+        },
+        {
+          "observation_id": "apify:09d1cbb9543e7e891b302b40",
+          "company_id": "company:gumloop",
+          "name": "Katherine Duh",
+          "current_role": "Content Marketing",
+          "headline": "content @ gumloop",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/katherineduh",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.097Z"
+        },
+        {
+          "observation_id": "apify:c71bba2c591328f44ea01697",
+          "company_id": "company:gumloop",
+          "name": "Mahnoor Rafi",
+          "current_role": "Founding Brand Marketing Designer",
+          "headline": "Digital Design and Creative Direction |  Previously at ",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/mahnoor-rafi-2193811b3",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.097Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "5,000 万美元 B 轮、企业扩张与活跃 creator program 同时出现。",
+          "Announcing Gumloop's $50M Series B：观察到社区与活动、公开申请 / 联系路径信号，待人工回查原文。",
+          "Become a Gumloop Creator：观察到商业化、社区与活动、creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:hedra": {
+      "company_id": "company:hedra",
+      "company": "Hedra",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 3,
+        "linkedin": 5,
+        "youtube": 20,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 2,
+        "operator_candidates": 1,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 4,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "2026 年 1 月 ambassador program 与 Teams plan 同期出现，形成 creator-to-team 的分发窗口。",
+        "Hedra Ambassador Program: Turn AI Content Into Income：观察到creator / affiliate信号，待人工回查原文。",
+        "Ambassador Program | Create, Share & Earn Commission | Hedra：观察到creator / affiliate信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "双语视觉 storyteller 与 agency cohort，展示可复用 character-video 工作流。",
+      "best_route_hypothesis": "Erna Balayan，Product Marketing Manager；是当前最相关公开角色，预算权限未确认；向 Product Marketing 提交一页 cohort、工作流、交付物与转化方案。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Hedra Ambassador Program: Turn AI Content Into Income",
+          "route_type": "Direct official program",
+          "route_url": "https://www.hedra.com/blog/hedra-ambassador-program-is-here",
+          "evidence_url": "https://www.hedra.com/blog/hedra-ambassador-program-is-here",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Ambassador Program | Create, Share & Earn Commission | Hedra",
+          "route_type": "Direct official program",
+          "route_url": "https://www.hedra.com/creator",
+          "evidence_url": "https://www.hedra.com/creator",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Erna Balayan / Product Marketing",
+          "route_type": "Cold",
+          "route_url": "https://www.hedra.com/company",
+          "evidence_url": "https://www.hedra.com/company",
+          "why_this_route": "The role directly covers product positioning and market activation.",
+          "required_first_step": "Send a one-page cohort with workflows, deliverables, and conversion plan.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Hedra Ambassador Program: Turn AI Content Into Income",
+          "source_url": "https://www.hedra.com/blog/hedra-ambassador-program-is-here",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        },
+        {
+          "source_title": "Ambassador Program | Create, Share & Earn Commission | Hedra",
+          "source_url": "https://www.hedra.com/creator",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:e566ebc6bafd96b66960dbc7",
+          "company_id": "company:hedra",
+          "name": "Avia Haimovich",
+          "current_role": "Product Marketing Manager",
+          "headline": "Product Marketing Manager",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/avia-haimovich",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T04:39:55.950Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "用 AI character / UGC creator 产出可复用品牌内容，并验证 ambassador 到产品激活的路径。",
+        "company_specific_evidence": [
+          "2026 年 1 月 ambassador program 与 Teams plan 同期出现，形成 creator-to-team 的分发窗口。",
+          "Hedra Ambassador Program: Turn AI Content Into Income：观察到creator / affiliate信号，待人工回查原文。",
+          "Ambassador Program | Create, Share & Earn Commission | Hedra：观察到creator / affiliate信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:meshy": {
+      "company_id": "company:meshy",
+      "company": "Meshy",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 2,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 2,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "融资扩张、联盟计划和 influencer 跟踪链接同时存在，但当前亚洲市场意图未获得一手验证。",
+        "2026 Meshy Fellowship Program: Announcing Recipients in 3D Generative AI and Computer Graphics - Blog - Meshy：观察到商业化、社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "3D creator lab，覆盖游戏资产、可打印物件和前后对比工作流教程。",
+      "best_route_hypothesis": "Ethan Yuanming Hu，创始人兼 CEO；可作早期路由，affiliate/creator budget owner 仍未知；通过 Meshy team/contact 提交垂直 3D creator lab。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "2026 Meshy Fellowship Program: Announcing Recipients in 3D Generative AI and Computer Graphics - Blog - Meshy",
+          "route_type": "Direct official program",
+          "route_url": "https://www.meshy.ai/blog/fellowship-2026",
+          "evidence_url": "https://www.meshy.ai/blog/fellowship-2026",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Meshy team",
+          "route_type": "Direct",
+          "route_url": "https://www.meshy.ai/affiliates",
+          "evidence_url": "https://www.meshy.ai/affiliates",
+          "why_this_route": "It is the published route alongside the affiliate program.",
+          "required_first_step": "Send 6-8 niche creators and three repeatable workflows.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        },
+        {
+          "label": "Ethan Yuanming Hu / CEO",
+          "route_type": "Cold",
+          "route_url": "https://www.meshy.ai/blog/fellowship-2026",
+          "evidence_url": "https://www.meshy.ai/blog/fellowship-2026",
+          "why_this_route": "Founder identity is confirmed; ownership beneath him is not.",
+          "required_first_step": "Make a concise routing request with a clear 3D concept.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Affiliates Program - Meshy",
+          "source_url": "https://www.meshy.ai/affiliates",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": []
+        },
+        {
+          "source_title": "2026 Meshy Fellowship Program: Announcing Recipients in 3D Generative AI and Computer Graphics - Blog - Meshy",
+          "source_url": "https://www.meshy.ai/blog/fellowship-2026",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:ac7ae6e9031df08df82421cc",
+          "company_id": "company:meshy",
+          "name": "Evelyn Yu",
+          "current_role": "Partnership Growth Manager",
+          "headline": "ENFJ｜Digital Marketing｜Growth Marketing｜Affiliate Marketing｜Brand to Brand Partnership Marketing",
+          "location": "Shanghai, People's Republic of China",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/evelyn-yu-463678212",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:56.505Z"
+        },
+        {
+          "observation_id": "apify:020665cac03ca20ceccae39c",
+          "company_id": "company:meshy",
+          "name": "Jessica Bergau",
+          "current_role": "3D Printing Partnerships Manager",
+          "headline": "3D Printing Partnerships @ MeshyAI",
+          "location": "Cambridge, MA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/jessicabergau",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:56.505Z"
+        },
+        {
+          "observation_id": "apify:2f45afcf2b6e86c6628053ea",
+          "company_id": "company:meshy",
+          "name": "Lang Liu",
+          "current_role": "Regional Growth Marketing Specialist",
+          "headline": "Regional Growth Marketing Specialist",
+          "location": "Shanghai, People's Republic of China",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/lang-liu-a07a103b0",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:56.505Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "融资扩张、联盟计划和 influencer 跟踪链接同时存在，但当前亚洲市场意图未获得一手验证。",
+          "2026 Meshy Fellowship Program: Announcing Recipients in 3D Generative AI and Computer Graphics - Blog - Meshy：观察到商业化、社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:openart": {
+      "company_id": "company:openart",
+      "company": "OpenArt",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 4,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 4,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "多个 creator program 处于活跃状态，并规划 creative fund，但区域 owner 尚未明确。",
+        "Trusted Partnerships：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "The OpenArtist Program：观察到社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "OpenArt Affiliate Program：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。",
+        "OpenArt Creative Partner Program：观察到社区与活动、creator / affiliate、伙伴生态信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "区域视觉叙事 cohort，设置 creator tier、项目 brief 与 affiliate conversion 跟踪。",
+      "best_route_hypothesis": "Shawal Fida，增长经理；职责相关，但当前职位需要一手来源确认；先确认 Growth owner，再通过 Creative Partner Program 提交视觉 creator shortlist。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Trusted Partnerships",
+          "route_type": "Direct official program",
+          "route_url": "https://openart.ai/partners",
+          "evidence_url": "https://openart.ai/partners",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "The OpenArtist Program",
+          "route_type": "Direct official program",
+          "route_url": "https://openart.ai/program/openartist",
+          "evidence_url": "https://openart.ai/program/openartist",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "OpenArt Affiliate Program",
+          "route_type": "Direct official program",
+          "route_url": "https://openart.ai/programs/affiliate",
+          "evidence_url": "https://openart.ai/programs/affiliate",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Trusted Partnerships",
+          "source_url": "https://openart.ai/partners",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "The OpenArtist Program",
+          "source_url": "https://openart.ai/program/openartist",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "OpenArt Affiliate Program",
+          "source_url": "https://openart.ai/programs/affiliate",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "OpenArt Creative Partner Program",
+          "source_url": "https://openart.ai/programs/cpp",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:3f775326dcb68faf18b98b9c",
+          "company_id": "company:openart",
+          "name": "Chloe Fang",
+          "current_role": "Founding Head of Partnerships & Enterprise GTM",
+          "headline": "OpenArt | AI @ MIT - President of the MIT AI Club | McKinsey | Goldman Sachs",
+          "location": "Cambridge, MA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/chloefang95",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.978Z"
+        },
+        {
+          "observation_id": "apify:0985bdb34d3c6f9d61414351",
+          "company_id": "company:openart",
+          "name": "Yuki Jin",
+          "current_role": "Creators Partnerships",
+          "headline": "OpenArt AI - Creators Partnerships",
+          "location": "Hong Kong, Hong Kong",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/yuki-jin-ab9225381",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.978Z"
+        },
+        {
+          "observation_id": "apify:e836d1505eddad26b666f90e",
+          "company_id": "company:openart",
+          "name": "Cecilia Tao",
+          "current_role": "Head of Growth Marketing",
+          "headline": "Head of Growth Marketing @ OpenArt AI",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/ceciliatz",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:53.978Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "多个 creator program 处于活跃状态，并规划 creative fund，但区域 owner 尚未明确。",
+          "Trusted Partnerships：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "The OpenArtist Program：观察到社区与活动、creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "OpenArt Affiliate Program：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。",
+          "OpenArt Creative Partner Program：观察到社区与活动、creator / affiliate、伙伴生态信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:perplexity": {
+      "company_id": "company:perplexity",
+      "company": "Perplexity",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 5,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 5,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Perplexity 已在印度通过 Airtel 大规模分发，并通过 SoftBank 在日本推出 Enterprise Pro；同时存在 Publisher、Channel 与 Campus Partner 公开机制。",
+        "Perplexity Campus Strategist Program 2025：观察到社区与活动、creator / affiliate、增长营销、公开申请 / 联系路径信号，待人工回查原文。",
+        "Introducing the Perplexity Publishers’ Program：观察到商业化、creator / affiliate、伙伴生态信号，待人工回查原文。",
+        "Meet our First Channel Partners & Data Integrators：观察到商业化、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "Perplexity Careers：观察到商业化、增长营销、伙伴生态、公开申请 / 联系路径、区域扩张信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "日本/印度 adoption education + 双语 answer-engine 工作流 creator 测试，补充现有 channel distribution，并按激活与留存衡量。",
+      "best_route_hypothesis": "Daniela Miranda-Smith（Head of Partnerships）/ Michelle Dao（Creator Partnerships）为公开当前职位候选；身份与预算权待首方确认；优先使用官方 partnerships@perplexity.ai / Publisher Partnerships 路线，并在邮件中请求转给 Japan/creator activation owner。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Perplexity Partnerships",
+          "route_type": "Direct official channel",
+          "route_url": "mailto:partnerships@perplexity.ai",
+          "evidence_url": "https://www.perplexity.ai/hub/blog/meet-our-first-channel-partners-data-integrators",
+          "why_this_route": "官方 Channel Partner 页面公开 partnerships@perplexity.ai；可请求转给 Japan / creator activation owner。",
+          "required_first_step": "发送一页 Japan/India adoption brief，并提出明确 routing question。",
+          "confidence": "high",
+          "fact_status": "confirmed_official_route"
+        },
+        {
+          "label": "Perplexity Campus Strategist Program 2025",
+          "route_type": "Direct official program",
+          "route_url": "https://www.perplexity.ai/campus-partners",
+          "evidence_url": "https://www.perplexity.ai/campus-partners",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Introducing the Perplexity Publishers’ Program",
+          "route_type": "Direct official program",
+          "route_url": "https://www.perplexity.ai/hub/blog/introducing-the-perplexity-publishers-program",
+          "evidence_url": "https://www.perplexity.ai/hub/blog/introducing-the-perplexity-publishers-program",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Perplexity Campus Strategist Program 2025",
+          "source_url": "https://www.perplexity.ai/campus-partners",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Introducing the Perplexity Publishers’ Program",
+          "source_url": "https://www.perplexity.ai/hub/blog/introducing-the-perplexity-publishers-program",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        },
+        {
+          "source_title": "Meet our First Channel Partners & Data Integrators",
+          "source_url": "https://www.perplexity.ai/hub/blog/meet-our-first-channel-partners-data-integrators",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Perplexity Careers",
+          "source_url": "https://www.perplexity.ai/hub/careers",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "Perplexity、ソフトバンクとの提携拡大で「Enterprise Pro」を日本で提供開始",
+          "source_url": "https://www.perplexity.ai/ja/hub/blog/perplexity-expands-partnership-with-softbank-to-launch-enterprise-pro-japan",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": []
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:fe9f7c231c56a50d3573c490",
+          "company_id": "company:perplexity",
+          "name": "Michelle Dao",
+          "current_role": "Growth| Creator Partnerships",
+          "headline": "Growth & GTM Ops for Tech and E-Commerce Startups | UGC & Influencer Marketing | Affiliate | B2B Lead Gen",
+          "location": "Hanoi, Vietnam",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/michelle-dao-0b971328a",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:11.975Z"
+        },
+        {
+          "observation_id": "apify:87e7974f7c6fa5f2fadc689f",
+          "company_id": "company:perplexity",
+          "name": "Daniela Miranda-Smith",
+          "current_role": "Head of Partnerships",
+          "headline": "Partnerships @ Perplexity",
+          "location": "Lisbon, Portugal",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/danielamirandasmith",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:11.975Z"
+        },
+        {
+          "observation_id": "apify:1aa269087e26998c315ee493",
+          "company_id": "company:perplexity",
+          "name": "Emily Jorgens",
+          "current_role": "Head of Business Development and Partnerships",
+          "headline": "Business @ Perplexity | ex-Ramp and Uber",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/emily-jorgens",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:11.975Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "Perplexity 已在印度通过 Airtel 大规模分发，并通过 SoftBank 在日本推出 Enterprise Pro；同时存在 Publisher、Channel 与 Campus Partner 公开机制。",
+          "Perplexity Campus Strategist Program 2025：观察到社区与活动、creator / affiliate、增长营销、公开申请 / 联系路径信号，待人工回查原文。",
+          "Introducing the Perplexity Publishers’ Program：观察到商业化、creator / affiliate、伙伴生态信号，待人工回查原文。",
+          "Meet our First Channel Partners & Data Integrators：观察到商业化、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "Perplexity Careers：观察到商业化、增长营销、伙伴生态、公开申请 / 联系路径、区域扩张信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:pixverse": {
+      "company_id": "company:pixverse",
+      "company": "PixVerse",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 4,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 4,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "CPP 2.0、PixLab 与新加坡全球办公室在 2026 年连续落地，现金合作与亚洲企业拓展同步发生。",
+        "Join the PixVerse Creative Partner Program (CPP): Application & Member Guide | PixVerse：观察到社区与活动、creator / affiliate、增长营销、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "PixLab: The Next Stage of Creator Partnership at PixVerse | PixVerse：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "PixVerse Announces Series B Round to Drive International Expansion in AI Video | PixVerse：观察到社区与活动、creator / affiliate、增长营销、区域扩张信号，待人工回查原文。",
+        "PixVerse Global Creative Partner Program 2.0 | PixVerse：观察到商业化、creator / affiliate、增长营销、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "中国与东南亚创作者 cohort，从周度内容试投升级到影视级项目和长期合作。",
+      "best_route_hypothesis": "Min Hu，企业客户增长负责人；增长职责相关，但 creator-community 的实际预算 owner 仍待确认；通过 PixVerse Creator Community 提交一组可立即执行的亚洲 creator cohort。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Join the PixVerse Creative Partner Program (CPP): Application & Member Guide | PixVerse",
+          "route_type": "Direct official program",
+          "route_url": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program",
+          "evidence_url": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "PixLab: The Next Stage of Creator Partnership at PixVerse | PixVerse",
+          "route_type": "Direct official program",
+          "route_url": "https://pixverse.ai/en/blog/pixlab-creator-partnership-program",
+          "evidence_url": "https://pixverse.ai/en/blog/pixlab-creator-partnership-program",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "PixVerse Announces Series B Round to Drive International Expansion in AI Video | PixVerse",
+          "route_type": "Direct official program",
+          "route_url": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+          "evidence_url": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Join the PixVerse Creative Partner Program (CPP): Application & Member Guide | PixVerse",
+          "source_url": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "PixLab: The Next Stage of Creator Partnership at PixVerse | PixVerse",
+          "source_url": "https://pixverse.ai/en/blog/pixlab-creator-partnership-program",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "PixVerse Announces Series B Round to Drive International Expansion in AI Video | PixVerse",
+          "source_url": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "PixVerse Global Creative Partner Program 2.0 | PixVerse",
+          "source_url": "https://pixverse.ai/en/blog/pixverse-global-creative-partner-program-2-0",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:8e095c1beb63551c9efe0ed4",
+          "company_id": "company:pixverse",
+          "name": "Calvin Carmichael",
+          "current_role": "Global Creator Partnerships & Community",
+          "headline": "Global Creator Partnerships + Community @ PixVerse",
+          "location": "Los Angeles, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/calvincarmichael",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:07.471Z"
+        },
+        {
+          "observation_id": "apify:51ce163985dc72b277cebda1",
+          "company_id": "company:pixverse",
+          "name": "Robyn Tan",
+          "current_role": "Chief Representative of Singapore and Head of APAC Partnerships",
+          "headline": "Exploring the future of AI video generation",
+          "location": "Singapore, Singapore",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/robyntanh",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:07.471Z"
+        },
+        {
+          "observation_id": "apify:db5c02abcd450ae0e4ade8d2",
+          "company_id": "company:pixverse",
+          "name": "Naomi Lin",
+          "current_role": "Creator Community Operations Manager",
+          "headline": "Creator community manager @ PixVerse. Call me Naomi or ريانة.\n\nJoin PixVerse Creative Partner Program and create something cool with us!",
+          "location": "Taichung, Taiwan, Province of China",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/naomi-lin-18aaa82a0",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:07.471Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "CPP 2.0、PixLab 与新加坡全球办公室在 2026 年连续落地，现金合作与亚洲企业拓展同步发生。",
+          "Join the PixVerse Creative Partner Program (CPP): Application & Member Guide | PixVerse：观察到社区与活动、creator / affiliate、增长营销、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "PixLab: The Next Stage of Creator Partnership at PixVerse | PixVerse：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "PixVerse Announces Series B Round to Drive International Expansion in AI Video | PixVerse：观察到社区与活动、creator / affiliate、增长营销、区域扩张信号，待人工回查原文。",
+          "PixVerse Global Creative Partner Program 2.0 | PixVerse：观察到商业化、creator / affiliate、增长营销、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:replit": {
+      "company_id": "company:replit",
+      "company": "Replit",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 3,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 3,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Creator Program 与多条 Partner track 已开放，近期也出现外部 creator 付费投放。",
+        "Replit Creators Program | Replit：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。",
+        "Partner Programs | Replit：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "Replit Events — Power Your Hackathon with Replit：观察到社区与活动信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "APAC build-to-revenue cohort：每位创作者发布可运行应用，并汇报激活、留存和团队线索。",
+      "best_route_hypothesis": "Tala Awwad，创作者负责人 / Creator Program owner；是当前最接近 creator distribution 的具名负责人；通过 Replit Creators 直接提交 Mango 的技术教育者与 build-to-revenue 格式。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Replit Creators Program | Replit",
+          "route_type": "Direct official program",
+          "route_url": "https://replit.com/creators",
+          "evidence_url": "https://replit.com/creators",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Partner Programs | Replit",
+          "route_type": "Direct official program",
+          "route_url": "https://replit.com/partners",
+          "evidence_url": "https://replit.com/partners",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Replit Events — Power Your Hackathon with Replit",
+          "route_type": "Direct official program",
+          "route_url": "https://replit.com/partners/events",
+          "evidence_url": "https://replit.com/partners/events",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Replit Creators Program | Replit",
+          "source_url": "https://replit.com/creators",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Partner Programs | Replit",
+          "source_url": "https://replit.com/partners",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Replit Events — Power Your Hackathon with Replit",
+          "source_url": "https://replit.com/partners/events",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:df77257bf7767ea2565205e8",
+          "company_id": "company:replit",
+          "name": "Asif Bhatti",
+          "current_role": "Head of Product Partnerships",
+          "headline": "Product at Replit, Adj. Prof. Georgetown || ex-OpenAI",
+          "location": "United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/mabhatti",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.140Z"
+        },
+        {
+          "observation_id": "apify:8744e05a3006e4275f575f03",
+          "company_id": "company:replit",
+          "name": "Horacio Lopez",
+          "current_role": "Growth Partnerships",
+          "headline": "Growth Partnerships at Replit",
+          "location": "New York City, NY, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/horacio-lopez",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.140Z"
+        },
+        {
+          "observation_id": "apify:befb99b5291f1bab407bd485",
+          "company_id": "company:replit",
+          "name": "Jeff Burke",
+          "current_role": "VP of Business Development and Partnerships",
+          "headline": "VP, Replit",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/burke-jeff",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:50:15.140Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "Creator Program 与多条 Partner track 已开放，近期也出现外部 creator 付费投放。",
+          "Replit Creators Program | Replit：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。",
+          "Partner Programs | Replit：观察到creator / affiliate、伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "Replit Events — Power Your Hackathon with Replit：观察到社区与活动信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:runway": {
+      "company_id": "company:runway",
+      "company": "Runway",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 4,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 4,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Runway 已设东京办公室、承诺初期投入 4,000 万美元，日本是第三大市场并贡献亚洲三分之一销售量。",
+        "Creative Partners Program | Runway AI：观察到社区与活动、creator / affiliate信号，待人工回查原文。",
+        "Runway News | Runway launches fund to provide artists resources to make one hundred films：观察到伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+        "Runway News | New Leaders to Support Our Next Phase of Growth：观察到增长营销信号，待人工回查原文。",
+        "Runway News | Runway is Coming to Japan：观察到增长营销、区域扩张信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "APAC filmmaker residency 与卫星放映计划，把 workshop、成片、festival submission 和区域分发串起来。",
+      "best_route_hypothesis": "Cristóbal Valenzuela 为已确认创始人，但不是理想日常 buyer；Creative Partnerships / Head of Japan 仍需定位；优先走官方 Partnerships 渠道，以日本和更广亚洲 filmmaker program 为切入。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Creative Partners Program | Runway AI",
+          "route_type": "Direct official program",
+          "route_url": "https://runwayml.com/creative-partners-program/",
+          "evidence_url": "https://runwayml.com/creative-partners-program/",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Runway News | Runway launches fund to provide artists resources to make one hundred films",
+          "route_type": "Direct official program",
+          "route_url": "https://runwayml.com/news/hundred-film-fund",
+          "evidence_url": "https://runwayml.com/news/hundred-film-fund",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Runway Partnerships",
+          "route_type": "Direct",
+          "route_url": "https://help.runwayml.com/hc/en-us/articles/37464713358099-Runway-Resources",
+          "evidence_url": "https://help.runwayml.com/hc/en-us/articles/37464713358099-Runway-Resources",
+          "why_this_route": "It is the official route for community initiatives.",
+          "required_first_step": "Send a scoped creative program with selection, milestones, budget, and distribution partner.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Creative Partners Program | Runway AI",
+          "source_url": "https://runwayml.com/creative-partners-program/",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        },
+        {
+          "source_title": "Runway News | Runway launches fund to provide artists resources to make one hundred films",
+          "source_url": "https://runwayml.com/news/hundred-film-fund",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Runway News | New Leaders to Support Our Next Phase of Growth",
+          "source_url": "https://runwayml.com/news/new-leaders-to-support-next-phase-of-growth",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "growth_marketing"
+            }
+          ]
+        },
+        {
+          "source_title": "Runway News | Runway is Coming to Japan",
+          "source_url": "https://runwayml.com/news/runway-is-coming-to-japan",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:ac63b68b01b6f715b161f895",
+          "company_id": "company:runway",
+          "name": "Liz Mossessian",
+          "current_role": "Partnerships",
+          "headline": "Partnerships at Runway",
+          "location": "New York City, NY, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/lizmossessian",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.106Z"
+        },
+        {
+          "observation_id": "apify:ce11c19d88e5bea56baea1ee",
+          "company_id": "company:runway",
+          "name": "Riccardo Ulivi",
+          "current_role": "Partnerships",
+          "headline": "Partnerships at Runway | ex- Stripe, Airbnb",
+          "location": "New York City, NY, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/riccardoulivi",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.106Z"
+        },
+        {
+          "observation_id": "apify:4323a51c39116ca68822c071",
+          "company_id": "company:runway",
+          "name": "Théo Goldberg",
+          "current_role": "Partnerships",
+          "headline": "Model Ecosystem @Runway | Partnering with the world’s top image, video & audio labs",
+          "location": "New York City, NY, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/theogoldberg",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:34.106Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "Runway 已设东京办公室、承诺初期投入 4,000 万美元，日本是第三大市场并贡献亚洲三分之一销售量。",
+          "Creative Partners Program | Runway AI：观察到社区与活动、creator / affiliate信号，待人工回查原文。",
+          "Runway News | Runway launches fund to provide artists resources to make one hundred films：观察到伙伴生态、公开申请 / 联系路径信号，待人工回查原文。",
+          "Runway News | New Leaders to Support Our Next Phase of Growth：观察到增长营销信号，待人工回查原文。",
+          "Runway News | Runway is Coming to Japan：观察到增长营销、区域扩张信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:synthesia": {
+      "company_id": "company:synthesia",
+      "company": "Synthesia",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 5,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 5,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "近期重复付费观察集中出现，适合用企业工作流内容测试亚太市场教育。",
+        "Synthesia Jobs | See Current Openings - Hiring Now：观察到商业化、增长营销信号，待人工回查原文。",
+        "Explore Synthesia's Partnership Programs：观察到creator / affiliate、伙伴生态信号，待人工回查原文。",
+        "Become a Synthesia Referral partner：观察到公开申请 / 联系路径信号，待人工回查原文。",
+        "Affiliate Terms I Synthesia：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "聚焦培训、销售赋能和内部沟通的 APAC business-education 系列。",
+      "best_route_hypothesis": "Leander Sodji，Product Marketing Manager；角色与 use-case education 直接相关，预算权限未确认；以三个企业工作流和可信 business educator shortlist 直接联系 Product Marketing。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Explore Synthesia's Partnership Programs",
+          "route_type": "Direct official program",
+          "route_url": "https://www.synthesia.io/partners",
+          "evidence_url": "https://www.synthesia.io/partners",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Become a Synthesia Referral partner",
+          "route_type": "Direct official program",
+          "route_url": "https://www.synthesia.io/partners/referral",
+          "evidence_url": "https://www.synthesia.io/partners/referral",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Affiliate Terms I Synthesia",
+          "route_type": "Direct official program",
+          "route_url": "https://www.synthesia.io/terms/affiliate-terms",
+          "evidence_url": "https://www.synthesia.io/terms/affiliate-terms",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Leander Sodji - Authors - Synthesia Blog",
+          "source_url": "https://www.synthesia.io/blog/authors/leander-sodji",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": []
+        },
+        {
+          "source_title": "Synthesia Jobs | See Current Openings - Hiring Now",
+          "source_url": "https://www.synthesia.io/careers",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "growth_marketing"
+            }
+          ]
+        },
+        {
+          "source_title": "Explore Synthesia's Partnership Programs",
+          "source_url": "https://www.synthesia.io/partners",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        },
+        {
+          "source_title": "Become a Synthesia Referral partner",
+          "source_url": "https://www.synthesia.io/partners/referral",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Affiliate Terms I Synthesia",
+          "source_url": "https://www.synthesia.io/terms/affiliate-terms",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:72db79b5d2f39f2018159c5f",
+          "company_id": "company:synthesia",
+          "name": "Ash Turner",
+          "current_role": "Influencer Marketing Manager",
+          "headline": "Influencer Marketing Manager at Synthesia",
+          "location": "United Kingdom, United Kingdom",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/ash-turner-894b3670",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:30.885Z"
+        },
+        {
+          "observation_id": "apify:7cd1be5b89bd3e671fc5a735",
+          "company_id": "company:synthesia",
+          "name": "Brian Jambor",
+          "current_role": "Head of Partnerships",
+          "headline": "🌵 ⛰ 🚴‍♂️  | Head of Partnerships | Developing Strategic Partnerships for Global SaaS & AI Native Companies",
+          "location": "Scottsdale, AZ, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/brianjambor",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:30.885Z"
+        },
+        {
+          "observation_id": "apify:bc87bfcf2a7c2f7d139e6239",
+          "company_id": "company:synthesia",
+          "name": "Aleksa Mandić",
+          "current_role": "Senior Performance Marketing Manager",
+          "headline": "Senior Performance Marketing Manager at Synthesia",
+          "location": "Belgrade, Serbia",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/aleksa-mandic",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:51:30.885Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "近期重复付费观察集中出现，适合用企业工作流内容测试亚太市场教育。",
+          "Synthesia Jobs | See Current Openings - Hiring Now：观察到商业化、增长营销信号，待人工回查原文。",
+          "Explore Synthesia's Partnership Programs：观察到creator / affiliate、伙伴生态信号，待人工回查原文。",
+          "Become a Synthesia Referral partner：观察到公开申请 / 联系路径信号，待人工回查原文。",
+          "Affiliate Terms I Synthesia：观察到creator / affiliate、公开申请 / 联系路径信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:tavus": {
+      "company_id": "company:tavus",
+      "company": "Tavus",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 3,
+        "linkedin": 11,
+        "youtube": 20,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 3,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 1,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Tavus 正在扩大面向 consultants、platforms 和 agencies 的正式 referral/technology partner 路径。",
+        "Jesse Rowe：观察到增长营销信号，待人工回查原文。",
+        "Official information about Tavus：观察到商业化、增长营销、伙伴生态、区域扩张信号，待人工回查原文。",
+        "Partner with Tavus：观察到伙伴生态信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "开发者与 agency cohort，交付可投入生产的视频 agent demo 和区域业务场景。",
+      "best_route_hypothesis": "Jesse Rowe，增长负责人；角色与 partner activation、developer acquisition 匹配，预算权限未确认；直接向 Growth 提交三个 production-ready video-agent use case。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Official information about Tavus",
+          "route_type": "Direct official program",
+          "route_url": "https://www.tavus.io/lp/ai-info-page",
+          "evidence_url": "https://www.tavus.io/lp/ai-info-page",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Partner with Tavus",
+          "route_type": "Direct official program",
+          "route_url": "https://www.tavus.io/lp/partnerships",
+          "evidence_url": "https://www.tavus.io/lp/partnerships",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Jesse Rowe / Growth",
+          "route_type": "Direct",
+          "route_url": "https://www.tavus.io/authors/jesse-rowe",
+          "evidence_url": "https://www.tavus.io/authors/jesse-rowe",
+          "why_this_route": "The named Growth remit matches the offer.",
+          "required_first_step": "Send three production-ready video-agent use cases and partner profiles.",
+          "confidence": "high",
+          "fact_status": "mixed_existing_dossier_route"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "Jesse Rowe",
+          "source_url": "https://www.tavus.io/authors/jesse-rowe",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "growth_marketing"
+            }
+          ]
+        },
+        {
+          "source_title": "Official information about Tavus",
+          "source_url": "https://www.tavus.io/lp/ai-info-page",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "growth_marketing"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "Partner with Tavus",
+          "source_url": "https://www.tavus.io/lp/partnerships",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "partnership_ecosystem"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:220358e0332eff35b3e2955d",
+          "company_id": "company:tavus",
+          "name": "Samantha Collins",
+          "current_role": "Partnerships Manager",
+          "headline": "Real-time conversational video AI | The future of how humans interact with computers",
+          "location": "Toronto, Canada",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/samantha-collins-3153253b5",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T04:39:24.562Z"
+        },
+        {
+          "observation_id": "apify:bf935149a488f3602ffe2c08",
+          "company_id": "company:tavus",
+          "name": "Taylor Orsini",
+          "current_role": "Partnerships Manager",
+          "headline": "Partnership Manager | Tavus",
+          "location": "Montréal, Canada",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/taylor-orsini-6a6694259",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T04:39:24.562Z"
+        },
+        {
+          "observation_id": "apify:334cd07c20c0dbf7b40229e1",
+          "company_id": "company:tavus",
+          "name": "Tim Huang",
+          "current_role": "Head of Partnerships",
+          "headline": "Founding Partnerships / GTM / Sales",
+          "location": "New York City, NY, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/tim-huang-866bb841",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T04:39:24.562Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "用技术 creator 和 agency operator 展示可投入真实业务流程的 Tavus video-agent demo。",
+        "company_specific_evidence": [
+          "Tavus 正在扩大面向 consultants、platforms 和 agencies 的正式 referral/technology partner 路径。",
+          "Jesse Rowe：观察到增长营销信号，待人工回查原文。",
+          "Official information about Tavus：观察到商业化、增长营销、伙伴生态、区域扩张信号，待人工回查原文。",
+          "Partner with Tavus：观察到伙伴生态信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    },
+    "company:wisprflow": {
+      "company_id": "company:wisprflow",
+      "company": "Wispr Flow",
+      "fact_status": "mixed_observed_unreviewed",
+      "review_status": "unreviewed",
+      "source_counts": {
+        "official_web": 5,
+        "linkedin": 12,
+        "youtube": 0,
+        "public_contact": 0,
+        "instagram_creator_posts": 0
+      },
+      "decision_ready_counts": {
+        "valid_first_party_pages": 5,
+        "operator_candidates": 3,
+        "brand_attributed_commercial_candidates": 0,
+        "brand_attribution_holds": 0,
+        "creator_expansion_candidates": 0,
+        "public_company_contacts_found": 0,
+        "public_program_routes_found": 3
+      },
+      "why_now_observed": [
+        "Wispr Flow 已有 2026 年重复 creator sponsorship 观察，并公开 creator/partnership intake，明确覆盖 sponsorship、affiliate、co-marketing、community 与 brand integration。",
+        "About | Wispr Flow：观察到公开申请 / 联系路径信号，待人工回查原文。",
+        "Wispr Flow Affiliate Terms & Agreement：观察到商业化、社区与活动、creator / affiliate、公开申请 / 联系路径、区域扩张信号，待人工回查原文。",
+        "Flow for Content Creators | Wispr Flow：观察到creator / affiliate信号，待人工回查原文。",
+        "Wispr lands in the UK — and it started with you：观察到社区与活动、伙伴生态、区域扩张信号，待人工回查原文。"
+      ],
+      "mango_offer_hypothesis": "按 founder、developer 与 productivity use case 分层的区域 creator activation，并以 trial activation 与 30 天 retained usage 衡量。",
+      "best_route_hypothesis": "Jacob Shwirtz（Cultural Partnerships）/ Rohan Kochhar（Growth & Partnerships, India）为公开当前职位候选；身份与预算权待首方确认；使用官方 partnership/creator inquiry form 直达 Partnerships team，并把具体 audience、timing、collaboration type 与指标写全。",
+      "contact_gap": "未自动公开 LinkedIn 结果中的个人联系方式；只展示官网公开 program/partnership 路线。",
+      "public_contact_routes": [
+        {
+          "label": "Wispr Flow Partnership / Creator Inquiry",
+          "route_type": "Direct official channel",
+          "route_url": "https://docs.wisprflow.ai/articles/7890073756-partnership-and-creator-collaboration-inquiries",
+          "evidence_url": "https://docs.wisprflow.ai/articles/7890073756-partnership-and-creator-collaboration-inquiries",
+          "why_this_route": "官方说明明确覆盖 sponsorship、affiliate、co-marketing、community 与 brand integrations，并路由到 Partnerships team。",
+          "required_first_step": "提交 audience、channel、collaboration type、timing、creator 样本与激活/留存指标。",
+          "confidence": "high",
+          "fact_status": "confirmed_official_route"
+        },
+        {
+          "label": "About | Wispr Flow",
+          "route_type": "Direct official program",
+          "route_url": "https://wisprflow.ai/about",
+          "evidence_url": "https://wisprflow.ai/about",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        },
+        {
+          "label": "Wispr Flow Affiliate Terms & Agreement",
+          "route_type": "Direct official program",
+          "route_url": "https://wisprflow.ai/affiliates/terms",
+          "evidence_url": "https://wisprflow.ai/affiliates/terms",
+          "why_this_route": "官网页面包含合作、creator/affiliate、社区或公开申请信号；具体申请资格仍需人工复核。",
+          "required_first_step": "打开官网原文，确认当前申请条件和负责团队，再提交一个公司特定 activation brief。",
+          "confidence": "medium",
+          "fact_status": "observed_unreviewed"
+        }
+      ],
+      "website_signals": [
+        {
+          "source_title": "About | Wispr Flow",
+          "source_url": "https://wisprflow.ai/about",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "public_contact"
+            }
+          ]
+        },
+        {
+          "source_title": "Wispr Flow Affiliate Terms & Agreement",
+          "source_url": "https://wisprflow.ai/affiliates/terms",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "commercialization"
+            },
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "creator_affiliate"
+            },
+            {
+              "signal_type": "public_contact"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        },
+        {
+          "source_title": "Flow for Content Creators | Wispr Flow",
+          "source_url": "https://wisprflow.ai/content-creators",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "creator_affiliate"
+            }
+          ]
+        },
+        {
+          "source_title": "Media Kit | Wispr Flow",
+          "source_url": "https://wisprflow.ai/media-kit",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": []
+        },
+        {
+          "source_title": "Wispr lands in the UK — and it started with you",
+          "source_url": "https://wisprflow.ai/post/wispr-in-uk",
+          "source_validity": "valid_http_response",
+          "eligible_for_evidence_review": true,
+          "candidate_signals": [
+            {
+              "signal_type": "community_events"
+            },
+            {
+              "signal_type": "partnership_ecosystem"
+            },
+            {
+              "signal_type": "regional_expansion"
+            }
+          ]
+        }
+      ],
+      "operator_candidates": [
+        {
+          "observation_id": "apify:cacbfd422caea99019683e47",
+          "company_id": "company:wisprflow",
+          "name": "Rohan Kochhar",
+          "current_role": "Growth & Partnerships Lead, India",
+          "headline": "Leading India Growth @ Wispr Flow | Ex-OpenAI | King’s College London",
+          "location": "Delhi, India",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/rohan-kochhar-93721115b",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:59.884Z"
+        },
+        {
+          "observation_id": "apify:e06682222a4dca20fe76ad02",
+          "company_id": "company:wisprflow",
+          "name": "Hannah Peale",
+          "current_role": "Cultural Partnerships",
+          "headline": "Cultural partnerships, campaigns, & events // ex-artist manager",
+          "location": "San Francisco, CA, United States",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/hannahpeale",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:59.884Z"
+        },
+        {
+          "observation_id": "apify:9ca544eaa4e88bd8c807c6ed",
+          "company_id": "company:wisprflow",
+          "name": "Jacob Shwirtz",
+          "current_role": "Head of Celebrity & Cultural Partnerships",
+          "headline": "Moving Culture | Celebrity Partnerships at Wispr Flow | Curating Creator.inc",
+          "location": "Tel Aviv, Israel",
+          "role_relevance": "direct_buyer_function",
+          "operator_candidate_status": "current_direct_buyer",
+          "public_profile_url": "https://www.linkedin.com/in/shwirtz",
+          "fact_status": "observed_unreviewed",
+          "review_status": "unreviewed",
+          "last_observed_at": "2026-09-01T07:59:59.884Z"
+        }
+      ],
+      "campaign": {
+        "campaign_thesis": "公司特定 campaign 命题待人工提炼。",
+        "company_specific_evidence": [
+          "Wispr Flow 已有 2026 年重复 creator sponsorship 观察，并公开 creator/partnership intake，明确覆盖 sponsorship、affiliate、co-marketing、community 与 brand integration。",
+          "About | Wispr Flow：观察到公开申请 / 联系路径信号，待人工回查原文。",
+          "Wispr Flow Affiliate Terms & Agreement：观察到商业化、社区与活动、creator / affiliate、公开申请 / 联系路径、区域扩张信号，待人工回查原文。",
+          "Flow for Content Creators | Wispr Flow：观察到creator / affiliate信号，待人工回查原文。",
+          "Wispr lands in the UK — and it started with you：观察到社区与活动、伙伴生态、区域扩张信号，待人工回查原文。"
+        ],
+        "cohorts": [],
+        "apac_gap": {},
+        "pricing_guardrail": "本轮没有品牌归因的 creator 商业候选；不得用搜索结果或普通 mention 生成 campaign 名单。",
+        "fact_status": "strategy_hypothesis_over_unreviewed_observations"
+      }
+    }
+  }
+}

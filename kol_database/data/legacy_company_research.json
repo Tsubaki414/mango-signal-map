@@ -1,0 +1,184 @@
+[
+  {
+    "company_id": "company:replit",
+    "category": "AI coding agent and app builder",
+    "geography": "Foster City, United States",
+    "source_url": "https://www.sfchronicle.com/tech/article/ai-company-abandons-sf-19434378.php",
+    "confidence_note": "Category is well-established (Replit Agent, online IDE); geography is uncertain — SF Chronicle (2026) reports Replit relocated HQ from San Francisco to Foster City, but many directories and Replit's own about page ('Made in sunny California') still imply SF/Bay Area, so treat the city as tentative."
+  },
+  {
+    "company_id": "company:cursor",
+    "category": "AI-native code editor and coding agent",
+    "geography": "San Francisco, United States",
+    "source_url": "https://en.wikipedia.org/wiki/Cursor_(company)",
+    "confidence_note": "Cursor is made by Anysphere, Inc., consistently reported as headquartered in San Francisco; high confidence on both fields."
+  },
+  {
+    "company_id": "company:higgsfield",
+    "category": "AI video and image generation",
+    "geography": "San Francisco, United States",
+    "source_url": "https://siliconangle.com/2026/08/17/higgsfield-raises-400m-at-5-4-billion-valuation-to-scale-video-and-image-generation-platform/",
+    "confidence_note": "Recent (Aug 2026) funding coverage and Tracxn both list Higgsfield as San Francisco-based; category matches its own description as a video/image generation platform."
+  },
+  {
+    "company_id": "company:runway",
+    "category": "AI video generation",
+    "geography": "New York, United States",
+    "source_url": "https://en.wikipedia.org/wiki/Runway_(company)",
+    "confidence_note": "Runway (RunwayML) is well-documented as headquartered in New York (Brooklyn/Union Square), founded by NYU Tisch alumni; high confidence."
+  },
+  {
+    "company_id": "company:wisprflow",
+    "category": "AI voice dictation and productivity",
+    "geography": "San Francisco, United States",
+    "source_url": "https://www.linkedin.com/company/wisprflow",
+    "confidence_note": "LinkedIn and multiple directories list Wispr AI, Inc. (maker of Wispr Flow) as headquartered in San Francisco; product is an OS-level AI voice dictation tool."
+  },
+  {
+    "company_id": "company:gamma",
+    "category": "AI-first presentation and design",
+    "geography": "San Francisco, United States",
+    "source_url": "https://gamma.app/about",
+    "confidence_note": "Gamma's own About page and founder interviews confirm it was built and is headquartered in San Francisco; category confirmed by its own 'new medium for presenting ideas, powered by AI' description."
+  },
+  {
+    "company_id": "company:elevenlabs",
+    "category": "AI voice generation and audio",
+    "geography": "London, United Kingdom / global",
+    "source_url": "https://businesscloud.co.uk/news/ai-leader-elevenlabs-opens-worldwide-hq-in-london/",
+    "confidence_note": "ElevenLabs opened/designated London as its worldwide HQ per its own blog and press coverage, though it started with dual NY/London operations and retains offices in NY, SF, Warsaw, Bangalore, and Tokyo."
+  },
+  {
+    "company_id": "company:lumaai",
+    "category": "AI 3D and video generation",
+    "geography": "Palo Alto, United States",
+    "source_url": "https://www.cnbc.com/2026/05/19/luma-ai-cnbc-disruptor-50-ranking.html",
+    "confidence_note": "Luma AI (Luma Labs, Inc.), maker of Dream Machine and the Ray video model series plus earlier NeRF 3D capture tools, is consistently reported as headquartered in Palo Alto, CA."
+  },
+  {
+    "company_id": "company:perplexity",
+    "category": "AI-powered search engine",
+    "geography": "San Francisco, United States",
+    "source_url": "https://en.wikipedia.org/wiki/Perplexity_AI",
+    "confidence_note": "Perplexity AI, Inc. is well documented as headquartered in San Francisco; category matches its self-description as a conversational/answer search engine."
+  },
+  {
+    "company_id": "company:genspark",
+    "category": "AI agent and productivity platform",
+    "geography": "Palo Alto, United States / Singapore",
+    "source_url": "https://www.zoominfo.com/c/genspark-inc/5000040252",
+    "confidence_note": "Genspark (MainFunc, Inc.) is reported by multiple directories (ZoomInfo, pr.ai, LinkedIn) as HQ'd in Palo Alto with a Singapore office; no official Genspark 'About' page with a clear HQ statement was found, so confidence is moderate rather than high."
+  },
+  {
+    "company_id": "company:synthesia",
+    "category": "AI humans and conversational video",
+    "geography": "London, United Kingdom",
+    "source_url": "https://www.synthesia.io/post/introducing-our-new-london-headquarters",
+    "confidence_note": "Synthesia's own blog post confirms its new (larger) London headquarters at Regent's Place; high confidence, matches its AI avatar/video generation business."
+  },
+  {
+    "company_id": "company:heygen",
+    "category": "AI avatar and video generation",
+    "geography": "Los Angeles, United States",
+    "source_url": "https://en.wikipedia.org/wiki/HeyGen",
+    "confidence_note": "HeyGen (originally Surreal/Movio, founded in Shenzhen) relocated and established its HQ in Los Angeles in 2022 per Wikipedia; it also has offices in SF, Palo Alto, and Toronto."
+  },
+  {
+    "company_id": "company:freepikmagnific",
+    "category": "AI-first graphic design and stock content",
+    "geography": "Malaga, Spain / global",
+    "source_url": "https://en.wikipedia.org/wiki/Freepik",
+    "confidence_note": "Freepik (which acquired Magnific in 2024) is consistently reported as headquartered in Malaga, Spain, with a secondary presence in San Francisco; high confidence."
+  },
+  {
+    "company_id": "company:krea",
+    "category": "AI image, video and visual storytelling",
+    "geography": "San Francisco, United States",
+    "source_url": "https://www.forbes.com/companies/krea/",
+    "confidence_note": "Krea is reported by Forbes, Tracxn, and PitchBook as San Francisco-based, founded 2022 by Victor Perez and Diego Rodriguez; category reflects its all-in-one generative image/video/3D tool positioning."
+  },
+  {
+    "company_id": "company:notion",
+    "category": "AI-powered workspace and productivity",
+    "geography": "San Francisco, United States",
+    "source_url": "https://www.sfchronicle.com/realestate/article/sf-notion-downtown-ai-19880396.php",
+    "confidence_note": "Notion Labs, Inc. is headquartered in San Francisco (recently signed a large new downtown SF lease per SF Chronicle, Nov 2024); category reflects its own 'collaborative AI workspace' description."
+  },
+  {
+    "company_id": "company:boltnew",
+    "category": "AI-powered web app builder",
+    "geography": "San Francisco, United States",
+    "source_url": "https://research.contrary.com/company/bolt",
+    "confidence_note": "Bolt.new is a product of StackBlitz, Inc., headquartered in San Francisco since 2017; category reflects Bolt.new's own description as a prompt-to-full-stack-app builder."
+  },
+  {
+    "company_id": "company:v0vercel",
+    "category": "AI code generation for developers",
+    "geography": "San Francisco, United States",
+    "source_url": "https://en.wikipedia.org/wiki/Vercel",
+    "confidence_note": "v0 is Vercel's product; Vercel Inc. is headquartered in San Francisco (recently relocated within SF to SoMa); high confidence."
+  },
+  {
+    "company_id": "company:opusclip",
+    "category": "AI video clipping and repurposing",
+    "geography": "Mountain View, United States",
+    "source_url": "https://www.opus.pro/about",
+    "confidence_note": "OpusClip's own About page lists its headquarters as Mountain View, CA, though other directories inconsistently list Palo Alto, Redwood City, or San Francisco — the company appears to have moved/maintained multiple CA offices, so treat city as best-available rather than certain."
+  },
+  {
+    "company_id": "company:captionsmirage",
+    "category": "AI video generation and editing",
+    "geography": "New York, United States",
+    "source_url": "https://mirage.app/about-us",
+    "confidence_note": "Mirage (formerly Captions) states on its own About page that its team is NYC-based (Union Square HQ, in-person required); high confidence."
+  },
+  {
+    "company_id": "company:pika",
+    "category": "AI video generation",
+    "geography": "San Francisco, United States",
+    "source_url": "https://www.fastcompany.com/91396771/pika-demi-guo-social-ai-video-app",
+    "confidence_note": "Pika (founded by Demi Guo and Chenlin Meng, ex-Stanford) is reported as San Francisco-headquartered (originally founded in Palo Alto) by Fast Company and Sacra; high confidence."
+  },
+  {
+    "company_id": "company:lovable",
+    "category": "AI-powered app development platform",
+    "geography": "Stockholm, Sweden / global",
+    "source_url": "https://en.wikipedia.org/wiki/Lovable_(company)",
+    "confidence_note": "Lovable Labs (formerly GPT Engineer) is confirmed by Wikipedia and multiple press sources as founded and headquartered in Stockholm, with newer Boston and San Francisco offices for go-to-market; high confidence on Stockholm as core HQ."
+  },
+  {
+    "company_id": "company:lindy",
+    "category": "No-code AI automation and agents",
+    "geography": "San Francisco, United States",
+    "source_url": "https://www.crunchbase.com/organization/lindy",
+    "confidence_note": "Lindy AI, Inc. is headquartered in San Francisco's SOMA district (101 New Montgomery St); category matches its own description as a no-code AI agent ('Lindies') builder almost verbatim."
+  },
+  {
+    "company_id": "company:manus",
+    "category": "General-purpose AI agent platform",
+    "geography": "Singapore / global",
+    "source_url": "https://www.cnbc.com/2025/12/30/meta-acquires-singapore-ai-agent-firm-manus-china-butterfly-effect-monicai.html",
+    "confidence_note": "Manus is developed by Butterfly Effect, which relocated its global headquarters from China to Singapore in mid-2025 per CNBC and TechNode reporting; ownership/status was in flux mid-2026 after a blocked Meta acquisition, but Singapore HQ is well documented."
+  },
+  {
+    "company_id": "company:suno",
+    "category": "AI music generation",
+    "geography": "Cambridge, United States",
+    "source_url": "https://suno.com/about",
+    "confidence_note": "Suno's own About page and WBUR reporting confirm HQ in Cambridge, Massachusetts (founded by ex-Kensho Technologies colleagues); high confidence."
+  },
+  {
+    "company_id": "company:descript",
+    "category": "AI video and podcast editing",
+    "geography": "San Francisco, United States",
+    "source_url": "https://research.contrary.com/company/descript",
+    "confidence_note": "Descript, founded by Andrew Mason in 2017, is consistently reported as San Francisco-headquartered across Crunchbase, Tracxn, and BuiltIn; high confidence."
+  },
+  {
+    "company_id": "company:clay",
+    "category": "AI-powered GTM data enrichment",
+    "geography": "New York, United States",
+    "source_url": "https://research.contrary.com/company/clay",
+    "confidence_note": "Clay.com is a New York-based go-to-market/data-enrichment platform per Contrary Research and CB Insights; category reflects its own description combining data enrichment, workflow automation, and AI agents for GTM teams."
+  }
+]

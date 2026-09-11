@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Browser/UAT tooling is intentionally separate from the lean production
+# image.  Install the matching browser once with: playwright install chromium
+playwright==1.62.0

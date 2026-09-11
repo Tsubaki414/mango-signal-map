@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: mangobd
+Version: 0.1.0
+Summary: Evidence-backed AI GTM and BD intelligence pipeline for Mango Labs
+Requires-Python: >=3.11
+Requires-Dist: certifi>=2024.8.30
+Provides-Extra: workbook
+Requires-Dist: openpyxl>=3.1.5; extra == "workbook"
+Requires-Dist: Pillow>=12.1; extra == "workbook"

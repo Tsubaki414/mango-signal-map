@@ -1,0 +1,139 @@
+{
+  "rows": [
+    {
+      "company_id": "company:olas",
+      "bridge_handle": "cheryldchan",
+      "target_handle": "david_enim",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 1,
+      "most_recent_interaction_at": "2024-11-14T13:35:19",
+      "interaction_sample_text": "@cheryldchan @ethan_myshell @myshell_ai @dcbuilder @worldnetwork @autonolas @ethermage Great panel - thanks for moderating @cheryldchan 🙌"
+    },
+    {
+      "company_id": "company:sapien",
+      "bridge_handle": "roxinft",
+      "target_handle": "RowanRK6",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:sapien",
+      "bridge_handle": "calchulus",
+      "target_handle": "RowanRK6",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 1,
+      "most_recent_interaction_at": "2021-06-11T05:07:11",
+      "interaction_sample_text": "@calchulus Please tell me you haven’t been eating dry cereal?!"
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "cyrilxuq",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "UnicornBitcoin",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "momochenming",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "lijiuer1",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "BroLeon",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "KuiGas",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "yuyue_chris",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 2,
+      "most_recent_interaction_at": "2025-04-05T16:41:01",
+      "interaction_sample_text": "@Mathilda_Sun_ 百年好合！（？）"
+    },
+    {
+      "company_id": "company:gaib",
+      "bridge_handle": "xincctnnq",
+      "target_handle": "Mathilda_Sun_",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:heurist",
+      "bridge_handle": "xingpt",
+      "target_handle": "0takuwaifu",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:heurist",
+      "bridge_handle": "RaccoonHKG",
+      "target_handle": "0takuwaifu",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:heurist",
+      "bridge_handle": "mrdudu",
+      "target_handle": "0takuwaifu",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    },
+    {
+      "company_id": "company:heurist",
+      "bridge_handle": "zepump",
+      "target_handle": "0takuwaifu",
+      "interaction_checked_at": "2026-08-28T01:04:35.891822",
+      "interaction_count_recent": 0,
+      "most_recent_interaction_at": null,
+      "interaction_sample_text": null
+    }
+  ]
+}

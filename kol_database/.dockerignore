@@ -1,0 +1,17 @@
+data/cache/
+data/backups/
+data/kol.db
+data/kol.seed.db
+data/kol.db-*
+data/*.bak.*
+reports/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+tests/
+.venv/
+.env
+.env.*
+!.env.example

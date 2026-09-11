@@ -2,8 +2,10 @@
 
 One app, one database, four modules: **Opportunities** (which AI companies
 to chase, ranked by an explainable priority), **Network** (who at Mango/Solomon
-can actually get to them), **Creators** (the already-contacted-creator quote
-library), and **Campaign Builder** (turn an Opportunity into a budgeted
+may be worth asking, based on public relationship hypotheses and an internal
+verification queue), **Creators** (the creator quote/contact-record library;
+recorded contact details do not prove Mango has already built a relationship),
+and **Campaign Builder** (turn an Opportunity into a budgeted
 shortlist). It replaces two previously separate tools -- the KOL quote
 filterer and the Solomon Action Map / AI-company-x-KOL evidence pipeline --
 which now share one data model instead of living in two disconnected
@@ -27,9 +29,10 @@ of which belong in a dense data table. Status badges stay pill-shaped
 (a documented exception to matching the brand's sharp corners everywhere
 else -- pills are the functional convention for scanning tags at a glance).
 
-### Current data snapshot (last full run, 2026-08-26, after a full reclassification pass)
+### Creator-source snapshot (2026-08-26 base quote-library enrichment run)
 
-301 creators imported. Enrichment coverage:
+301 creators were imported from the two quote-library sources. Enrichment
+coverage for that base cohort:
 
 | Platform | Enriched | Adapter |
 |---|---|---|
@@ -48,6 +51,14 @@ Classification result: **149 Strategic KOLs**, **120 KOC / Distribution**,
 81 Medium, **0 Low** -- every classified creator now has at least
 Medium-confidence reasoning; the ones genuinely too thin to call stay in
 Needs Review rather than getting a forced guess.
+
+The current unified internal-UAT database additionally contains 39 accounts
+created from sourced BD sponsorship evidence. The live Creator total is
+therefore **340**: **183 Strategic**, **120 KOC / Distribution**, **4 Media /
+Community**, and **33 Needs Review**. Media/community properties are isolated
+from people/creator inventory instead of being counted as core KOLs. This
+distinction prevents the older 301-row enrichment cohort from being mistaken
+for the full cockpit inventory.
 
 **A full reclassification pass found and fixed two real bugs**, not just
 re-ran the same logic:
@@ -97,11 +108,12 @@ Implemented:
   quote text (nothing is thrown away, and nothing numeric is guessed).
   Handles k/m-suffixed amounts (`£6k` = 6,000 GBP), ranges, mixed
   currencies, and several "glued together, no separator" list formats.
-- Three views: **Strategic KOLs**, **KOC / Distribution Inventory**, and
-  **Needs Review**. A creator only ever appears in Strategic or
-  KOC/Distribution once it has been classified with real evidence --
-  unclassified or low-signal creators sit in Needs Review, never defaulted
-  into Strategic.
+- Four mutually exclusive views: **Strategic KOLs**, **KOC / Distribution
+  Inventory**, **Media / Community**, and **Needs Review**. A person only ever
+  appears in Strategic or KOC/Distribution once classified with real
+  evidence; media/community properties have their own lane, while
+  unclassified or low-signal accounts sit in Needs Review rather than being
+  defaulted into Strategic.
 - Full filter set (checkboxes, not an unbounded pill wall), sortable
   directory table with real avatars (initials fallback when no avatar URL
   is available, and on image load failure), platform badges, Estimated CPM.
@@ -125,11 +137,11 @@ Implemented:
   deliverable to price, live budget math (KOL spend / KOC spend / total /
   remaining), CSV/XLSX export, "copy for Google Sheets" (TSV to clipboard).
 
-Explicitly out of scope for v1 (per product spec): new-KOL discovery,
-project/budget-owner research, relationship graphs, outreach CRM,
-automated email/Telegram sending, payments/contracts, a data-health
-dashboard, fake-follower modeling, a black-box creator score, or
-conversion prediction.
+The original quote-library v1 did not include company/operator research,
+relationship graphs, or outreach logging; those capabilities now live in the
+Growth & BD integration described in §9 and §11. Still explicitly out of
+scope: automated email/Telegram sending, payments/contracts, fake-follower
+modeling, a black-box creator score, and conversion prediction.
 
 ## 2. Setup
 
@@ -139,6 +151,14 @@ From the repo root:
 python3 -m venv .venv               # or reuse an existing one
 source .venv/bin/activate
 pip install -r kol_database/requirements.txt
+```
+
+For screenshot/browser UAT tooling, install the separate development set and
+its browser binary (these are intentionally not baked into production):
+
+```bash
+pip install -r kol_database/requirements-dev.txt
+playwright install chromium
 ```
 
 ### Environment variables
@@ -153,6 +173,8 @@ OPENAI_API_KEY=...           # for GPT-assisted classification
 OPENAI_MODEL=gpt-4o-mini     # optional override
 SCRAPECREATORS_API_KEY=...   # for YouTube/Instagram/TikTok enrichment -- present, credit-limited (see §5.2)
 YOUTUBE_API_KEY=...          # optional alternative to ScrapeCreators for YouTube specifically -- not provided
+APIFY_TOKEN=...              # bounded official-web / LinkedIn / YouTube / public-route candidate research
+INTERNAL_ACCESS_TOKEN=...    # required for writes; blank keeps the app fail-closed/read-only
 ```
 
 `RAPIDAPI_KEY` is also accepted as an alternate name for the Rapid X key.
@@ -160,6 +182,31 @@ YOUTUBE_API_KEY=...          # optional alternative to ScrapeCreators for YouTub
 frontend.** If a required key is missing, the relevant enrich action is
 disabled in the UI and the API returns a 400 telling you what to set,
 before making any request.
+
+### Apify candidate-research workflow
+
+Apify is a discovery and evidence-candidate layer, not an auto-confirmation
+engine. Actor inputs are cost-bounded; raw output stays under the gitignored
+`data/cache/apify/` tree; normalized observations enter
+`data/pilot_v5/apify_research_review_queue.json` as `observed_unreviewed`.
+LinkedIn is used only for current public operator/job candidates, never for
+Mango relationship-degree claims.
+
+```bash
+python3 scripts/collect_apify_intelligence.py health
+python3 scripts/collect_apify_intelligence.py collect --source official_web \
+  --company-id company:gamma --company-name Gamma --url https://careers.gamma.app/growth-marketing-manager --dry-run
+python3 scripts/collect_apify_intelligence.py refresh-runs
+python3 scripts/build_apify_candidate_exports.py
+python3 kol_database/scripts/apply_apify_review_candidates.py             # rollback dry-run
+python3 kol_database/scripts/apply_apify_review_candidates.py --apply     # still imports as unreviewed
+```
+
+The deployable `kol_database/data/apify_company_intelligence_v1.json` is a
+small allow-listed public-evidence package. It excludes raw Actor payloads,
+cache paths, run/dataset IDs and credentials. Company detail and Campaign
+Preview preserve candidate status, unresolved geography and missing pricing
+instead of turning a scrape result into a confirmed business fact.
 
 ## 3. Data import
 
@@ -348,7 +395,7 @@ cd kol_database
 PYTHONPATH=. python3 -m unittest discover -s tests -v
 ```
 
-82 tests cover: quote-text parsing (annotated-follower-cell regression,
+The full suite covers quote-text parsing (annotated-follower-cell regression,
 k/m-multiplier regression, glued-numbered-list regression), platform-name
 normalization, container-segment URL handles (`/channel/UC.../`, `/in/`,
 `/c/` regression), tab bucketing (Unknown -> Needs Review, not Strategic),
@@ -357,9 +404,13 @@ FX conversion, CPM/quote-summary math, Rapid X stat computation
 Instagram photo-vs-video engagement-rate regression, GPT-result cleaning
 (the literal-string-"null" regression), a full import run against the real
 `KOL_data/` sheets, and (`test_bd_compute.py`) the Opportunity/reachability/
-campaign-fit/relationship-strength scoring logic -- including the
-non-negotiable regression that a high-spend, unreachable company must
-score Watchlist, never High.
+campaign-fit/relationship-strength scoring logic, relationship-stage
+language, lossless follow-direction serialization, dynamic outreach
+continuations, cross-page state consistency, operator verification,
+sponsorship review status, UAT-data cleanup, reconciliation and the
+advisory GPT review packet. The dated UAT report records the exact count
+from the release-candidate run so this README cannot silently go stale as
+new regressions are added.
 
 ## 8. Known limitations
 
@@ -412,23 +463,23 @@ cross-reference each other.
 `Company`, `CompanyAlias`, `CompanySource`, `Operator`, `IntroPath`,
 `ActionItem`, `SponsorshipEvidence`, `GtmCase`, `ConnectorBrief` (see
 `backend/models.py`'s BD-intelligence section for the full schema, and the
-script's own docstring for the source-table mapping). It's idempotent --
-re-running it deletes and reinserts every BD-owned row, then re-resolves
-creators, so running it twice never duplicates data. Last run:
+script's own docstring for the source-table mapping). It is idempotent and
+upserts by stable source keys; it does not delete/reinsert human-editable
+rows. Existing imported rows and local rows survive refreshes, while new
+canonical rows are added without duplication (full preservation rules are
+in §11.3). Current internal-UAT snapshot:
 
 | Entity | Count |
 |---|---|
-| Companies | 77 |
+| Companies | 89 (77 canonical + 12 sourced local extensions) |
 | Company aliases | 4 |
 | Company sources (evidence URLs) | 107 |
-| Operators (named people) | 10 confirmed |
-| Intro paths | 640 |
+| Operators (named people) | 29 identified; 0 human-verified |
+| Intro paths | 640 raw rows; unevaluated placeholders do not count as relationship evidence |
 | Action items | 42 |
-| Sponsorship evidence rows | 52 (36 paid, rest affiliate/mention/event) |
+| Sponsorship evidence rows | 64 (42 paid observations, all still awaiting human review) |
 | GTM cases | 8 |
-| Connector briefings | 5 (verbatim from `SOLOMON_KOL_COCKPIT.md`) |
-| Creators matched to existing quote-library rows | 11 |
-| Creators newly created (known via BD research, no Mango quote) | 39 |
+| Connector briefings | 5 archived research notes; excluded from live stage/priority |
 
 Entity resolution matches on `(platform, handle)` case-insensitively. A
 sponsor mentioned in the BD evidence who already exists in the Creators
@@ -440,21 +491,21 @@ correct representation of "known from research, never quoted."
 
 ### 9.2 The four modules
 
-- **Home** (`/api/home/summary`) -- answers, every load: which company is
-  most worth contacting right now (reachability-weighted, not spend-weighted);
-  today's highest-value next actions (from `ActionItem`, ordered by
-  execution wave); which companies are campaign-ready (High priority *and*
-  prior paid-sponsorship evidence); and the most recent paid sponsorship
-  evidence found. Doubles as the upgraded Solomon Action Map.
+- **Home** (`/api/home/summary`) -- answers, every load: the next three to
+  five executable actions, the exact operator/channel, owner and follow-up
+  date, plus the internal connector questions that can unlock several
+  companies. It uses the live action transition generated from the latest
+  non-void outreach event; it does not repeat a stale first-touch action.
 - **Opportunities** (`/api/companies`, `/api/companies/{id}`) -- filterable,
   sortable company list; company detail shows reachability paths, named
   operators, action items, and every sponsorship-evidence row with its
   disclosure type (paid / affiliate / ambassador / event / mention /
   unknown -- never auto-promoted to "paid").
-- **Network** (`/api/network/connectors`, `/api/network/operators`) -- the
-  5 connector conversations (verbatim from the original briefing) and the
-  confirmed-operator roster, each company name a live link into
-  Opportunities.
+- **Network** (`/api/network/interview-queue`, `/api/network/operators`) --
+  an execution queue grouped by the Mango-side person to ask, with concise
+  company-specific questions and live evidence stages. The five older
+  ConnectorBrief notes remain available only as collapsed, potentially
+  stale research material and never drive the current stage or priority.
 - **Campaign Builder** -- not a new entity. "Build a campaign" on a Company
   page calls `POST /api/companies/{id}/campaigns`, which creates a
   `Shortlist` row with `company_id` set plus objective/audience/timing --
@@ -478,8 +529,10 @@ static text:
   to the matched Creator (when resolved) with a `has_quote` flag, so you
   immediately see whether outreach can start from an existing quote or
   needs one first.
-- **Company -> Person**: confirmed operators are listed on the company
-  page with role and identity-confirmation state.
+- **Company -> Person**: identified operators are listed on the company
+  page with source match, human identity check, current-role check,
+  budget-influence check, exact X profile, DM status and Mango relationship
+  shown as separate facts.
 - **Network -> Company / Opportunity -> Campaign**: connector-brief company
   pills and the "Build a campaign" button both route into the same
   Opportunities/Shortlist objects, not a copy.
@@ -492,17 +545,24 @@ static text:
 `backend/bd_compute.py` -- every function returns a label plus the plain
 `reasons: list[str]` that produced it, never a single opaque number:
 
-- **Opportunity priority** (`opportunity_priority`): reachability is
-  weighted highest, deliberately. A company with strong spend evidence but
-  no known path to anyone there lands in **Watchlist**, not top priority --
-  this is enforced by an explicit rule, not an emergent side effect, and is
-  covered by `tests/test_bd_compute.py::TestOpportunityPriority`.
+- **Business priority** (`opportunity_priority`): whether the company is
+  commercially worth pursuing, based on spend/campaign evidence; it does
+  not pretend that a valuable company is reachable.
+- **Execution priority** (`execution_priority`): what is worth doing now,
+  combining business value with a real direct channel, verified warm
+  relationship, unverified connector candidate, operator/offer readiness
+  and the latest non-void outreach event.
 - **Creator campaign fit** (`creator_campaign_fit`): has a Mango quote?
   previously paid-sponsored *this* company (not just mentioned it)?
   category overlap? Each is a separate reason string.
-- **Relationship strength** (`relationship_strength`): direct / one-connector
-  / multi-hop / cold-contact, derived from `IntroPath.degree_label` and
-  `graph_reachable`.
+- **Relationship stage** (`relationship_stage`): E0-E3 are public-data
+  signals; only attributed human OutreachLog events can advance E4-E6.
+  Open DM is a separate cold/direct channel, never a relationship stage.
+- **Graph degree / direction** (`relationship_strength`, `IntroPath`):
+  direct / secondary / third are graph-hop labels analogous to LinkedIn,
+  not LinkedIn lookup. Every available hop retains observed follow
+  direction; source gaps are explicitly unavailable and never inferred
+  from node order.
 
 ### 9.5 Running the migration
 
@@ -512,23 +572,12 @@ PYTHONPATH=. python3 scripts/migrate_bd_data.py
 ```
 
 Safe to re-run any time the source `mango_bd_v4.sqlite` is refreshed with
-new BD research -- it will not duplicate companies or creators.
+new BD research -- it will not duplicate companies or creators, **and it
+will not clobber human edits** made through the API (see §11.3). Prefer
+`scripts/refresh_all.py` over calling this directly (§11.4).
 
 ### 9.6 Known limitations specific to the BD side
 
-- **A handful of sponsorship-evidence "creators" are actually outlets, not
-  individual KOLs** (e.g. a tech-news publication credited as an affiliate
-  sponsor gets migrated as a `Creator` row like any other sponsor, because
-  the source data doesn't distinguish entity type). They surface correctly
-  as Needs Review with no quote, so they don't pollute Strategic/Distribution,
-  but they will show up in "Suggested creators for this company" alongside
-  real individual creators. Filtering these out would need either a
-  manual entity-type tag on the source data or a heuristic (e.g. "contains
-  a common outlet-name pattern"), neither of which exists yet.
-- **26 of the 77 companies (`segment = "existing_v3_ranked"`) have no
-  `category`/`geography`** -- that's genuinely missing in the source
-  research, not a migration bug; they still get a priority and reachability
-  score from what data they do have.
 - **Data sourcing is currently X (Rapid X) + YouTube (ScrapeCreators/YouTube
   Data API) only**, matching the Creators side. If BD research expands to
   need e.g. LinkedIn activity or a paid-search/ads-intelligence source for
@@ -539,3 +588,308 @@ new BD research -- it will not duplicate companies or creators.
   research time, not live** -- it does not re-check whether a path is still
   valid today. `human_intro_status` (separately tracked) is the field that
   reflects an actual person's current willingness to introduce.
+- **A small number of sponsorship-evidence "creators" are actually outlets,
+  not individuals** (e.g. a tech-news publication credited as an affiliate
+  sponsor). As of the data-integrity sprint (§11) these are correctly
+  classified `Media / Community Account` or `Non-creator / Irrelevant` and
+  are excluded from (or, for media accounts, segregated out of) Suggested
+  Creators -- see §11.1. A handful of ambiguous individual accounts still
+  sit in Needs Review by design (GPT declined to guess from a bare channel
+  name and video-title list alone, correctly).
+- **Migration's "preserve human edits" rule for `Company` is per-field, not
+  per-edit-event** (§11.3): once a field like `category` has any non-empty
+  value, a later source correction to that same field will never overwrite
+  it automatically. A genuinely-updated source value needs a human to apply
+  it manually (or clear the field first) -- this is a deliberate
+  safety-over-freshness tradeoff, not an oversight.
+- **`Operator`/`IntroPath`/`ActionItem`/`SponsorshipEvidence` upserts are
+  create-only once a source row has been seen** (§11.3): if the *source*
+  BD research corrects an already-imported row (not a new one), that
+  correction won't flow through automatically either, for the same reason.
+
+## 10. Company-first commercial research layer
+
+The current Solomon home view begins with a 97-company commercial longlist and
+15 priority dossiers. Commercial scoring is intentionally independent of X
+reachability, mutual follows, follower count, company fame, and fundraising
+amount. Those signals remain available only as contact-route support.
+
+Each priority dossier carries why-now and spend/GTM evidence, a relevant
+operator, a company-specific Mango offer, one best route, two fallbacks, key
+unknowns, and atomic public-source records with dates and fact status. The
+Opportunities view can filter by Mango ICP and commercial disposition and
+defaults to commercial-priority sorting.
+
+The idempotent production apply is:
+
+```bash
+python3 scripts/apply_commercial_research_v5.py
+```
+
+It is part of `entrypoint.sh`, so existing Railway volumes receive the new
+tables and sourced rows without replacing the database or deleting historical
+network, action, outreach, quote, or sponsorship records. JSON handoff files
+live in `../data/pilot_v5/`.
+
+## 11. Data-integrity + Solomon UAT + internal launch-prep sprint
+
+An incremental sprint on top of the already-stable Creators/Opportunities/
+Network/Campaign-Builder flows (§9) -- none of that core plumbing changed.
+This section covers what was added: creator re-classification, manual
+correction endpoints, the Solomon UAT pilot, and what's needed before the
+tool is used by more than one person.
+
+### 11.1 Creator classification taxonomy
+
+`CREATOR_CLASSES` (`backend/models.py`): `Top KOL`, `Community Leader`,
+`KOL`, `KOC`, `Marketing Account`, `Media / Community Account`,
+`Non-creator / Irrelevant`, `Unknown`. The last two both surface in the
+**Needs Review** tab (`NEEDS_REVIEW_CLASSES`), distinguished by badge text:
+`Unknown` = not yet resolved, `Non-creator / Irrelevant` = a human/GPT
+already looked and decided it isn't a creator at all -- a terminal verdict,
+not a pending one.
+
+The 39 creators `migrate_bd_data.py` auto-creates from BD sponsorship
+evidence (no bio, no followers, no post history -- only a channel
+name/handle and the real sponsorship rows that reference them) get a
+grounded, conservative GPT pass:
+
+```bash
+cd kol_database
+PYTHONPATH=. python3 scripts/classify_bd_creators.py           # apply
+PYTHONPATH=. python3 scripts/classify_bd_creators.py --dry-run # preview only
+```
+
+See `backend/bd_creator_classify.py`'s system prompt for exactly what
+signal this uses (channel name/handle + real sponsorship-evidence titles,
+nothing invented) and why it's instructed to prefer `Unknown` over
+guessing when that's genuinely all there is to go on. Skips creators that
+are no longer `Unknown` or have `creator_class_locked=True` (a human
+already classified them manually) -- safe to re-run.
+
+**Suggested Creators filtering** (`bd_compute.rank_suggested_creators`):
+`Non-creator / Irrelevant` never appears in any recommendation list.
+`Media / Community Account` never appears in the main creator list --
+it's returned separately as `media_channels` in
+`GET /api/companies/{id}/suggested-creators`, so the frontend can show it
+as a distinct "distribution channel" option instead of mixing it into
+creator picks. `Unknown` (Needs Review) creators can still surface (e.g. a
+real prior sponsor with no classification yet) but always sort after every
+confidently-classified result and carry a `needs_review` flag.
+
+### 11.2 Manual correction endpoints
+
+Deliberately minimal -- edit-in-place plus the few "add one more" actions
+Solomon actually needs, no approval workflow or generic admin CRUD:
+
+| Action | Endpoint |
+|---|---|
+| Edit company category/geography/notes, mark verified | `PATCH /api/companies/{id}`, `POST /api/companies/{id}/verify` |
+| Edit / add an operator | `PATCH /api/operators/{id}`, `POST /api/companies/{id}/operators` |
+| Correct an X intro path | Read-only in the app/API; re-run the Rapid X evidence pipeline so source id, cache provenance and every edge direction are retained |
+| Confirm / reject sponsorship evidence | `PATCH /api/sponsorship-evidence/{id}` (`review_status: confirmed\|rejected`) |
+| Edit / add an action item (owner, status, due date, outcome notes) | `PATCH /api/action-items/{id}`, `POST /api/companies/{id}/action-items` |
+| Record a real outreach event with operator/bridge/path/action attribution | `POST /api/companies/{id}/outreach-logs` |
+| Edit an outreach event's operational note, follow-up date or Mango owner | `PATCH /api/outreach-logs/{id}`; provenance/stage fields are immutable |
+| Correct/delete a mistaken outreach event without losing history | `PATCH /api/outreach-logs/{id}/void`; no hard-delete endpoint |
+| Mark a creator unsuitable for a company/category | `POST/GET/DELETE /api/creators/{id}/exclusions` |
+
+New action items require a nonblank owner, fallback route, exact next action,
+and ISO `YYYY-MM-DD` due date; status is limited to the documented workflow
+states. Campaign creation requires a nonblank objective, while a lightweight
+shortlist may omit one. Budgets and manual quote overrides must be finite and
+nonnegative. A selected `rate_card_id` must belong to that shortlist item's
+creator; the API rejects cross-creator IDs instead of relying on a bare
+foreign key.
+
+Rejected sponsorship evidence is kept (visible, for audit) but excluded
+from priority scoring and paid-sponsorship counts (`bd_serializers._non_rejected`,
+`bd_compute.opportunity_priority`). Creator detail carries the same
+`review_status`: an unreviewed extraction is rendered as “付费观察 · 待审核”,
+and “多次已复核付费合作方” only counts confirmed paid rows.
+
+Operator verification is field-specific. Pipeline-owned
+`identity_confirmed` (official/company source + exact X profile match) is
+read-only to the UI. Human identity, current-role, and budget-authority
+checks each require an evidence URL and write separate timestamps;
+editing a contact does not verify it. Changing a source-matched name,
+role, X handle, or evidence URL invalidates that old source match until a
+research refresh rechecks it. `Operator.last_verified_at` is only the
+maximum of those explicit field-level timestamps, never a generic edit
+timestamp.
+
+All of the above are wired into the Company drawer in the Opportunities
+and Network views (inline edit toggles on operators/action items,
+Confirm/Reject buttons on each sponsorship-evidence row) and into the
+Campaign Builder's Suggested Creators panel ("Not a fit" link).
+
+### 11.3 Migration upsert semantics (why edits survive a refresh)
+
+Before this sprint, `migrate_bd_data.py` deleted and fully re-inserted
+every BD table on each run -- fine when nothing was editable, but it
+silently wiped any human correction (this was caught mid-sprint: a
+`category`/`geography` research pass got clobbered by the next migration
+run before this fix landed). Now:
+
+- `Company` is upserted by `company_id`: source-owned fields (name, stage,
+  score, priority tier, spend levels, `x_handle`) always refresh from
+  source; human-editable fields (`category`, `geography`, `why_now`,
+  `budget_evidence`, `buyer_or_route`, `internal_notes`) are only filled in
+  when still empty, never overwritten once set. `last_verified_at` is pure
+  human state, never touched by migration.
+- `Operator`, `IntroPath`, `ActionItem`, `SponsorshipEvidence` each carry a
+  `source_id` column (the source system's own stable id for that row).
+  Migration upserts by that key: an already-seen row is left completely
+  alone (every human-editable field survives); only genuinely new source
+  rows get created. Rows a human adds directly via the API have
+  `source_id=None` and are never touched by migration at all.
+- `add_operator_verification_columns.py` is an idempotent boot migration
+  that adds the three field-level human-verification timestamps. It does
+  not backfill historical generic edit timestamps into verification facts.
+- `reconcile_bd_data.py` (§11.5) has a permanent regression check for this
+  exact bug class: duplicate `source_id`s and Company/Operator row-count
+  drift both fail the reconciliation.
+
+### 11.4 Solomon UAT pilot
+
+`SolomonReview` (one row per company, keyed by `company_id`) captures a
+real decision: `decision` (`proceed`/`watch`/`reject`), what's missing,
+free-text notes, and the next action. Relationship progress is not set by
+a review checkbox: E4-E6 can only advance from a real `OutreachLog` event.
+Selecting a company into the pilot *is* creating this row -- there's no
+separate "is_pilot" flag.
+
+`GET /api/solomon/pilot-candidates` buckets real companies into the 4
+categories a representative pilot needs (reachable+high-spend,
+high-spend-but-weak-reach, has real sponsorship evidence, and a control
+case the system says not to act on yet) using the existing
+`opportunity_priority()` scoring -- a picker aid, not a selection
+mechanism. The Network page shows the current pilot list with each
+company's decision status; clicking into a company opens its full review
+form at the bottom of the Opportunities drawer (`GET/PUT
+/api/solomon/reviews/{company_id}`).
+
+**Current pilot (8 real companies):** Runway, Cursor, Genspark,
+ElevenLabs, Synthesia, Gumloop, Manus, Clay -- covering all 4 buckets. Any
+UAT-only decision, campaign, shortlist, or relationship-confirmation state
+has been removed; these records are waiting for Solomon's real review.
+Runway currently has a one-way-follow research lead plus Cristóbal's open
+X DM as an independent cold channel. Neither fact is a verified warm path.
+
+### 11.5 Data reconciliation
+
+```bash
+cd kol_database
+PYTHONPATH=. python3 scripts/reconcile_bd_data.py
+```
+
+Checks (machine-readable report at `data/reconciliation_report.json`,
+plus a terminal summary): canonical source-key membership plus provenance
+for separately researched local extensions, duplicate
+company names, duplicate creator handles, orphan rows (sponsorship
+evidence / intro paths / action items / operators / Solomon reviews /
+creator exclusions pointing at a missing company or creator), duplicate
+`source_id`s (§11.3's regression guard), character-by-character-join
+corruption in any Text field (the exact shape of the `gtm_motion` bug this
+sprint found and fixed), and priced rate cards on unenriched BD-created
+creators (would mean a fabricated quote). Exit code 1 if anything fails.
+
+### 11.6 Internal launch-prep
+
+The current handoff is
+[`reports/SOLOMON_V8_CAMPAIGN_TRUST_RELEASE.md`](reports/SOLOMON_V8_CAMPAIGN_TRUST_RELEASE.md);
+the full historical evidence index remains in
+[`reports/SOLOMON_UAT_REPORT_2026-08-29.md`](reports/SOLOMON_UAT_REPORT_2026-08-29.md).
+
+- **Public read / internal write**: the product has no page-level password or
+  standalone login UI. GET and HEAD pages, static assets, search, dossiers,
+  and other read APIs are public. POST/PUT/PATCH/DELETE always fail closed:
+  when `INTERNAL_ACCESS_TOKEN` is absent they return 503, and when it is
+  configured they require a short-lived signed browser session, a Bearer
+  token, or an `X-Internal-Access-Token` header. The top bar reports `公开只读`
+  to an anonymous visitor and `内部编辑已授权` to an authorized session. Full
+  deployment/rotation instructions are in
+  [`docs/railway-internal-release.md`](docs/railway-internal-release.md).
+- **Secrets**: every data/API key (`RAPID_X_API_KEY`, `OPENAI_API_KEY`,
+  `SCRAPECREATORS_API_KEY`, `YOUTUBE_API_KEY`) is read only from the
+  repo-root `.env` / real environment variables (`backend/env.py`) --
+  never hardcoded, never logged.
+- **Backup / restore**:
+  ```bash
+  PYTHONPATH=. python3 scripts/backup_db.py [label] --db "${DB_PATH:-data/kol.db}"
+  PYTHONPATH=. python3 scripts/restore_db.py --db "${DB_PATH:-data/kol.db}" --list
+  PYTHONPATH=. python3 scripts/restore_db.py --db "${DB_PATH:-data/kol.db}" --yes [--file NAME]
+  ```
+  Both tools honor the mounted `DB_PATH`; the default backup directory is
+  beside that DB under `backups/` (or explicit `--backup-dir`). Backups use
+  SQLite's online snapshot API and are integrity-checked. Restore validates
+  the source, snapshots the current DB, stages the copy, then atomically
+  replaces it. Backups are gitignored and the newest 20 are retained.
+- **Release DB contract**:
+  ```bash
+  PYTHONPATH=. python3 scripts/check_runtime_db.py --db deploy_seed.db --seed-contract
+  PYTHONPATH=. python3 scripts/check_runtime_db.py --db "${DB_PATH:-data/kol.db}" --preflight-contract
+  PYTHONPATH=. python3 scripts/check_runtime_db.py --db "${DB_PATH:-data/kol.db}" --runtime-contract
+  ```
+  The Docker build must pass the exact seed contract. On an existing volume,
+  startup first runs the preflight contract (integrity/base inventory, while
+  allowing columns that migrations add), takes a verified backup, runs the
+  idempotent migrations/backfills, and only then requires the full runtime
+  contract. It refuses an empty/corrupt/base-incompatible volume rather than
+  overwriting it; an old Creator-only Railway volume therefore still requires
+  the staged, backed-up migration in the deployment runbook.
+- **HTTP and browser release checks**:
+  ```bash
+  PYTHONPATH=. python3 scripts/run_solomon_uat.py --base-url http://127.0.0.1:8811
+  PYTHONPATH=. python3 scripts/capture_uat_screenshots.py --base-url http://127.0.0.1:8811 --strict
+  PYTHONPATH=. python3 scripts/run_browser_interaction_smoke.py --base-url http://127.0.0.1:8811
+  PYTHONPATH=. python3 scripts/run_release_browser_e2e.py
+  ```
+  The screenshot command records navigation, API status, console/page errors,
+  failed requests, broken same-origin links, external-link safety/status,
+  images, and visible error/empty/loading states. It is GET-only and can be
+  run against a deployed URL. The interaction smoke refuses non-loopback
+  URLs and must run against a disposable DB because it tests validation and
+  focus behavior through real clicks (while asserting zero write requests).
+  The release E2E self-creates and later destroys a temporary copy of
+  `deploy_seed.db`; it is the only browser check allowed to exercise campaign,
+  shortlist, ActionItem, quote-override and OutreachLog writes. It cannot be
+  pointed at production or the normal local database.
+- **Test/UAT audit and narrowly-scoped cleanup**:
+  ```bash
+  PYTHONPATH=. python3 scripts/audit_and_clean_test_data.py          # dry-run; DB is read-only
+  PYTHONPATH=. python3 scripts/audit_and_clean_test_data.py --apply  # exact fingerprints only; auto-backup first
+  ```
+  Each run regenerates `reports/test_data_audit.json` and `.md` from the
+  database actually passed via `--db`. Empty campaign drafts are reported
+  as uncertain and retained; only independently identified Runway UAT
+  fingerprints are eligible for automatic cleanup. The eight blank
+  `SolomonReview` rows are pilot membership configuration, not completed
+  human decisions or research evidence, and are always retained.
+- **Advisory GPT content/IA review (development only)**:
+  ```bash
+  PYTHONPATH=. python3 scripts/review_ui_content.py --prepare-only
+  PYTHONPATH=. python3 scripts/review_ui_content.py
+  ```
+  The first command always works offline: it writes a 20-state review packet
+  to `reports/ui_content_review/YYYY-MM-DD/input_packet.json`. The second
+  reads `OPENAI_API_KEY` and optional `OPENAI_REVIEW_MODEL` from the ignored
+  repository `.env`, calls the Responses API with a strict JSON schema, and
+  writes `audit.json`, `REPORT.md`, `copy_diff.md`, and
+  `information_architecture.md`. It never writes application rows and never
+  auto-applies model output to frontend copy. Screenshots and internal UAT
+  state leave the local machine in the second mode, so run it only with
+  explicit approval for that specific upload.
+- **One repeatable refresh command**:
+  ```bash
+  PYTHONPATH=. python3 scripts/refresh_all.py
+  ```
+  Runs backup -> migrate -> classify new BD creators -> reconcile, in
+  order, stopping at the first fatal failure (classify is non-fatal --
+  a missing `OPENAI_API_KEY` shouldn't block reconciliation from running).
+- **Recomputing scores after new evidence**: nothing to run. Opportunity
+  priority, reachability, creator-campaign-fit, and relationship-strength
+  are all computed live from current DB state on every request
+  (`bd_compute.py` -- no cache, no stored score column), so newly-confirmed
+  operators, new sponsorship evidence, or a fresh X/YouTube enrichment
+  pass are reflected on the very next page load.

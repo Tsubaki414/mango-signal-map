@@ -1,0 +1,5 @@
+certifi>=2024.8.30
+
+[workbook]
+openpyxl>=3.1.5
+Pillow>=12.1
