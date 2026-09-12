@@ -123,6 +123,16 @@ def _expand(values: list[str], mapping: dict[str, object]) -> set[str]:
     return out
 
 
+#: discovered 相对 priced 的数量上限。
+#:
+#: 设计包写的是 priced:discovered ≈ 2:1（发现的人是已报价的一半）。实际跑出来
+#: 是 1:7.2 —— 因为被目标人物关注的已报价创作者只有 22 位，而发现池有 158 位。
+#:
+#: 项目方定为 **1:5**（发现的人最多是已报价的 5 倍），这是一个有意偏离规格的
+#: 产品决定：发现从未建联过的人是这个产品最值钱的部分，压到 1:2 等于把它砍掉
+#: 大半。超出部分按连接强度截断，留下的是连接最强的那些。
+DISCOVERED_RATIO = 5
+
 #: v3 商务三态的客户端文案。三态是 README 第三节定义的闭集。
 BIZ_STATE_LABELS = {
     "ready": "可立即确认报价与档期",
@@ -545,6 +555,18 @@ def candidates(
 
     kept = [i for i in items if matches(i)]
 
+    # —— 按比例截断 discovered ——
+    #
+    # 在评分之前截，因为截掉的那些根本不需要算分。保留连接最强的（pool 已按
+    # 共同关注数排序），截断数量单独报出来，不假装池子本来就这么大。
+    priced_kept = [i for i in kept if i["source"] == "priced"]
+    disc_kept = [i for i in kept if i["source"] == "discovered"]
+    cap = max(DISCOVERED_RATIO, len(priced_kept) * DISCOVERED_RATIO)
+    trimmed = max(0, len(disc_kept) - cap)
+    if trimmed:
+        disc_kept = disc_kept[:cap]
+    kept = priced_kept + disc_kept
+
     # —— 评分、理由、排序 ——
     #
     # 排序主依据是**重点圈层的连接权重**（focus_score），不是综合分 fit。
@@ -603,6 +625,8 @@ def candidates(
             "discovered": sum(1 for i in kept if i["source"] == "discovered"),
             # 有多少人是"所筛维度判不出来所以留下的"，客户端要如实说明。
             "keptAsUnknown": sum(1 for i in kept if kept_only_because_unknown(i)),
+            # 因比例上限被截掉的发现候选数。池子有多大是事实，不该藏起来。
+            "discoveredTrimmed": trimmed,
         },
         "coverage": {
             "targets": len(resolved),

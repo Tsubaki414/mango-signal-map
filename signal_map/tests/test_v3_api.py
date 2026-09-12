@@ -291,3 +291,27 @@ def test_brief_codes_are_not_enumerable():
     """
     for guess in ("1", "2", "3", "10"):
         assert client.get(f"/api/brief/{guess}").status_code == 404
+
+
+def test_discovered_ratio_is_capped():
+    """discovered 相对 priced 有数量上限，且截断数量要报出来。
+
+    设计包写的是 2:1，项目方定为 1:5 —— 有意偏离：发现从未建联过的人是这个
+    产品最值钱的部分，压到 2:1 等于砍掉大半。
+    """
+    body = client.get("/api/candidates?group=ai&limit=300").json()["counts"]
+    assert body["discovered"] <= max(5, body["priced"] * 5)
+    assert "discoveredTrimmed" in body
+
+
+def test_circle_membership_needs_two_connections():
+    """单圈层命中率要落在可用区间。
+
+    只要一位目标人物关注就算「进了那个圈层」时，AI 领域 86% 的候选都命中
+    风险投资人 —— 那个标签对所有人成立，等于什么都没说。
+    """
+    body = client.get("/api/candidates?group=ai&limit=300").json()
+    items = body["items"]
+    for circle in ("vc", "devs"):
+        hit = sum(1 for i in items if circle in i["circles"])
+        assert hit / len(items) <= 0.6, f"{circle} 命中率过高，连接过于分散"
