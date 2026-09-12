@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { tierMark, type Candidate, type Circle } from "@/lib/api";
 import type { Kept } from "./CandidatesV3";
+import { PRICE_NOTE, UNVERIFIED_NOTE } from "./copy";
 import { FORMATS } from "./CandidateCard";
 import styles from "./ConfirmV3.module.css";
 
@@ -90,7 +91,7 @@ export function ConfirmV3({ kept, items, circles, focus, submittedAt, onSubmit }
           <div className={styles.pendingTitle}>仍需 Mango 核验</div>
           <p className={styles.pendingText}>
             其中 {pending.length} 位尚未建联或报价待确认，我们会先接洽再回复可行性与价格。
-            这部分**不计入**已知档位合计 —— 未询价的人不折算成零。
+            这部分不计入已知档位合计 —— 未询价的人不折算成零。
           </p>
         </div>
       )}
@@ -116,8 +117,8 @@ export function ConfirmV3({ kept, items, circles, focus, submittedAt, onSubmit }
       )}
 
       <p className={styles.disclaimer}>
-        价格为档位区间而非报价，最终以 Mango 复核为准。确认不是购买。
-        关系记录来自公开关注，不代表目标人物一定会看到或转发。
+        {PRICE_NOTE}
+        {UNVERIFIED_NOTE}
       </p>
     </section>
   );

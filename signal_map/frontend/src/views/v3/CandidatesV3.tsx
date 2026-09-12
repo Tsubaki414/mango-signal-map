@@ -3,6 +3,7 @@
 import type { CandidatesResponse, Circle, Target } from "@/lib/api";
 import { PathGraph } from "./PathGraph";
 import { CandidateCard } from "./CandidateCard";
+import { PRICE_NOTE, UNVERIFIED_NOTE } from "./copy";
 import styles from "./CandidatesV3.module.css";
 
 export type Kept = { id: string; format: string };
@@ -69,12 +70,11 @@ export function CandidatesV3({
       <h2 className={styles.title}>
         {focusLabels.length
           ? `已把与${focusLabels.join("、")}有连接的创作者排到前面。`
-          : "能把内容送进这些人信息流的创作者。"}
+          : `${counts.priced} 位已有报价可立即确认，${counts.discovered} 位由 Mango 去建联。`}
       </h2>
       <p className={styles.note}>
-        名单由 {coverage.collected} 位已采集关注网络的目标人物反推而来。关系记录来自
-        公开关注，<span className={styles.unverified}>尚未人工核验</span>
-        ，不代表对方一定会看到或转发。
+        名单由 {coverage.collected} 位已采集关注网络的目标人物反推而来。
+        <span className={styles.unverified}>{UNVERIFIED_NOTE}</span>
         {counts.keptAsUnknown > 0 &&
           ` 其中 ${counts.keptAsUnknown} 位在你筛选的维度上画像待确认，已保留在名单内。`}
       </p>
@@ -121,9 +121,7 @@ export function CandidatesV3({
               </div>
             ))}
           </div>
-          <p className={styles.disclaimer}>
-            价格为档位区间而非报价，最终以 Mango 复核为准。确认不是购买。
-          </p>
+          <p className={styles.disclaimer}>{PRICE_NOTE}</p>
         </div>
       )}
 

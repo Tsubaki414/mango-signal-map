@@ -45,9 +45,7 @@ export function TargetsV3({
         先确定要让哪几类人看到，再反推可投放的创作者。
       </h2>
       <p className={styles.note}>
-        这里列的不是要投放的 KOL，而是你想影响的人。点开任一名字，可以看到他是谁、
-        以及名单里谁能连接到他。这一轮如果有特别想先进入的一类，标记为重点即可 ——
-        名单只重排，不会变少。
+        这里列的不是要投放的 KOL，而是你想影响的人。标记重点只改变排序，名单不会变少。
       </p>
       {notice && <p className={styles.note} style={{ color: "var(--msm-warn)" }}>{notice}</p>}
 

@@ -1,0 +1,20 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ channel: 'chrome' });
+const p = await b.newPage({ viewport: { width: 1600, height: 1000 } });
+const errs = []; p.on('pageerror', e => errs.push(String(e)));
+await p.goto('https://mango-signal-map.vercel.app/', { waitUntil: 'networkidle', timeout: 60000 });
+await p.evaluate(() => localStorage.clear());
+await p.reload({ waitUntil: 'networkidle' });
+await p.waitForTimeout(3000);
+await p.locator('#prefs button').first().click();
+await p.waitForTimeout(1500);
+await p.mouse.click(800, 500);                     // 跳过揭示
+await p.waitForTimeout(3000);
+console.log('圈层卡:', await p.locator('#targets article').count());
+console.log('名单卡:', await p.locator('#list article').count());
+console.log('右栏:', await p.locator('aside[data-screen-label="实时反馈"]').count() > 0);
+console.log('偏好六组:', await p.locator('#prefs button[class*="chip"]').count(), '个选项');
+await p.locator('#list').scrollIntoViewIfNeeded(); await p.waitForTimeout(1200);
+await p.screenshot({ path: 'shots/prod-list.png', timeout: 90000 });
+console.log('页面错误:', errs.length ? errs.slice(0,2) : 'none');
+await b.close();

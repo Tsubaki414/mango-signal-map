@@ -39,8 +39,7 @@ export function WantedV3({ custom, onAdd }: Props) {
     <div className={styles.wrap}>
       <div className={styles.title}>还有想影响的人没在上面？</div>
       <p className={styles.note}>
-        写下名字或 handle，Mango 会核查他的公开网络，确认能否覆盖后回复你。
-        这一步不会改变当前名单。
+        Mango 会核查他的公开网络，确认能否覆盖后回复你。
       </p>
 
       <div className={styles.form}>

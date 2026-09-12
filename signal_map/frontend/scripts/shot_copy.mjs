@@ -1,0 +1,18 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ channel: 'chrome' });
+const p = await b.newPage({ viewport: { width: 1600, height: 1000 } });
+const errs=[]; p.on('pageerror', e=>errs.push(String(e)));
+await p.goto('http://127.0.0.1:3100/', { waitUntil: 'networkidle' });
+await p.evaluate(()=>localStorage.clear()); await p.reload({waitUntil:'networkidle'});
+await p.waitForTimeout(2500);
+console.log('01 标题:', await p.locator('#prefs h2').innerText());
+await p.locator('#prefs button').first().click();
+await p.waitForTimeout(1200); await p.mouse.click(800,500); await p.waitForTimeout(3000);
+console.log('02 导语:', (await p.locator('#targets p').first().innerText()).replace(/\s+/g,' '));
+console.log('03 标题:', await p.locator('#list h2').innerText());
+console.log('待核查提示:', (await p.locator('text=Mango 会核查他的公开网络').innerText().catch(()=>'-')).replace(/\s+/g,' '));
+console.log('右栏 tick 初始:', JSON.stringify(await p.locator('aside[data-screen-label="实时反馈"] div').nth(3).innerText().catch(()=>'-')));
+await p.locator('button:has-text("采用这个起点")').click(); await p.waitForTimeout(2500);
+console.log('确认区待核验段:', (await p.locator('#confirm p').nth(1).innerText().catch(()=>'-')).replace(/\s+/g,' ').slice(0,70));
+console.log('页面错误:', errs.length?errs.slice(0,2):'none');
+await b.close();

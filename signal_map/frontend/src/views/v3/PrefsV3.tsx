@@ -21,7 +21,7 @@ export function PrefsV3({ groups, loading, error, selected, restoredFrom, onSele
   return (
     <section id="prefs" className={styles.section} data-screen-label="偏好">
       <div className={styles.eyebrow}>01 /// 你想进入什么方向</div>
-      <h2 className={styles.title}>先选一个领域，其余选项会跟着展开。</h2>
+      <h2 className={styles.title}>先选一个领域。</h2>
       {restoredFrom && <p className={styles.restored}>{restoredFrom}</p>}
 
       {loading && (

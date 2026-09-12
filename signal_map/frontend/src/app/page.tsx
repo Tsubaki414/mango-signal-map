@@ -35,7 +35,7 @@ export default function Page() {
   const [kept, setKept] = useState<Kept[]>([]);
   const [custom, setCustom] = useState<Wanted[]>([]);
   const [focusNotice, setFocusNotice] = useState<string | null>(null);
-  const [tick, setTick] = useState("每次选择都会立刻重排名单。");
+  const [tick, setTick] = useState("");
 
   const [targets, setTargets] = useState<Target[]>([]);
   const [candidates, setCandidates] = useState<CandidatesResponse | null>(null);
@@ -88,7 +88,7 @@ export default function Page() {
             const delta = res.counts.total - prev.counts.total;
             setTick(
               delta === 0
-                ? "候选数量不变，只是顺序变了 —— 标记重点从不减少名单。"
+                ? "数量不变，顺序已按重点重排。"
                 : delta > 0
                   ? `新增 ${delta} 位候选。`
                   : `减少 ${-delta} 位候选。`,

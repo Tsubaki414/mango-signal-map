@@ -2,6 +2,7 @@
 
 import type { Candidate, Circle, Target } from "@/lib/api";
 import { Avatar } from "./Avatar";
+import { UNVERIFIED_NOTE } from "./copy";
 import styles from "./PersonPanel.module.css";
 
 type Props = {
@@ -91,7 +92,7 @@ export function PersonPanel({ target, circle, bridges, onClose }: Props) {
         </div>
 
         <p className={styles.disclaimer}>
-          公开关注只说明该连接在观察时存在，不代表对方一定会看到、回复或转发你的内容。
+          {UNVERIFIED_NOTE}
         </p>
       </aside>
     </div>

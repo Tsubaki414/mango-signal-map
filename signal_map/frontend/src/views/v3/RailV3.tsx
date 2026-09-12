@@ -93,9 +93,6 @@ export function RailV3({ candidates, kept, circles, focus, tick }: Props) {
           <li>标注报价与商务状态，未询价的不折算成零</li>
         </ol>
       )}
-      <p className={styles.disclaimer}>
-        关系记录来自公开关注，尚未人工核验，不代表对方一定会看到或转发。
-      </p>
     </aside>
   );
 }

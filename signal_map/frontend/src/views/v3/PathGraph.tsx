@@ -150,7 +150,7 @@ export function PathGraph({ kept, targets, circles }: Props) {
       <div className={styles.head}>
         <span className={styles.title}>注意力路径</span>
         <span className={styles.note}>
-          {focusNode ? "再次点击节点取消高亮" : "点击任一节点高亮它的路径"}
+          {focusNode ? "再次点击取消" : "点击节点看它的路径"}
         </span>
       </div>
 
