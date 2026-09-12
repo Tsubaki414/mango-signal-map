@@ -143,6 +143,16 @@ def test_no_internal_field_names():
             assert not any(b in loc.lower() for b in banned), f"{path} {loc}"
 
 
+def _is_own_handle(body, contact: str) -> bool:
+    """这个联系方式的值是不是某个候选自己的公开 handle。"""
+    items = body.get("items", []) if isinstance(body, dict) else []
+    for item in items:
+        handle = (item.get("handle") or "").lstrip("@").lower()
+        if handle and handle == contact.strip().lstrip("@").lower():
+            return True
+    return False
+
+
 def test_no_internal_values_leak():
     """按**叶子**比对，不按子串搜整个 JSON。
 
@@ -185,8 +195,19 @@ def test_no_internal_values_leak():
                     if float(match.lstrip("$ ").replace(",", "")) in costs:
                         problems.append(f"cost in prose {match!r} at {path}{loc}")
                 for contact in contacts:
-                    if contact in val:
-                        problems.append(f"contact {contact!r} at {path}{loc}")
+                    if contact not in val:
+                        continue
+                    # 联系方式的值可能和创作者自己的公开 handle 同名：实测某位
+                    # 的 telegram 就是 aryanlabde，而他的 X handle 也是
+                    # aryanlabde。接口下发的是公开 handle，不是 telegram ——
+                    # 这个字符串出现在 name/url 里由公开信息解释，不是泄露。
+                    #
+                    # 注意残留风险：用户名撞名意味着公开 handle 本身就是对
+                    # telegram 的提示。但那不是这个接口造成的，任何人看到他的
+                    # X 主页都能做同样的猜测。
+                    if _is_own_handle(body, contact):
+                        continue
+                    problems.append(f"contact {contact!r} at {path}{loc}")
     assert not problems, problems
 
 

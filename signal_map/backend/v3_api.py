@@ -664,6 +664,15 @@ def candidates(
     labels = _labels()
     focus_set = set(_csv(focus)[:3])
 
+    # 配置外的已观察账号：它关注了这个候选。是**证据**，不是画像 ——
+    # 不参与圈层归属，也不进路径图。
+    observed_extra = catalog.other_signals(
+        session,
+        [m.creator_id for m in priced if m.creator_id],
+        exclude_nodes={t.account.rest_id for t in resolved if t.account and t.account.rest_id},
+    )
+    by_item_id = {f"c{cid}": sigs for cid, sigs in observed_extra.items()}
+
     for item in kept:
         sc = scoring.score(
             edges=item["edges"],
@@ -698,6 +707,13 @@ def candidates(
                  "avatarUrl": f"https://unavatar.io/x/{h}" if h else None}
                 for tid in dict.fromkeys(e["targetId"] for e in item["edges"])
             ][:5],
+            # 附加证据：粉丝量一起给，让人自己判断分量 —— 不做互关池自动判定，
+            # 因为 Elon Musk 关注了我方 63% 的创作者，任何占比规则都会误判他。
+            "otherSignals": [
+                {"handle": f"@{o.handle}", "followers": o.followers,
+                 "interactions": o.interactions}
+                for o in by_item_id.get(item["id"], [])
+            ],
         }
 
     # 已报价的排在最前，两侧各自按连接强度排。

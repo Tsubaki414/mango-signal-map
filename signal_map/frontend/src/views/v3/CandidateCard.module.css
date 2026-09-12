@@ -279,3 +279,40 @@
   color: rgba(243, 241, 234, 0.45);
   box-shadow: inset 0 0 0 1px rgba(243, 241, 234, 0.16);
 }
+
+/* 另有关注：配置外的已观察账号。视觉上比目标人物轻 —— 它是佐证，
+   不是客户选定的影响对象。 */
+.others {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid rgba(243, 241, 234, 0.1);
+}
+
+.othersTag {
+  font-family: var(--msm-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(243, 241, 234, 0.4);
+}
+
+.other {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  color: rgba(243, 241, 234, 0.7);
+  padding: 2px 6px;
+  box-shadow: inset 0 0 0 1px rgba(243, 241, 234, 0.14);
+  display: inline-flex;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.otherFollowers {
+  color: var(--msm-accent);
+}
+
+.otherHot {
+  color: var(--msm-warn);
+}

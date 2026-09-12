@@ -87,6 +87,8 @@ export type Candidate = {
   focusNote: string;
   circles: string[];
   faces: Face[];
+  /** 配置外的已观察账号：它关注了这个候选。是证据，不是画像。 */
+  otherSignals: { handle: string; followers: number | null; interactions: number }[];
   platform: string;
   followers: number | null;
   group: string;

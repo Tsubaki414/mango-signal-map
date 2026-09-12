@@ -516,6 +516,79 @@ def profile_from_bio(bio: str | None) -> DiscoveredProfile:
     )
 
 
+@dataclass
+class OtherSignal:
+    """配置外的已观察账号：它关注了这个候选。
+
+    和目标人物是**两种角色**，不能混为一谈：
+
+    * 目标人物（config 里那 46 位）定义「客户想影响哪类人」—— 圈层、重点、
+      路径图都由它们决定。它是**画像**。
+    * 这里的账号是「这个创作者实际被谁关注」的**证据**。它们没经过任何
+      「客户是否想影响他」的判断，所以不参与圈层归属，也不进路径图。
+
+    为什么值得显示：库里有 294 个已采集关系的账号，而配置只覆盖 19 个。剩下
+    275 个账号的关注记录是真实观察，扔掉它等于把大部分已采集的证据浪费掉。
+
+    为什么**不做**互关池自动判定：实测 Elon Musk 关注了我方 188 位创作者里的
+    119 位（63%），任何「占比高就是池子」的规则都会把他判成池子；而
+    ``x_accounts.following`` 有陈旧值（某账号写着关注 3 个、实际关注了我方
+    103 位），反方向的比例同样不可靠。所以这里只把**粉丝量**摆出来，让人
+    自己判断分量 —— 一个判不准的标签比没有标签更糟。
+    """
+
+    handle: str
+    followers: int | None
+    interactions: int
+
+
+def other_signals(
+    session: Session, creator_ids: list[int], *, exclude_nodes: set[str], per_creator: int = 4
+) -> dict[int, list[OtherSignal]]:
+    """已观察但不在配置里的账号 → 它们关注了哪些候选。按粉丝量取前几个。"""
+    if not creator_ids:
+        return {}
+    rows = session.execute(
+        select(
+            AttentionSignal.source_creator_id,
+            AttentionSignal.source_node,
+            AttentionSignal.signal_type,
+        ).where(AttentionSignal.source_creator_id.in_(creator_ids))
+    ).all()
+
+    nodes = {n for _, n, _ in rows if n not in exclude_nodes}
+    if not nodes:
+        return {}
+    profiles = {
+        a.rest_id: a
+        for a in session.scalars(
+            select(XAccount).where(XAccount.rest_id.in_(list(nodes)))
+        ).all()
+    }
+
+    grouped: dict[int, dict[str, OtherSignal]] = {}
+    for cid, node, kind in rows:
+        if node in exclude_nodes:
+            continue
+        acc = profiles.get(node)
+        if not acc or not acc.handle:
+            continue
+        bucket = grouped.setdefault(cid, {})
+        sig = bucket.get(node)
+        if sig is None:
+            bucket[node] = OtherSignal(
+                handle=acc.handle, followers=acc.followers, interactions=0
+            )
+            sig = bucket[node]
+        if kind != "follow":
+            sig.interactions += 1
+
+    return {
+        cid: sorted(v.values(), key=lambda x: -(x.followers or 0))[:per_creator]
+        for cid, v in grouped.items()
+    }
+
+
 def creators_by_id(session: Session, ids: list[int]) -> dict[int, Creator]:
     if not ids:
         return {}

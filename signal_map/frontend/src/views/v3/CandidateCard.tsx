@@ -24,6 +24,13 @@ type Props = {
   swapLabel?: string | null;
 };
 
+/** 粉丝量缩写。分量靠这个数字传达，所以不能省。 */
+function fmtFollowers(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${Math.round(n / 1_000)}K`;
+  return String(n);
+}
+
 export function CandidateCard({
   item, kept, format, onKeep, onRemove, onFormat, onSwap, swapLabel,
 }: Props) {
@@ -83,6 +90,28 @@ export function CandidateCard({
       </div>
 
       <p className={styles.reason}>{item.reason}</p>
+
+      {/* 配置外的已观察账号。
+       *
+       * 这些不是客户选定的目标人物，所以不算进圈层覆盖，也不进路径图 ——
+       * 但「谁在关注他」本身就是证据，而库里 294 个已采集账号里配置只覆盖
+       * 19 个，扔掉剩下的等于浪费掉大部分已采到的观察。
+       *
+       * 粉丝量一起显示：分量由客户自己判断，我们不替他分类。 */}
+      {item.otherSignals.length > 0 && (
+        <div className={styles.others}>
+          <span className={styles.othersTag}>另有关注</span>
+          {item.otherSignals.map((o) => (
+            <span key={o.handle} className={styles.other}>
+              {o.handle}
+              {o.followers != null && (
+                <span className={styles.otherFollowers}>{fmtFollowers(o.followers)}</span>
+              )}
+              {o.interactions > 0 && <span className={styles.otherHot}>互动</span>}
+            </span>
+          ))}
+        </div>
+      )}
 
       {open && (
         <div className={styles.parts}>
