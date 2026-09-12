@@ -146,8 +146,28 @@ def score(
     reach_n = min(1.0, reach / 6)
 
     want_d, want_a, want_m = prefs.get("domains", []), prefs.get("audiences", []), prefs.get("markets", [])
-    dom = len([d for d in domains if d in want_d]) / len(want_d) if want_d else 0.55
-    aud = len([a for a in audiences if a in want_a]) / len(want_a) if want_a else 0.55
+
+    # 「客户没提要求」和「我们不知道这个人写什么」必须分开。
+    #
+    # 这两种情况一度都给 0.55，于是 MrBeast（简介只有 "I want to make the world
+    # a better place"，方向和人群全空）靠 11 条关注边把连接项打满，算出 83 分
+    # 「强连接」—— 缺数据在加分，而规则本该是缺数据降低置信度。
+    #
+    # 0.2 不是惩罚，是「这一项没有证据支持」的诚实取值：它仍然进池子、仍然
+    # 可被保留，只是不该和有明确方向的人拿同一个分数。
+    UNKNOWN = 0.2
+    if not domains:
+        dom = UNKNOWN
+    elif want_d:
+        dom = len([d for d in domains if d in want_d]) / len(want_d)
+    else:
+        dom = 0.55
+    if not audiences:
+        aud = UNKNOWN
+    elif want_a:
+        aud = len([a for a in audiences if a in want_a]) / len(want_a)
+    else:
+        aud = 0.55
     if want_m:
         mk = 1.0 if (set(markets) & set(want_m) or "global" in markets) else 0.15
     else:
@@ -169,6 +189,14 @@ def score(
     total_w = sum(p.weight for p in parts)
     fit = round(sum(p.weight * p.value for p in parts) / total_w * 100)
     word, level = band_of(fit)
+
+    # 内容方向不明的人**不得进最高档**。
+    #
+    # 「强连接」这个词客户会读成「这人很合适」，而连接强只说明名人关注他，
+    # 不说明他写的东西和这个项目有关。MrBeast 被 11 位 AI 目标人物关注是
+    # 事实，但他是泛娱乐创作者 —— 把他标成强连接是用连接冒充相关性。
+    if not domains and level > 2:
+        word, level = BANDS[2][1], BANDS[2][2]
 
     # 算不算"进了这个圈层"，要看**圈层内**有几位目标人物连着他，不是一位就算。
     #

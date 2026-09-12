@@ -139,8 +139,14 @@ export function CandidatesV3({
         <PathGraph kept={keptItems} targets={targets} circles={circles} />
       )}
 
+      {/* 匹配的和相关性待确认的分开。
+       *
+       * 「缺数据不淘汰」不等于「缺数据可以混进匹配结果」：筛 dev_tools 时有
+       * 5 位真的匹配、28 位只是我们不知道他写什么。排在一起等于告诉客户这
+       * 33 个都合适。MrBeast 被 11 位 AI 目标人物关注是事实，但他是泛娱乐
+       * 创作者 —— 用连接冒充相关性是这一屏最容易犯的错。 */}
       <div className={styles.grid}>
-        {items.map((it) => (
+        {items.filter((i) => i.relevance === "matched").map((it) => (
           <CandidateCard
             key={it.id}
             item={it}
@@ -154,6 +160,31 @@ export function CandidatesV3({
           />
         ))}
       </div>
+
+      {counts.relevanceUnknown > 0 && (
+        <>
+          <div className={styles.divider}>
+            <span className={styles.dividerTitle}>相关性待确认 · {counts.relevanceUnknown} 位</span>
+            <span className={styles.dividerNote}>
+              这些账号确实被目标人物关注，但我们还没判定出他们的内容方向 ——
+              保留在这里供你判断，不与上方候选比较。
+            </span>
+          </div>
+          <div className={styles.grid}>
+            {items.filter((i) => i.relevance === "unknown").map((it) => (
+              <CandidateCard
+                key={it.id}
+                item={it}
+                kept={keptIds.has(it.id)}
+                format={formatOf(it.id)}
+                onKeep={() => onKeep(it.id)}
+                onRemove={() => onRemove(it.id)}
+                onFormat={(f) => onFormat(it.id, f)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 }

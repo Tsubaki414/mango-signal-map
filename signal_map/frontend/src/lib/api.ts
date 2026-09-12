@@ -89,6 +89,8 @@ export type Candidate = {
   faces: Face[];
   /** 配置外的已观察账号：它关注了这个候选。是证据，不是画像。 */
   otherSignals: { handle: string; followers: number | null; interactions: number }[];
+  /** 匹配 / 相关性待确认。后者不参与比较，单独成组。 */
+  relevance: "matched" | "unknown";
   platform: string;
   followers: number | null;
   group: string;
@@ -126,6 +128,8 @@ export type CandidatesResponse = {
     discovered: number;
     /** 因所筛维度判不出来而保留的人数，界面要如实说明。 */
     keptAsUnknown: number;
+    matched: number;
+    relevanceUnknown: number;
   };
   coverage: { targets: number; collected: number; reviewed: number };
   items: Candidate[];

@@ -208,3 +208,28 @@
   letter-spacing: var(--msm-ls-mono-s);
   cursor: pointer;
 }
+
+/* 相关性待确认的分界。视觉上明确断开，而不是继续往下排 —— 排在一起就等于
+   宣称它们可比较。 */
+.divider {
+  margin: 40px 0 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--msm-warn);
+}
+
+.dividerTitle {
+  display: block;
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-warn);
+}
+
+.dividerNote {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(243, 241, 234, 0.55);
+  max-width: 48em;
+}

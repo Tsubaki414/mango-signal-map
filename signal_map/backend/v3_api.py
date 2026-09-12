@@ -624,6 +624,22 @@ def candidates(
         (wanted_audiences, "audiences"),
     ]
 
+    def relevance_of(item: dict[str, Any]) -> str:
+        """匹配 / 相关性待确认。
+
+        「缺数据不淘汰」不等于「缺数据可以混进匹配结果」。筛 dev_tools 返回
+        33 位、其中 28 位方向未知时，把它们排在一起等于告诉客户「这 33 个都
+        合适」—— 实际是 5 个合适、28 个我们不知道。
+        """
+        for wanted, key in active:
+            if wanted and not (item.get(key) or []):
+                return "unknown"
+        # 没有任何筛选条件时，方向本身空着也算相关性未确认 —— MrBeast 那类
+        # 泛账号靠名人关注排进前列，正是因为这一项一直被当成中性。
+        if not item.get("domains"):
+            return "unknown"
+        return "matched"
+
     def kept_only_because_unknown(item: dict[str, Any]) -> bool:
         """这个人留下来，是因为**被筛的那个维度**恰好判不出来。
 
@@ -716,6 +732,9 @@ def candidates(
             ],
         }
 
+    for item in kept:
+        item["relevance"] = relevance_of(item)
+
     # 已报价的排在最前，两侧各自按连接强度排。
     #
     # 纯按连接强度排的话，发现候选里的名人（被更多目标人物关注）会占满前几屏，
@@ -726,6 +745,7 @@ def candidates(
     # 但「现在就能买」是比「连接更强」更前置的一件事。
     kept.sort(
         key=lambda i: (
+            0 if i["relevance"] == "matched" else 1,
             0 if i["source"] == "priced" else 1,
             -_sort_key(i, circle_of_target, focus_set),
             -i["fit"],
@@ -757,6 +777,8 @@ def candidates(
             "discovered": sum(1 for i in kept if i["source"] == "discovered"),
             # 有多少人是"所筛维度判不出来所以留下的"，客户端要如实说明。
             "keptAsUnknown": sum(1 for i in kept if kept_only_because_unknown(i)),
+            "matched": sum(1 for i in kept if i["relevance"] == "matched"),
+            "relevanceUnknown": sum(1 for i in kept if i["relevance"] == "unknown"),
             # 因比例上限被截掉的发现候选数。池子有多大是事实，不该藏起来。
             "discoveredTrimmed": trimmed,
         },

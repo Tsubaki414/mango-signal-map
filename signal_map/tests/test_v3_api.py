@@ -425,3 +425,34 @@ def test_strength_is_not_overstated():
         )
         if not has_interaction:
             assert i["strength"] in ("weak", "none"), i["name"]
+
+
+def test_unknown_relevance_is_separated_not_mixed():
+    """方向未知的候选单独成组，不与匹配结果混排。
+
+    起因：MrBeast（简介只有 "I want to make the world a better place"）被 11 位
+    AI 目标人物关注，靠连接项打满拿到 83 分「强连接」，排在第一屏。连接强只
+    说明名人关注他，不说明他写的东西和这个项目有关。
+
+    筛 dev_tools 时更明显：33 位结果里 28 位方向未知。排在一起等于告诉客户
+    这 33 个都合适。
+    """
+    body = client.get("/api/candidates?group=ai&limit=300&domains=dev_tools").json()
+    counts = body["counts"]
+    assert counts["matched"] + counts["relevanceUnknown"] == counts["total"]
+    # 匹配的必须全部排在待确认的前面
+    seq = [i["relevance"] for i in body["items"]]
+    if "unknown" in seq and "matched" in seq:
+        assert "matched" not in seq[seq.index("unknown"):]
+
+
+def test_missing_domain_cannot_reach_top_band():
+    """内容方向不明的人不得进最高档。
+
+    「强连接」客户会读成「这人很合适」。缺数据一度被当成 0.55 中性值，于是
+    缺数据在加分 —— 而规则本该是缺数据降低置信度。
+    """
+    items = client.get("/api/candidates?group=ai&limit=300").json()["items"]
+    for i in items:
+        if not i.get("domains"):
+            assert i["bandLevel"] <= 2, f"{i['name']} 方向未知却拿到 {i['band']}"
