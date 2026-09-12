@@ -1,0 +1,69 @@
+.wrap {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(243, 241, 234, 0.14);
+}
+
+/* 200px 标签列 + 选项列，和设计包里其余分组页一致。 */
+.row {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(243, 241, 234, 0.14);
+  align-items: start;
+}
+
+.k {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.55);
+  padding-top: 6px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  height: 36px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(243, 241, 234, 0.22);
+  background: transparent;
+  color: rgba(243, 241, 234, 0.78);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.chip:hover {
+  border-color: rgba(243, 241, 234, 0.5);
+  color: var(--msm-text);
+}
+
+.chipOn {
+  border-color: var(--msm-accent);
+  background: var(--msm-accent);
+  color: var(--msm-black);
+}
+
+.more {
+  align-self: flex-start;
+  margin: 18px 0 4px;
+  background: transparent;
+  border: 0;
+  padding: 6px 0;
+  color: var(--msm-accent);
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}

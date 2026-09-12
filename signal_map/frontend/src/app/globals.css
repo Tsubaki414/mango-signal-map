@@ -134,3 +134,17 @@ a:focus-visible {
     color: #111;
   }
 }
+
+/* 主体两栏：内容 + sticky 实时反馈。栏宽抄自设计包。 */
+.msm-with-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 25vw, 360px);
+}
+
+@media (max-width: 1024px) {
+  /* <1024 时右栏移到内容下方而不是挤压内容 —— 挤压会让名单卡片窄到放不下
+     头像 + 适配度 + 操作按钮。 */
+  .msm-with-rail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

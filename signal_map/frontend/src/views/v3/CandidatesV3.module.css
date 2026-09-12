@@ -172,3 +172,39 @@
   line-height: 1.7;
   color: rgba(243, 241, 234, 0.5);
 }
+
+/* Mango 建议起点。只在还没保留任何人时出现 —— 客户已经开始选了之后，
+   再劝他推翻重来是打断，不是帮助。 */
+.suggest {
+  margin-top: 28px;
+  padding: 20px 22px;
+  border: 1px solid var(--msm-accent);
+}
+
+.suggestTitle {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.suggestNote {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.8);
+  max-width: 52em;
+}
+
+.suggestBtn {
+  margin-top: 14px;
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--msm-accent);
+  background: var(--msm-accent);
+  color: var(--msm-black);
+  font-family: var(--msm-mono);
+  font-size: 12px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}

@@ -173,6 +173,10 @@
   color: rgba(243, 241, 234, 0.6);
 }
 
+.act + .act {
+  margin-left: 0;
+}
+
 .act {
   margin-left: auto;
   height: 30px;

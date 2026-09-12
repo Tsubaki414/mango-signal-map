@@ -15,6 +15,7 @@ type Props = {
   onToggleFocus: (id: string) => void;
   onOpenPerson: (t: Target) => void;
   notice?: string | null;
+  children?: React.ReactNode;
 };
 
 /* 02 目标圈层。
@@ -32,6 +33,7 @@ export function TargetsV3({
   onToggleFocus,
   onOpenPerson,
   notice,
+  children,
 }: Props) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const atCap = focus.length >= MAX_FOCUS;
@@ -117,6 +119,7 @@ export function TargetsV3({
           );
         })}
       </div>
+      {children}
     </section>
   );
 }

@@ -131,6 +131,7 @@ export type Taxonomy = {
   formats: { id: string; label: string }[];
   tiers: { id: number; mark: string; label: string }[];
   budgets: { id: string; label: string; lo: number; hi: number }[];
+  brandPrefs: { id: string; label: string }[];
 };
 
 async function get<T>(path: string): Promise<T> {
@@ -188,6 +189,12 @@ export const api = {
   getSession: (id: string) => get<SessionState>(`/api/sessions/${id}`),
   saveSession: (id: string, body: Partial<SessionState>) =>
     send<SessionState>("PUT", `/api/sessions/${id}`, body),
+  // 客户手填的待核查目标。**不进目标人物库** —— 它是线索，不是已确认的 Root。
+  addWanted: (id: string, name: string, hint: string) =>
+    send<{ custom: { name: string; hint?: string | null; status?: string }[]; notice: string }>(
+      "POST", `/api/sessions/${id}/wanted`, { name, hint: hint || null },
+    ),
+
   submitSession: (id: string) =>
     send<{ id: string; submittedAt: string; kept: number; receipt: string }>(
       "POST", `/api/sessions/${id}/submit`,

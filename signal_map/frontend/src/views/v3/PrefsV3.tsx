@@ -11,12 +11,13 @@ type Props = {
   /** 从会话恢复时的提示；没有恢复就是 null。 */
   restoredFrom?: string | null;
   onSelect: (id: string) => void;
+  children?: React.ReactNode;
 };
 
 /* 01 偏好。领域卡片来自 GET /api/groups —— 圈层数量和已采集数都是库里的真实
  * 覆盖度，不是写死的文案。采集为 0 的领域照常显示，只是把覆盖度如实标出来：
  * 缺数据降低置信度，从不隐藏选项。 */
-export function PrefsV3({ groups, loading, error, selected, restoredFrom, onSelect }: Props) {
+export function PrefsV3({ groups, loading, error, selected, restoredFrom, onSelect, children }: Props) {
   return (
     <section id="prefs" className={styles.section} data-screen-label="偏好">
       <div className={styles.eyebrow}>01 /// 你想进入什么方向</div>
@@ -70,6 +71,7 @@ export function PrefsV3({ groups, loading, error, selected, restoredFrom, onSele
           })}
         </div>
       )}
+      {children}
     </section>
   );
 }

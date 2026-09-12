@@ -19,9 +19,14 @@ type Props = {
   onKeep: () => void;
   onRemove: () => void;
   onFormat: (f: string) => void;
+  /** 换一个：同圈层的次优人选。没有替代时不显示按钮，不给死路。 */
+  onSwap?: () => void;
+  swapLabel?: string | null;
 };
 
-export function CandidateCard({ item, kept, format, onKeep, onRemove, onFormat }: Props) {
+export function CandidateCard({
+  item, kept, format, onKeep, onRemove, onFormat, onSwap, swapLabel,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -104,6 +109,11 @@ export function CandidateCard({ item, kept, format, onKeep, onRemove, onFormat }
             格式化成价格。 */}
         <span className={styles.tier}>{item.source === "priced" ? tierMark(item.tier) : "—"}</span>
         <span className={styles.biz}>{item.bizLabel}</span>
+        {onSwap && swapLabel && (
+          <button type="button" className={styles.act} onClick={onSwap} title={`换成 ${swapLabel}`}>
+            换一个
+          </button>
+        )}
         <button
           type="button"
           className={`${styles.act} ${kept ? "" : styles.actKeep}`}

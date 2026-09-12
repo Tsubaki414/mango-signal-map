@@ -1,6 +1,7 @@
 "use client";
 
-import type { CandidatesResponse, Circle } from "@/lib/api";
+import type { CandidatesResponse, Circle, Target } from "@/lib/api";
+import { PathGraph } from "./PathGraph";
 import { CandidateCard } from "./CandidateCard";
 import styles from "./CandidatesV3.module.css";
 
@@ -10,11 +11,15 @@ type Props = {
   data: CandidatesResponse | null;
   loading: boolean;
   circles: Circle[];
+  targets: Target[];
   focus: string[];
   kept: Kept[];
   onKeep: (id: string) => void;
   onRemove: (id: string) => void;
   onFormat: (id: string, format: string) => void;
+  onSwap: (id: string) => void;
+  onApplySuggestion: () => void;
+  suggestionNote: string;
 };
 
 /* 03 推荐名单。
@@ -29,11 +34,15 @@ export function CandidatesV3({
   data,
   loading,
   circles,
+  targets,
   focus,
   kept,
   onKeep,
   onRemove,
   onFormat,
+  onSwap,
+  onApplySuggestion,
+  suggestionNote,
 }: Props) {
   if (loading) {
     return (
@@ -87,13 +96,18 @@ export function CandidatesV3({
       {keptItems.length > 0 && (
         <div className={styles.keptBox}>
           <div className={styles.keptTitle}>你的名单</div>
+          {/* 整句一次拼好再输出。之前按条件拼片段，「可立即确认」为 0 时中段
+              被跳过，句号和逗号直接撞在一起（「5 个。，另 8 位」）。 */}
           <p className={styles.keptLine}>
-            这 {keptItems.length} 位打通了 {circles.length} 个目标圈层中的{" "}
-            {keptCircles.size} 个。
-            {readyCount > 0 && ` ${readyCount} 位可即刻推进档期`}
-            {keptItems.length - readyCount > 0 &&
-              `，另 ${keptItems.length - readyCount} 位由我们出面建联`}
-            。
+            {[
+              `这 ${keptItems.length} 位打通了 ${circles.length} 个目标圈层中的 ${keptCircles.size} 个`,
+              readyCount > 0 ? `${readyCount} 位可即刻推进档期` : null,
+              keptItems.length - readyCount > 0
+                ? `${keptItems.length - readyCount} 位由 Mango 出面建联`
+                : null,
+            ]
+              .filter(Boolean)
+              .join("，") + "。"}
           </p>
           <div className={styles.keptStats}>
             {[
@@ -113,6 +127,20 @@ export function CandidatesV3({
         </div>
       )}
 
+      {kept.length === 0 && suggestionNote && (
+        <div className={styles.suggest}>
+          <div className={styles.suggestTitle}>Mango 建议起点</div>
+          <p className={styles.suggestNote}>{suggestionNote}</p>
+          <button type="button" className={styles.suggestBtn} onClick={onApplySuggestion}>
+            采用这个起点
+          </button>
+        </div>
+      )}
+
+      {keptItems.length > 0 && (
+        <PathGraph kept={keptItems} targets={targets} circles={circles} />
+      )}
+
       <div className={styles.grid}>
         {items.map((it) => (
           <CandidateCard
@@ -123,6 +151,8 @@ export function CandidatesV3({
             onKeep={() => onKeep(it.id)}
             onRemove={() => onRemove(it.id)}
             onFormat={(f) => onFormat(it.id, f)}
+            onSwap={keptIds.has(it.id) ? () => onSwap(it.id) : undefined}
+            swapLabel={keptIds.has(it.id) ? "同圈层的次优人选" : null}
           />
         ))}
       </div>

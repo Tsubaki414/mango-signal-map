@@ -283,5 +283,35 @@
     "",
     "tiers 的 lo/hi 是**档位阈值**，用于把内部成本映射成 $ / $$ / $$$ / $$$$。",
     "客户端只看得到 mark，看不到 lo/hi —— 泄露区间等于泄露成本。"
+  ],
+  "brandPrefs": [
+    {
+      "id": "credible",
+      "label": "专业可信"
+    },
+    {
+      "id": "technical",
+      "label": "技术深入"
+    },
+    {
+      "id": "accessible",
+      "label": "易于理解"
+    },
+    {
+      "id": "opinionated",
+      "label": "观点鲜明"
+    },
+    {
+      "id": "review",
+      "label": "产品测评"
+    },
+    {
+      "id": "no_hard_sell",
+      "label": "避免过度营销"
+    },
+    {
+      "id": "no_risk",
+      "label": "避免高风险账号"
+    }
   ]
 }

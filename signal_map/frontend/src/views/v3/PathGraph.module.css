@@ -1,0 +1,112 @@
+.wrap {
+  margin-top: 32px;
+  padding: 22px;
+  border: 1px solid rgba(243, 241, 234, 0.16);
+  background: var(--msm-panel);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.title {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.note {
+  font-size: 11px;
+  color: rgba(243, 241, 234, 0.45);
+}
+
+.cols {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 30% 44% 26%;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(243, 241, 234, 0.45);
+}
+
+.canvas {
+  position: relative;
+  margin-top: 8px;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 节点是 HTML 按钮、连线是 SVG —— 文字用 HTML 排版才不会被 viewBox 拉伸变形。 */
+.node {
+  position: absolute;
+  height: 34px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--msm-accent);
+  background: var(--msm-root-selected);
+  color: var(--msm-text);
+  font-size: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+
+/* 目标人物不是我们能买的对象，所以用中性描边，和可投放的创作者区分开。 */
+.nodeTarget {
+  border-color: rgba(243, 241, 234, 0.3);
+  background: var(--msm-panel);
+}
+
+.nodeLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nodeSub {
+  margin-left: auto;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  color: rgba(243, 241, 234, 0.55);
+  flex: none;
+}
+
+.legend {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.legendDash {
+  width: 22px;
+  height: 0;
+  border-top: 1px dashed rgba(243, 241, 234, 0.55);
+}
+
+.legendSolid {
+  width: 22px;
+  height: 0;
+  border-top: 1.4px solid var(--msm-accent);
+  margin-left: 12px;
+}
+
+.legendNote {
+  margin-left: auto;
+  color: var(--msm-warn);
+}
