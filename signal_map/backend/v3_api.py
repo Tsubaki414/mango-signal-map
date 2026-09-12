@@ -143,6 +143,10 @@ DISCOVERED_RATIO = 5
 #: 所以比例只在分母够大时才起作用；分母小的时候由这条下限兜住。
 DISCOVERED_FLOOR = 30
 
+#: 内部取发现池的上限。对外的 ``limit`` 只决定**返回多少条**，两者必须分开：
+#: 池子小了会漏掉本该排进前列的人，池子大了只是多算一点分。
+POOL_LIMIT = 400
+
 #: v3 商务三态的客户端文案。三态是 README 第三节定义的闭集。
 BIZ_STATE_LABELS = {
     "ready": "可立即确认报价与档期",
@@ -448,7 +452,7 @@ def candidates(
     domains: str | None = Query(None),
     audiences: str | None = Query(None),
     focus: str | None = Query(None, description="重点圈层 id，逗号分隔，最多 3 个"),
-    limit: int = Query(120, le=400),
+    limit: int = Query(120, le=400, description="返回多少条（排序后截断），不是发现池大小"),
     session: Session = Depends(session_dependency),
 ) -> dict[str, Any]:
     """候选池 —— **priced 与 discovered 两类都返回**。
@@ -461,7 +465,13 @@ def candidates(
 
     resolved = catalog.resolve_targets(session, group)
     priced = catalog.priced_pool(session, resolved)
-    discovered = catalog.discovered_pool(session, resolved, limit=limit)
+    # 取池子用固定上限，**不跟着对外的 limit 走**。
+    #
+    # 这两件事一度是同一个数：limit=5 时发现池只取 5 个，而已报价那 22 位
+    # 无论如何全量返回 —— 于是 limit=5 拿回 27 条，limit=60 拿回 82 条，
+    # 调用方以为自己在控制页大小，其实只在控制发现池，而且截断发生在排序
+    # 之前，拿到的根本不是前 N 名。
+    discovered = catalog.discovered_pool(session, resolved, limit=POOL_LIMIT)
 
     creators = catalog.creators_by_id(session, [m.creator_id for m in priced if m.creator_id])
     quotes: dict[int, Quote] = {}
@@ -627,10 +637,29 @@ def candidates(
         }
 
     kept.sort(key=lambda i: (-_sort_key(i, circle_of_target, focus_set), -i["fit"], -len(i["edges"])))
+
+    # 排序**之后**才截断，这样拿到的才是前 N 名。
+    #
+    # 但不能直接切前 N：发现候选里的名人被更多目标人物关注，连接强度几乎总是
+    # 压过已报价创作者，直接切会让第一页 priced=0 —— 客户翻开名单，一个能立刻
+    # 确认的人都没有。所以 1:5 的比例在**返回的这一页里**也要成立，两侧各自
+    # 保持连接强度的顺序。
+    pool_total = len(kept)
+    if pool_total > limit:
+        by_priced = [i for i in kept if i["source"] == "priced"]
+        by_disc = [i for i in kept if i["source"] == "discovered"]
+        want_priced = min(len(by_priced), max(1, round(limit / (DISCOVERED_RATIO + 1))))
+        page = by_priced[:want_priced] + by_disc[: limit - want_priced]
+        # 页内按原排序键重排，避免出现"先全部已报价再全部新发现"的分块感。
+        order = {id(x): n for n, x in enumerate(kept)}
+        kept = sorted(page, key=lambda x: order[id(x)])
     return {
         "group": group,
         "counts": {
+            # total 是**本次返回的条数**；池子实际有多大看 poolTotal。
             "total": len(kept),
+            "poolTotal": pool_total,
+            "hasMore": pool_total > len(kept),
             "priced": sum(1 for i in kept if i["source"] == "priced"),
             "discovered": sum(1 for i in kept if i["source"] == "discovered"),
             # 有多少人是"所筛维度判不出来所以留下的"，客户端要如实说明。

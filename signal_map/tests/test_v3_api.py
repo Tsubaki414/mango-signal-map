@@ -325,3 +325,28 @@ def test_circle_membership_needs_two_connections():
     for circle in ("vc", "devs"):
         hit = sum(1 for i in items if circle in i["circles"])
         assert hit / len(items) <= 0.6, f"{circle} 命中率过高，连接过于分散"
+
+
+def test_limit_caps_returned_rows_not_the_pool():
+    """``limit`` 是**返回多少条**，不是发现池大小。
+
+    它一度被当成发现池的上限，而已报价那 22 位无论如何全量返回：
+    limit=5 拿回 27 条、limit=60 拿回 82 条，调用方以为在控制页大小，
+    实际只在控制发现池，而且截断发生在排序之前，拿到的不是前 N 名。
+    """
+    for n in (5, 20, 60):
+        body = client.get(f"/api/candidates?group=ai&limit={n}").json()
+        assert len(body["items"]) == n
+        assert body["counts"]["total"] == n
+        assert body["counts"]["poolTotal"] >= n
+
+
+def test_first_page_always_has_actionable_people():
+    """第一页必须有已报价的人。
+
+    发现候选里的名人被更多目标人物关注，连接强度几乎总压过已报价创作者，
+    直接切前 N 会让第一页 priced=0 —— 客户翻开名单，一个能立刻确认的都没有。
+    """
+    for n in (5, 12, 60):
+        counts = client.get(f"/api/candidates?group=ai&limit={n}").json()["counts"]
+        assert counts["priced"] >= 1, f"limit={n} 时第一页没有可立即确认的人"
