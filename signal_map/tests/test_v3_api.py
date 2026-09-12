@@ -300,8 +300,18 @@ def test_discovered_ratio_is_capped():
     产品最值钱的部分，压到 2:1 等于砍掉大半。
     """
     body = client.get("/api/candidates?group=ai&limit=300").json()["counts"]
-    assert body["discovered"] <= max(5, body["priced"] * 5)
+    assert body["discovered"] <= max(30, body["priced"] * 5)
     assert "discoveredTrimmed" in body
+
+
+def test_small_group_keeps_a_floor():
+    """小领域不被比例压死。
+
+    金融只有 1 位已报价创作者被目标人物关注，纯按 1:5 只剩 5 位发现候选。
+    那是供给覆盖薄，不是发现得太多 —— 而恰恰是这种领域最需要「再去找人」。
+    """
+    body = client.get("/api/candidates?group=finance&limit=300").json()["counts"]
+    assert body["discovered"] >= min(30, body["discovered"] + body["discoveredTrimmed"])
 
 
 def test_circle_membership_needs_two_connections():

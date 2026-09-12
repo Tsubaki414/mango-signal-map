@@ -133,6 +133,16 @@ def _expand(values: list[str], mapping: dict[str, object]) -> set[str]:
 #: 大半。超出部分按连接强度截断，留下的是连接最强的那些。
 DISCOVERED_RATIO = 5
 
+#: 无论比例算出来多少，发现候选不少于这个数（池子够大时）。
+#:
+#: 比例规则的分母是「被目标人物关注的已报价创作者数」，而这个数在小领域里
+#: 极小：金融只有 1 位，乘 5 只剩 5 位，把原本 67 位的发现池截掉 62 位。
+#: 那不是「发现得太多」，是**供给覆盖太薄**，不该由比例规则来惩罚客户 ——
+#: 恰恰是这种领域最需要「我们再去帮你找人」。
+#:
+#: 所以比例只在分母够大时才起作用；分母小的时候由这条下限兜住。
+DISCOVERED_FLOOR = 30
+
 #: v3 商务三态的客户端文案。三态是 README 第三节定义的闭集。
 BIZ_STATE_LABELS = {
     "ready": "可立即确认报价与档期",
@@ -561,7 +571,7 @@ def candidates(
     # 共同关注数排序），截断数量单独报出来，不假装池子本来就这么大。
     priced_kept = [i for i in kept if i["source"] == "priced"]
     disc_kept = [i for i in kept if i["source"] == "discovered"]
-    cap = max(DISCOVERED_RATIO, len(priced_kept) * DISCOVERED_RATIO)
+    cap = max(DISCOVERED_FLOOR, len(priced_kept) * DISCOVERED_RATIO)
     trimmed = max(0, len(disc_kept) - cap)
     if trimmed:
         disc_kept = disc_kept[:cap]
