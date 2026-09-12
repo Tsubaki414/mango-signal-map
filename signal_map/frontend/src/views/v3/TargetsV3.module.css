@@ -1,0 +1,201 @@
+.section {
+  padding: 72px clamp(20px, 4vw, 64px) 40px;
+  scroll-margin-top: var(--msm-topbar-h);
+}
+
+.eyebrow {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: var(--msm-accent);
+}
+
+.title {
+  margin: 16px 0 0;
+  font-size: clamp(26px, 2.8vw, 40px);
+  line-height: 1.15;
+  letter-spacing: var(--msm-ls-tight);
+  font-weight: var(--msm-w-body);
+  max-width: min(18em, 100%);
+}
+
+.note {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.66);
+  max-width: 56em;
+}
+
+.cards {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 一张圈层卡 = 左边「这类人是谁 + 怎么挑人」，右边代表人物。
+ * 两栏并排是有意的：选择逻辑和它作用的对象要同屏，否则 pick 就成了一段
+ * 读完就忘的文案。 */
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.62fr);
+  gap: 0;
+  border: 1px solid rgba(243, 241, 234, 0.16);
+  background: var(--msm-panel);
+}
+
+.cardOn {
+  box-shadow: var(--msm-ring);
+  background: var(--msm-root-selected);
+}
+
+.left {
+  padding: 28px;
+  min-width: 0;
+}
+
+.meta {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.label {
+  margin: 12px 0 0;
+  font-size: 22px;
+  font-weight: var(--msm-w-title);
+}
+
+.who {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.75);
+  white-space: pre-line;
+}
+
+/* KOL 选择逻辑：名单可解释性的来源，所以给它独立的视觉重量（左侧强调色竖线），
+ * 不和上面那段「这类人是谁」混成一片。 */
+.pick {
+  margin: 18px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--msm-accent);
+}
+
+.pickTag {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.pickText {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(243, 241, 234, 0.66);
+}
+
+.focusBtn {
+  margin-top: 22px;
+  height: 40px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(243, 241, 234, 0.28);
+  background: transparent;
+  color: rgba(243, 241, 234, 0.8);
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}
+
+.focusBtn:hover {
+  border-color: var(--msm-text);
+  color: var(--msm-text);
+}
+
+.focusBtnOn {
+  border-color: var(--msm-accent);
+  background: var(--msm-accent);
+  color: var(--msm-black);
+}
+
+.focusBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.people {
+  border-left: 1px solid rgba(243, 241, 234, 0.16);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.08);
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--msm-panel);
+  border: 0;
+  width: 100%;
+  text-align: left;
+  color: var(--msm-text);
+  cursor: pointer;
+}
+
+.person:hover {
+  background: var(--msm-root-selected);
+}
+
+.personName {
+  font-size: 14px;
+  font-weight: var(--msm-w-mid);
+}
+
+.personHandle {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  color: rgba(243, 241, 234, 0.5);
+}
+
+/* 未采集到关注网络的目标人物照常显示，只标注状态 —— 隐藏它会让客户以为
+ * 这个圈层就这么几个人。 */
+.pending {
+  margin-left: auto;
+  font-family: var(--msm-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--msm-warn);
+}
+
+.more {
+  margin-top: 8px;
+  background: transparent;
+  border: 0;
+  color: var(--msm-accent);
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+  padding: 6px;
+  text-align: left;
+}
+
+.empty {
+  padding: 14px 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--msm-warn);
+  background: var(--msm-panel);
+}

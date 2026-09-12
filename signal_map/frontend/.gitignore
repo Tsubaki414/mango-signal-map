@@ -5,3 +5,5 @@ next-env.d.ts
 *.tsbuildinfo
 # Comparison renders -- regenerate with `npm run shot`, don't commit.
 shots/
+.vercel
+.env*

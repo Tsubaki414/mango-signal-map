@@ -1,0 +1,149 @@
+.section {
+  padding: 72px clamp(20px, 4vw, 64px) 140px;
+  scroll-margin-top: var(--msm-topbar-h);
+  background: var(--msm-panel);
+  border-top: 1px solid rgba(243, 241, 234, 0.14);
+}
+
+.eyebrow {
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  letter-spacing: var(--msm-ls-mono-l);
+  color: var(--msm-accent);
+}
+
+.title {
+  margin: 16px 0 0;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.2;
+  letter-spacing: var(--msm-ls-tight);
+  font-weight: var(--msm-w-body);
+  max-width: 22em;
+}
+
+.note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.7);
+  max-width: 52em;
+}
+
+/* 1px 网格：gap 1px + 子元素填色，不用 border，避免接缝处双线。 */
+.table {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.14);
+  border: 1px solid rgba(243, 241, 234, 0.14);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 1fr 60px minmax(0, 1.4fr);
+  gap: 14px;
+  align-items: baseline;
+  padding: 13px 16px;
+  background: var(--msm-deep);
+  font-size: 13px;
+}
+
+.headRow {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.handle {
+  margin-left: 8px;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  color: rgba(243, 241, 234, 0.45);
+}
+
+.mono {
+  font-family: var(--msm-mono);
+}
+
+.biz {
+  color: rgba(243, 241, 234, 0.65);
+  font-size: 12px;
+}
+
+.pendingBox {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border: 1px solid var(--msm-warn);
+}
+
+.pendingTitle {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-warn);
+}
+
+.pendingText {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.72);
+}
+
+.next {
+  margin-top: 32px;
+}
+
+.nextTitle {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.steps {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(243, 241, 234, 0.78);
+}
+
+.submit {
+  margin-top: 32px;
+  height: 56px;
+  padding: 0 28px;
+  border: 1px solid var(--msm-bone);
+  background: var(--msm-bone);
+  color: var(--msm-black);
+  font-family: var(--msm-mono);
+  font-size: 13px;
+  letter-spacing: var(--msm-ls-mono-s);
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* 回执由后端生成并原样显示 —— 里面那句「确认不是购买」是产品承诺，
+   前端不改写。 */
+.receipt {
+  margin-top: 32px;
+  padding: 20px 22px;
+  background: var(--msm-black);
+  color: var(--msm-bone);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.disclaimer {
+  margin: 24px 0 0;
+  font-size: 11px;
+  line-height: 1.9;
+  color: rgba(243, 241, 234, 0.45);
+  max-width: 52em;
+}

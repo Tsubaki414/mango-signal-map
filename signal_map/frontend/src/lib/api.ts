@@ -55,11 +55,38 @@ export type Edge = {
   evidence?: string;
 };
 
+export type Part = {
+  id: string;
+  label: string;
+  weight: number;
+  pct: number;
+  note: string;
+};
+
+export type Face = {
+  id: string;
+  name: string;
+  handle: string | null;
+  avatarUrl: string | null;
+};
+
 export type Candidate = {
   id: string;
   name: string | null;
   handle: string | null;
   url: string | null;
+  avatarUrl: string | null;
+  /** 适配度。**永远和 parts 一起显示**，不单独出现。 */
+  fit: number;
+  band: string;
+  bandLevel: 1 | 2 | 3 | 4;
+  parts: Part[];
+  /** 规则生成的推荐理由，不是模型写的。 */
+  reason: string;
+  overlapText: string;
+  focusNote: string;
+  circles: string[];
+  faces: Face[];
   platform: string;
   followers: number | null;
   group: string;
@@ -83,7 +110,13 @@ export type Candidate = {
 
 export type CandidatesResponse = {
   group: string;
-  counts: { total: number; priced: number; discovered: number };
+  counts: {
+    total: number;
+    priced: number;
+    discovered: number;
+    /** 因所筛维度判不出来而保留的人数，界面要如实说明。 */
+    keptAsUnknown: number;
+  };
   coverage: { targets: number; collected: number; reviewed: number };
   items: Candidate[];
 };
@@ -135,8 +168,14 @@ export const api = {
   taxonomy: () => get<Taxonomy>("/api/taxonomy"),
   groups: () => get<Group[]>("/api/groups"),
   targets: (group: string) => get<Target[]>(`/api/targets?group=${encodeURIComponent(group)}`),
-  candidates: (group: string, limit = 120, prefs?: Record<string, string[] | undefined>) => {
+  candidates: (
+    group: string,
+    limit = 120,
+    prefs?: Record<string, string[] | undefined>,
+    focus?: string[],
+  ) => {
     const q = new URLSearchParams({ group, limit: String(limit) });
+    if (focus?.length) q.set("focus", focus.slice(0, 3).join(","));
     // 偏好直接进查询串，后端按已知值筛、缺失值保留并计数。
     for (const [k, v] of Object.entries(prefs ?? {})) {
       if (v && v.length) q.set(k, v.join(","));

@@ -29,7 +29,14 @@ ALLOWED_VALUE_PATHS = (".budgets",)
 #: 成本是 60.0 —— 把计数当成金额来查，得到的是假阳性，真泄露反而被淹没。
 #: 这里按**字段语义**排除，而不是调高金额下限：下限会把 20 美元这种真实低价
 #: 报价放过去，而那才是真要防的东西。
-COUNT_FIELDS = ("counts", "coverage", "followers", "count", "total", "found", "kept")
+#: 这份名单会随新字段增长，因为「小整数恰好等于某个报价」是常态而非例外：
+#: 库里有 142 个不同的成本值，40、60、100 这种圆整数几乎必然撞上。真正的防线是
+#: 字段名白名单（test_no_internal_field_names）与逐字段序列化；这里的数值扫描是
+#: 兜底，用来抓「金额出现在它不该出现的地方」，不是用来抓评分和计数。
+COUNT_FIELDS = (
+    "counts", "coverage", "followers", "count", "total", "found", "kept",
+    "weight", "pct", "fit", "bandLevel",   # 评分与分项，不是金额
+)
 
 
 def leaves(node, path=""):

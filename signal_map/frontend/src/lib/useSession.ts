@@ -85,5 +85,12 @@ export function useSession() {
     [id, state],
   );
 
-  return { id, state, restored, saveNote, save };
+  const submit = useCallback(async () => {
+    if (!id) return null;
+    const res = await api.submitSession(id);
+    setState((s) => (s ? { ...s, submittedAt: res.submittedAt } : s));
+    return res;
+  }, [id]);
+
+  return { id, state, restored, saveNote, save, submit };
 }

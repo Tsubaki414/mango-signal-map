@@ -1,0 +1,23 @@
+import { chromium } from 'playwright-core';
+const U = 'https://mango-signal-cvsr73dg9-ruojiama1-3234s-projects.vercel.app';
+const b = await chromium.launch({ channel: 'chrome' });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const errs = []; p.on('pageerror', e => errs.push(String(e)));
+await p.goto(U, { waitUntil: 'networkidle', timeout: 60000 });
+await p.evaluate(() => document.fonts.ready);
+await p.waitForTimeout(3500);
+await p.screenshot({ path: 'shots/live-hero.png' });
+
+await p.locator('#prefs button').first().waitFor({ timeout: 30000 });
+console.log('领域卡片:', (await p.locator('#prefs button').allTextContents()).map(t=>t.replace(/\s+/g,' ').slice(0,44)));
+await p.locator('#prefs button').first().click();
+await p.locator('#list').waitFor({ timeout: 40000 });
+await p.waitForTimeout(3000);
+console.log('名单统计:', await p.locator('#list [class*="countV"]').allTextContents());
+const names = await p.locator('#list article [class*="name"]').allTextContents();
+console.log('前 6 位:', names.slice(0,6));
+await p.locator('#list').scrollIntoViewIfNeeded();
+await p.waitForTimeout(500);
+await p.screenshot({ path: 'shots/live-list.png' });
+console.log('页面错误:', errs.length ? errs.slice(0,2) : 'none');
+await b.close();

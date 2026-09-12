@@ -20,6 +20,7 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "playwright-core": "^1.49.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vercel": "^59.16.0"
   }
 }

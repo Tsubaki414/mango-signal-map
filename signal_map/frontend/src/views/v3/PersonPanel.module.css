@@ -1,0 +1,118 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(14, 14, 14, 0.62);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.panel {
+  position: relative;
+  width: min(520px, 100%);
+  height: 100%;
+  overflow-y: auto;
+  background: var(--msm-panel);
+  border-left: 1px solid rgba(243, 241, 234, 0.2);
+  padding: 32px 28px 56px;
+  animation: msm-in 0.25s var(--msm-ease) both;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: 0;
+  color: rgba(243, 241, 234, 0.6);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 4px;
+}
+.close:hover {
+  color: var(--msm-text);
+}
+
+.head {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: var(--msm-w-title);
+}
+
+.handle {
+  margin-top: 3px;
+  font-family: var(--msm-mono);
+  font-size: 11px;
+  color: rgba(243, 241, 234, 0.55);
+}
+
+.role {
+  margin-top: 5px;
+  font-size: 12px;
+  color: rgba(243, 241, 234, 0.6);
+}
+
+.row {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(243, 241, 234, 0.12);
+}
+
+.k {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.v {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.82);
+}
+
+.bridges {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.12);
+  border: 1px solid rgba(243, 241, 234, 0.12);
+}
+
+.bridge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  background: var(--msm-panel);
+}
+
+.bridgeName {
+  font-size: 13px;
+}
+
+.bridgeKind {
+  margin-left: auto;
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  color: rgba(243, 241, 234, 0.5);
+}
+
+/* 未核验 / 未观察到，一律用警示色但不用警示语气 —— 它是状态，不是错误。 */
+.pending {
+  color: var(--msm-warn);
+  font-size: 13px;
+}
+
+.disclaimer {
+  margin: 28px 0 0;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(243, 241, 234, 0.45);
+}

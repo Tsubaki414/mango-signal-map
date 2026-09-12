@@ -35,6 +35,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from . import v3_catalog as catalog
+from . import v3_scoring as scoring
 from .bd_models import BDCandidate, CommercialSignal
 from .db import session_dependency
 from .models import Brief, Creator, Quote, SocialAccount, V3Session
@@ -133,6 +134,29 @@ BIZ_STATE_LABELS = {
 def new_session_id() -> str:
     """不可猜的会话 id。12 字符 base64url ≈ 72 bit 熵，足够当链接里的凭证。"""
     return secrets.token_urlsafe(9)
+
+
+def _labels() -> dict[str, dict[str, str]]:
+    """id -> 中文标签。理由和分项里出现的是给客户看的词，不是库里的 key。"""
+    tax = _taxonomy()
+    out = {k: {x["id"]: x.get("label", x["id"]) for x in tax.get(k, [])}
+           for k in ("domains", "audiences", "markets", "languages", "formats")}
+    out["circles"] = {c.id: c.label for g in catalog.load_config() for c in g.circles}
+    # 库内词表也要能翻译：发现候选的画像用的是 normalize.py 的词
+    # （ai、consumer_tech、europe_america），它们不在前端 taxonomy 里。
+    out["domains"].update({
+        "ai": "AI", "developer_tools": "开发者工具", "crypto": "Crypto",
+        "finance": "金融", "robotics": "机器人", "marketing": "营销",
+        "business": "商业", "design": "设计", "media_video": "影音",
+        "education": "教育", "consumer_tech": "消费科技", "gaming": "游戏",
+        "science": "科研",
+    })
+    out["markets"].update({
+        "europe_america": "欧美", "greater_china": "中文圈", "latam": "拉美",
+        "japan_korea": "日韩", "sea": "东南亚", "south_asia": "南亚",
+        "mena": "中东", "africa": "非洲", "global": "全球",
+    })
+    return out
 
 
 def _taxonomy() -> dict[str, Any]:
@@ -266,7 +290,10 @@ def targets(
                 "why": d.why,
                 "markets": list(d.markets),
                 "audiences": list(d.audiences),
-                "avatarUrl": None,  # 前端退回首字母；生产环境需自托管头像
+                # 和候选卡用同一个来源。一度写死成 None，结果圈层里每个人都是
+                # 首字母方块 —— 而目标人物是「你想影响的人」，一张脸和一个字母
+                # 给客户的分量完全不同。
+                "avatarUrl": f"https://unavatar.io/x/{d.handle}" if d.handle else None,
                 # 采集状态如实下发，前端据此显示「关系数据待补充」。
                 "collected": t.collected,
                 # 复核状态。当前全库 pending —— 没有任何目标人物经人工确认。
@@ -311,11 +338,15 @@ def _candidate(
         biz_state = "needs_bd"
         biz_evidence = "尚未建联，由 Mango 出面接洽"
 
+    clean_handle = (handle or "").lstrip("@")
     payload: dict[str, Any] = {
         "id": f"c{member.creator_id}" if member.creator_id else f"x{member.account_id}",
         "name": name,
-        "handle": f"@{handle}" if handle and not handle.startswith("@") else handle,
-        "url": f"https://x.com/{(handle or '').lstrip('@')}" if handle else None,
+        "handle": f"@{clean_handle}" if clean_handle else None,
+        # 头像走 unavatar，前端有首字母兜底。生产环境应自托管：这个第三方
+        # 代理会知道 Mango 在研究哪些账号（v3 README 第十节第 3 条）。
+        "avatarUrl": f"https://unavatar.io/x/{clean_handle}" if clean_handle else None,
+        "url": f"https://x.com/{clean_handle}" if clean_handle else None,
         "platform": "X",
         "followers": followers,
         "group": group,
@@ -365,12 +396,38 @@ def _candidate(
     return payload
 
 
+
+def _target_handle(resolved: list, target_id: str) -> str | None:
+    for t in resolved:
+        if t.definition.id == target_id:
+            return t.definition.handle
+    return None
+
+
+def _sort_key(item: dict[str, Any], circle_of: dict[str, str], focus: set[str]) -> float:
+    """排序键：重点圈层里的连接权重。没标重点时退化为全部连接权重。
+
+    focus 只改顺序，**从不过滤** —— 早期版本让客户勾目标人物，每勾一个名单就
+    收窄（26 → 4），客户越参与结果越少。
+    """
+    total = 0.0
+    for e in item.get("edges", []):
+        w = scoring.EDGE_WEIGHTS.get(e.get("type", "cofollow"), 1.0)
+        if not e.get("verified"):
+            w *= scoring.UNVERIFIED_FACTOR
+        if focus and circle_of.get(e.get("targetId", "")) not in focus:
+            continue
+        total += w
+    return total
+
+
 @router.get("/candidates")
 def candidates(
     group: str = Query(...),
     markets: str | None = Query(None),
     domains: str | None = Query(None),
     audiences: str | None = Query(None),
+    focus: str | None = Query(None, description="重点圈层 id，逗号分隔，最多 3 个"),
     limit: int = Query(120, le=400),
     session: Session = Depends(session_dependency),
 ) -> dict[str, Any]:
@@ -487,6 +544,50 @@ def candidates(
         return any(wanted and not (item.get(key) or []) for wanted, key in active)
 
     kept = [i for i in items if matches(i)]
+
+    # —— 评分、理由、排序 ——
+    #
+    # 排序主依据是**重点圈层的连接权重**（focus_score），不是综合分 fit。
+    # 把维度揉成一个分数再排，会稀释「这个人能把内容送进你要影响的人的视野」
+    # 这个唯一清晰的信号。fit 只作为可展开的解释存在，且永远和五条分项一起返回。
+    circle_of_target = {t.definition.id: t.definition.circle for t in resolved}
+    target_names = {t.definition.id: t.definition.name for t in resolved}
+    labels = _labels()
+    focus_set = set(_csv(focus)[:3])
+
+    for item in kept:
+        sc = scoring.score(
+            edges=item["edges"],
+            circle_of_target=circle_of_target,
+            target_names=target_names,
+            domains=item.get("domains") or [],
+            audiences=item.get("audiences") or [],
+            markets=item.get("markets") or [],
+            tier=item.get("tier"),
+            prefs={"domains": list(wanted_domains), "audiences": list(wanted_audiences),
+                   "markets": list(wanted_markets)},
+            focus=focus_set,
+            labels=labels,
+        )
+        item |= {
+            "fit": sc.fit,
+            "band": sc.band_word,
+            "bandLevel": sc.band_level,
+            "parts": [p.as_dict() for p in sc.parts],
+            "reason": sc.reason,
+            "overlapText": sc.overlap_text,
+            "focusNote": sc.focus_note,
+            "circles": sc.circles,
+            # 哪几位目标人物连着他 —— 卡片上那排叠加的小头像。
+            "faces": [
+                {"id": tid, "name": target_names.get(tid, ""),
+                 "handle": f"@{h}" if (h := _target_handle(resolved, tid)) else None,
+                 "avatarUrl": f"https://unavatar.io/x/{h}" if h else None}
+                for tid in dict.fromkeys(e["targetId"] for e in item["edges"])
+            ][:5],
+        }
+
+    kept.sort(key=lambda i: (-_sort_key(i, circle_of_target, focus_set), -i["fit"], -len(i["edges"])))
     return {
         "group": group,
         "counts": {

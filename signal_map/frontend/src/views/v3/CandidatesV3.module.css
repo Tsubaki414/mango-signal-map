@@ -132,3 +132,43 @@
 .unverified {
   color: var(--msm-warn);
 }
+
+/* 你的名单汇总。黑底是有意的：它是这一页唯一的"结论"，
+   和上面那一片候选卡在视觉上分开。 */
+.keptBox {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--msm-panel);
+  box-shadow: var(--msm-ring);
+}
+
+.keptTitle {
+  font-family: var(--msm-mono);
+  font-size: 10px;
+  letter-spacing: var(--msm-ls-mono-m);
+  color: var(--msm-accent);
+}
+
+.keptLine {
+  margin: 12px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: var(--msm-w-body);
+}
+
+.keptStats {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1px;
+  background: rgba(243, 241, 234, 0.16);
+  border: 1px solid rgba(243, 241, 234, 0.16);
+}
+
+/* 用词受约束：不承诺目标人物一定会看到，价格只说档位。 */
+.disclaimer {
+  margin: 14px 0 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(243, 241, 234, 0.5);
+}
