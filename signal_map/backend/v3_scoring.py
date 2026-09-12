@@ -35,6 +35,32 @@ UNVERIFIED_FACTOR = 0.6
 #: 被标为本轮重点的圈层，连接权重放大。只影响排序，**不过滤任何人**。
 FOCUS_BOOST = 2.2
 
+#: 关系强度三级 → 客户端口径。
+#:
+#: ``AUDIT-v3`` 要求显示 H0–H3 分级，而 v3 README 第三节明确禁止输出这类内部
+#: 代号。这里实现**分级本身**，用 README 定义的客户端说法，不输出代号。
+#:
+#: 对应关系（README 第三节）：
+#:   strong  多次回复／引用／同场，且主题相关
+#:   medium  单次互动，或双向关注
+#:   weak    仅单向关注
+#: 另加 none：连一条公开记录都没有 —— 它不是"弱"，是"没有"，两者不能混。
+STRENGTH_LABELS = {
+    "strong": "多次互动 · 主题相关",
+    "medium": "有过互动",
+    "weak": "仅单向关注",
+    "none": "暂无公开记录",
+}
+
+#: 每一级对应的处置口径。分级如果不落到"所以该怎么做"，就只是个装饰标签。
+STRENGTH_ADVICE = {
+    "strong": "可优先深挖，仍需身份与商业复核",
+    "medium": "适合做二跳桥接",
+    "weak": "只作补充证据，不单独推荐",
+    "none": "不作为关系证据",
+}
+
+
 #: 四级带。词面照抄设计包：不用「缺口／匹配一般」这类评判人的说法。
 BANDS = ((78, "强连接", 4), (64, "路径清晰", 3), (50, "可选择性补充", 2), (0, "下一步可拓展", 1))
 
@@ -62,6 +88,9 @@ class Scored:
     fit: int
     band_word: str
     band_level: int
+    strength: str = "none"
+    strength_label: str = ""
+    strength_advice: str = ""
     parts: list[Part] = field(default_factory=list)
     focus_score: float = 0.0
     focus_note: str = ""
@@ -198,11 +227,29 @@ def score(
         first_market = lbl("markets", markets[0]) if markets else "全球"
         bits.append(f"面向{first_market}读者的 X 创作者。")
 
+    # —— 关系强度 ——
+    #
+    # 取所有边里**最强**的那一条。理由：一条多次互动的边不该被十条单向关注
+    # 拉低平均值 —— 客户问的是「最强的那条路有多强」，不是「平均有多强」。
+    interactions = [e for e in edges if e.get("type") in ("reply", "quote", "co_appear")]
+    repeated = [e for e in interactions if (e.get("count") or 1) > 1]
+    if repeated:
+        strength = "strong"
+    elif interactions:
+        strength = "medium"
+    elif edges:
+        strength = "weak"
+    else:
+        strength = "none"
+
     kinds = "、".join(dict.fromkeys(EDGE_LABELS.get(e.get("type", ""), "") for e in edges if e.get("type")))
     overlap_text = f"{len(edges)} 位目标人物 · {kinds}" if edges else "暂无公开连接记录"
 
     return Scored(
         fit=fit,
+        strength=strength,
+        strength_label=STRENGTH_LABELS[strength],
+        strength_advice=STRENGTH_ADVICE[strength],
         band_word=word,
         band_level=level,
         parts=parts,

@@ -96,6 +96,28 @@ export function ConfirmV3({ kept, items, circles, focus, submittedAt, onSubmit }
         </div>
       )}
 
+      {/* 按执行队列分组：A/B/C 的处置方式完全不同，混在一张表里等于让 Mango
+          自己再分一遍。C（媒体）尤其不能按 paid KOL 处理。 */}
+      <div className={styles.queues}>
+        {(["A", "B", "C", "D"] as const).map((q) => {
+          const inQ = rows.filter((r) => r.item.queue === q);
+          if (!inQ.length) return null;
+          return (
+            <div key={q} className={styles.queueBlock}>
+              <div className={styles.queueHead}>
+                <span className={styles.queueTag}>{q}</span>
+                {inQ[0].item.queueLabel}
+                <span className={styles.queueCount}>{inQ.length} 位</span>
+              </div>
+              <div className={styles.queueAction}>{inQ[0].item.queueAction}</div>
+              <div className={styles.queueNames}>
+                {inQ.map((r) => r.item.name).join("、")}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       <div className={styles.next}>
         <div className={styles.nextTitle}>Mango 接下来会做</div>
         <ol className={styles.steps}>

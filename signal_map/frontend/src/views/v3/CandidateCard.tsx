@@ -61,6 +61,15 @@ export function CandidateCard({
             ))}
           </span>
         )}
+        {/* 关系强度：分级必须和"所以该怎么做"一起出现，否则只是装饰标签。
+            当前全库没有互动数据，所以这里几乎总是「仅单向关注」—— 如实显示，
+            这比写「13 位目标人物 · 关注」更准，后者听起来比实际强。 */}
+        <span
+          className={`${styles.strength} ${styles["s_" + item.strength]}`}
+          title={item.strengthAdvice}
+        >
+          {item.strengthLabel}
+        </span>
         <span className={styles.overlap}>{item.overlapText}</span>
         {item.focusNote && <span className={styles.focusTag}>{item.focusNote}</span>}
         <span
@@ -108,7 +117,10 @@ export function CandidateCard({
         {/* 价格只以档位呈现。金额从不下发到这一层，所以这里也没有东西可以
             格式化成价格。 */}
         <span className={styles.tier}>{item.source === "priced" ? tierMark(item.tier) : "—"}</span>
-        <span className={styles.biz}>{item.bizLabel}</span>
+        {/* 队列字母是给 Mango 内部对齐流程用的，客户看到的是它的中文名和动作。 */}
+        <span className={`${styles.queue} ${styles["q_" + item.queue]}`} title={item.queueAction}>
+          {item.queue} · {item.queueLabel}
+        </span>
         {onSwap && swapLabel && (
           <button type="button" className={styles.act} onClick={onSwap} title={`换成 ${swapLabel}`}>
             换一个

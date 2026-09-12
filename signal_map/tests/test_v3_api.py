@@ -363,3 +363,44 @@ def test_first_page_always_has_actionable_people():
     for n in (5, 12, 60):
         counts = client.get(f"/api/candidates?group=ai&limit={n}").json()["counts"]
         assert counts["priced"] >= 1, f"limit={n} 时第一页没有可立即确认的人"
+
+
+def test_execution_queue_and_strength_carry_an_action():
+    """队列和强度都必须带「所以该怎么做」。
+
+    AUDIT-v3 的原话是「A/B/C/D 不是最终推荐，而是执行队列」。没有动作的
+    队列只是个漂亮标签 —— Mango 拿到名单还得自己再分一遍。
+    """
+    items = client.get("/api/candidates?group=ai&limit=300").json()["items"]
+    for i in items:
+        assert i["queue"] in ("A", "B", "C", "D")
+        assert i["queueLabel"] and i["queueAction"]
+        assert i["strength"] in ("strong", "medium", "weak", "none")
+        assert i["strengthLabel"] and i["strengthAdvice"]
+
+
+def test_media_goes_to_queue_c_even_when_priced():
+    """媒体号即使已有报价也进 C。
+
+    采购方式是买库存位而不是买个人声量，走 A 的流程（问样张、问可定制角度）
+    是错的 —— 所以身份判定优先于商务状态。
+    """
+    items = client.get("/api/candidates?group=ai&limit=300").json()["items"]
+    media = [i for i in items if i["queue"] == "C"]
+    assert media, "没有任何候选被归到媒体路径，身份判定可能没接上"
+    assert all("媒体" in i["queueLabel"] or "intro" in i["queueLabel"] for i in media)
+
+
+def test_strength_is_not_overstated():
+    """没有互动数据时，强度不得高于「仅单向关注」。
+
+    库里只有 5,007 条 follow 和 53 条 repost，候选池里的 585 条边全是
+    cofollow。任何 medium/strong 都意味着算法在无据夸大。
+    """
+    items = client.get("/api/candidates?group=ai&limit=300").json()["items"]
+    for i in items:
+        has_interaction = any(
+            e["type"] in ("reply", "quote", "co_appear") for e in i["edges"]
+        )
+        if not has_interaction:
+            assert i["strength"] in ("weak", "none"), i["name"]

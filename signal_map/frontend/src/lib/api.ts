@@ -94,6 +94,14 @@ export type Candidate = {
   bizState: "ready" | "open_channel" | "needs_bd";
   bizEvidence: string;
   bizLabel: string;
+  /** 执行队列 A/B/C/D —— 不是评分，是「拿到名单后对这个人做什么」。 */
+  queue: "A" | "B" | "C" | "D";
+  queueLabel: string;
+  queueAction: string;
+  /** 关系强度三级 + none。客户端口径，不输出 H0–H3 内部代号。 */
+  strength: "strong" | "medium" | "weak" | "none";
+  strengthLabel: string;
+  strengthAdvice: string;
   edges: Edge[];
   risk: string[];
   type?: string | null;

@@ -147,6 +147,49 @@ DISCOVERED_FLOOR = 30
 #: 池子小了会漏掉本该排进前列的人，池子大了只是多算一点分。
 POOL_LIMIT = 400
 
+#: 执行队列 A/B/C/D。
+#:
+#: ``AUDIT-v3`` 第 4 条：「A/B/C/D 不是最终推荐，而是**执行队列**」。原来只有
+#: 「可赞助已确认 / 商务待验证」两态，缺了 C 和 D —— 而这两类的**处置方式
+#: 完全不同**：媒体按库存采购而不是按个人声量，观察类根本不该推进。
+#:
+#: 队列不是评分，不是"谁更好"。它回答的是「拿到这份名单之后，对这个人具体
+#: 做什么」——所以每一档都带 ``action``，没有动作的队列只是个漂亮标签。
+EXEC_QUEUES = {
+    "A": {
+        "label": "可优先商务确认",
+        "action": "问报价、样张、档期、可定制角度",
+    },
+    "B": {
+        "label": "需 BD 验证",
+        "action": "确认联系方式、接单意愿、历史合作与报价区间",
+    },
+    "C": {
+        "label": "Warm intro / 媒体路径",
+        "action": "走媒体库存洽谈，不按普通 paid KOL 处理",
+    },
+    "D": {
+        "label": "内部观察",
+        "action": "暂不推进，留作观察",
+    },
+}
+
+
+def _queue_of(*, biz_state: str, object_kind: str | None) -> str:
+    """把已有的商务状态与身份判定映射到执行队列。
+
+    顺序有讲究：**媒体优先于商务状态**。一个媒体号即使已有报价，采购方式仍然
+    是买库存位而不是买个人声量，走 A 的流程（问样张、问可定制角度）是错的。
+    """
+    if object_kind == "media_channel":
+        return "C"
+    if biz_state == "ready":
+        return "A"
+    if biz_state in ("open_channel", "needs_bd"):
+        return "B"
+    return "D"
+
+
 #: v3 商务三态的客户端文案。三态是 README 第三节定义的闭集。
 BIZ_STATE_LABELS = {
     "ready": "可立即确认报价与档期",
@@ -336,6 +379,7 @@ def _candidate(
     quote: Quote | None,
     has_commercial_signal: bool,
     group: str,
+    object_kind: str | None = None,
 ) -> dict[str, Any]:
     """把池子成员摊平成 v3 的 ``Candidate``。**逐字段白名单。**"""
     if member.source == "priced":
@@ -378,6 +422,9 @@ def _candidate(
         "bizState": biz_state,
         "bizEvidence": biz_evidence,
         "bizLabel": BIZ_STATE_LABELS[biz_state],
+        "queue": (q := _queue_of(biz_state=biz_state, object_kind=object_kind)),
+        "queueLabel": EXEC_QUEUES[q]["label"],
+        "queueAction": EXEC_QUEUES[q]["action"],
         "edges": _edges(member),
         "risk": [],
     }
@@ -500,6 +547,15 @@ def candidates(
             )
         ).all()
     }
+    # handle -> 身份判定。人工判定压过机器建议。
+    kind_by_handle = {
+        (h or "").lower(): (k if k and k != "unknown" else sg)
+        for h, k, sg in session.execute(
+            select(BDCandidate.handle, BDCandidate.object_kind, BDCandidate.object_kind_suggested)
+            .where(BDCandidate.handle.is_not(None))
+        ).all()
+    }
+
     signalled = set(
         session.scalars(select(CommercialSignal.bd_candidate_id).distinct()).all()
     )
@@ -519,6 +575,10 @@ def candidates(
             quote=quotes.get(m.creator_id),
             has_commercial_signal=True,
             group=group,
+            object_kind=kind_by_handle.get(
+                (socials.get(m.creator_id).handle or "").lower()
+                if socials.get(m.creator_id) else ""
+            ),
         )
         for m in priced
     ] + [
@@ -529,6 +589,7 @@ def candidates(
             quote=None,
             has_commercial_signal=(m.handle or "").lower() in handles_with_signal,
             group=group,
+            object_kind=kind_by_handle.get((m.handle or "").lower()),
         )
         for m in discovered
     ]
@@ -620,6 +681,9 @@ def candidates(
         )
         item |= {
             "fit": sc.fit,
+            "strength": sc.strength,
+            "strengthLabel": sc.strength_label,
+            "strengthAdvice": sc.strength_advice,
             "band": sc.band_word,
             "bandLevel": sc.band_level,
             "parts": [p.as_dict() for p in sc.parts],
