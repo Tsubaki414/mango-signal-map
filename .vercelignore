@@ -1,0 +1,18 @@
+# Vercel 只需要 signal_map/frontend。
+#
+# 不加这个的话，Vercel 会扫整个仓库，在 kol_database/ 和 scripts/ 里看到
+# FastAPI 与 Python 脚本，于是切进「多服务模式」，要求提供 vercel.json 并且
+# **把 Root Directory 锁死**——界面上那一栏就再也改不动了。
+kol_database/
+scripts/
+src/
+tests/
+signal_map/backend/
+signal_map/scripts/
+signal_map/data/
+signal_map/design_handoff/
+signal_map/design_handoff_v3/
+data/
+outputs/
+KOL_data/
+*.py
