@@ -650,6 +650,11 @@ def candidates(
         """
         return any(wanted and not (item.get(key) or []) for wanted, key in active)
 
+    # 人工排除名单对**两侧**都生效。priced 侧走 attention_signals，不经过
+    # discovered_pool 里的那道排除 —— 只挡发现侧等于漏了一半。
+    blocked = catalog.excluded_handles()
+    items = [i for i in items if (i.get("handle") or "").lower().lstrip("@") not in blocked]
+
     kept = [i for i in items if matches(i)]
 
     # —— 按比例截断 discovered ——

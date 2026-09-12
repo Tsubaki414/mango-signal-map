@@ -456,3 +456,20 @@ def test_missing_domain_cannot_reach_top_band():
     for i in items:
         if not i.get("domains"):
             assert i["bandLevel"] <= 2, f"{i['name']} 方向未知却拿到 {i['band']}"
+
+
+def test_excluded_handles_never_appear():
+    """人工排除名单对客户面**两侧**都生效。
+
+    priced 侧走 attention_signals，不经过 discovered_pool 里那道排除 ——
+    只挡发现侧等于漏了一半。
+    """
+    from signal_map.backend import v3_catalog
+
+    blocked = v3_catalog.excluded_handles()
+    assert blocked, "排除名单为空，配置可能没读到"
+    for group in ("ai", "crypto", "finance"):
+        items = client.get(f"/api/candidates?group={group}&limit=400").json()["items"]
+        for i in items:
+            handle = (i.get("handle") or "").lower().lstrip("@")
+            assert handle not in blocked, f"{handle} 出现在 {group} 候选里"

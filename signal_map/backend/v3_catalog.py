@@ -50,6 +50,23 @@ from .models import AttentionSignal, Creator, Quote, SocialAccount
 from .observation_models import FollowEdge, XAccount
 
 CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "signal_map_circles.json"
+EXCLUDED_PATH = CONFIG_PATH.parent / "signal_map_excluded.json"
+
+
+@lru_cache(maxsize=1)
+def excluded_handles() -> frozenset[str]:
+    """客户面永不出现的账号。人工名单，和「能不能买」是两个轴。
+
+    自动规则能把不相关的账号排到后面，但「排得靠后」和「不出现」是两件事 ——
+    有些账号的出现本身就是错的（泛娱乐创作者进 AI B2B 名单），那就该由人
+    直接拿掉，不必等算法学会。
+    """
+    if not EXCLUDED_PATH.exists():
+        return frozenset()
+    raw = json.loads(EXCLUDED_PATH.read_text(encoding="utf-8"))
+    return frozenset(
+        h["handle"].lower().lstrip("@") for h in raw.get("handles", []) if h.get("handle")
+    )
 
 #: 纯关注边只能是 weak。互动类信号才配得上更高的强度 —— 见 ``EDGE_STRENGTH``。
 FOLLOW_STRENGTH = "weak"
@@ -361,7 +378,7 @@ def discovered_pool(
     # karpathy、demishassabis —— 而 sama 本身就是 founders 圈层的目标人物。
     # 产品会因此对客户说「我们再去帮你建联 Sam Altman」，既不可执行，也把
     # "目标人物"和"可投放创作者"这两个角色混成了一个。
-    excluded_handles = {t.handle.lower() for t in load_targets()}
+    excluded = {t.handle.lower() for t in load_targets()} | excluded_handles()
 
     # 客户面只放**已判定可投放**的账号，而不是「排除已知买不到的」。
     #
@@ -410,7 +427,7 @@ def discovered_pool(
         if account.rest_id in known_uids:
             continue
         # 可投放已在 SQL 里过滤；这里只剩"目标人物本身"的排除。
-        if (account.handle or "").lower() in excluded_handles:
+        if (account.handle or "").lower() in excluded:
             continue
         kept.append(account)
         if len(kept) >= limit:
