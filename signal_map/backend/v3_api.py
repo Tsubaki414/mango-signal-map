@@ -636,7 +636,22 @@ def candidates(
             ][:5],
         }
 
-    kept.sort(key=lambda i: (-_sort_key(i, circle_of_target, focus_set), -i["fit"], -len(i["edges"])))
+    # 已报价的排在最前，两侧各自按连接强度排。
+    #
+    # 纯按连接强度排的话，发现候选里的名人（被更多目标人物关注）会占满前几屏，
+    # 客户第一眼看到的全是「需 Mango 主动建联」—— 观感是这产品一个能立刻推进的
+    # 人都没有，而实际上有 22 位随时可以确认报价和档期。
+    #
+    # 这是有意偏离「排序主依据是连接」：连接强度仍然决定**组内**顺序，
+    # 但「现在就能买」是比「连接更强」更前置的一件事。
+    kept.sort(
+        key=lambda i: (
+            0 if i["source"] == "priced" else 1,
+            -_sort_key(i, circle_of_target, focus_set),
+            -i["fit"],
+            -len(i["edges"]),
+        )
+    )
 
     # 排序**之后**才截断，这样拿到的才是前 N 名。
     #
@@ -649,10 +664,8 @@ def candidates(
         by_priced = [i for i in kept if i["source"] == "priced"]
         by_disc = [i for i in kept if i["source"] == "discovered"]
         want_priced = min(len(by_priced), max(1, round(limit / (DISCOVERED_RATIO + 1))))
-        page = by_priced[:want_priced] + by_disc[: limit - want_priced]
-        # 页内按原排序键重排，避免出现"先全部已报价再全部新发现"的分块感。
-        order = {id(x): n for n, x in enumerate(kept)}
-        kept = sorted(page, key=lambda x: order[id(x)])
+        # 已报价的在前，其余按连接强度补满。不再打散重排 —— 分块正是要的效果。
+        kept = by_priced[:want_priced] + by_disc[: limit - want_priced]
     return {
         "group": group,
         "counts": {

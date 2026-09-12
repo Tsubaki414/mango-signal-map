@@ -341,6 +341,19 @@ def test_limit_caps_returned_rows_not_the_pool():
         assert body["counts"]["poolTotal"] >= n
 
 
+def test_priced_come_first():
+    """已报价的排在最前。
+
+    纯按连接强度排，发现候选里的名人会占满前几屏，客户第一眼全是「需 Mango
+    主动建联」—— 观感是这产品一个能立刻推进的人都没有，而实际上有 22 位可以
+    随时确认报价和档期。连接强度仍决定组内顺序。
+    """
+    items = client.get("/api/candidates?group=ai&limit=60").json()["items"]
+    sources = [i["source"] for i in items]
+    # 一旦出现 discovered，后面不该再冒出 priced
+    assert "priced" not in sources[sources.index("discovered"):] if "discovered" in sources else True
+
+
 def test_first_page_always_has_actionable_people():
     """第一页必须有已报价的人。
 
