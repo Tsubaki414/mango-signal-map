@@ -551,6 +551,12 @@ def candidates(
     # 把维度揉成一个分数再排，会稀释「这个人能把内容送进你要影响的人的视野」
     # 这个唯一清晰的信号。fit 只作为可展开的解释存在，且永远和五条分项一起返回。
     circle_of_target = {t.definition.id: t.definition.circle for t in resolved}
+    collected_per_circle: dict[str, int] = {}
+    for t in resolved:
+        if t.collected:
+            collected_per_circle[t.definition.circle] = (
+                collected_per_circle.get(t.definition.circle, 0) + 1
+            )
     target_names = {t.definition.id: t.definition.name for t in resolved}
     labels = _labels()
     focus_set = set(_csv(focus)[:3])
@@ -568,6 +574,7 @@ def candidates(
                    "markets": list(wanted_markets)},
             focus=focus_set,
             labels=labels,
+            collected_per_circle=collected_per_circle,
         )
         item |= {
             "fit": sc.fit,

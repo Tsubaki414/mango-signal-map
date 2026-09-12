@@ -99,7 +99,9 @@ def score(
     prefs: dict[str, list[str]],
     focus: set[str],
     labels: dict[str, dict[str, str]],
+    collected_per_circle: dict[str, int] | None = None,
 ) -> Scored:
+    collected_per_circle = collected_per_circle or {}
     def lbl(kind: str, key: str) -> str:
         return labels.get(kind, {}).get(key, key)
 
@@ -139,7 +141,24 @@ def score(
     fit = round(sum(p.weight * p.value for p in parts) / total_w * 100)
     word, level = band_of(fit)
 
-    circles = sorted({c for c in (circle_of_target.get(e.get("targetId", "")) for e in edges) if c})
+    # 算不算"进了这个圈层"，要看**圈层内**有几位目标人物连着他，不是一位就算。
+    #
+    # 只要一位就算的话，AI 领域有 86% 的候选都"命中"风险投资人 —— 那个标签就
+    # 不再说明任何事，客户标记重点也看不出区别。设计包自己的诊断线是：单圈层
+    # 命中率超过 60% 说明连接过于分散。
+    #
+    # 门槛随该圈层**已采集到的**目标人物数量浮动：只采到 1-2 位的圈层（AI 的
+    # 媒体圈层就是 1/5）用 ≥1，否则整个圈层会归零 —— 那是数据缺口，不该由
+    # 判定规则来惩罚。
+    per_circle: dict[str, int] = {}
+    for e in edges:
+        c = circle_of_target.get(e.get("targetId", ""))
+        if c:
+            per_circle[c] = per_circle.get(c, 0) + 1
+    circles = sorted(
+        c for c, n in per_circle.items()
+        if n >= (2 if collected_per_circle.get(c, 0) >= 3 else 1)
+    )
     hit = [c for c in circles if c in focus]
     focus_score = sum(
         EDGE_WEIGHTS.get(e.get("type", "cofollow"), 1.0)
