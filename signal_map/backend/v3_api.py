@@ -518,7 +518,7 @@ def candidates(
     # 无论如何全量返回 —— 于是 limit=5 拿回 27 条，limit=60 拿回 82 条，
     # 调用方以为自己在控制页大小，其实只在控制发现池，而且截断发生在排序
     # 之前，拿到的根本不是前 N 名。
-    discovered = catalog.discovered_pool(session, resolved, limit=POOL_LIMIT)
+    discovered, pool_stats = catalog.discovered_pool(session, resolved, limit=POOL_LIMIT)
 
     creators = catalog.creators_by_id(session, [m.creator_id for m in priced if m.creator_id])
     quotes: dict[int, Quote] = {}
@@ -787,6 +787,13 @@ def candidates(
             # 因比例上限被截掉的发现候选数。池子有多大是事实，不该藏起来。
             "discoveredTrimmed": trimmed,
         },
+        # 发现池的漏斗。unclassified 必须单独报：它是「还没判断过」，不是
+        # 「判断了不该出现」。混在一起，1,184 个通过关系信号的账号就会静默消失。
+        "pool": {
+            "passedSignal": pool_stats.passed_signal,
+            "nonBuyable": pool_stats.non_buyable,
+            "unclassified": pool_stats.unclassified,
+        },
         "coverage": {
             "targets": len(resolved),
             "collected": sum(1 for t in resolved if t.collected),
@@ -816,7 +823,7 @@ def discover(
     if payload.circles:
         wanted = set(payload.circles)
         resolved = [t for t in resolved if t.definition.circle in wanted]
-    found = catalog.discovered_pool(session, resolved, limit=200)
+    found, _ = catalog.discovered_pool(session, resolved, limit=200)
 
     # 账号必须一起取出来。这里一度传 account=None，结果 158 条候选全部
     # followers/bio 为空、name 退化成 handle（「lexfridman」而不是「Lex Fridman」），

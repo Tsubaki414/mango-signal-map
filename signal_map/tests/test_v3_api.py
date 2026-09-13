@@ -473,3 +473,20 @@ def test_excluded_handles_never_appear():
         for i in items:
             handle = (i.get("handle") or "").lower().lstrip("@")
             assert handle not in blocked, f"{handle} 出现在 {group} 候选里"
+
+
+def test_pool_funnel_separates_unclassified_from_non_buyable():
+    """「还没判断过」和「判断了不该出现」必须分开报。
+
+    两者在结果里都是消失，含义却相反。混在一起的后果实测过：AI 领域有
+    上千个通过关系信号的账号从未被分类因而静默消失，其中 @paulg 有 18 条
+    连接，比当时排第一的候选只少一条 —— 不是因为判定他不可投放，是因为
+    没人判定过他。
+
+    这个数常驻接口，是因为缺口会复发：每次采了新目标人物、池子变大而分类
+    没跟上，同样的事就会再发生一次。
+    """
+    body = client.get("/api/candidates?group=ai&limit=400").json()
+    pool = body["pool"]
+    assert set(pool) == {"passedSignal", "nonBuyable", "unclassified"}
+    assert pool["passedSignal"] >= pool["nonBuyable"] + pool["unclassified"]

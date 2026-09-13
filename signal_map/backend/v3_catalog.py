@@ -158,6 +158,25 @@ class Edge:
 
 
 @dataclass
+class PoolStats:
+    """发现池的漏斗。**未分类**必须和**判定不可投放**分开报。
+
+    两者在结果里都是「消失」，含义却完全相反：一个是「我们判断他不该出现」，
+    另一个是「我们还没判断过」。混在一起的后果实测过 —— AI 领域有 1,184 个
+    通过关系信号的账号从未被分类因而静默消失，其中 @paulg 有 18 条连接，
+    比当时排第一的候选只少一条。
+
+    这个数必须常驻接口：每次采了新目标人物、池子变大而分类没跟上，同样的
+    缺口就会重新出现。报出来才会有人去补。
+    """
+
+    passed_signal: int = 0
+    non_buyable: int = 0
+    unclassified: int = 0
+    returned: int = 0
+
+
+@dataclass
 class PoolMember:
     """候选池成员。``creator_id`` 有值即 priced 侧，否则是 discovered 侧。"""
 
@@ -351,14 +370,15 @@ def priced_pool(session: Session, targets: list[ResolvedTarget]) -> list[PoolMem
 
 def discovered_pool(
     session: Session, targets: list[ResolvedTarget], *, limit: int = 400
-) -> list[PoolMember]:
+) -> tuple[list[PoolMember], PoolStats]:
     """discovered 侧：被多位目标人物共同关注、但**还不是** Mango 创作者的账号。
 
     这是「我们还会为你去找并建联新的人」的数据来源。门槛见 ``cofollow_threshold``。
     """
+    stats = PoolStats()
     collected = [t for t in targets if t.collected]
     if not collected:
-        return []
+        return [], stats
 
     source_ids = [t.account.id for t in collected]
     id_to_target = {t.account.id: t.definition.id for t in collected}
@@ -390,16 +410,15 @@ def discovered_pool(
     # 用排除法实测过：Paul Graham、Ilya Sutskever、Geoffrey Hinton、Nate Silver
     # 全部出现在客户的可投放名单里 —— 他们只是还没被分类，于是默认通过了。
     # 未判定的账号照常留在内部队列等人确认，只是不进客户名单。
-    buyable_handles = {
-        (handle or "").lower()
-        for handle, kind, suggested in session.execute(
+    kind_by_handle = {
+        (h or "").lower(): (k if k and k != "unknown" else sg)
+        for h, k, sg in session.execute(
             select(
                 BDCandidate.handle,
                 BDCandidate.object_kind,
                 BDCandidate.object_kind_suggested,
             ).where(BDCandidate.handle.is_not(None))
         ).all()
-        if (kind if kind and kind != "unknown" else suggested) in BUYABLE_KINDS
     }
 
     counted = (
@@ -415,10 +434,7 @@ def discovered_pool(
     rows = session.execute(
         select(XAccount, counted.c.n)
         .join(counted, counted.c.target_id == XAccount.id)
-        .where(
-            XAccount.rest_id.is_not(None),
-            func.lower(XAccount.handle).in_(list(buyable_handles)) if buyable_handles else False,
-        )
+        .where(XAccount.rest_id.is_not(None))
         .order_by(counted.c.n.desc(), XAccount.followers.desc().nullslast())
     ).all()
 
@@ -426,14 +442,24 @@ def discovered_pool(
     for account, _n in rows:
         if account.rest_id in known_uids:
             continue
-        # 可投放已在 SQL 里过滤；这里只剩"目标人物本身"的排除。
-        if (account.handle or "").lower() in excluded:
+        handle_l = (account.handle or "").lower()
+        if handle_l in excluded:
             continue
-        kept.append(account)
-        if len(kept) >= limit:
-            break
+        stats.passed_signal += 1
+        kind = kind_by_handle.get(handle_l)
+        if kind is None:
+            # 从未判定过。默认不进客户面（错放一个监管者是产品级尴尬），
+            # 但必须计数 —— 静默消失才是真正的问题。
+            stats.unclassified += 1
+            continue
+        if kind not in BUYABLE_KINDS:
+            stats.non_buyable += 1
+            continue
+        if len(kept) < limit:
+            kept.append(account)
+    stats.returned = len(kept)
     if not kept:
-        return []
+        return [], stats
 
     # 边一次取完再分组。按候选逐个查是 N+1，在 512,921 行的 follow_edges 上
     # 实测把三个领域的取池子拖到两分钟以上 —— 那个延迟直接就是接口延迟。
@@ -466,16 +492,19 @@ def discovered_pool(
             )
         )
 
-    return [
-        PoolMember(
-            account_id=a.id,
-            rest_id=a.rest_id,
-            handle=a.handle,
-            creator_id=None,
-            edges=edges_by_account.get(a.id, []),
-        )
-        for a in kept
-    ]
+    return (
+        [
+            PoolMember(
+                account_id=a.id,
+                rest_id=a.rest_id,
+                handle=a.handle,
+                creator_id=None,
+                edges=edges_by_account.get(a.id, []),
+            )
+            for a in kept
+        ],
+        stats,
+    )
 
 
 # --------------------------------------------------------------------------
