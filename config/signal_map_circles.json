@@ -902,6 +902,248 @@
         "investors",
         "consumers"
       ]
+    },
+    {
+      "id": "t_miramurati",
+      "name": "Mira Murati",
+      "handle": "miramurati",
+      "role": "Thinking Machines 创始人 · 前 OpenAI CTO",
+      "group": "ai",
+      "circle": "founders",
+      "why": "Thinking Machines 创始人 · 前 OpenAI CTO。被 19 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_arthurmensch",
+      "name": "Arthur Mensch",
+      "handle": "arthurmensch",
+      "role": "Mistral AI 联合创始人兼 CEO",
+      "group": "ai",
+      "circle": "founders",
+      "why": "Mistral AI 联合创始人兼 CEO。被 18 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_ibab",
+      "name": "Igor Babuschkin",
+      "handle": "ibab",
+      "role": "river.ai 创始人 · 前 xAI",
+      "group": "ai",
+      "circle": "founders",
+      "why": "river.ai 创始人 · 前 xAI。被 20 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_polynoamial",
+      "name": "Noam Brown",
+      "handle": "polynoamial",
+      "role": "OpenAI 推理研究 · Libratus/Pluribus 作者",
+      "group": "ai",
+      "circle": "researchers",
+      "why": "OpenAI 推理研究 · Libratus/Pluribus 作者。被 20 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_johnschulman2",
+      "name": "John Schulman",
+      "handle": "johnschulman2",
+      "role": "Thinking Machines · 前 OpenAI",
+      "group": "ai",
+      "circle": "researchers",
+      "why": "Thinking Machines · 前 OpenAI。被 19 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_id_aa_carmack",
+      "name": "John Carmack",
+      "handle": "ID_AA_Carmack",
+      "role": "Keen Technologies · 前 Oculus CTO",
+      "group": "ai",
+      "circle": "devs",
+      "why": "Keen Technologies · 前 Oculus CTO。被 17 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_officiallogank",
+      "name": "Logan Kilpatrick",
+      "handle": "OfficialLoganK",
+      "role": "Google Gemini 开发者关系",
+      "group": "ai",
+      "circle": "devs",
+      "why": "Google Gemini 开发者关系。被 19 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_balajis",
+      "name": "Balaji Srinivasan",
+      "handle": "balajis",
+      "role": "《网络国家》作者 · 前 Coinbase CTO",
+      "group": "ai",
+      "circle": "media",
+      "why": "《网络国家》作者 · 前 Coinbase CTO。被 17 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_kain",
+      "name": "Kain Warwick",
+      "handle": "kain",
+      "role": "Infinex / Synthetix 创始人",
+      "group": "crypto",
+      "circle": "builders",
+      "why": "Infinex / Synthetix 创始人。被 9 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_andrecronjetech",
+      "name": "Andre Cronje",
+      "handle": "AndreCronjeTech",
+      "role": "Yearn / Keep3r 创造者",
+      "group": "crypto",
+      "circle": "builders",
+      "why": "Yearn / Keep3r 创造者。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_sandeepnailwal",
+      "name": "Sandeep Nailwal",
+      "handle": "sandeepnailwal",
+      "role": "Polygon 联合创始人",
+      "group": "crypto",
+      "circle": "builders",
+      "why": "Polygon 联合创始人。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_cburniske",
+      "name": "Chris Burniske",
+      "handle": "cburniske",
+      "role": "Placeholder VC 合伙人",
+      "group": "crypto",
+      "circle": "cvc",
+      "why": "Placeholder VC 合伙人。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_gakonst",
+      "name": "Georgios Konstantopoulos",
+      "handle": "gakonst",
+      "role": "Paradigm 合伙人兼 CTO",
+      "group": "crypto",
+      "circle": "cvc",
+      "why": "Paradigm 合伙人兼 CTO。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_fehrsam",
+      "name": "Fred Ehrsam",
+      "handle": "FEhrsam",
+      "role": "Paradigm / Coinbase 联合创始人",
+      "group": "crypto",
+      "circle": "cvc",
+      "why": "Paradigm / Coinbase 联合创始人。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_asvanevik",
+      "name": "Alex Svanevik",
+      "handle": "ASvanevik",
+      "role": "Nansen CEO · 链上数据",
+      "group": "crypto",
+      "circle": "traders",
+      "why": "Nansen CEO · 链上数据。被 8 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_lawmaster",
+      "name": "Mike Dudas",
+      "handle": "lawmaster",
+      "role": "The Block 总裁",
+      "group": "crypto",
+      "circle": "traders",
+      "why": "The Block 总裁。被 9 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_ericbalchunas",
+      "name": "Eric Balchunas",
+      "handle": "EricBalchunas",
+      "role": "Bloomberg 高级 ETF 分析师",
+      "group": "finance",
+      "circle": "analysts",
+      "why": "Bloomberg 高级 ETF 分析师。被 6 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_truthgundlach",
+      "name": "Jeffrey Gundlach",
+      "handle": "TruthGundlach",
+      "role": "DoubleLine 创始人",
+      "group": "finance",
+      "circle": "analysts",
+      "why": "DoubleLine 创始人。被 6 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_fundstrat",
+      "name": "Tom Lee",
+      "handle": "fundstrat",
+      "role": "Fundstrat Capital CIO",
+      "group": "finance",
+      "circle": "analysts",
+      "why": "Fundstrat Capital CIO。被 7 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_novogratz",
+      "name": "Mike Novogratz",
+      "handle": "novogratz",
+      "role": "Galaxy Digital CEO",
+      "group": "finance",
+      "circle": "inst",
+      "why": "Galaxy Digital CEO。被 6 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_jensenhuang",
+      "name": "Jensen Huang",
+      "handle": "JensenHuang",
+      "role": "NVIDIA 创始人兼 CEO",
+      "group": "finance",
+      "circle": "fintechs",
+      "why": "NVIDIA 创始人兼 CEO。被 6 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
+    },
+    {
+      "id": "t_saraeisen",
+      "name": "Sara Eisen",
+      "handle": "SaraEisen",
+      "role": "CNBC 主播",
+      "group": "finance",
+      "circle": "ftraders",
+      "why": "CNBC 主播。被 6 位现有目标人物关注。",
+      "markets": [],
+      "audiences": []
     }
   ]
 }

@@ -31,6 +31,7 @@ from . import client_safe as cs
 from .bd_api import router as bd_router
 from .projects_api import router as projects_router
 from .internal_api import router as internal_router
+from .frontrun_api import router as frontrun_router
 from .v3_api import router as v3_router
 from .budget import line_from_quote, summarize
 from .db import init_db, session_dependency
@@ -568,6 +569,10 @@ app.include_router(v3_router)
 # the OpenAPI schema and asserts 401, so these are covered without anyone
 # having to remember to add them.
 app.include_router(bd_router, dependencies=[Depends(require_internal)])
+
+# FrontRun 是 Mango 自己的情报面。和 bd_router 一样走内部守卫 —— 挂错命名空间
+# 的后果不是权限问题，是把「我们在盯谁」告诉了客户。
+app.include_router(frontrun_router, dependencies=[Depends(require_internal)])
 
 # 客户项目面。每条路由自己带 ``Depends(current_client)`` 并按调用方作用域取数，
 # 所以这里不加全局依赖 —— 加了会让 401 和 404 的语义混在一起。

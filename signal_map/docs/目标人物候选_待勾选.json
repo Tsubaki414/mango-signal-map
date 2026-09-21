@@ -1,0 +1,533 @@
+{
+  "ai": [
+    {
+      "handle": "AravSrinivas",
+      "followers": 1112959,
+      "following": 1549,
+      "endorse": 21,
+      "reach": 0,
+      "bio": "cofounder and ceo @perplexity_ai",
+      "type": "行业大佬",
+      "basis": "cofounder and ceo @perplexity_ai",
+      "confidence": "high"
+    },
+    {
+      "handle": "ClementDelangue",
+      "followers": 673015,
+      "following": 4901,
+      "endorse": 21,
+      "reach": 0,
+      "bio": "Co-founder & CEO @HuggingFace 🤗, the open and collaborative platform for AI builders",
+      "type": "行业大佬",
+      "basis": "Co-founder & CEO @HuggingFace",
+      "confidence": "high"
+    },
+    {
+      "handle": "levie",
+      "followers": 3436099,
+      "following": 945,
+      "endorse": 20,
+      "reach": 0,
+      "bio": "ceo @box - your business lives in content. unleash it with AI",
+      "type": "企业决策者",
+      "basis": "ceo @box",
+      "confidence": "high"
+    },
+    {
+      "handle": "tobi",
+      "followers": 503052,
+      "following": 2232,
+      "endorse": 20,
+      "reach": 0,
+      "bio": "Shopify CEO by day, Dad in evening, hacker at night, Aspiring comprehensivist.  + qmd !",
+      "type": "行业大佬",
+      "basis": "Shopify CEO",
+      "confidence": "high"
+    },
+    {
+      "handle": "polynoamial",
+      "followers": 168956,
+      "following": 947,
+      "endorse": 20,
+      "reach": 0,
+      "bio": "Researching reasoning @OpenAI | Co-created Libratus/Pluribus superhuman poker AIs, CICERO ",
+      "type": "行业大佬",
+      "basis": "Co-created Libratus/Pluribus superhuman poker AIs, CICERO",
+      "confidence": "high"
+    },
+    {
+      "handle": "ibab",
+      "followers": 111199,
+      "following": 893,
+      "endorse": 20,
+      "reach": 0,
+      "bio": "CEO & Co-Founder @river_ai_inc. Previously @xAI, Research & Engineering",
+      "type": "行业大佬",
+      "basis": "CEO & Co-Founder @river_ai_inc. Previously @xAI",
+      "confidence": "high"
+    },
+    {
+      "handle": "miramurati",
+      "followers": 998205,
+      "following": 641,
+      "endorse": 19,
+      "reach": 0,
+      "bio": "Now building @thinkymachines. Previously CTO @OpenAI",
+      "type": "行业大佬",
+      "basis": "Previously CTO @OpenAI",
+      "confidence": "high"
+    },
+    {
+      "handle": "OfficialLoganK",
+      "followers": 364035,
+      "following": 3255,
+      "endorse": 19,
+      "reach": 0,
+      "bio": "Member of technical staff, working on Gemini, @GoogleAIStudio, the Gemini API, & Kaggle. M",
+      "type": "垂直专家",
+      "basis": "Member of technical staff, working on Gemini",
+      "confidence": "high"
+    },
+    {
+      "handle": "Thom_Wolf",
+      "followers": 130616,
+      "following": 7797,
+      "endorse": 19,
+      "reach": 0,
+      "bio": "co-founder @HuggingFace - moonshots",
+      "type": "行业大佬",
+      "basis": "co-founder @HuggingFace",
+      "confidence": "high"
+    },
+    {
+      "handle": "johnschulman2",
+      "followers": 80189,
+      "following": 2179,
+      "endorse": 19,
+      "reach": 0,
+      "bio": "@thinkymachines. Interested in reinforcement learning, alignment, birds, jazz music",
+      "type": "行业大佬",
+      "basis": "Interested in reinforcement learning, alignment",
+      "confidence": "high"
+    },
+    {
+      "handle": "willdepue",
+      "followers": 74729,
+      "following": 2627,
+      "endorse": 19,
+      "reach": 0,
+      "bio": "dei ex machina prev @ openai (sora 1 & 2, posttraining o3/4o, pretraining moonshots)",
+      "type": "行业大佬",
+      "basis": "prev @ openai (sora 1 & 2, posttraining o3/4o, pretraining moonshots)",
+      "confidence": "high"
+    },
+    {
+      "handle": "DavidSacks",
+      "followers": 1720541,
+      "following": 3522,
+      "endorse": 18,
+      "reach": 0,
+      "bio": "Tech founder & investor @Craft_Ventures @theallinpod. Co-Chair, President’s Council of Adv",
+      "type": "投资人",
+      "basis": "Tech founder & investor @Craft_Ventures",
+      "confidence": "high"
+    },
+    {
+      "handle": "Teknium",
+      "followers": 125469,
+      "following": 6250,
+      "endorse": 18,
+      "reach": 0,
+      "bio": "Cofounder and Lead Engineer - Hermes Agent @NousResearch, prev @StabilityAI Github: https:",
+      "type": "垂直专家",
+      "basis": "Cofounder and Lead Engineer - Hermes Agent @NousResearch",
+      "confidence": "high"
+    },
+    {
+      "handle": "arthurmensch",
+      "followers": 82240,
+      "following": 855,
+      "endorse": 18,
+      "reach": 0,
+      "bio": "Co-founder and CEO @MistralAI. Mistral Vibe can help you https://t.co/IHZhDUiAnO",
+      "type": "行业大佬",
+      "basis": "Co-founder and CEO @MistralAI",
+      "confidence": "high"
+    },
+    {
+      "handle": "ID_AA_Carmack",
+      "followers": 3945269,
+      "following": 295,
+      "endorse": 17,
+      "reach": 0,
+      "bio": "AGI at Keen Technologies, former CTO Oculus VR, Founder Id Software and Armadillo Aerospac",
+      "type": "行业大佬",
+      "basis": "AGI at Keen Technologies, former CTO Oculus VR",
+      "confidence": "high"
+    },
+    {
+      "handle": "balajis",
+      "followers": 2199311,
+      "following": 3930,
+      "endorse": 17,
+      "reach": 0,
+      "bio": "Author of the Network State. Founder of the Network School.",
+      "type": "行业大佬",
+      "basis": "Author of the Network State. Founder",
+      "confidence": "high"
+    }
+  ],
+  "crypto": [
+    {
+      "handle": "lawmaster",
+      "followers": 228632,
+      "following": 2927,
+      "endorse": 9,
+      "reach": 0,
+      "bio": "President of The Block",
+      "type": "媒体节点",
+      "basis": "President of The Block",
+      "confidence": "high"
+    },
+    {
+      "handle": "kain",
+      "followers": 144011,
+      "following": 1393,
+      "endorse": 9,
+      "reach": 0,
+      "bio": "Founder @infinex , @synthetix. Partner @bodhi_ventures",
+      "type": "行业大佬",
+      "basis": "Founder @infinex , @synthetix. Partner @bodhi_ventures",
+      "confidence": "high"
+    },
+    {
+      "handle": "lex_node",
+      "followers": 77989,
+      "following": 7867,
+      "endorse": 9,
+      "reach": 0,
+      "bio": "corpsec attorney, now tokenizing companies at @MetaLeX_Labs  ex-BigLaw Buyside Tech M&A (W",
+      "type": "垂直专家",
+      "basis": "corpsec attorney, now tokenizing companies at @MetaLeX_Labs",
+      "confidence": "high"
+    },
+    {
+      "handle": "Dogetoshi",
+      "followers": 51289,
+      "following": 409,
+      "endorse": 9,
+      "reach": 0,
+      "bio": "Research Head & Founding Team @TheBlockCo ⓘ This account has been known to retweet angel i",
+      "type": "行业大佬",
+      "basis": "Research Head & Founding Team @TheBlockCo",
+      "confidence": "high"
+    },
+    {
+      "handle": "mert",
+      "followers": 2203619,
+      "following": 2519,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "ceo @helius — Solana RPCs, APIs & data: https://t.co/J2To2MzHwd — cyphercapitalist",
+      "type": "行业大佬",
+      "basis": "ceo @helius — Solana RPCs, APIs & data",
+      "confidence": "high"
+    },
+    {
+      "handle": "ErikVoorhees",
+      "followers": 983176,
+      "following": 4514,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Toward peace & markets. Founder of https://t.co/iUPC8ij60f",
+      "type": "行业大佬",
+      "basis": "Founder of https://t.co/iUPC8ij60f",
+      "confidence": "high"
+    },
+    {
+      "handle": "AndreCronjeTech",
+      "followers": 432226,
+      "following": 2532,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Founder @flyingtulip_. Creator of Yearn + Keep3r. Designed Solidly / ve(3,3). Building col",
+      "type": "行业大佬",
+      "basis": "Creator of Yearn + Keep3r. Designed Solidly / ve(3,3)",
+      "confidence": "high"
+    },
+    {
+      "handle": "Fwiz",
+      "followers": 386708,
+      "following": 6904,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "CEO, @CronosApp",
+      "type": "项目/产品账号",
+      "basis": "CEO, @CronosApp",
+      "confidence": "medium"
+    },
+    {
+      "handle": "sandeepnailwal",
+      "followers": 347490,
+      "following": 4757,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Absolute-Individual-Freedom Maximalist.  Founder & CEO @0xPolygon Foundation, Founder @bfi",
+      "type": "行业大佬",
+      "basis": "Founder & CEO @0xPolygon Foundation",
+      "confidence": "high"
+    },
+    {
+      "handle": "cburniske",
+      "followers": 341418,
+      "following": 2165,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Partner @placeholdervc; co-author #Cryptoassets 📔; formerly led crypto @ARKinvest. Xeets n",
+      "type": "投资人",
+      "basis": "Partner @placeholdervc",
+      "confidence": "high"
+    },
+    {
+      "handle": "FEhrsam",
+      "followers": 296001,
+      "following": 2775,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Co-founder @Nudge, @Paradigm, @Coinbase",
+      "type": "行业大佬",
+      "basis": "Co-founder @Nudge, @Paradigm, @Coinbase",
+      "confidence": "high"
+    },
+    {
+      "handle": "jespow",
+      "followers": 233299,
+      "following": 9327,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Co-Founder & Chairman @KrakenFX Founder @Verge_Arts Former pro player @Wizards_Magic #Virt",
+      "type": "行业大佬",
+      "basis": "Co-Founder & Chairman @KrakenFX",
+      "confidence": "high"
+    },
+    {
+      "handle": "ASvanevik",
+      "followers": 233000,
+      "following": 2434,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "CEO @nansen_ai. Creating winners.",
+      "type": "行业大佬",
+      "basis": "CEO @nansen_ai",
+      "confidence": "high"
+    },
+    {
+      "handle": "gakonst",
+      "followers": 216401,
+      "following": 2377,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "very greek accent. general partner & cto @paradigm. eng lead @tempo. optimist and rustacea",
+      "type": "投资人",
+      "basis": "general partner & cto @paradigm",
+      "confidence": "high"
+    },
+    {
+      "handle": "fintechfrank",
+      "followers": 210888,
+      "following": 2825,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Head of Strategic Communications @GSR_io/ Host of The Crypto Tape / Airbnb Super Host/ Fou",
+      "type": "媒体节点",
+      "basis": "Founding Reporter at @TheBlock__",
+      "confidence": "high"
+    },
+    {
+      "handle": "ChainLinkGod",
+      "followers": 188534,
+      "following": 3585,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Strategic Initiatives @Chainlink | Digital commodity enjoyer | Opinions are my own",
+      "type": null,
+      "basis": null
+    }
+  ],
+  "finance": [
+    {
+      "handle": "DavidSacks",
+      "followers": 1720541,
+      "following": 3522,
+      "endorse": 8,
+      "reach": 0,
+      "bio": "Tech founder & investor @Craft_Ventures @theallinpod. Co-Chair, President’s Council of Adv",
+      "type": "投资人",
+      "basis": "Tech founder & investor @Craft_Ventures",
+      "confidence": "high"
+    },
+    {
+      "handle": "JeffBezos",
+      "followers": 10055566,
+      "following": 612,
+      "endorse": 7,
+      "reach": 0,
+      "bio": "Six thousand years ago, someone invented the plow, and we all got wealthier. A gentle remi",
+      "type": "行业大佬",
+      "basis": "Six thousand years ago, someone invented the plow",
+      "confidence": "high"
+    },
+    {
+      "handle": "chamath",
+      "followers": 2416819,
+      "following": 1137,
+      "endorse": 7,
+      "reach": 0,
+      "bio": "Social Capital 8090   God is in the details.",
+      "type": "投资人",
+      "basis": "Social Capital",
+      "confidence": "high"
+    },
+    {
+      "handle": "bgurley",
+      "followers": 808074,
+      "following": 2179,
+      "endorse": 7,
+      "reach": 0,
+      "bio": "Founder/President @p3institute Author: Runnin' Down a Dream, link below! Founder: Runnin' ",
+      "type": "行业大佬",
+      "basis": "Former VC @benchmark",
+      "confidence": "high"
+    },
+    {
+      "handle": "fundstrat",
+      "followers": 673969,
+      "following": 956,
+      "endorse": 7,
+      "reach": 0,
+      "bio": "CIO Fundstrat Capital @FundstratCap $GRNY $GRNJ| Research @fundstratdirect | @CNBC FT cont",
+      "type": "行业大佬",
+      "basis": "CIO Fundstrat Capital @FundstratCap",
+      "confidence": "high"
+    },
+    {
+      "handle": "kgreifeld",
+      "followers": 114504,
+      "following": 2454,
+      "endorse": 7,
+      "reach": 0,
+      "bio": "on mat leave! anchor of The Close (3-5pm daily) and ETF IQ (12pm Mondays) @bloombergtv. mo",
+      "type": "媒体节点",
+      "basis": "anchor of The Close (3-5pm daily) and ETF IQ",
+      "confidence": "high"
+    },
+    {
+      "handle": "realDonaldTrump",
+      "followers": 111781493,
+      "following": 53,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "45th & 47th President of the United States of America🇺🇸",
+      "type": null,
+      "basis": null
+    },
+    {
+      "handle": "mcuban",
+      "followers": 8556574,
+      "following": 1706,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "Dunking on the pharma industry with @costplusdrugs.com, the lowest prices on meds anywhere",
+      "type": "行业大佬",
+      "basis": "Dunking on the pharma industry with @costplusdrugs.com",
+      "confidence": "high"
+    },
+    {
+      "handle": "ianbremmer",
+      "followers": 1442660,
+      "following": 1865,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "@eurasiagroup & @gzeromedia. political scientist, author. if you lived here, you'd be home",
+      "type": "行业大佬",
+      "basis": "political scientist, author",
+      "confidence": "high"
+    },
+    {
+      "handle": "JensenHuang",
+      "followers": 1069042,
+      "following": 54,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "Founder and CEO of NVIDIA.",
+      "type": "行业大佬",
+      "basis": "Founder and CEO of NVIDIA",
+      "confidence": "high"
+    },
+    {
+      "handle": "EricBalchunas",
+      "followers": 618645,
+      "following": 3050,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "Senior ETF Analyst for @Bloomberg. Dad. Rutgers grad. Gen X-er. Author of \"The Institution",
+      "type": "媒体节点",
+      "basis": "Senior ETF Analyst for @Bloomberg",
+      "confidence": "high"
+    },
+    {
+      "handle": "TruthGundlach",
+      "followers": 559290,
+      "following": 6,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "Bills fan. Art fan. Truth fan. DoubleLine Founder.",
+      "type": "行业大佬",
+      "basis": "DoubleLine Founder",
+      "confidence": "high"
+    },
+    {
+      "handle": "novogratz",
+      "followers": 489443,
+      "following": 4729,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "CEO, $GLXY @galaxyhq. Early Investor: #Bitcoin, 🍄, Board: #TheBailProject, @REFORM. Discla",
+      "type": "投资人",
+      "basis": "CEO, $GLXY @galaxyhq. Early Investor: #Bitcoin",
+      "confidence": "high"
+    },
+    {
+      "handle": "SaraEisen",
+      "followers": 271747,
+      "following": 937,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "@CNBC @Squawkstreet 10am-noon",
+      "type": "媒体节点",
+      "basis": "@CNBC @Squawkstreet 10am-noon",
+      "confidence": "high"
+    },
+    {
+      "handle": "anthonynoto",
+      "followers": 100594,
+      "following": 17559,
+      "endorse": 6,
+      "reach": 0,
+      "bio": "Proud Father of Fab 5, Bear & Bodie; Husband to Klo; CEO of SoFi; previously Twitter COO, ",
+      "type": "行业大佬",
+      "basis": "CEO of SoFi; previously Twitter COO, NFL CFO",
+      "confidence": "high"
+    },
+    {
+      "handle": "BillGates",
+      "followers": 65013949,
+      "following": 570,
+      "endorse": 5,
+      "reach": 0,
+      "bio": "Sharing things I'm learning through my foundation work and other interests.",
+      "type": null,
+      "basis": null
+    }
+  ]
+}
