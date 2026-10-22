@@ -1,24 +1,25 @@
-"""人群预设（persona）与跨圈层综合排名。
+"""目标圈层快速选择（preset）与跨圈层综合排名。
 
-选人流程的两项延续工作：
+两件事，都长在原有的「领域 → 圈层 → 目标人物」结构上，不另立一套数据：
 
-1. **批量选择社工对象**。客户不再一个个找目标人物，而是先选一个或几个人群预设
-   （海外 VC、Target Coinbase、Binance/CZ & 何一圈……），每个预设展开成一组目标
-   人物，客户再逐个勾掉/加回。预设定义在 ``config/signal_map_personas.json``。
-2. **聚合排名**。对每个候选账号，数「所选目标人物里有几位关注它」—— 总数、按
-   persona 分开的数，以及一个综合分。
+1. **快速选择**。预设定义在 ``config/signal_map_circles.json`` 的 ``presets``：
+   一个预设是同一领域内的一组圈层（海外一线 VC、行业领袖、交易所生态、
+   券商 / 零售交易平台），成员就是这些圈层里的目标人物。客户面上它等于一次
+   把这几个圈层「设为本轮重点」；内部面与 ``/api/personas`` 仍可按预设展开
+   成员、再逐个勾掉。旧的预设 id 作为 ``aliases`` 继续被接受。
+2. **聚合排名**。对每个候选账号，数「所选目标人物里有几位关注它」—— 总数、
+   按预设（或圈层）分开的数，以及一个综合分。
 
-综合分为什么要按 persona 归一
+综合分为什么要按预设 / 圈层归一
 ------------------------------
-直接数关注人数，人多的圈子会压倒一切：海外 VC 选 16 人、Binance 圈只有 4 人，
-一个只被 VC 圈 5 人关注的账号会排在被 Binance 圈 4 人**全部**关注的账号前面。
-所以每个 persona 先算「本圈已采集目标里关注它的比例」（0–1），综合分是**各圈
-比例的平均**。一个账号同时进入多个圈子才能拿高分，这正是「跨圈层」的意思。
+直接数关注人数，人多的圈子会压倒一切：海外一线 VC 有十几人、交易所生态里某一
+家只有 4 人，一个只被 VC 圈 5 人关注的账号会排在被另一圈 4 人**全部**关注的
+账号前面。所以每个圈子先算「本圈已采集目标里关注它的比例」（0–1），综合分是
+**各圈比例的平均**。一个账号同时进入多个圈子才能拿高分，这正是「跨圈层」的意思。
 
 分母只用**已采集关注网络**的目标人物。没采过的人不是「没关注」，是「没看过」——
-把他们算进分母会把整个圈子的比例压低，而那是采集缺口，不是关系事实。一个
-persona 一个都没采过时，它不参与平均，并在 ``personas[].collected == 0`` 里如实
-报出。
+把他们算进分母会把整个圈子的比例压低，而那是采集缺口，不是关系事实。一个圈子
+一个都没采过时，它不参与平均，并在 ``collected == 0`` 里如实报出。
 
 口径
 ----
@@ -30,30 +31,19 @@ persona 一个都没采过时，它不参与平均，并在 ``personas[].collect
 
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass, field
-from functools import lru_cache
-from pathlib import Path
 from typing import Callable, Iterable
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from . import v3_catalog as catalog
 from .observation_models import FollowEdge, XAccount
 
-PERSONAS_PATH = Path(__file__).resolve().parents[2] / "config" / "signal_map_personas.json"
+MEMBER_SOURCES = catalog.TARGET_SOURCES
+MEMBER_SOURCE_LABELS_ZH = catalog.TARGET_SOURCE_LABELS_ZH
 
-#: 成员来源，按证据强度从高到低。``manual`` 是编写者凭常识加入，库里没有依据。
-MEMBER_SOURCES = ("circles_config", "root_seeds", "candidate_list", "observed_bio", "manual")
-MEMBER_SOURCE_LABELS_ZH = {
-    "circles_config": "已在目标人物配置中",
-    "root_seeds": "已在 Root 种子提案中",
-    "candidate_list": "已在目标人物候选名单中",
-    "observed_bio": "公开简介写明所属机构",
-    "manual": "人工补充，待核实",
-}
-
-#: 客户手动加的、不属于任何预设的目标人物，归到这个虚拟 persona。
+#: 客户手动加的、不属于任何预设的目标人物，归到这个虚拟预设。
 CUSTOM_PERSONA_ID = "custom"
 CUSTOM_PERSONA_LABEL = "自选目标人物"
 
@@ -66,64 +56,55 @@ class PersonaMember:
     source: str
     needs_review: bool
     basis: str | None = None
+    circle: str | None = None
 
 
 @dataclass(frozen=True)
 class Persona:
+    """一个预设展开后的样子：预设本身 + 它那几个圈层里的目标人物。"""
+
     id: str
+    group: str
     label: str
     desc: str
     why: str
+    circles: tuple[str, ...]
+    aliases: tuple[str, ...]
     members: tuple[PersonaMember, ...]
 
 
-def load_personas(path: str | Path | None = None) -> tuple[Persona, ...]:
-    return _load(str(path or PERSONAS_PATH))
+def _expand_preset(p: catalog.PresetDef) -> Persona:
+    return Persona(
+        id=p.id, group=p.group, label=p.label, desc=p.desc, why=p.why,
+        circles=p.circles, aliases=p.aliases,
+        members=tuple(
+            PersonaMember(
+                handle=t.handle.lstrip("@"), name=t.name, role=t.role, source=t.source,
+                needs_review=t.needs_review, basis=t.basis, circle=t.circle,
+            )
+            for t in catalog.preset_members(p)
+        ),
+    )
 
 
-@lru_cache(maxsize=4)
-def _load(path: str) -> tuple[Persona, ...]:
-    raw = json.loads(Path(path).read_text(encoding="utf-8"))
-    out = []
-    for p in raw.get("personas", []):
-        members = []
-        for m in p.get("members", []):
-            source = m.get("source", "manual")
-            if source not in MEMBER_SOURCES:
-                raise ValueError(f"persona {p['id']}: 未知成员来源 {source!r}")
-            members.append(
-                PersonaMember(
-                    handle=m["handle"].lstrip("@"),
-                    name=m.get("name") or m["handle"],
-                    role=m.get("role", ""),
-                    source=source,
-                    # manual 一律待核实，配置里写 false 也不算数 —— 没有依据的
-                    # 名字不能靠改一个布尔值就变成「已核实」。
-                    needs_review=bool(m.get("needs_review")) or source == "manual",
-                    basis=m.get("basis"),
-                )
-            )
-        out.append(
-            Persona(
-                id=p["id"], label=p["label"], desc=p.get("desc", ""),
-                why=p.get("why", ""), members=tuple(members),
-            )
-        )
-    return tuple(out)
+def load_personas() -> tuple[Persona, ...]:
+    return tuple(_expand_preset(p) for p in catalog.load_presets())
 
 
 def persona_by_id(persona_id: str) -> Persona | None:
-    return next((p for p in load_personas() if p.id == persona_id), None)
+    """当前 id 或旧 id 都能查到；返回的 ``id`` 永远是当前 id。"""
+    preset = catalog.preset_by_id(persona_id)
+    return _expand_preset(preset) if preset else None
 
 
 @dataclass
 class Selection:
-    """客户的最终选择：哪些 persona、每位目标人物归哪几个 persona。"""
+    """客户的最终选择：哪些预设（当前 id）、每位目标人物归哪几个预设。"""
 
     personas: list[str]
     #: handle(lower) -> 原始大小写 handle
     handles: dict[str, str]
-    #: handle(lower) -> 所属 persona id 列表（可多个）
+    #: handle(lower) -> 所属预设 id 列表（可多个）
     membership: dict[str, list[str]]
     unknown_personas: list[str] = field(default_factory=list)
 
@@ -137,21 +118,24 @@ def expand(
     target_handles: Iterable[str] = (),
     exclude_handles: Iterable[str] = (),
 ) -> Selection:
-    """persona 展开 + 手动加的 handle 合并 − 手动勾掉的 handle。
+    """预设展开 + 手动加的 handle 合并 − 手动勾掉的 handle。
 
-    顺序稳定：先按 persona 顺序展开成员，再追加手动 handle。同一个人在多个
-    persona 里出现时只算一位目标人物，但两个 persona 都记上 —— 综合排名需要知道
-    他同时代表哪几个圈子。
+    顺序稳定：先按预设顺序展开成员，再追加手动 handle。同一个人在多个预设里
+    出现时只算一位目标人物，但几个预设都记上 —— 综合排名需要知道他同时代表
+    哪几个圈子。旧 id 解析到当前 id，两个旧 id 指向同一个预设时只展开一次。
     """
     excluded = {h.lstrip("@").lower() for h in exclude_handles if h}
     handles: dict[str, str] = {}
     membership: dict[str, list[str]] = {}
     chosen: list[str] = []
     unknown: list[str] = []
-    for pid in dict.fromkeys(personas):
-        persona = persona_by_id(pid)
+    for requested in dict.fromkeys(personas):
+        persona = persona_by_id(requested)
         if persona is None:
-            unknown.append(pid)
+            unknown.append(requested)
+            continue
+        pid = persona.id
+        if pid in chosen:
             continue
         chosen.append(pid)
         for m in persona.members:
@@ -248,7 +232,7 @@ class RankedAccount:
 @dataclass
 class AggregateResult:
     selection: Selection
-    #: persona id -> (目标人物数, 已采集数)
+    #: 预设 id -> (目标人物数, 已采集数)
     coverage: dict[str, tuple[int, int]]
     #: 选中但观察层里根本没有的 handle
     unresolved: list[str]
@@ -358,7 +342,53 @@ def coverage_dicts(result: AggregateResult) -> list[dict]:
 
 
 AGGREGATE_NOTE_ZH = (
-    "综合分 = 各人群预设内「已采集目标人物中关注该账号的比例」的平均值，"
+    "综合分 = 各预设内「已采集目标人物中关注该账号的比例」的平均值，"
     "每个预设权重相同，避免人多的圈子压倒人少的圈子。这是关注信号的覆盖度，"
     "不是曝光概率，也不代表背书。未采集关注网络的目标人物不计入分母。"
 )
+
+
+# =============================================================================
+# 推荐名单里的同一套口径：按圈层归一
+# =============================================================================
+
+COVERAGE_NOTE_ZH = (
+    "跨圈层覆盖 = 各圈层内「已采集目标人物中关注该账号的比例」的平均值，"
+    "每个圈层权重相同，避免人多的圈层压倒人少的圈层。这是关注信号的覆盖度，"
+    "不是曝光概率，也不代表背书。未采集关注网络的目标人物不计入分母。"
+)
+
+
+@dataclass
+class CircleReach:
+    circle: str
+    count: int
+    collected: int
+
+    @property
+    def share(self) -> float:
+        return self.count / self.collected if self.collected else 0.0
+
+
+def circle_reach(
+    target_ids: Iterable[str],
+    circle_of_target: dict[str, str],
+    collected_targets: set[str],
+    circles: Iterable[str],
+) -> tuple[list[CircleReach], float]:
+    """候选在每个圈层的覆盖，以及它们的平均（综合分）。
+
+    与 ``aggregate`` 同一规则，只是「圈子」从预设换成了领域里的圈层。分子与
+    分母都只数**已采集关注网络**的目标人物：互动信号可能来自一位还没采关注
+    列表的人，把他算进分子却不算进分母，比例会超过 1。没有已采集目标人物的
+    圈层照常列出，但不进平均。
+    """
+    seen = set(target_ids) & collected_targets
+    reach = []
+    for cid in circles:
+        n = sum(1 for t in seen if circle_of_target.get(t) == cid)
+        total = sum(1 for t in collected_targets if circle_of_target.get(t) == cid)
+        reach.append(CircleReach(cid, n, total))
+    active = [r for r in reach if r.collected]
+    score = sum(r.share for r in active) / len(active) if active else 0.0
+    return reach, score

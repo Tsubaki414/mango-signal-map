@@ -38,6 +38,8 @@ COUNT_FIELDS = (
     "weight", "pct", "fit", "bandLevel",   # 评分与分项，不是金额
     # /api/personas/ranking：名次、关注人数与圈层覆盖。rank 50、60 实测撞上成本。
     "rank", "score", "share", "targetsFollowing", "circlesReached", "collected", "targets",
+    # /api/candidates 的跨圈层覆盖与发现池漏斗。unclassified 1105 实测撞上成本。
+    "coverageScore", "passedSignal", "nonBuyable", "unclassified",
 )
 
 
@@ -67,8 +69,11 @@ def all_payloads() -> dict[str, object]:
             "/api/targets?group=ai",
             "/api/candidates?group=ai&limit=60",
             "/api/candidates?group=crypto&limit=40",
+            "/api/candidates?group=ai&limit=60&rank=coverage&focus=founders,researchers",
             "/api/personas",
+            # 旧 id 与当前 id 都要能扫到：旧 id 是对外承诺过的接口。
             "/api/personas/ranking?personas=overseas_vc,industry_titans&limit=60",
+            "/api/personas/ranking?personas=tier1_vc,exchanges,retail_brokerages&limit=60",
         )
     }
     out["/api/discover"] = client.post("/api/discover", json={"group": "ai"}).json()
@@ -494,3 +499,43 @@ def test_pool_funnel_separates_unclassified_from_non_buyable():
     pool = body["pool"]
     assert set(pool) == {"passedSignal", "nonBuyable", "unclassified"}
     assert pool["passedSignal"] >= pool["nonBuyable"] + pool["unclassified"]
+
+
+def test_coverage_rank_only_reorders():
+    """跨圈层覆盖和重点圈层一样：只改组内顺序，数量与分块不变。"""
+    base = client.get("/api/candidates?group=ai&limit=60").json()
+    cov = client.get("/api/candidates?group=ai&limit=60&rank=coverage").json()
+    assert cov["counts"] == base["counts"]
+    assert cov["ranking"]["mode"] == "coverage"
+    # 分块仍然是「匹配在前、已报价在前」，组内按综合分降序。
+    blocks: dict[tuple, list[float]] = {}
+    for item in cov["items"]:
+        blocks.setdefault((item["relevance"], item["source"]), []).append(item["coverageScore"])
+    for scores in blocks.values():
+        assert scores == sorted(scores, reverse=True)
+    assert client.get("/api/candidates?group=ai&rank=bogus").status_code == 422
+
+
+def test_coverage_score_is_the_mean_of_its_parts():
+    """综合分不单独出现：它必须等于 reach 里参与平均的那几格的平均。"""
+    body = client.get(
+        "/api/candidates?group=ai&limit=60&rank=coverage&focus=founders,researchers"
+    ).json()
+    scope = [c["id"] for c in body["ranking"]["circles"]]
+    assert scope == ["founders", "researchers"]
+    for item in body["items"]:
+        assert [r["circle"] for r in item["reach"]] == scope
+        active = [r for r in item["reach"] if r["collected"]]
+        for r in item["reach"]:
+            assert 0 <= r["count"] <= r["collected"] or r["collected"] == 0
+        if active:
+            mean = sum(r["count"] / r["collected"] for r in active) / len(active)
+            assert item["coverageScore"] == pytest.approx(mean, abs=1e-4)
+
+
+def test_groups_carry_presets_inside_their_domain():
+    for g in client.get("/api/groups").json():
+        circle_ids = {c["id"] for c in g["circles"]}
+        for p in g["presets"]:
+            assert set(p["circles"]) <= circle_ids, p["id"]
+            assert 1 <= len(p["circles"]) <= 3

@@ -40,7 +40,7 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
   "audience_types":  ["developers", "founders"],// 圈层
   "platforms":       ["X", "YouTube"],
   "target_handles":  ["karpathy", "sama", "pmarca"],  // 具体目标人物
-  "personas":        ["overseas_vc", "binance_circle"], // 人群预设，展开后与 target_handles 合并
+  "personas":        ["tier1_vc", "exchanges"], // 圈层预设（旧 id 照收），展开后与 target_handles 合并
   "exclude_handles": ["pmarca"],                // 在展开名单里勾掉的人，优先级最高
 
   "total_budget_usd": 30000,                    // 只影响「有报价」那一块
@@ -83,9 +83,9 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
   },
 
   "collection_gaps": [ /* 还缺哪些采集 */ ],
-  "persona_selection": {               // 预设展开结果：每位目标人物归哪几个预设
-    "personas": [{"id": "overseas_vc", "label": "海外 VC"}],
-    "membership": {"cdixon": ["overseas_vc"], "sama": ["custom"]},
+  "persona_selection": {               // 预设展开结果：每位目标人物归哪几个预设（当前 id）
+    "personas": [{"id": "tier1_vc", "label": "海外一线 VC"}],
+    "membership": {"pmarca": ["tier1_vc"], "sama": ["custom"]},
     "excluded": ["pmarca"]
   },
   "aggregate_ranking": { ... },        // 跨圈层综合排名，见下；没选目标人物时为 null
@@ -93,33 +93,49 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
 }
 ```
 
-### 人群预设与综合排名
+### 目标圈层预设与综合排名
 
-「请批量选择你的社工对象」：客户先选一个或几个人群预设（海外 VC、Target
-Coinbase、Binance / CZ & 何一圈……），每个预设展开成一组目标人物，再逐个勾掉。
-预设定义在 `config/signal_map_personas.json`，这份文件是给人改的。
+预设是客户面「目标圈层」一步的**快速选择**：一个预设 = 同一领域内的一组圈层，
+成员就是这些圈层里的目标人物。定义在 `config/signal_map_circles.json` 的
+`presets`，成员在同一文件的 `targets` —— 一个人只有一处定义，圈层卡与预设
+不会分叉。这份文件是给人改的。
+
+| 领域 | 预设 id | 名称 | 圈层 | 旧 id（仍被接受） |
+|---|---|---|---|---|
+| ai | `tier1_vc` | 海外一线 VC | `vc` | `overseas_vc` |
+| ai | `industry_leaders` | 行业领袖 | `founders` + `researchers` | `industry_titans` |
+| crypto | `exchanges` | 交易所生态 | `exchanges` | `target_coinbase`, `binance_circle` |
+| finance | `retail_brokerages` | 券商 / 零售交易平台 | `brokerages` | `target_robinhood` |
+
+旧 id 解析到当前 id；两个旧 id 指向同一个预设时只展开一次。注意旧 id 的成员
+现在跟随圈层配置：`overseas_vc` 原先混有加密基金合伙人，他们已归入 crypto 的
+`cvc` 圈层；`target_coinbase` 与 `binance_circle` 合并为「交易所生态」。
 
 合并顺序：`personas` 按顺序展开 → 追加 `target_handles` → 减去 `exclude_handles`。
 同一个人出现在几个预设里只算一位目标人物，但几个预设都记上；只来自
 `target_handles` 的人归到虚拟预设 `custom`（自选目标人物）。未知预设 id → `422`。
 
-**`GET /api/internal/bd/personas`** 返回每位成员的 `source`（`circles_config` /
-`root_seeds` / `candidate_list` / `observed_bio` / `manual`，按证据强度递减）、
-`basis`（`observed_bio` 引用的简介原文）、`needs_review`、`resolved`（观察层是否
-收录）、`collected` / `follow_edges`、`review_status`，以及每个预设的覆盖计数。
+**`GET /api/internal/bd/personas`** 返回每个预设的 `group` / `circles` / `aliases`，
+每位成员的 `circle`、`source`（`circles_config` / `root_seeds` / `candidate_list` /
+`observed_bio` / `manual`，按证据强度递减；不写即 `circles_config`，表示最初的
+圈层配置）、`basis`（`observed_bio` 引用的简介原文）、`needs_review`、`resolved`
+（观察层是否收录）、`collected` / `follow_edges`、`review_status`，以及覆盖计数。
 
 - `needs_review: true` 的成员**必须人工核实**（身份、是否仍在任、handle 是否正确）
   后再改成 `false`。`source: manual` 一律视为待核实，配置里写 `false` 也不算数 ——
-  没有依据的名字不能靠改一个布尔值变成「已核实」。
+  没有依据的名字不能靠改一个布尔值变成「已核实」。客户面 `/api/targets` 同样下发
+  `needsReview`，圈层卡上标「待核实」。
 - 所有成员都是**提案**，不是已确认 Root；落库状态以 `x_accounts.root_review_status`
   为准。
 - 只收个人账号。机构官方号的关注列表多为运营性质，会把排名拉向官方合作方。
+- 补进圈层的成员同时进入「目标人物不进候选池」的排除集合（跨领域），也进入部署
+  种子库的关注边保留范围。
 
 `aggregate_ranking`：
 
 ```jsonc
 {
-  "personas": [{"id": "overseas_vc", "label": "海外 VC", "targets": 15, "collected": 4, "in_score": true}],
+  "personas": [{"id": "tier1_vc", "label": "海外一线 VC", "targets": 12, "collected": 4, "in_score": true}],
   "unresolved_targets": ["..."],        // 观察层里根本没有
   "uncollected_targets": ["..."],       // 已收录，但还没采关注网络
   "pool_size": 0, "returned": 0,        // 进榜总数 · 本次返回数
@@ -127,16 +143,16 @@ Coinbase、Binance / CZ & 何一圈……），每个预设展开成一组目标
     "rank": 1, "handle": "litcapital", "rest_id": "...", "display_name": "litquidity",
     "followers": 1669766, "object_kind": "creator",
     "score": 1.0, "targets_following": 4, "circles_reached": 1,
-    "followed_by": ["cdixon", "eladgil", "saranormous", "venturetwins"],
-    "by_persona": [{"persona": "overseas_vc", "label": "海外 VC", "count": 4,
+    "followed_by": ["eladgil", "pmarca", "saranormous", "venturetwins"],
+    "by_persona": [{"persona": "tier1_vc", "label": "海外一线 VC", "count": 4,
                     "collected": 4, "share": 1.0, "followed_by": ["..."]}]
   }],
   "note": "..."
 }
 ```
 
-**归一规则。** 直接数关注人数，人多的圈子会压倒一切 —— 海外 VC 16 人、Binance
-圈 4 人，只被 VC 圈 5 人关注的账号会排在被 Binance 圈 4 人**全部**关注的账号前面。
+**归一规则。** 直接数关注人数，人多的圈子会压倒一切 —— 一个圈子 16 人、另一个
+4 人，只被前者 5 人关注的账号会排在被后者 4 人**全部**关注的账号前面。
 所以每个预设先算 `share` =「本圈**已采集**目标人物里关注它的比例」，`score` 是各圈
 `share` 的**平均**，每圈权重相同。只有同时进入多个圈子才能拿高分，这就是「跨圈层」。
 并列时依次按覆盖圈数、关注人数、粉丝数排序。
@@ -148,7 +164,9 @@ Coinbase、Binance / CZ & 何一圈……），每个预设展开成一组目标
   `aggregate_include_non_buyable: true` 看全量。
 - 这是**关注信号的覆盖度**（路径 3），不是曝光概率，不是背书，不是匹配度。
 
-客户面同源接口是 `GET /api/personas` 与 `GET /api/personas/ranking`（见
+客户面在产品流程里用的是同一规则的圈层版：`GET /api/candidates?rank=coverage`
+在「推荐名单」一步按跨圈层覆盖排组内顺序，每张卡带逐圈层的 `reach`。按预设
+展开的同源接口 `GET /api/personas` 与 `GET /api/personas/ranking` 保留（见
 [API.md](API.md)），逐字段白名单，不下发来源依据与身份判定；池子收紧为已报价 +
 已判定可投放，且客户只能勾掉人、不能加任意 handle。
 
@@ -305,7 +323,7 @@ Coinbase、Binance / CZ & 何一圈……），每个预设展开成一组目标
 | 方法 | 路径 | 作用 |
 |---|---|---|
 | `GET`   | `/options` | 全部词表 + 可选目标人物（已确认 Root / 未确认候选**分开返回**） |
-| `GET`   | `/personas` | 人群预设与成员，带来源、依据、采集状态（见下） |
+| `GET`   | `/personas` | 圈层预设与成员，带来源、依据、采集状态（见上） |
 | `GET`   | `/candidates/{platform}/{handle}` | 单个候选，偏好走 query string（详情页要能分享成链接） |
 | `PATCH` | `/candidates/{platform}/{handle}` | 跟进状态、负责人、身份判定、下一步 |
 | `POST`  | `/candidates/{platform}/{handle}/commercial-signals` | 记录一条商业证据 |
@@ -340,7 +358,7 @@ POST /candidates/X/somekol/quotes
 
 ## 外部名单：待核验输入，不参与判断
 
-老板给的 sample、建联工作表由
+外部提供的样例名单、建联工作表由
 [ingest_bd_candidates.py](../scripts/ingest_bd_candidates.py) 入库。它们**不构成
 候选池** —— 池子每次现算。名单只做两件事：接到已有身份记录上（去重），以及把
 自己的说法原样存下来。

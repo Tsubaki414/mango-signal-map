@@ -34,7 +34,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from . import personas as personas_mod
+from . import presets as presets_mod
 from . import v3_catalog as catalog
 from . import v3_scoring as scoring
 from .bd_models import BDCandidate, CommercialSignal
@@ -302,6 +302,9 @@ def groups(session: Session = Depends(session_dependency)) -> list[dict[str, Any
     每个圈层附 ``coverage``：该圈层有几位目标人物、其中几位**已采集到关注边**。
     采集为 0 的圈层前端要显示「当前未观察到」，而不是一个空列表 —— 空列表会被
     读成「这个圈层没人」，那是两回事。
+
+    ``presets`` 是目标圈层一步里的「快速选择」：一个预设 = 本领域内的一组圈层，
+    点选即把它们设为本轮重点（只重排、不过滤）。``coverage`` 同样按成员计。
     """
     out = []
     for g in catalog.load_config():
@@ -330,6 +333,22 @@ def groups(session: Session = Depends(session_dependency)) -> list[dict[str, Any
                         },
                     }
                     for c in g.circles
+                ],
+                "presets": [
+                    {
+                        "id": p.id,
+                        "label": p.label,
+                        "desc": p.desc,
+                        "why": p.why,
+                        "circles": list(p.circles),
+                        "coverage": {
+                            "targets": sum(len(by_circle.get(c, [])) for c in p.circles),
+                            "collected": sum(
+                                1 for c in p.circles for t in by_circle.get(c, []) if t.collected
+                            ),
+                        },
+                    }
+                    for p in catalog.presets_for(g.id)
                 ],
             }
         )
@@ -366,6 +385,9 @@ def targets(
                 "collected": t.collected,
                 # 复核状态。当前全库 pending —— 没有任何目标人物经人工确认。
                 "reviewed": t.review_status == "accepted",
+                # 身份本身待核实（人工补充、库里没有依据）。和 reviewed 是两件事：
+                # reviewed 说的是 Root 复核，这里说的是「这个人是不是我们以为的那个人」。
+                "needsReview": d.needs_review,
             }
         )
     return out
@@ -500,6 +522,11 @@ def candidates(
     domains: str | None = Query(None),
     audiences: str | None = Query(None),
     focus: str | None = Query(None, description="重点圈层 id，逗号分隔，最多 3 个"),
+    rank: str = Query(
+        "connection",
+        pattern="^(connection|coverage)$",
+        description="组内排序：connection = 连接权重（默认）；coverage = 跨圈层覆盖",
+    ),
     limit: int = Query(120, le=400, description="返回多少条（排序后截断），不是发现池大小"),
     session: Session = Depends(session_dependency),
 ) -> dict[str, Any]:
@@ -507,6 +534,10 @@ def candidates(
 
     刻意**不接受** ``targetIds`` 过滤。早期版本让客户勾目标人物，每勾一个名单就
     收窄（26 → 4），客户越参与结果越少。重点圈层只改排序，数量永不下降。
+
+    ``rank=coverage`` 同样只改**组内**顺序：按「各圈层已采集目标人物里关注他的
+    比例」的平均排（每个圈层权重相同，见 ``presets.circle_reach``）。有重点圈层时
+    只平均重点圈层，否则平均全部圈层。每条都带 ``reach`` 分项，综合分不单独出现。
     """
     if catalog.group_by_id(group) is None:
         raise HTTPException(status_code=404, detail="未找到该领域")
@@ -686,6 +717,14 @@ def candidates(
     labels = _labels()
     focus_set = set(_csv(focus)[:3])
 
+    # 跨圈层覆盖：重点圈层优先，否则全部圈层。分子分母都只数已采集的目标人物。
+    group_def = catalog.group_by_id(group)
+    circle_labels = {c.id: c.label for c in group_def.circles}
+    collected_targets = {t.definition.id for t in resolved if t.collected}
+    scope = [c.id for c in group_def.circles if c.id in focus_set] or [
+        c.id for c in group_def.circles
+    ]
+
     # 配置外的已观察账号：它关注了这个候选。是**证据**，不是画像 ——
     # 不参与圈层归属，也不进路径图。
     observed_extra = catalog.other_signals(
@@ -737,6 +776,18 @@ def candidates(
                 for o in by_item_id.get(item["id"], [])
             ],
         }
+        reach, coverage_score = presets_mod.circle_reach(
+            (e["targetId"] for e in item["edges"]), circle_of_target, collected_targets, scope,
+        )
+        item |= {
+            # 综合分**永远和 reach 一起显示**：它只是这几格比例的平均。
+            "coverageScore": round(coverage_score, 4),
+            "reach": [
+                {"circle": r.circle, "label": circle_labels.get(r.circle, r.circle),
+                 "count": r.count, "collected": r.collected, "share": round(r.share, 4)}
+                for r in reach
+            ],
+        }
 
     for item in kept:
         item["relevance"] = relevance_of(item)
@@ -749,10 +800,14 @@ def candidates(
     #
     # 这是有意偏离「排序主依据是连接」：连接强度仍然决定**组内**顺序，
     # 但「现在就能买」是比「连接更强」更前置的一件事。
+    #
+    # rank=coverage 只换掉组内的第一排序键，分块（匹配 / 已报价在前）不变。
+    by_coverage = rank == "coverage"
     kept.sort(
         key=lambda i: (
             0 if i["relevance"] == "matched" else 1,
             0 if i["source"] == "priced" else 1,
+            -i["coverageScore"] if by_coverage else 0,
             -_sort_key(i, circle_of_target, focus_set),
             -i["fit"],
             -len(i["edges"]),
@@ -799,6 +854,17 @@ def candidates(
             "targets": len(resolved),
             "collected": sum(1 for t in resolved if t.collected),
             "reviewed": sum(1 for t in resolved if t.review_status == "accepted"),
+        },
+        # 跨圈层覆盖的口径：参与平均的圈层，以及一个都没采过、不进平均的圈层。
+        "ranking": {
+            "mode": rank,
+            "circles": [
+                {"id": cid, "label": circle_labels.get(cid, cid),
+                 "collected": sum(1 for t in collected_targets if circle_of_target.get(t) == cid),
+                 "inScore": any(circle_of_target.get(t) == cid for t in collected_targets)}
+                for cid in scope
+            ],
+            "note": presets_mod.COVERAGE_NOTE_ZH,
         },
         "items": kept,
     }
@@ -1021,8 +1087,12 @@ def add_wanted(
 
 
 # --------------------------------------------------------------------------
-# 人群预设（persona）与跨圈层综合排名
+# 目标圈层预设与跨圈层综合排名（独立接口）
 # --------------------------------------------------------------------------
+#
+# 产品流程里，预设已经是「目标圈层」一步的快速选择（见 ``/api/groups`` 的
+# ``presets``），跨圈层覆盖已经在 ``/api/candidates?rank=coverage`` 里。这两个
+# 接口保留给按预设展开、跨领域合并的调用方，旧的预设 id 照收。
 #
 # 客户面版本。和 ``/api/internal/bd/personas`` 用同一份配置、同一套排名代码，
 # 但**逐字段白名单**：不下发成员来源依据、内部复核状态、身份判定。
@@ -1034,9 +1104,9 @@ def add_wanted(
 
 @router.get("/personas")
 def list_personas(session: Session = Depends(session_dependency)) -> list[dict[str, Any]]:
-    """人群预设与展开后的目标人物。``needsReview`` 的人在界面上标「待核实」。"""
-    defs = personas_mod.load_personas()
-    status = personas_mod.member_status(
+    """圈层预设与展开后的目标人物。``needsReview`` 的人在界面上标「待核实」。"""
+    defs = presets_mod.load_personas()
+    status = presets_mod.member_status(
         session, [m.handle for p in defs for m in p.members]
     )
     out = []
@@ -1048,12 +1118,14 @@ def list_personas(session: Session = Depends(session_dependency)) -> list[dict[s
                 "handle": f"@{m.handle}",
                 "name": m.name,
                 "role": m.role,
+                "circle": m.circle,
                 "avatarUrl": f"https://unavatar.io/x/{m.handle}",
                 "needsReview": m.needs_review,
                 "collected": edges > 0,
             })
         out.append({
             "id": p.id, "label": p.label, "desc": p.desc, "why": p.why,
+            "group": p.group, "circles": list(p.circles),
             "members": members,
         })
     return out
@@ -1061,7 +1133,7 @@ def list_personas(session: Session = Depends(session_dependency)) -> list[dict[s
 
 @router.get("/personas/ranking")
 def persona_ranking(
-    personas: str = Query(..., description="人群预设 id，逗号分隔"),
+    personas: str = Query(..., description="圈层预设 id，逗号分隔（旧 id 照收）"),
     exclude: str | None = Query(None, description="手动勾掉的目标人物 handle，逗号分隔"),
     limit: int = Query(50, ge=1, le=200),
     session: Session = Depends(session_dependency),
@@ -1071,9 +1143,9 @@ def persona_ranking(
     池子边界与 ``/api/candidates`` 的两侧一致：已报价创作者 + 已判定可投放的
     发现账号。未判定的账号不进客户面（理由见 ``catalog.discovered_pool``）。
     """
-    selection = personas_mod.expand(_csv(personas), (), _csv(exclude))
+    selection = presets_mod.expand(_csv(personas), (), _csv(exclude))
     if selection.unknown_personas:
-        raise HTTPException(status_code=404, detail="未找到该人群预设")
+        raise HTTPException(status_code=404, detail="未找到该圈层预设")
 
     priced_uids = set(
         session.scalars(
@@ -1099,7 +1171,7 @@ def persona_ranking(
         return kind_by_handle.get((account.handle or "").lower()) in catalog.BUYABLE_KINDS
 
     blocked = {t.handle for t in catalog.load_targets()} | set(catalog.excluded_handles())
-    result = personas_mod.aggregate(
+    result = presets_mod.aggregate(
         session, selection, limit=limit, keep=keep, exclude_handles=blocked,
     )
     items = []
@@ -1129,10 +1201,10 @@ def persona_ranking(
         "personas": [
             {"id": c["id"], "label": c["label"], "targets": c["targets"],
              "collected": c["collected"], "inScore": c["in_score"]}
-            for c in personas_mod.coverage_dicts(result)
+            for c in presets_mod.coverage_dicts(result)
         ],
         "uncollected": [f"@{h}" for h in result.uncollected + result.unresolved],
         "counts": {"poolTotal": result.pool_size, "total": len(items)},
         "items": items,
-        "note": personas_mod.AGGREGATE_NOTE_ZH,
+        "note": presets_mod.AGGREGATE_NOTE_ZH,
     }

@@ -22,6 +22,8 @@ type Props = {
   /** 换一个：同圈层的次优人选。没有替代时不显示按钮，不给死路。 */
   onSwap?: () => void;
   swapLabel?: string | null;
+  /** 按跨圈层覆盖排序时，显示逐圈层的分子 / 分母。 */
+  showReach?: boolean;
 };
 
 /** 粉丝量缩写。分量靠这个数字传达，所以不能省。 */
@@ -32,7 +34,7 @@ function fmtFollowers(n: number): string {
 }
 
 export function CandidateCard({
-  item, kept, format, onKeep, onRemove, onFormat, onSwap, swapLabel,
+  item, kept, format, onKeep, onRemove, onFormat, onSwap, swapLabel, showReach,
 }: Props) {
   const [open, setOpen] = useState(false);
 
@@ -108,6 +110,22 @@ export function CandidateCard({
                 <span className={styles.otherFollowers}>{fmtFollowers(o.followers)}</span>
               )}
               {o.interactions > 0 && <span className={styles.otherHot}>互动</span>}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* 跨圈层覆盖：排序依据必须和它的分项同屏。分母是该圈层已采集关注网络的
+          目标人物数；为 0 时写「未采集」，不写「0/0」—— 那读起来像「没人关注」。 */}
+      {showReach && item.reach.length > 0 && (
+        <div className={styles.others}>
+          <span className={styles.othersTag}>圈层覆盖</span>
+          {item.reach.map((r) => (
+            <span key={r.circle} className={styles.other}>
+              {r.label}
+              <span className={styles.otherFollowers}>
+                {r.collected ? `${r.count}/${r.collected}` : "未采集"}
+              </span>
             </span>
           ))}
         </div>

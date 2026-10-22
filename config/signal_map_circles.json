@@ -10,7 +10,20 @@
     "所以任何目标人物在客户端都必须以「未核验」呈现。",
     "",
     "config/root_seeds.json 是 Mango 自己的 crypto/finance 种子提案，圈层划分与",
-    "这里不同（三层 vs 四层），尚未合并 —— 合并前不要假设两者的 circle id 可互换。"
+    "这里不同（三层 vs 四层），尚未合并 —— 合并前不要假设两者的 circle id 可互换。",
+    "",
+    "presets 是目标圈层一步里的「快速选择」：一个预设 = 同一领域内的一组圈层，",
+    "点选即把这些圈层设为本轮重点（与「设为本轮重点」同一机制：只重排、不过滤）。",
+    "aliases 是旧的预设 id，接口仍然接受，解析到当前 id。",
+    "",
+    "targets 里带 source 的成员是后来补进来的，source 说明它为什么在这里（按证据强度递减）：",
+    "  root_seeds     —— 已在 config/root_seeds.json 的种子提案里",
+    "  candidate_list —— 已在 signal_map/docs/目标人物候选_待勾选.md 里",
+    "  observed_bio   —— 账号已在观察层 x_accounts 中，公开简介直接写明了该机构（basis 原样引用）",
+    "  manual         —— 编写者凭行业常识加入，库里没有任何依据；一律待核实",
+    "不带 source 的是最初的圈层配置。needs_review=true 的成员必须人工核实",
+    "（身份、是否仍在任、handle 是否正确）后再改成 false；manual 写 false 也不算数。",
+    "只收个人账号：机构官方号的关注列表多为运营性质，会把排名拉向官方合作方。"
   ],
   "groups": [
     {
@@ -114,6 +127,13 @@
         "value": "中文市场",
         "who": "中文市场的信息入口，扩散主要靠转载与社群，而不是单条曝光。",
         "pick": "优先挑中文原生的媒体与研究账号，能承接专访与转载。"
+      },
+      {
+        "id": "exchanges",
+        "label": "交易所生态",
+        "value": "上所与生态扶持",
+        "who": "上币、生态扶持与流量入口的判断在这一层形成。交易所与公链生态的负责人看见之后，推进往往走私下渠道。",
+        "pick": "优先挑他们长期在看的研究号、链上数据与生态媒体，排除喊单与短期热点号。"
       }
     ],
     "finance": [
@@ -144,6 +164,13 @@
         "value": "BD 与合作",
         "who": "渠道与合作的决策层。公开内容在这里只用于建立认知，推进在私下。",
         "pick": "优先挑行业媒体与机构侧栏目，为后续 BD 铺垫。"
+      },
+      {
+        "id": "brokerages",
+        "label": "券商 / 零售交易平台",
+        "value": "零售入口",
+        "who": "美股散户与加密零售的入口。上架与产品合作的判断在这群人手里。",
+        "pick": "优先挑面向零售投资者、做产品与市场解读的账号，而不是行业资讯号。"
       }
     ]
   },
@@ -1144,6 +1171,483 @@
       "why": "CNBC 主播。被 6 位现有目标人物关注。",
       "markets": [],
       "audiences": []
+    },
+    {
+      "id": "t_eriktorenberg",
+      "name": "Erik Torenberg",
+      "handle": "eriktorenberg",
+      "role": "a16z GP",
+      "circle": "vc",
+      "group": "ai",
+      "why": "公开简介写明「General Partner @a16z」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "General Partner @a16z"
+    },
+    {
+      "id": "t_ktmboyle",
+      "name": "Katherine Boyle",
+      "handle": "KTmBoyle",
+      "role": "a16z GP · American Dynamism",
+      "circle": "vc",
+      "group": "ai",
+      "why": "公开简介写明「General Partner @a16z」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "General Partner @a16z"
+    },
+    {
+      "id": "t_davidu",
+      "name": "David Ulevitch",
+      "handle": "davidu",
+      "role": "a16z GP",
+      "circle": "vc",
+      "group": "ai",
+      "why": "公开简介写明「GP @a16z」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "GP @a16z"
+    },
+    {
+      "id": "t_martin_casado",
+      "name": "Martin Casado",
+      "handle": "martin_casado",
+      "role": "a16z GP",
+      "circle": "vc",
+      "group": "ai",
+      "why": "公开简介写明「@ a16z」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "@ a16z"
+    },
+    {
+      "id": "t_benhorowitz",
+      "name": "Ben Horowitz",
+      "handle": "bhorowitz",
+      "role": "a16z 联合创始人",
+      "circle": "vc",
+      "group": "ai",
+      "why": "人工补充，身份与 handle 待核实。",
+      "markets": [],
+      "audiences": [],
+      "source": "manual",
+      "needs_review": true
+    },
+    {
+      "id": "t_davidsacks",
+      "name": "David Sacks",
+      "handle": "DavidSacks",
+      "role": "Craft Ventures",
+      "circle": "vc",
+      "group": "ai",
+      "why": "已在目标人物候选名单中。",
+      "markets": [],
+      "audiences": [],
+      "source": "candidate_list"
+    },
+    {
+      "id": "t_garrytan",
+      "name": "Garry Tan",
+      "handle": "garrytan",
+      "role": "Y Combinator CEO",
+      "circle": "vc",
+      "group": "ai",
+      "why": "已在目标人物候选名单中。",
+      "markets": [],
+      "audiences": [],
+      "source": "candidate_list"
+    },
+    {
+      "id": "t_aravsrinivas",
+      "name": "Aravind Srinivas",
+      "handle": "AravSrinivas",
+      "role": "Perplexity CEO",
+      "circle": "founders",
+      "group": "ai",
+      "why": "已在目标人物候选名单中。",
+      "markets": [],
+      "audiences": [],
+      "source": "candidate_list"
+    },
+    {
+      "id": "t_clementdelangue",
+      "name": "Clem Delangue",
+      "handle": "ClementDelangue",
+      "role": "Hugging Face CEO",
+      "circle": "founders",
+      "group": "ai",
+      "why": "已在目标人物候选名单中。",
+      "markets": [],
+      "audiences": [],
+      "source": "candidate_list"
+    },
+    {
+      "id": "t_demishassabis",
+      "name": "Demis Hassabis",
+      "handle": "demishassabis",
+      "role": "Google DeepMind CEO",
+      "circle": "researchers",
+      "group": "ai",
+      "why": "人工补充，身份与 handle 待核实。",
+      "markets": [],
+      "audiences": [],
+      "source": "manual",
+      "needs_review": true
+    },
+    {
+      "id": "t_alive",
+      "name": "Ali Yahya",
+      "handle": "alive_",
+      "role": "a16z crypto GP",
+      "circle": "cvc",
+      "group": "crypto",
+      "why": "公开简介写明「GP @a16z crypto」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "GP @a16z crypto"
+    },
+    {
+      "id": "t_arjunblj",
+      "name": "Arjun Balaji",
+      "handle": "arjunblj",
+      "role": "Variant",
+      "circle": "cvc",
+      "group": "crypto",
+      "why": "已在 Root 种子提案中。",
+      "markets": [],
+      "audiences": [],
+      "source": "root_seeds"
+    },
+    {
+      "id": "t_brian_armstrong",
+      "name": "Brian Armstrong",
+      "handle": "brian_armstrong",
+      "role": "Coinbase CEO",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "已在 Root 种子提案中。",
+      "markets": [],
+      "audiences": [],
+      "source": "root_seeds"
+    },
+    {
+      "id": "t_jessepollak",
+      "name": "Jesse Pollak",
+      "handle": "jessepollak",
+      "role": "Base 负责人",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「@base builder #001」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "@base builder #001"
+    },
+    {
+      "id": "t_zosegal",
+      "name": "zosegal",
+      "handle": "zosegal",
+      "role": "Coinbase Listings",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Listings @Coinbase」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Listings @Coinbase"
+    },
+    {
+      "id": "t_viktorbunin",
+      "name": "Viktor Bunin",
+      "handle": "ViktorBunin",
+      "role": "Coinbase Protocol Specialist",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「OG Protocol Specialist at @Coinbase」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "OG Protocol Specialist at @Coinbase"
+    },
+    {
+      "id": "t_yugacohler",
+      "name": "Yuga Cohler",
+      "handle": "yugacohler",
+      "role": "Coinbase Developer Platform 工程负责人",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Head of Engineering @CoinbaseDev」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Head of Engineering @CoinbaseDev"
+    },
+    {
+      "id": "t_antoniogm",
+      "name": "Antonio García Martínez",
+      "handle": "antoniogm",
+      "role": "Base growth",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Director, @base growth」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Director, @base growth"
+    },
+    {
+      "id": "t_0xrwu",
+      "name": "0xrwu",
+      "handle": "0xrwu",
+      "role": "Coinbase 链上交易",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Building onchain trading @coinbase」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Building onchain trading @coinbase"
+    },
+    {
+      "id": "t_alexonchain",
+      "name": "AlexOnchain",
+      "handle": "AlexOnchain",
+      "role": "Coinbase 社媒",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「running socials @coinbase」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "running socials @coinbase"
+    },
+    {
+      "id": "t_katie_haun",
+      "name": "Katie Haun",
+      "handle": "katie_haun",
+      "role": "Haun Ventures · 前 Coinbase 董事",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Alum @Coinbase Board」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Alum @Coinbase Board"
+    },
+    {
+      "id": "t_lindaxie",
+      "name": "Linda Xie",
+      "handle": "lindaxie",
+      "role": "早期 Coinbase",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "已在目标人物候选名单中。",
+      "markets": [],
+      "audiences": [],
+      "source": "candidate_list"
+    },
+    {
+      "id": "t_paulgrewal",
+      "name": "Paul Grewal",
+      "handle": "paulgrewal",
+      "role": "Coinbase 首席法务官",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "人工补充，身份与 handle 待核实。",
+      "markets": [],
+      "audiences": [],
+      "source": "manual",
+      "needs_review": true
+    },
+    {
+      "id": "t_emilie_choi",
+      "name": "Emilie Choi",
+      "handle": "emilie_choi",
+      "role": "Coinbase 总裁兼 COO",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "人工补充，身份与 handle 待核实。",
+      "markets": [],
+      "audiences": [],
+      "source": "manual",
+      "needs_review": true
+    },
+    {
+      "id": "t_cz_binance",
+      "name": "CZ",
+      "handle": "cz_binance",
+      "role": "币安创始人",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "已在 Root 种子提案中。",
+      "markets": [],
+      "audiences": [],
+      "source": "root_seeds"
+    },
+    {
+      "id": "t_heyibinance",
+      "name": "Yi He",
+      "handle": "heyibinance",
+      "role": "币安联合创始人",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Co-Founder & Chief Customer Service Officer @Binance」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Co-Founder & Chief Customer Service Officer @Binance"
+    },
+    {
+      "id": "t_richardteng",
+      "name": "Richard Teng",
+      "handle": "_RichardTeng",
+      "role": "币安联席 CEO",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「@Binance Co-CEO」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "@Binance Co-CEO"
+    },
+    {
+      "id": "t_dingalingts",
+      "name": "dingaling",
+      "handle": "dingalingts",
+      "role": "前币安研究负责人 · PancakeSwap 创始人",
+      "circle": "exchanges",
+      "group": "crypto",
+      "why": "公开简介写明「Previously; @binance Head of Research」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Previously; @binance Head of Research"
+    },
+    {
+      "id": "t_vladtenev",
+      "name": "Vlad Tenev",
+      "handle": "vladtenev",
+      "role": "Robinhood CEO",
+      "circle": "brokerages",
+      "group": "finance",
+      "why": "公开简介写明「CEO and Co-Founder @RobinhoodApp」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "CEO and Co-Founder @RobinhoodApp"
+    },
+    {
+      "id": "t_baijubhatt",
+      "name": "Baiju Bhatt",
+      "handle": "BaijuBhatt",
+      "role": "Robinhood 联合创始人",
+      "circle": "brokerages",
+      "group": "finance",
+      "why": "公开简介写明「@Robinhoodapp Co-Founder」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "@Robinhoodapp Co-Founder"
+    },
+    {
+      "id": "t_johannkerbrat",
+      "name": "Johann Kerbrat",
+      "handle": "JohannKerbrat",
+      "role": "Robinhood 国际与加密 GM",
+      "circle": "brokerages",
+      "group": "finance",
+      "why": "公开简介写明「SVP and GM of International & Crypto @ Robinhood」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "SVP and GM of International & Crypto @ Robinhood"
+    },
+    {
+      "id": "t_fern",
+      "name": "fern",
+      "handle": "fern",
+      "role": "Robinhood Crypto DeFi 产品负责人",
+      "circle": "brokerages",
+      "group": "finance",
+      "why": "公开简介写明「Head of Product, Defi @Robinhoodcrypto」。",
+      "markets": [],
+      "audiences": [],
+      "source": "observed_bio",
+      "basis": "Head of Product, Defi @Robinhoodcrypto"
+    },
+    {
+      "id": "t_howardlindzon",
+      "name": "Howard Lindzon",
+      "handle": "howardlindzon",
+      "role": "Social Leverage · Robinhood 早期投资人",
+      "circle": "brokerages",
+      "group": "finance",
+      "why": "人工补充，身份与 handle 待核实。",
+      "markets": [],
+      "audiences": [],
+      "source": "manual",
+      "needs_review": true
+    }
+  ],
+  "presets": [
+    {
+      "id": "tier1_vc",
+      "aliases": [
+        "overseas_vc"
+      ],
+      "group": "ai",
+      "label": "海外一线 VC",
+      "desc": "a16z、Conviction、YC 等一线基金的 GP 与合伙人",
+      "why": "被他们看到之后，常见的结果是一次 warm intro 或一通电话，而不是一次转发。",
+      "circles": [
+        "vc"
+      ]
+    },
+    {
+      "id": "industry_leaders",
+      "aliases": [
+        "industry_titans"
+      ],
+      "group": "ai",
+      "label": "行业领袖",
+      "desc": "AI 领域的头部创始人与研究者",
+      "why": "AI 圈公共议题的第一层声量在这里形成，技术圈认不认也看这群人。",
+      "circles": [
+        "founders",
+        "researchers"
+      ]
+    },
+    {
+      "id": "exchanges",
+      "aliases": [
+        "target_coinbase",
+        "binance_circle"
+      ],
+      "group": "crypto",
+      "label": "交易所生态",
+      "desc": "头部交易所与公链生态的创始人、高管与上币负责人",
+      "why": "上币与生态扶持的判断在这群人手里；他们的关注与互动也直接影响华语加密社区的注意力。",
+      "circles": [
+        "exchanges"
+      ]
+    },
+    {
+      "id": "retail_brokerages",
+      "aliases": [
+        "target_robinhood"
+      ],
+      "group": "finance",
+      "label": "券商 / 零售交易平台",
+      "desc": "零售券商的创始人与加密业务负责人",
+      "why": "美股散户与加密零售的入口；上架与产品合作的判断在这群人手里。",
+      "circles": [
+        "brokerages"
+      ]
     }
   ]
 }

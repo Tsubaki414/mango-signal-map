@@ -126,6 +126,42 @@ class TargetDef:
     why: str
     markets: tuple[str, ...]
     audiences: tuple[str, ...]
+    #: 补充成员的来源（见 ``TARGET_SOURCES``）。最初的圈层配置为 ``circles_config``。
+    source: str = "circles_config"
+    #: ``observed_bio`` 引用的简介原文。
+    basis: str | None = None
+    #: 必须人工核实后才能当作确定的目标人物。``manual`` 恒为 True。
+    needs_review: bool = False
+
+
+#: 目标人物的来源，按证据强度从高到低。``manual`` 是编写者凭常识加入，库里没有依据。
+TARGET_SOURCES = ("circles_config", "root_seeds", "candidate_list", "observed_bio", "manual")
+TARGET_SOURCE_LABELS_ZH = {
+    "circles_config": "最初的圈层配置",
+    "root_seeds": "已在 Root 种子提案中",
+    "candidate_list": "已在目标人物候选名单中",
+    "observed_bio": "公开简介写明所属机构",
+    "manual": "人工补充，待核实",
+}
+
+
+@dataclass(frozen=True)
+class PresetDef:
+    """目标圈层的「快速选择」：同一领域内的一组圈层。
+
+    选中一个预设 = 把这些圈层设为本轮重点，和逐个点「设为本轮重点」是同一
+    件事 —— 只重排、不过滤。成员不单独维护，就是这些圈层里的目标人物，所以
+    一个人只有一处定义，不会出现「圈层里有他、预设里没有」的分叉。
+    """
+
+    id: str
+    group: str
+    label: str
+    desc: str
+    why: str
+    circles: tuple[str, ...]
+    #: 旧的预设 id。接口仍然接受，解析到 ``id``。
+    aliases: tuple[str, ...] = ()
 
 
 @dataclass
@@ -220,19 +256,64 @@ def load_config(path: str | None = None) -> tuple[GroupDef, ...]:
 @lru_cache(maxsize=1)
 def load_targets(path: str | None = None) -> tuple[TargetDef, ...]:
     raw = json.loads(Path(path or CONFIG_PATH).read_text(encoding="utf-8"))
-    return tuple(
-        TargetDef(
-            id=t["id"],
-            name=t["name"],
-            handle=t["handle"],
-            role=t.get("role", ""),
-            group=t["group"],
-            circle=t["circle"],
-            why=t.get("why", ""),
-            markets=tuple(t.get("markets", ())),
-            audiences=tuple(t.get("audiences", ())),
+    out = []
+    for t in raw["targets"]:
+        source = t.get("source", "circles_config")
+        if source not in TARGET_SOURCES:
+            raise ValueError(f"target {t['id']}: 未知来源 {source!r}")
+        out.append(
+            TargetDef(
+                id=t["id"],
+                name=t["name"],
+                handle=t["handle"],
+                role=t.get("role", ""),
+                group=t["group"],
+                circle=t["circle"],
+                why=t.get("why", ""),
+                markets=tuple(t.get("markets", ())),
+                audiences=tuple(t.get("audiences", ())),
+                source=source,
+                basis=t.get("basis"),
+                # manual 一律待核实，配置里写 false 也不算数 —— 没有依据的
+                # 名字不能靠改一个布尔值就变成「已核实」。
+                needs_review=bool(t.get("needs_review")) or source == "manual",
+            )
         )
-        for t in raw["targets"]
+    return tuple(out)
+
+
+@lru_cache(maxsize=1)
+def load_presets(path: str | None = None) -> tuple[PresetDef, ...]:
+    raw = json.loads(Path(path or CONFIG_PATH).read_text(encoding="utf-8"))
+    return tuple(
+        PresetDef(
+            id=p["id"],
+            group=p["group"],
+            label=p["label"],
+            desc=p.get("desc", ""),
+            why=p.get("why", ""),
+            circles=tuple(p["circles"]),
+            aliases=tuple(p.get("aliases", ())),
+        )
+        for p in raw.get("presets", [])
+    )
+
+
+def preset_by_id(preset_id: str) -> PresetDef | None:
+    """按当前 id 或旧 id 查预设。"""
+    return next(
+        (p for p in load_presets() if preset_id == p.id or preset_id in p.aliases), None
+    )
+
+
+def presets_for(group_id: str) -> tuple[PresetDef, ...]:
+    return tuple(p for p in load_presets() if p.group == group_id)
+
+
+def preset_members(preset: PresetDef) -> tuple[TargetDef, ...]:
+    """预设成员 = 它那几个圈层里的目标人物，按配置顺序。"""
+    return tuple(
+        t for t in load_targets() if t.group == preset.group and t.circle in preset.circles
     )
 
 

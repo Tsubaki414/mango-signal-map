@@ -27,6 +27,33 @@
   max-width: 56em;
 }
 
+/* 快速选择。和圈层卡同一套按钮，只是横排在卡片之上 —— 它是「设为本轮重点」
+ * 的捷径，不是另一种操作，所以不给它新的视觉语言。 */
+.presets {
+  margin-top: 28px;
+  padding-left: 14px;
+  border-left: 2px solid var(--msm-accent);
+}
+
+.presetRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.presetBtn {
+  margin-top: 10px;
+}
+
+.presetMeta {
+  color: rgba(243, 241, 234, 0.5);
+}
+
+.focusBtnOn .presetMeta {
+  color: inherit;
+  opacity: 0.7;
+}
+
 .cards {
   margin-top: 32px;
   display: flex;

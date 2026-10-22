@@ -5,6 +5,8 @@ import {
   api,
   type CandidatesResponse,
   type Group,
+  type Preset,
+  type RankMode,
   type Target,
   type Taxonomy,
 } from "@/lib/api";
@@ -16,7 +18,6 @@ import { PrefsV3 } from "@/views/v3/PrefsV3";
 import { PrefGroups } from "@/views/v3/PrefGroups";
 import { TargetsV3 } from "@/views/v3/TargetsV3";
 import { WantedV3, type Wanted } from "@/views/v3/WantedV3";
-import { PersonasV3 } from "@/views/v3/PersonasV3";
 import { CandidatesV3, type Kept } from "@/views/v3/CandidatesV3";
 import { PersonPanel } from "@/views/v3/PersonPanel";
 import { ConfirmV3 } from "@/views/v3/ConfirmV3";
@@ -33,6 +34,7 @@ export default function Page() {
 
   const [prefs, setPrefs] = useState<SessionPrefs>({});
   const [focus, setFocus] = useState<string[]>([]);
+  const [rank, setRank] = useState<RankMode>("connection");
   const [kept, setKept] = useState<Kept[]>([]);
   const [custom, setCustom] = useState<Wanted[]>([]);
   const [focusNotice, setFocusNotice] = useState<string | null>(null);
@@ -82,6 +84,7 @@ export default function Page() {
         60,
         { markets: prefs.markets, domains: prefs.domains, audiences: prefs.audiences },
         focus,
+        rank,
       )
       .then((res) => {
         setCandidates((prev) => {
@@ -104,10 +107,14 @@ export default function Page() {
       })
       .catch((e) => setError(`读取候选失败：${e.message}`))
       .finally(() => setCandLoading(false));
-  }, [group, prefs.markets, prefs.domains, prefs.audiences, focus]);
+  }, [group, prefs.markets, prefs.domains, prefs.audiences, focus, rank]);
 
   const circles = useMemo(
     () => groups.find((g) => g.id === group)?.circles ?? [],
+    [groups, group],
+  );
+  const presets = useMemo(
+    () => groups.find((g) => g.id === group)?.presets ?? [],
     [groups, group],
   );
   const items = candidates?.items ?? [];
@@ -156,6 +163,17 @@ export default function Page() {
         next = [...cur, id];
         setFocusNotice(null);
       }
+      persist({ focus: next });
+      return next;
+    });
+  }
+
+  /** 快速选择 = 一次设好一组重点圈层。已是这组时再点一次取消。 */
+  function applyPreset(p: Preset) {
+    setFocusNotice(null);
+    setFocus((cur) => {
+      const same = cur.length === p.circles.length && p.circles.every((c) => cur.includes(c));
+      const next = same ? [] : p.circles.slice(0, MAX_FOCUS);
       persist({ focus: next });
       return next;
     });
@@ -275,17 +293,16 @@ export default function Page() {
             <TargetsV3
               circles={circles}
               targets={targets}
+              presets={presets}
               focus={focus}
               notice={focusNotice}
               onToggleFocus={toggleFocus}
+              onApplyPreset={applyPreset}
               onOpenPerson={setOpenPerson}
             >
               <WantedV3 custom={custom} onAdd={addWanted} />
             </TargetsV3>
           )}
-
-          {/* 人群预设与跨圈层综合排名：自成一块，不依赖领域选择，也不改动下面的候选名单。 */}
-          <PersonasV3 />
 
           {group && (
             <CandidatesV3
@@ -294,6 +311,8 @@ export default function Page() {
               circles={circles}
               targets={targets}
               focus={focus}
+              rank={rank}
+              onRank={setRank}
               kept={kept}
               onKeep={keep}
               onRemove={remove}

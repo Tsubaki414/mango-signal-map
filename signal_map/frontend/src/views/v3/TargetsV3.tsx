@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Circle, Target } from "@/lib/api";
+import type { Circle, Preset, Target } from "@/lib/api";
 import { Avatar } from "./Avatar";
 import styles from "./TargetsV3.module.css";
 
@@ -11,8 +11,11 @@ const SHOWN = 5;
 type Props = {
   circles: Circle[];
   targets: Target[];
+  presets: Preset[];
   focus: string[];
   onToggleFocus: (id: string) => void;
+  /** 快速选择：一次把一组圈层设为本轮重点（再点一次取消）。 */
+  onApplyPreset: (p: Preset) => void;
   onOpenPerson: (t: Target) => void;
   notice?: string | null;
   children?: React.ReactNode;
@@ -25,12 +28,18 @@ type Props = {
  * 只重排不过滤，数量永不下降。
  *
  * 圈层是第一等公民，目标人物是它的证据：所以卡片主体是 who / pick 两段文案，
- * 人物列表在右侧作为佐证，而不是反过来。 */
+ * 人物列表在右侧作为佐证，而不是反过来。
+ *
+ * 快速选择是同一个机制的捷径：一个预设就是本领域里常被一起选的几个圈层，
+ * 点一下等于把它们逐个「设为本轮重点」。它不另起一份名单，也不让客户逐个
+ * 勾人 —— 成员就是下面圈层卡里的那些人。 */
 export function TargetsV3({
   circles,
   targets,
+  presets,
   focus,
   onToggleFocus,
+  onApplyPreset,
   onOpenPerson,
   notice,
   children,
@@ -48,6 +57,38 @@ export function TargetsV3({
         这里列的不是要投放的 KOL，而是你想影响的人。标记重点只改变排序，名单不会变少。
       </p>
       {notice && <p className={styles.note} style={{ color: "var(--msm-warn)" }}>{notice}</p>}
+
+      {presets.length > 0 && (
+        <div className={styles.presets}>
+          <div className={styles.pickTag}>快速选择</div>
+          <div className={styles.presetRow}>
+            {presets.map((p) => {
+              const on =
+                p.circles.length === focus.length && p.circles.every((c) => focus.includes(c));
+              const labels = circles.filter((c) => p.circles.includes(c.id)).map((c) => c.label);
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  className={`${styles.focusBtn} ${styles.presetBtn} ${on ? styles.focusBtnOn : ""}`}
+                  onClick={() => onApplyPreset(p)}
+                  aria-pressed={on}
+                  title={p.why}
+                >
+                  <span aria-hidden="true">{on ? "■" : "□"}</span>
+                  {p.label}
+                  <span className={styles.presetMeta}>
+                    {p.coverage.targets} 人 · {labels.join(" + ")}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          <p className={styles.pickText}>
+            一个预设就是常被一起选的几个圈层，点选即设为本轮重点；再点一次取消。
+          </p>
+        </div>
+      )}
 
       <div className={styles.cards}>
         {circles.map((c, i) => {
@@ -100,7 +141,11 @@ export function TargetsV3({
                     </span>
                     {/* 没采到关注网络的人照常列出，只是标注 —— 藏起来会让客户
                         以为这个圈层就这么几个人。 */}
-                    {!t.collected && <span className={styles.pending}>关系待采集</span>}
+                    {t.needsReview ? (
+                      <span className={styles.pending}>待核实</span>
+                    ) : (
+                      !t.collected && <span className={styles.pending}>关系待采集</span>
+                    )}
                   </button>
                 ))}
                 {people.length > SHOWN && (

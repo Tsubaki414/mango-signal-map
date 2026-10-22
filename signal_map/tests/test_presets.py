@@ -1,8 +1,9 @@
-"""人群预设与跨圈层综合排名。
+"""目标圈层预设与跨圈层综合排名。
 
 这几条出错时**看起来是对的**，所以单独测：
 
-* 综合分按 persona 归一 —— 人多的圈子不能靠人数压倒人少的圈子。
+* 预设长在圈层上：成员就是它那几个圈层里的目标人物，旧 id 照收。
+* 综合分按预设 / 圈层归一 —— 人多的圈子不能靠人数压倒人少的圈子。
 * 没采过关注网络的目标人物不进分母（「没看过」不是「没关注」）。
 * 手动勾掉的人真的不参与计算；目标人物本身不进排名。
 * 配置里 ``manual`` 来源的人一律标待核实，改布尔值也不算数。
@@ -12,6 +13,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 import pytest
 from fastapi.testclient import TestClient
@@ -20,7 +22,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
 from signal_map.backend import app as app_module
-from signal_map.backend import personas, v3_catalog
+from signal_map.backend import presets, v3_catalog
 from signal_map.backend.bd_models import BDCandidate
 from signal_map.backend.db import session_dependency
 from signal_map.backend.models import Base
@@ -28,40 +30,53 @@ from signal_map.backend.observation_models import FollowEdge, XAccount
 
 INTERNAL = "internal-test-token"
 
+
+def _t(handle, circle, source="circles_config", **kw):
+    return {"id": f"t_{handle}", "name": handle.upper(), "handle": handle, "role": "",
+            "group": "g", "circle": circle, "why": "", "source": source, **kw}
+
+
+def _circle(cid):
+    return {"id": cid, "label": cid, "value": "", "who": "", "pick": ""}
+
+
 CONFIG = {
-    "personas": [
-        {
-            "id": "big", "label": "大圈", "desc": "", "why": "",
-            "members": [
-                {"handle": "a1", "name": "A1", "source": "circles_config"},
-                {"handle": "a2", "name": "A2", "source": "circles_config"},
-                {"handle": "a3", "name": "A3", "source": "observed_bio", "basis": "x"},
-                {"handle": "a4", "name": "A4", "source": "candidate_list"},
-                # 收录了但没采过关注网络：不能进分母。
-                {"handle": "a5", "name": "A5", "source": "root_seeds"},
-                # 观察层里根本没有。
-                {"handle": "ghost", "name": "Ghost", "source": "manual", "needs_review": False},
-            ],
-        },
-        {
-            "id": "small", "label": "小圈", "desc": "", "why": "",
-            "members": [{"handle": "b1", "name": "B1", "source": "observed_bio"}],
-        },
-    ]
+    "groups": [{"id": "g", "label": "G", "desc": "", "domains": []}],
+    "circles": {"g": [_circle("big"), _circle("small")]},
+    "targets": [
+        _t("a1", "big"),
+        _t("a2", "big"),
+        _t("a3", "big", "observed_bio", basis="x"),
+        _t("a4", "big", "candidate_list"),
+        # 收录了但没采过关注网络：不能进分母。
+        _t("a5", "big", "root_seeds"),
+        # 观察层里根本没有。
+        _t("ghost", "big", "manual", needs_review=False),
+        _t("b1", "small", "observed_bio", basis="y"),
+    ],
+    "presets": [
+        {"id": "big", "aliases": ["old_big"], "group": "g", "label": "大圈", "circles": ["big"]},
+        {"id": "small", "group": "g", "label": "小圈", "circles": ["small"]},
+    ],
 }
+
+
+def _clear_caches():
+    for fn in (v3_catalog.load_config, v3_catalog.load_targets, v3_catalog.load_presets,
+               v3_catalog.excluded_handles):
+        fn.cache_clear()
 
 
 @pytest.fixture
 def cfg(tmp_path, monkeypatch):
-    path = tmp_path / "personas.json"
+    path = tmp_path / "circles.json"
     path.write_text(json.dumps(CONFIG), encoding="utf-8")
-    monkeypatch.setattr(personas, "PERSONAS_PATH", path)
-    # 客户面会排除目标人物配置与人工排除名单；测试库里这些都不存在。
-    monkeypatch.setattr(v3_catalog, "load_targets", lambda path=None: ())
-    monkeypatch.setattr(v3_catalog, "excluded_handles", lambda: frozenset())
-    personas._load.cache_clear()
+    monkeypatch.setattr(v3_catalog, "CONFIG_PATH", path)
+    # 客户面会排除人工排除名单；测试里不存在。
+    monkeypatch.setattr(v3_catalog, "EXCLUDED_PATH", tmp_path / "none.json")
+    _clear_caches()
     yield path
-    personas._load.cache_clear()
+    _clear_caches()
 
 
 @pytest.fixture
@@ -129,30 +144,57 @@ def _seed(s) -> None:
 # =============================================================================
 
 
+OLD_IDS = {"overseas_vc", "target_coinbase", "target_robinhood", "binance_circle",
+           "industry_titans"}
+
+#: 预设与圈层的名字必须是中性的分类名，和既有圈层同一种口吻。
+BANNED_LABEL = re.compile(r"target|社工|大佬|CZ|何一|Coinbase|Robinhood|Binance", re.I)
+
+
 def test_real_config_is_well_formed():
-    personas._load.cache_clear()
-    defs = personas.load_personas()
+    _clear_caches()
+    defs = v3_catalog.load_presets()
     ids = [p.id for p in defs]
-    assert {"overseas_vc", "target_coinbase", "target_robinhood",
-            "binance_circle", "industry_titans"} <= set(ids)
-    assert len(ids) == len(set(ids))
-    circles = json.loads(v3_catalog.CONFIG_PATH.read_text(encoding="utf-8"))
-    configured = {t["handle"].lower() for t in circles["targets"]}
+    aliases = [a for p in defs for a in p.aliases]
+    assert len(ids + aliases) == len(set(ids + aliases))
+    # 旧 id 全部还能用。
+    assert OLD_IDS <= set(aliases)
+    for old in OLD_IDS:
+        assert presets.persona_by_id(old) is not None, old
+
+    groups = {g.id: {c.id for c in g.circles} for g in v3_catalog.load_config()}
     for p in defs:
-        handles = [m.handle.lower() for m in p.members]
-        assert len(handles) == len(set(handles)), p.id
-        for m in p.members:
-            if m.source == "manual":
-                assert m.needs_review, m.handle
-            if m.source == "circles_config":
-                assert m.handle.lower() in configured, m.handle
-            if m.source == "observed_bio":
-                assert m.basis, f"{m.handle}: observed_bio 必须引用简介原文"
+        assert p.group in groups, p.id
+        assert p.circles and set(p.circles) <= groups[p.group], p.id
+        assert len(p.circles) <= 3, f"{p.id}: 重点圈层最多 3 个"
+        assert not BANNED_LABEL.search(p.label), p.label
+        assert presets.persona_by_id(p.id).members, f"{p.id}: 预设没有成员"
+    for g in v3_catalog.load_config():
+        for c in g.circles:
+            assert not BANNED_LABEL.search(c.label), c.label
+
+    targets = v3_catalog.load_targets()
+    # 「—」是中文加密圈待补充的占位，不是一个人。
+    handles = [t.handle.lower() for t in targets if re.search(r"\w", t.handle)]
+    assert len(handles) == len(set(handles)), "同一个人只能有一处定义"
+    for t in targets:
+        assert t.circle in groups[t.group], t.id
+        if t.source == "manual":
+            assert t.needs_review, t.handle
+        if t.source == "observed_bio":
+            assert t.basis, f"{t.handle}: observed_bio 必须引用简介原文"
 
 
 def test_manual_source_always_needs_review(cfg):
-    ghost = next(m for m in personas.persona_by_id("big").members if m.handle == "ghost")
+    ghost = next(m for m in presets.persona_by_id("big").members if m.handle == "ghost")
     assert ghost.needs_review is True
+    assert next(t for t in v3_catalog.load_targets() if t.handle == "ghost").needs_review
+
+
+def test_members_come_from_circles(cfg):
+    big = presets.persona_by_id("big")
+    assert [m.handle for m in big.members] == ["a1", "a2", "a3", "a4", "a5", "ghost"]
+    assert {m.circle for m in big.members} == {"big"}
 
 
 # =============================================================================
@@ -161,17 +203,25 @@ def test_manual_source_always_needs_review(cfg):
 
 
 def test_expand_merges_excludes_and_tracks_membership(cfg):
-    sel = personas.expand(["big", "small"], ["@Extra", "a1"], ["a3"])
+    sel = presets.expand(["big", "small"], ["@Extra", "a1"], ["a3"])
     assert "a3" not in sel.handles
     assert sel.handles["extra"] == "Extra"
-    assert sel.membership["extra"] == [personas.CUSTOM_PERSONA_ID]
+    assert sel.membership["extra"] == [presets.CUSTOM_PERSONA_ID]
     # a1 已在预设里，手动再加一次不能把它改成「自选」。
     assert sel.membership["a1"] == ["big"]
-    assert sel.personas == ["big", "small", personas.CUSTOM_PERSONA_ID]
+    assert sel.personas == ["big", "small", presets.CUSTOM_PERSONA_ID]
 
 
 def test_expand_reports_unknown_persona(cfg):
-    assert personas.expand(["nope"]).unknown_personas == ["nope"]
+    assert presets.expand(["nope"]).unknown_personas == ["nope"]
+
+
+def test_old_ids_resolve_to_current_id(cfg):
+    sel = presets.expand(["old_big", "big"])
+    # 旧 id 与当前 id 指向同一个预设：只展开一次，回报当前 id。
+    assert sel.personas == ["big"]
+    assert sel.membership["a1"] == ["big"]
+    assert sel.unknown_personas == []
 
 
 # =============================================================================
@@ -182,7 +232,7 @@ def test_expand_reports_unknown_persona(cfg):
 def test_score_is_normalised_per_persona(env):
     _, Local = env
     with Local() as s:
-        res = personas.aggregate(s, personas.expand(["big", "small"]))
+        res = presets.aggregate(s, presets.expand(["big", "small"]))
     by = {r.account.handle: r for r in res.items}
     # 分母只算已采集的 4 位（a5 没采、ghost 不存在）。
     assert res.coverage == {"big": (6, 4), "small": (1, 1)}
@@ -199,7 +249,7 @@ def test_score_is_normalised_per_persona(env):
 def test_targets_and_disappeared_edges_never_ranked(env):
     _, Local = env
     with Local() as s:
-        res = personas.aggregate(s, personas.expand(["big", "small"]))
+        res = presets.aggregate(s, presets.expand(["big", "small"]))
     handles = {r.account.handle for r in res.items}
     assert "a2" not in handles
     assert "gone" not in handles
@@ -208,7 +258,7 @@ def test_targets_and_disappeared_edges_never_ranked(env):
 def test_unticked_target_drops_out_of_counts(env):
     _, Local = env
     with Local() as s:
-        res = personas.aggregate(s, personas.expand(["big"], (), ["a1"]))
+        res = presets.aggregate(s, presets.expand(["big"], (), ["a1"]))
     by = {r.account.handle: r for r in res.items}
     assert "wide" not in by  # 只有 a1 和 b1 关注它
     assert by["deep"].followed_by == ["a2", "a3"]
@@ -220,6 +270,30 @@ def test_unticked_target_drops_out_of_counts(env):
 # =============================================================================
 
 
+def test_circle_reach_is_normalised_and_ignores_uncollected():
+    circle_of = {"a1": "big", "a2": "big", "a3": "big", "a4": "big", "b1": "small", "x": "big"}
+    collected = {"a1", "a2", "a3", "a4", "b1"}
+    # x 有互动信号但没采关注网络：不进分子，也不进分母。
+    reach, score = presets.circle_reach(["a1", "b1", "b1", "x"], circle_of, collected,
+                                        ["big", "small", "empty"])
+    assert [(r.circle, r.count, r.collected) for r in reach] == [
+        ("big", 1, 4), ("small", 1, 1), ("empty", 0, 0)]
+    # empty 一个都没采过，不进平均：(0.25 + 1) / 2
+    assert score == pytest.approx(0.625)
+
+
+def test_groups_expose_presets_as_circle_shortcuts(env):
+    client, _ = env
+    g = client.get("/api/groups").json()[0]
+    by = {p["id"]: p for p in g["presets"]}
+    assert by["big"]["circles"] == ["big"]
+    assert by["big"]["coverage"] == {"targets": 6, "collected": 4}
+    assert set(by["big"]) == {"id", "label", "desc", "why", "circles", "coverage"}
+    targets = client.get("/api/targets?group=g").json()
+    assert next(t for t in targets if t["handle"] == "@ghost")["needsReview"] is True
+    assert next(t for t in targets if t["handle"] == "@a1")["needsReview"] is False
+
+
 def test_internal_personas_requires_token(env):
     client, _ = env
     assert client.get("/api/internal/bd/personas").status_code == 401
@@ -228,6 +302,7 @@ def test_internal_personas_requires_token(env):
     ).json()
     big = body["personas"][0]
     assert big["coverage"] == {"targets": 6, "collected": 4, "needs_review": 1}
+    assert big["aliases"] == ["old_big"] and big["circles"] == ["big"]
 
 
 def test_screen_accepts_personas(env):
@@ -246,14 +321,17 @@ def test_screen_accepts_personas(env):
     assert "vc_fund" not in handles  # 第 4 步：机构默认不进榜
     assert client.post("/api/internal/bd/screen", headers=h,
                        json={"personas": ["nope"]}).status_code == 422
+    old = client.post("/api/internal/bd/screen", headers=h, json={
+        "personas": ["old_big"], "limit": 5, "priced_limit": 5}).json()
+    assert old["persona_selection"]["personas"] == [{"id": "big", "label": "大圈"}]
 
 
 def test_client_ranking_is_whitelisted_and_buyable_only(env):
     client, _ = env
     lst = client.get("/api/personas").json()
     assert set(lst[0]["members"][0]) == {
-        "handle", "name", "role", "avatarUrl", "needsReview", "collected"}
-    body = client.get("/api/personas/ranking?personas=big,small").json()
+        "handle", "name", "role", "circle", "avatarUrl", "needsReview", "collected"}
+    body = client.get("/api/personas/ranking?personas=old_big,small").json()
     handles = [i["handle"] for i in body["items"]]
     assert handles == ["@wide", "@deep"]
     item = body["items"][0]

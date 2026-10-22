@@ -1,6 +1,6 @@
 "use client";
 
-import type { CandidatesResponse, Circle, Target } from "@/lib/api";
+import type { CandidatesResponse, Circle, RankMode, Target } from "@/lib/api";
 import { PathGraph } from "./PathGraph";
 import { CandidateCard } from "./CandidateCard";
 import { PRICE_NOTE, UNVERIFIED_NOTE } from "./copy";
@@ -8,12 +8,20 @@ import styles from "./CandidatesV3.module.css";
 
 export type Kept = { id: string; format: string };
 
+/** 组内排序的两种口径。都只改顺序，名单数量不变。 */
+const RANKS: { id: RankMode; label: string }[] = [
+  { id: "connection", label: "按连接强度" },
+  { id: "coverage", label: "按跨圈层覆盖" },
+];
+
 type Props = {
   data: CandidatesResponse | null;
   loading: boolean;
   circles: Circle[];
   targets: Target[];
   focus: string[];
+  rank: RankMode;
+  onRank: (r: RankMode) => void;
   kept: Kept[];
   onKeep: (id: string) => void;
   onRemove: (id: string) => void;
@@ -30,13 +38,19 @@ type Props = {
  * 会丢掉这个产品最值钱的部分。
  *
  * 已保留的人置顶，但**不从下面的候选里删掉**——客户要能看到自己是从哪一批里
- * 选出来的。 */
+ * 选出来的。
+ *
+ * 「按跨圈层覆盖」是另一种组内顺序：每个圈层先算「已采集目标人物里有几成关注
+ * 他」，再取平均，所以人多的圈层压不过人少的圈层，同时进入几个圈层的人排在
+ * 前面。分块（匹配 / 已报价在前）不变，每张卡上显示逐圈层的分子分母。 */
 export function CandidatesV3({
   data,
   loading,
   circles,
   targets,
   focus,
+  rank,
+  onRank,
   kept,
   onKeep,
   onRemove,
@@ -55,7 +69,8 @@ export function CandidatesV3({
   }
   if (!data) return null;
 
-  const { counts, coverage, items } = data;
+  const { counts, coverage, items, ranking } = data;
+  const byCoverage = rank === "coverage";
   const keptIds = new Set(kept.map((k) => k.id));
   const keptItems = items.filter((i) => keptIds.has(i.id));
   const formatOf = (id: string) => kept.find((k) => k.id === id)?.format ?? "post";
@@ -91,6 +106,31 @@ export function CandidatesV3({
             <div className={styles.countV}>{c.v}</div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.rankRow}>
+        <div className={styles.rankBtns}>
+          {RANKS.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              className={`${styles.rankBtn} ${rank === r.id ? styles.rankBtnOn : ""}`}
+              onClick={() => onRank(r.id)}
+              aria-pressed={rank === r.id}
+            >
+              {r.label}
+            </button>
+          ))}
+        </div>
+        {byCoverage && (
+          <p className={styles.rankNote}>
+            {`按${ranking.circles.map((c) => c.label).join("、")}${
+              focusLabels.length ? "（本轮重点）" : ""
+            }各自的覆盖比例取平均排序，每个圈层权重相同。`}
+            {ranking.circles.some((c) => !c.inScore) &&
+              ` ${ranking.circles.filter((c) => !c.inScore).map((c) => c.label).join("、")}尚未采集关注网络，不参与平均。`}
+          </p>
+        )}
       </div>
 
       {keptItems.length > 0 && (
@@ -157,6 +197,7 @@ export function CandidatesV3({
             onFormat={(f) => onFormat(it.id, f)}
             onSwap={keptIds.has(it.id) ? () => onSwap(it.id) : undefined}
             swapLabel={keptIds.has(it.id) ? "同圈层的次优人选" : null}
+            showReach={byCoverage}
           />
         ))}
       </div>
@@ -180,6 +221,7 @@ export function CandidatesV3({
                 onKeep={() => onKeep(it.id)}
                 onRemove={() => onRemove(it.id)}
                 onFormat={(f) => onFormat(it.id, f)}
+                showReach={byCoverage}
               />
             ))}
           </div>

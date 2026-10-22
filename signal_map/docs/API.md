@@ -43,36 +43,89 @@ open.
 | GET · POST | `/api/client/briefs/{id}/feedback` | Approve / Reject / Question |
 | GET | `/api/client/briefs/{id}/scenarios` | 组合方案与预算比较 |
 | GET | `/api/client/scenarios/meta` | Scenario types and what each optimises for |
-| GET | `/api/personas` | 人群预设与展开后的目标人物（v3 公开链接层，无 token） |
-| GET | `/api/personas/ranking?personas=a,b&exclude=h1,h2&limit=50` | 跨圈层综合排名（同上） |
+| GET | `/api/groups` | 领域、圈层，以及每个领域的圈层快速选择 `presets`（v3 公开链接层，无 token） |
+| GET | `/api/candidates?group=…&focus=…&rank=connection\|coverage` | 推荐名单；`rank=coverage` 按跨圈层覆盖排组内顺序（同上） |
+| GET | `/api/personas` | 圈层预设展开后的目标人物（同上；保留给按预设调用的集成方） |
+| GET | `/api/personas/ranking?personas=a,b&exclude=h1,h2&limit=50` | 按预设的跨圈层综合排名（同上） |
 
 `/api/client/filters` only offers values present on priced, recommendable
 inventory — a filter that always returns nothing is worse than no filter.
 
-## 人群预设与综合排名（`/api/personas`）
+## 目标圈层预设与跨圈层覆盖
 
-「请批量选择你的社工对象」。属于 v3 公开链接层（`/api/*`，与 `/api/candidates`
-同层）：**不带 per-client token，防护只靠逐字段白名单**，所以两个接口都在
-`test_v3_api.all_payloads` 的泄露扫描里。预设定义在
-`config/signal_map_personas.json`，内部面同源接口见
-[BD-SCREENING.md](BD-SCREENING.md#人群预设与综合排名)。
+属于 v3 公开链接层（`/api/*`，与 `/api/candidates` 同层）：**不带 per-client
+token，防护只靠逐字段白名单**，所以下面每个接口都在 `test_v3_api.all_payloads`
+的泄露扫描里。数据全部来自 `config/signal_map_circles.json`：预设在 `presets`，
+成员就是圈层里的 `targets` —— 没有第二份名单。内部面同源接口见
+[BD-SCREENING.md](BD-SCREENING.md#目标圈层预设与综合排名)。
 
-`GET /api/personas` → `[{id, label, desc, why, members: [...]}]`，每位成员：
+### 快速选择：`GET /api/groups` 的 `presets`
+
+一个预设 = **同一领域内的一组圈层**。点选即把这些圈层设为本轮重点，与逐个点
+「设为本轮重点」是同一件事：只重排、不过滤，最多 3 个圈层。
 
 ```jsonc
-{ "handle": "@pmarca", "name": "Marc Andreessen", "role": "a16z 联合创始人",
-  "avatarUrl": "...", "needsReview": false, "collected": true }
+{ "id": "ai", "label": "AI / 科技", "circles": [ /* … */ ],
+  "presets": [
+    { "id": "tier1_vc", "label": "海外一线 VC", "desc": "…", "why": "…",
+      "circles": ["vc"], "coverage": { "targets": 12, "collected": 4 } },
+    { "id": "industry_leaders", "label": "行业领袖", "circles": ["founders", "researchers"], "…": "…" }
+  ] }
 ```
 
-- `needsReview` → 界面标「待核实」。成员都是**提案**，不是已确认 Root。
-- `collected: false` → 标「关系待采集」。照常列出，不要藏。
+| 领域 | 预设 id | 名称 | 圈层 | 旧 id（仍被接受） |
+|---|---|---|---|---|
+| AI / 科技 | `tier1_vc` | 海外一线 VC | `vc` | `overseas_vc` |
+| AI / 科技 | `industry_leaders` | 行业领袖 | `founders` + `researchers` | `industry_titans` |
+| 加密 / Web3 | `exchanges` | 交易所生态 | `exchanges` | `target_coinbase`, `binance_circle` |
+| 金融科技 | `retail_brokerages` | 券商 / 零售交易平台 | `brokerages` | `target_robinhood` |
+
+`/api/targets` 每位目标人物新增 `needsReview`：人工补充、库里没有依据的人，
+界面标「待核实」。它和 `reviewed`（Root 复核）是两件事。
+
+### 推荐名单的跨圈层覆盖：`GET /api/candidates?rank=coverage`
+
+每条候选都带：
+
+```jsonc
+"coverageScore": 0.8333,                 // 永远和 reach 一起显示
+"reach": [
+  { "circle": "founders",    "label": "顶级科技创始人", "count": 2, "collected": 3, "share": 0.6667 },
+  { "circle": "researchers", "label": "AI 研究者",     "count": 4, "collected": 4, "share": 1.0 }
+]
+```
+
+响应顶层新增 `ranking: { mode, circles: [{id, label, collected, inScore}], note }`。
+
+- `reach` 的范围：有重点圈层时只算重点圈层，否则算本领域全部圈层。
+- `share` =「该圈层**已采集**目标人物里关注他的比例」；`coverageScore` 是各圈层
+  `share` 的**平均**，每个圈层权重相同 —— 人多的圈层不能压倒人少的圈层。
+- 分子分母都只数已采集关注网络的目标人物。`collected: 0` 的圈层不参与平均
+  （`inScore: false`），界面读作「未采集」，不是「0 人关注」。
+- `rank=coverage` 只换**组内**第一排序键，分块（匹配在前、已报价在前）不变；
+  `counts` 与 `rank=connection` 完全一致。未知值 → `422`。
+- 这是**关注信号的覆盖度**（路径 3），不是曝光概率，不是背书。不要渲染成百分比
+  概率。
+
+### 按预设展开：`/api/personas`、`/api/personas/ranking`
+
+保留给按预设调用、跨领域合并的集成方；产品流程本身不再需要它们。旧 id 照收，
+响应里一律回当前 id。
+
+`GET /api/personas` → `[{id, label, desc, why, group, circles, members: [...]}]`：
+
+```jsonc
+{ "handle": "@pmarca", "name": "Marc Andreessen", "role": "a16z co-founder",
+  "circle": "vc", "avatarUrl": "...", "needsReview": false, "collected": true }
+```
+
 - 成员来源、依据、复核状态**不下发**（只在内部面）。
 
-`GET /api/personas/ranking` 只收两个选择参数：
+`GET /api/personas/ranking`：
 
 | 参数 | 含义 |
 |---|---|
-| `personas` | 预设 id，逗号分隔，必填。未知 id → `404` |
+| `personas` | 预设 id（当前或旧 id），逗号分隔，必填。未知 id → `404` |
 | `exclude` | 在展开名单里勾掉的 handle，逗号分隔，`@` 可带可不带 |
 | `limit` | 1–200，默认 50 |
 
@@ -81,7 +134,7 @@ inventory — a filter that always returns nothing is worse than no filter.
 
 ```jsonc
 {
-  "personas":    [{ "id": "overseas_vc", "label": "海外 VC", "targets": 15, "collected": 4, "inScore": true }],
+  "personas":    [{ "id": "tier1_vc", "label": "海外一线 VC", "targets": 12, "collected": 4, "inScore": true }],
   "uncollected": ["@KTmBoyle", "..."],      // 选中但未采集（或观察层未收录）的目标人物
   "counts":      { "poolTotal": 237, "total": 50 },
   "items": [{
@@ -90,22 +143,17 @@ inventory — a filter that always returns nothing is worse than no filter.
     "source": "discovered",                  // priced = 已报价 · discovered = 需建联
     "score": 1.0,                            // 综合分，永远和 byPersona 一起显示
     "targetsFollowing": 4, "circlesReached": 1,
-    "followedBy": ["@cdixon", "..."],
-    "byPersona": [{ "persona": "overseas_vc", "label": "海外 VC", "count": 4, "collected": 4, "share": 1.0 }],
+    "followedBy": ["@eladgil", "..."],
+    "byPersona": [{ "persona": "tier1_vc", "label": "海外一线 VC", "count": 4, "collected": 4, "share": 1.0 }],
     "verified": false                        // 关注边从未人工确认
   }],
-  "note": "综合分 = 各人群预设内……"
+  "note": "综合分 = 各预设内……"
 }
 ```
 
-- **综合分按预设归一**：每个预设算「本圈已采集目标人物里关注它的比例」，综合分
-  是各圈比例的**平均**，每圈权重相同 —— 人多的圈子不能压倒人少的圈子。
-- 分母只算**已采集**的目标人物；一个都没采过的预设 `inScore: false`，不参与平均。
-  界面上 `collected: 0` 的那一格读作「未采集」，不是「0 人关注」。
-- 这是**关注信号的覆盖度**（路径 3），不是曝光概率，不是背书。不要渲染成百分比
-  概率。
-- 池子边界与 `/api/candidates` 一致：已报价创作者 + 身份已判定可投放的发现账号；
-  全部 Root 库目标人物与人工排除名单不进榜。
+归一规则与 `rank=coverage` 相同，只是「圈子」是预设而不是圈层。池子边界与
+`/api/candidates` 一致：已报价创作者 + 身份已判定可投放的发现账号；全部目标人物
+与人工排除名单不进榜。
 
 ## What the client never receives
 

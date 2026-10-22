@@ -20,12 +20,23 @@ export type Circle = {
   coverage: { targets: number; collected: number };
 };
 
+/** 目标圈层的快速选择：本领域内的一组圈层。点选 = 把它们设为本轮重点。 */
+export type Preset = {
+  id: string;
+  label: string;
+  desc: string;
+  why: string;
+  circles: string[];
+  coverage: { targets: number; collected: number };
+};
+
 export type Group = {
   id: string;
   label: string;
   desc: string;
   domains: string[];
   circles: Circle[];
+  presets: Preset[];
 };
 
 export type Target = {
@@ -43,6 +54,8 @@ export type Target = {
   collected: boolean;
   /** 是否经过人工复核。当前全库为 false。 */
   reviewed: boolean;
+  /** 身份待核实（人工补充、库里没有依据）。界面标「待核实」。 */
+  needsReview: boolean;
 };
 
 export type Edge = {
@@ -118,7 +131,14 @@ export type Candidate = {
   bio?: string | null;
   /** 经由哪几位目标人物找到 —— discovered 侧的可解释性来源 */
   discoveryPath?: string[];
+  /** 跨圈层覆盖 = reach 里已采集圈层比例的平均。**永远和 reach 一起显示**。 */
+  coverageScore: number;
+  /** 每个圈层：已采集目标人物里关注他的人数 / 已采集人数。collected 0 = 未采集，不是 0 人。 */
+  reach: { circle: string; label: string; count: number; collected: number; share: number }[];
 };
+
+/** 推荐名单的组内排序：连接权重（默认）或跨圈层覆盖。只重排，不过滤。 */
+export type RankMode = "connection" | "coverage";
 
 export type CandidatesResponse = {
   group: string;
@@ -132,64 +152,12 @@ export type CandidatesResponse = {
     relevanceUnknown: number;
   };
   coverage: { targets: number; collected: number; reviewed: number };
+  ranking: {
+    mode: RankMode;
+    circles: { id: string; label: string; collected: number; inScore: boolean }[];
+    note: string;
+  };
   items: Candidate[];
-};
-
-/* 人群预设（persona）。一个预设展开成一组目标人物，客户可逐个勾掉。
- * 成员是提案，不是已确认 Root：`needsReview` 的人界面上标「待核实」。 */
-export type PersonaMember = {
-  handle: string;
-  name: string;
-  role: string;
-  avatarUrl: string | null;
-  needsReview: boolean;
-  /** 是否已采集到该目标人物的关注网络 */
-  collected: boolean;
-};
-
-export type Persona = {
-  id: string;
-  label: string;
-  desc: string;
-  why: string;
-  members: PersonaMember[];
-};
-
-export type PersonaReach = {
-  persona: string;
-  label: string;
-  /** 本圈已采集目标人物里关注它的人数 */
-  count: number;
-  /** 本圈已采集的目标人物数（分母） */
-  collected: number;
-  share: number;
-};
-
-export type PersonaRankItem = {
-  rank: number;
-  name: string;
-  handle: string | null;
-  avatarUrl: string | null;
-  url: string | null;
-  followers: number | null;
-  source: "priced" | "discovered";
-  /** 综合分 = 各预设关注比例的平均。**永远和 byPersona 一起显示**。 */
-  score: number;
-  targetsFollowing: number;
-  circlesReached: number;
-  followedBy: string[];
-  byPersona: PersonaReach[];
-  /** 关注边从未人工确认。 */
-  verified: boolean;
-};
-
-export type PersonaRankingResponse = {
-  personas: { id: string; label: string; targets: number; collected: number; inScore: boolean }[];
-  /** 选中但还没采集关注网络的目标人物 —— 不计入分母，不是「没关注」。 */
-  uncollected: string[];
-  counts: { poolTotal: number; total: number };
-  items: PersonaRankItem[];
-  note: string;
 };
 
 export type Meta = { kols: number; platforms: number; groups: number; markets: number };
@@ -245,22 +213,16 @@ export const api = {
     limit = 120,
     prefs?: Record<string, string[] | undefined>,
     focus?: string[],
+    rank: RankMode = "connection",
   ) => {
     const q = new URLSearchParams({ group, limit: String(limit) });
     if (focus?.length) q.set("focus", focus.slice(0, 3).join(","));
+    if (rank !== "connection") q.set("rank", rank);
     // 偏好直接进查询串，后端按已知值筛、缺失值保留并计数。
     for (const [k, v] of Object.entries(prefs ?? {})) {
       if (v && v.length) q.set(k, v.join(","));
     }
     return get<CandidatesResponse>(`/api/candidates?${q}`);
-  },
-
-  personas: () => get<Persona[]>("/api/personas"),
-  // 客户只能在预设成员里勾掉人（exclude），不能加任意 handle —— 库外的名字走 addWanted。
-  personaRanking: (personas: string[], exclude: string[] = [], limit = 50) => {
-    const q = new URLSearchParams({ personas: personas.join(","), limit: String(limit) });
-    if (exclude.length) q.set("exclude", exclude.join(","));
-    return get<PersonaRankingResponse>(`/api/personas/ranking?${q}`);
   },
 
   // 会话 id 由服务端签发 —— 客户端自己起名意味着能猜的 id 谁都能读能覆盖。

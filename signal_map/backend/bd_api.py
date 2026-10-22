@@ -28,7 +28,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from . import bd_discovery, bd_screening, personas, recommend
+from . import bd_discovery, bd_screening, presets, recommend
 from .bd_models import (
     BD_PRIORITIES,
     BD_PRIORITY_LABELS_ZH,
@@ -102,7 +102,8 @@ class ScreenRequest(BaseModel):
     platforms: list[str] = Field(default_factory=list)
     #: 具体目标人物的 X handle。关系证据只对这些人算。
     target_handles: list[str] = Field(default_factory=list)
-    #: 人群预设 id（见 ``GET /personas``）。展开成成员后与 target_handles 合并。
+    #: 目标圈层预设 id（见 ``GET /personas``；旧 id 照收）。展开成成员后与
+    #: target_handles 合并。
     personas: list[str] = Field(default_factory=list)
     #: 在展开的名单里手动勾掉的人。优先级高于 personas 与 target_handles。
     exclude_handles: list[str] = Field(default_factory=list)
@@ -138,8 +139,8 @@ class ScreenRequest(BaseModel):
     limit: int = DEFAULT_LIMIT
     priced_limit: int = 30
 
-    def selection(self) -> personas.Selection:
-        return personas.expand(self.personas, self.target_handles, self.exclude_handles)
+    def selection(self) -> presets.Selection:
+        return presets.expand(self.personas, self.target_handles, self.exclude_handles)
 
     def preferences(self) -> DomainPreferences:
         data = self.model_dump()
@@ -293,12 +294,14 @@ def options(session: Session = Depends(db)):
 
 @router.get("/personas")
 def list_personas(session: Session = Depends(db)):
-    """人群预设与成员。内部面：带成员来源、依据与采集状态。
+    """目标圈层预设与成员。内部面：带成员来源、依据与采集状态。
 
-    客户面的同名接口是 ``GET /api/personas``，只下发白名单字段。
+    预设与成员都来自 ``config/signal_map_circles.json``（``presets`` + 圈层里的
+    ``targets``），与客户面「目标圈层」一步同源。客户面的同名接口是
+    ``GET /api/personas``，只下发白名单字段。
     """
-    defs = personas.load_personas()
-    status = personas.member_status(
+    defs = presets.load_personas()
+    status = presets.member_status(
         session, [m.handle for p in defs for m in p.members]
     )
     out = []
@@ -310,8 +313,9 @@ def list_personas(session: Session = Depends(db)):
                 "handle": m.handle,
                 "name": m.name,
                 "role": m.role,
+                "circle": m.circle,
                 "source": m.source,
-                "source_label_zh": personas.MEMBER_SOURCE_LABELS_ZH[m.source],
+                "source_label_zh": presets.MEMBER_SOURCE_LABELS_ZH[m.source],
                 "basis": m.basis,
                 "needs_review": m.needs_review,
                 "resolved": account is not None,
@@ -322,6 +326,7 @@ def list_personas(session: Session = Depends(db)):
             })
         out.append({
             "id": p.id, "label": p.label, "desc": p.desc, "why": p.why,
+            "group": p.group, "circles": list(p.circles), "aliases": list(p.aliases),
             "members": members,
             "coverage": {
                 "targets": len(members),
@@ -339,7 +344,7 @@ def list_personas(session: Session = Depends(db)):
 
 
 def _aggregate_section(
-    session: Session, payload: ScreenRequest, selection: personas.Selection
+    session: Session, payload: ScreenRequest, selection: presets.Selection
 ) -> dict | None:
     if not selection.handles:
         return None
@@ -356,12 +361,12 @@ def _aggregate_section(
             return True
         return kind_by_handle.get((account.handle or "").lower()) not in NON_BUYABLE_OBJECT_KINDS
 
-    result = personas.aggregate(
+    result = presets.aggregate(
         session, selection,
         min_targets=payload.aggregate_min_targets, limit=payload.aggregate_limit, keep=keep,
     )
     return {
-        "personas": personas.coverage_dicts(result),
+        "personas": presets.coverage_dicts(result),
         "unresolved_targets": result.unresolved,
         "uncollected_targets": result.uncollected,
         "pool_size": result.pool_size,
@@ -382,7 +387,7 @@ def _aggregate_section(
             }
             for i, r in enumerate(result.items)
         ],
-        "note": personas.AGGREGATE_NOTE_ZH,
+        "note": presets.AGGREGATE_NOTE_ZH,
     }
 
 
@@ -392,7 +397,7 @@ def screen(payload: ScreenRequest, session: Session = Depends(db)):
     selection = payload.selection()
     if selection.unknown_personas:
         raise HTTPException(
-            status_code=422, detail=f"未知的人群预设：{', '.join(selection.unknown_personas)}"
+            status_code=422, detail=f"未知的圈层预设：{', '.join(selection.unknown_personas)}"
         )
     prefs = payload.preferences()
 
@@ -418,10 +423,10 @@ def screen(payload: ScreenRequest, session: Session = Depends(db)):
         "collection_gaps": bd_discovery.collection_gaps(
             session, prefs, target_accounts, min_targets=payload.min_targets,
         ),
-        # 人群预设展开结果：每位目标人物归哪几个预设。前端据此显示勾选清单。
+        # 预设展开结果：每位目标人物归哪几个预设（当前 id；旧 id 已解析）。
         "persona_selection": {
             "personas": [
-                {"id": pid, "label": personas.persona_label(pid)}
+                {"id": pid, "label": presets.persona_label(pid)}
                 for pid in selection.personas
             ],
             "membership": {
