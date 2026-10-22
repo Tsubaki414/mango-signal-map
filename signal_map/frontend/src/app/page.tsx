@@ -16,6 +16,7 @@ import { PrefsV3 } from "@/views/v3/PrefsV3";
 import { PrefGroups } from "@/views/v3/PrefGroups";
 import { TargetsV3 } from "@/views/v3/TargetsV3";
 import { WantedV3, type Wanted } from "@/views/v3/WantedV3";
+import { PersonasV3 } from "@/views/v3/PersonasV3";
 import { CandidatesV3, type Kept } from "@/views/v3/CandidatesV3";
 import { PersonPanel } from "@/views/v3/PersonPanel";
 import { ConfirmV3 } from "@/views/v3/ConfirmV3";
@@ -282,6 +283,9 @@ export default function Page() {
               <WantedV3 custom={custom} onAdd={addWanted} />
             </TargetsV3>
           )}
+
+          {/* 人群预设与跨圈层综合排名：自成一块，不依赖领域选择，也不改动下面的候选名单。 */}
+          <PersonasV3 />
 
           {group && (
             <CandidatesV3

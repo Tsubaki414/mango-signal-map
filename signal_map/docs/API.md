@@ -43,9 +43,69 @@ open.
 | GET · POST | `/api/client/briefs/{id}/feedback` | Approve / Reject / Question |
 | GET | `/api/client/briefs/{id}/scenarios` | 组合方案与预算比较 |
 | GET | `/api/client/scenarios/meta` | Scenario types and what each optimises for |
+| GET | `/api/personas` | 人群预设与展开后的目标人物（v3 公开链接层，无 token） |
+| GET | `/api/personas/ranking?personas=a,b&exclude=h1,h2&limit=50` | 跨圈层综合排名（同上） |
 
 `/api/client/filters` only offers values present on priced, recommendable
 inventory — a filter that always returns nothing is worse than no filter.
+
+## 人群预设与综合排名（`/api/personas`）
+
+「请批量选择你的社工对象」。属于 v3 公开链接层（`/api/*`，与 `/api/candidates`
+同层）：**不带 per-client token，防护只靠逐字段白名单**，所以两个接口都在
+`test_v3_api.all_payloads` 的泄露扫描里。预设定义在
+`config/signal_map_personas.json`，内部面同源接口见
+[BD-SCREENING.md](BD-SCREENING.md#人群预设与综合排名)。
+
+`GET /api/personas` → `[{id, label, desc, why, members: [...]}]`，每位成员：
+
+```jsonc
+{ "handle": "@pmarca", "name": "Marc Andreessen", "role": "a16z 联合创始人",
+  "avatarUrl": "...", "needsReview": false, "collected": true }
+```
+
+- `needsReview` → 界面标「待核实」。成员都是**提案**，不是已确认 Root。
+- `collected: false` → 标「关系待采集」。照常列出，不要藏。
+- 成员来源、依据、复核状态**不下发**（只在内部面）。
+
+`GET /api/personas/ranking` 只收两个选择参数：
+
+| 参数 | 含义 |
+|---|---|
+| `personas` | 预设 id，逗号分隔，必填。未知 id → `404` |
+| `exclude` | 在展开名单里勾掉的 handle，逗号分隔，`@` 可带可不带 |
+| `limit` | 1–200，默认 50 |
+
+客户**只能减人，不能加任意 handle** —— 否则这个公开接口就成了探测观察层关注
+网络的查询口。库外的名字走 `/api/sessions/{id}/wanted`。
+
+```jsonc
+{
+  "personas":    [{ "id": "overseas_vc", "label": "海外 VC", "targets": 15, "collected": 4, "inScore": true }],
+  "uncollected": ["@KTmBoyle", "..."],      // 选中但未采集（或观察层未收录）的目标人物
+  "counts":      { "poolTotal": 237, "total": 50 },
+  "items": [{
+    "rank": 1, "name": "...", "handle": "@...", "avatarUrl": "...", "url": "...",
+    "followers": 1669766,
+    "source": "discovered",                  // priced = 已报价 · discovered = 需建联
+    "score": 1.0,                            // 综合分，永远和 byPersona 一起显示
+    "targetsFollowing": 4, "circlesReached": 1,
+    "followedBy": ["@cdixon", "..."],
+    "byPersona": [{ "persona": "overseas_vc", "label": "海外 VC", "count": 4, "collected": 4, "share": 1.0 }],
+    "verified": false                        // 关注边从未人工确认
+  }],
+  "note": "综合分 = 各人群预设内……"
+}
+```
+
+- **综合分按预设归一**：每个预设算「本圈已采集目标人物里关注它的比例」，综合分
+  是各圈比例的**平均**，每圈权重相同 —— 人多的圈子不能压倒人少的圈子。
+- 分母只算**已采集**的目标人物；一个都没采过的预设 `inScore: false`，不参与平均。
+  界面上 `collected: 0` 的那一格读作「未采集」，不是「0 人关注」。
+- 这是**关注信号的覆盖度**（路径 3），不是曝光概率，不是背书。不要渲染成百分比
+  概率。
+- 池子边界与 `/api/candidates` 一致：已报价创作者 + 身份已判定可投放的发现账号；
+  全部 Root 库目标人物与人工排除名单不进榜。
 
 ## What the client never receives
 
