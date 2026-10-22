@@ -667,7 +667,7 @@ When Lovable arrives: understand its client experience → map pages to endpoint
   §3 — stated basis, separate column from measured data, and never excluding
   unknowns from results.
 
-Prior research (finance KOLs, AI KOLs, Grok seed, Dov's HTML method, Apify tests, relationship samples) is **not discarded** — it belongs in a research/candidate layer carrying source, collected-at, subject, signal type, direction, raw evidence, limitations, confidence, and whether a human confirmed it. Starting point for the future Root graph; **not** a production relationship database today.
+Prior research (finance KOLs, AI KOLs, Grok seed, earlier HTML-based method, Apify tests, relationship samples) is **not discarded** — it belongs in a research/candidate layer carrying source, collected-at, subject, signal type, direction, raw evidence, limitations, confidence, and whether a human confirmed it. Starting point for the future Root graph; **not** a production relationship database today.
 
 ## 9. Never do this round
 
