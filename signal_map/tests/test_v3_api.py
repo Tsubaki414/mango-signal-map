@@ -36,6 +36,8 @@ ALLOWED_VALUE_PATHS = (".budgets",)
 COUNT_FIELDS = (
     "counts", "coverage", "followers", "count", "total", "found", "kept",
     "weight", "pct", "fit", "bandLevel",   # 评分与分项，不是金额
+    # /api/personas/ranking：名次、关注人数与圈层覆盖。rank 50、60 实测撞上成本。
+    "rank", "score", "share", "targetsFollowing", "circlesReached", "collected", "targets",
 )
 
 
@@ -65,6 +67,8 @@ def all_payloads() -> dict[str, object]:
             "/api/targets?group=ai",
             "/api/candidates?group=ai&limit=60",
             "/api/candidates?group=crypto&limit=40",
+            "/api/personas",
+            "/api/personas/ranking?personas=overseas_vc,industry_titans&limit=60",
         )
     }
     out["/api/discover"] = client.post("/api/discover", json={"group": "ai"}).json()

@@ -28,7 +28,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from . import bd_discovery, bd_screening, recommend
+from . import bd_discovery, bd_screening, personas, recommend
 from .bd_models import (
     BD_PRIORITIES,
     BD_PRIORITY_LABELS_ZH,
@@ -42,6 +42,7 @@ from .bd_models import (
     OBJECT_KINDS,
     REQUIRES_HUMAN_VERIFICATION,
     STANCE_BY_SIGNAL,
+    NON_BUYABLE_OBJECT_KINDS,
     BDCandidate,
     CommercialSignal,
 )
@@ -101,6 +102,15 @@ class ScreenRequest(BaseModel):
     platforms: list[str] = Field(default_factory=list)
     #: 具体目标人物的 X handle。关系证据只对这些人算。
     target_handles: list[str] = Field(default_factory=list)
+    #: 人群预设 id（见 ``GET /personas``）。展开成成员后与 target_handles 合并。
+    personas: list[str] = Field(default_factory=list)
+    #: 在展开的名单里手动勾掉的人。优先级高于 personas 与 target_handles。
+    exclude_handles: list[str] = Field(default_factory=list)
+    #: 综合排名里，至少被几位所选目标人物关注才进榜。
+    aggregate_min_targets: int = 1
+    aggregate_limit: int = 100
+    #: 综合排名默认不收买不到的身份（目标人物 / 公众人物 / 机构），与第 4 步降级一致。
+    aggregate_include_non_buyable: bool = False
     label: str | None = None
 
     #: 只影响已有报价那一块，用于预算可执行性轴。
@@ -128,8 +138,13 @@ class ScreenRequest(BaseModel):
     limit: int = DEFAULT_LIMIT
     priced_limit: int = 30
 
+    def selection(self) -> personas.Selection:
+        return personas.expand(self.personas, self.target_handles, self.exclude_handles)
+
     def preferences(self) -> DomainPreferences:
-        return DomainPreferences.from_dict(self.model_dump())
+        data = self.model_dump()
+        data["target_handles"] = self.selection().target_handles
+        return DomainPreferences.from_dict(data)
 
 
 class CandidateUpdate(BaseModel):
@@ -276,9 +291,109 @@ def options(session: Session = Depends(db)):
 # =============================================================================
 
 
+@router.get("/personas")
+def list_personas(session: Session = Depends(db)):
+    """人群预设与成员。内部面：带成员来源、依据与采集状态。
+
+    客户面的同名接口是 ``GET /api/personas``，只下发白名单字段。
+    """
+    defs = personas.load_personas()
+    status = personas.member_status(
+        session, [m.handle for p in defs for m in p.members]
+    )
+    out = []
+    for p in defs:
+        members = []
+        for m in p.members:
+            account, edges = status.get(m.handle.lower(), (None, 0))
+            members.append({
+                "handle": m.handle,
+                "name": m.name,
+                "role": m.role,
+                "source": m.source,
+                "source_label_zh": personas.MEMBER_SOURCE_LABELS_ZH[m.source],
+                "basis": m.basis,
+                "needs_review": m.needs_review,
+                "resolved": account is not None,
+                "collected": edges > 0,
+                "follow_edges": edges,
+                "followers": account.followers if account else None,
+                "review_status": account.root_review_status if account else None,
+            })
+        out.append({
+            "id": p.id, "label": p.label, "desc": p.desc, "why": p.why,
+            "members": members,
+            "coverage": {
+                "targets": len(members),
+                "collected": sum(1 for m in members if m["collected"]),
+                "needs_review": sum(1 for m in members if m["needs_review"]),
+            },
+        })
+    return {
+        "personas": out,
+        "note": (
+            "成员是提案，不是已确认 Root。needs_review=true 的人由人工补充、库里没有依据，"
+            "必须核实后再用；未采集关注网络的成员在综合排名里不计入分母。"
+        ),
+    }
+
+
+def _aggregate_section(
+    session: Session, payload: ScreenRequest, selection: personas.Selection
+) -> dict | None:
+    if not selection.handles:
+        return None
+    kind_by_handle = {
+        (h or "").lower(): (k if k and k != "unknown" else sg)
+        for h, k, sg in session.execute(
+            select(BDCandidate.handle, BDCandidate.object_kind, BDCandidate.object_kind_suggested)
+            .where(BDCandidate.handle.is_not(None))
+        ).all()
+    }
+
+    def keep(account: XAccount) -> bool:
+        if payload.aggregate_include_non_buyable:
+            return True
+        return kind_by_handle.get((account.handle or "").lower()) not in NON_BUYABLE_OBJECT_KINDS
+
+    result = personas.aggregate(
+        session, selection,
+        min_targets=payload.aggregate_min_targets, limit=payload.aggregate_limit, keep=keep,
+    )
+    return {
+        "personas": personas.coverage_dicts(result),
+        "unresolved_targets": result.unresolved,
+        "uncollected_targets": result.uncollected,
+        "pool_size": result.pool_size,
+        "returned": len(result.items),
+        "items": [
+            {
+                "rank": i + 1,
+                "handle": r.account.handle,
+                "rest_id": r.account.rest_id,
+                "display_name": r.account.display_name,
+                "followers": r.account.followers,
+                "object_kind": kind_by_handle.get((r.account.handle or "").lower()) or "unknown",
+                "score": round(r.score, 4),
+                "targets_following": len(r.followed_by),
+                "followed_by": r.followed_by,
+                "circles_reached": r.circles_reached,
+                "by_persona": [x.as_dict() for x in r.reach],
+            }
+            for i, r in enumerate(result.items)
+        ],
+        "note": personas.AGGREGATE_NOTE_ZH,
+    }
+
+
 @router.post("/screen")
 def screen(payload: ScreenRequest, session: Session = Depends(db)):
     """一次算出两块：有报价的推荐 + 可建联的人。"""
+    selection = payload.selection()
+    if selection.unknown_personas:
+        raise HTTPException(
+            status_code=422, detail=f"未知的人群预设：{', '.join(selection.unknown_personas)}"
+        )
     prefs = payload.preferences()
 
     # 目标人物与采集覆盖，两块共用，只查一次。
@@ -303,6 +418,19 @@ def screen(payload: ScreenRequest, session: Session = Depends(db)):
         "collection_gaps": bd_discovery.collection_gaps(
             session, prefs, target_accounts, min_targets=payload.min_targets,
         ),
+        # 人群预设展开结果：每位目标人物归哪几个预设。前端据此显示勾选清单。
+        "persona_selection": {
+            "personas": [
+                {"id": pid, "label": personas.persona_label(pid)}
+                for pid in selection.personas
+            ],
+            "membership": {
+                selection.handles[h]: ps for h, ps in selection.membership.items()
+            },
+            "excluded": list(payload.exclude_handles),
+        },
+        # 跨圈层综合排名。没选目标人物时为 null。
+        "aggregate_ranking": _aggregate_section(session, payload, selection),
         "reading_note": (
             "两块列表回答不同问题：上面是现在就能报价执行的对象，下面是需要 Mango "
             "先建联的人。可 BD 列表的排序是**建联队列顺序**，不是匹配度排名 ——"

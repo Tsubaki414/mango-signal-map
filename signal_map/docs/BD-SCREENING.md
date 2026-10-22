@@ -40,6 +40,8 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
   "audience_types":  ["developers", "founders"],// 圈层
   "platforms":       ["X", "YouTube"],
   "target_handles":  ["karpathy", "sama", "pmarca"],  // 具体目标人物
+  "personas":        ["overseas_vc", "binance_circle"], // 人群预设，展开后与 target_handles 合并
+  "exclude_handles": ["pmarca"],                // 在展开名单里勾掉的人，优先级最高
 
   "total_budget_usd": 30000,                    // 只影响「有报价」那一块
   "objectives":       ["credibility"],
@@ -48,7 +50,11 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
   "min_targets": 2,          // 至少被几位目标关注才进池子（默认 2 = 共同关注）
   "priorities":  [],         // 只看某几档优先级，空=全部
   "include_roster_centrality": false,
-  "limit": 60, "priced_limit": 30
+  "limit": 60, "priced_limit": 30,
+
+  "aggregate_min_targets": 1,               // 综合排名：至少被几位所选目标关注才进榜
+  "aggregate_limit": 100,
+  "aggregate_include_non_buyable": false    // 默认不收目标人物 / 公众人物 / 机构
 }
 ```
 
@@ -77,9 +83,74 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
   },
 
   "collection_gaps": [ /* 还缺哪些采集 */ ],
+  "persona_selection": {               // 预设展开结果：每位目标人物归哪几个预设
+    "personas": [{"id": "overseas_vc", "label": "海外 VC"}],
+    "membership": {"cdixon": ["overseas_vc"], "sama": ["custom"]},
+    "excluded": ["pmarca"]
+  },
+  "aggregate_ranking": { ... },        // 跨圈层综合排名，见下；没选目标人物时为 null
   "reading_note": "..."
 }
 ```
+
+### 人群预设与综合排名
+
+「请批量选择你的社工对象」：客户先选一个或几个人群预设（海外 VC、Target
+Coinbase、Binance / CZ & 何一圈……），每个预设展开成一组目标人物，再逐个勾掉。
+预设定义在 `config/signal_map_personas.json`，这份文件是给人改的。
+
+合并顺序：`personas` 按顺序展开 → 追加 `target_handles` → 减去 `exclude_handles`。
+同一个人出现在几个预设里只算一位目标人物，但几个预设都记上；只来自
+`target_handles` 的人归到虚拟预设 `custom`（自选目标人物）。未知预设 id → `422`。
+
+**`GET /api/internal/bd/personas`** 返回每位成员的 `source`（`circles_config` /
+`root_seeds` / `candidate_list` / `observed_bio` / `manual`，按证据强度递减）、
+`basis`（`observed_bio` 引用的简介原文）、`needs_review`、`resolved`（观察层是否
+收录）、`collected` / `follow_edges`、`review_status`，以及每个预设的覆盖计数。
+
+- `needs_review: true` 的成员**必须人工核实**（身份、是否仍在任、handle 是否正确）
+  后再改成 `false`。`source: manual` 一律视为待核实，配置里写 `false` 也不算数 ——
+  没有依据的名字不能靠改一个布尔值变成「已核实」。
+- 所有成员都是**提案**，不是已确认 Root；落库状态以 `x_accounts.root_review_status`
+  为准。
+- 只收个人账号。机构官方号的关注列表多为运营性质，会把排名拉向官方合作方。
+
+`aggregate_ranking`：
+
+```jsonc
+{
+  "personas": [{"id": "overseas_vc", "label": "海外 VC", "targets": 15, "collected": 4, "in_score": true}],
+  "unresolved_targets": ["..."],        // 观察层里根本没有
+  "uncollected_targets": ["..."],       // 已收录，但还没采关注网络
+  "pool_size": 0, "returned": 0,        // 进榜总数 · 本次返回数
+  "items": [{
+    "rank": 1, "handle": "litcapital", "rest_id": "...", "display_name": "litquidity",
+    "followers": 1669766, "object_kind": "creator",
+    "score": 1.0, "targets_following": 4, "circles_reached": 1,
+    "followed_by": ["cdixon", "eladgil", "saranormous", "venturetwins"],
+    "by_persona": [{"persona": "overseas_vc", "label": "海外 VC", "count": 4,
+                    "collected": 4, "share": 1.0, "followed_by": ["..."]}]
+  }],
+  "note": "..."
+}
+```
+
+**归一规则。** 直接数关注人数，人多的圈子会压倒一切 —— 海外 VC 16 人、Binance
+圈 4 人，只被 VC 圈 5 人关注的账号会排在被 Binance 圈 4 人**全部**关注的账号前面。
+所以每个预设先算 `share` =「本圈**已采集**目标人物里关注它的比例」，`score` 是各圈
+`share` 的**平均**，每圈权重相同。只有同时进入多个圈子才能拿高分，这就是「跨圈层」。
+并列时依次按覆盖圈数、关注人数、粉丝数排序。
+
+- **分母只用已采集的人。** 没采过的人不是「没关注」，是「没看过」；一个都没采过的
+  预设 `in_score: false`，不参与平均，如实报出。
+- 只用 `disappeared_at IS NULL` 的边，与发现池同一口径。目标人物本身不进排名。
+- 默认排除 `NON_BUYABLE_OBJECT_KINDS`（目标人物 / 公众人物 / 机构，与身份分类一致）；
+  `aggregate_include_non_buyable: true` 看全量。
+- 这是**关注信号的覆盖度**（路径 3），不是曝光概率，不是背书，不是匹配度。
+
+客户面同源接口是 `GET /api/personas` 与 `GET /api/personas/ranking`（见
+[API.md](API.md)），逐字段白名单，不下发来源依据与身份判定；池子收紧为已报价 +
+已判定可投放，且客户只能勾掉人、不能加任意 handle。
 
 ---
 
@@ -234,6 +305,7 @@ Karpathy、LeCun。**这些人一个都买不到**：他们是客户希望被看
 | 方法 | 路径 | 作用 |
 |---|---|---|
 | `GET`   | `/options` | 全部词表 + 可选目标人物（已确认 Root / 未确认候选**分开返回**） |
+| `GET`   | `/personas` | 人群预设与成员，带来源、依据、采集状态（见下） |
 | `GET`   | `/candidates/{platform}/{handle}` | 单个候选，偏好走 query string（详情页要能分享成链接） |
 | `PATCH` | `/candidates/{platform}/{handle}` | 跟进状态、负责人、身份判定、下一步 |
 | `POST`  | `/candidates/{platform}/{handle}/commercial-signals` | 记录一条商业证据 |

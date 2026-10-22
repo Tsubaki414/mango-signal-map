@@ -34,6 +34,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from . import personas as personas_mod
 from . import v3_catalog as catalog
 from . import v3_scoring as scoring
 from .bd_models import BDCandidate, CommercialSignal
@@ -1017,3 +1018,121 @@ def add_wanted(
     row.custom = json.dumps(current, ensure_ascii=False)
     session.commit()
     return {"custom": current, "notice": "已记录，Mango 会核查后回复是否可覆盖。"}
+
+
+# --------------------------------------------------------------------------
+# 人群预设（persona）与跨圈层综合排名
+# --------------------------------------------------------------------------
+#
+# 客户面版本。和 ``/api/internal/bd/personas`` 用同一份配置、同一套排名代码，
+# 但**逐字段白名单**：不下发成员来源依据、内部复核状态、身份判定。
+#
+# 客户只能在预设成员里**勾掉**人（``exclude``），不能在这里加任意 handle ——
+# 库外的名字走 ``/sessions/{id}/wanted`` 交 BD 核查，规则同上。否则这个公开
+# 接口就成了一个可以随意探测观察层关注网络的查询口。
+
+
+@router.get("/personas")
+def list_personas(session: Session = Depends(session_dependency)) -> list[dict[str, Any]]:
+    """人群预设与展开后的目标人物。``needsReview`` 的人在界面上标「待核实」。"""
+    defs = personas_mod.load_personas()
+    status = personas_mod.member_status(
+        session, [m.handle for p in defs for m in p.members]
+    )
+    out = []
+    for p in defs:
+        members = []
+        for m in p.members:
+            _account, edges = status.get(m.handle.lower(), (None, 0))
+            members.append({
+                "handle": f"@{m.handle}",
+                "name": m.name,
+                "role": m.role,
+                "avatarUrl": f"https://unavatar.io/x/{m.handle}",
+                "needsReview": m.needs_review,
+                "collected": edges > 0,
+            })
+        out.append({
+            "id": p.id, "label": p.label, "desc": p.desc, "why": p.why,
+            "members": members,
+        })
+    return out
+
+
+@router.get("/personas/ranking")
+def persona_ranking(
+    personas: str = Query(..., description="人群预设 id，逗号分隔"),
+    exclude: str | None = Query(None, description="手动勾掉的目标人物 handle，逗号分隔"),
+    limit: int = Query(50, ge=1, le=200),
+    session: Session = Depends(session_dependency),
+) -> dict[str, Any]:
+    """跨圈层综合排名：所选目标人物共同关注的**可投放**账号。
+
+    池子边界与 ``/api/candidates`` 的两侧一致：已报价创作者 + 已判定可投放的
+    发现账号。未判定的账号不进客户面（理由见 ``catalog.discovered_pool``）。
+    """
+    selection = personas_mod.expand(_csv(personas), (), _csv(exclude))
+    if selection.unknown_personas:
+        raise HTTPException(status_code=404, detail="未找到该人群预设")
+
+    priced_uids = set(
+        session.scalars(
+            select(SocialAccount.platform_uid).where(
+                SocialAccount.platform_uid.is_not(None),
+                SocialAccount.creator_id.in_(
+                    select(Quote.creator_id).where(Quote.internal_cost_usd.is_not(None))
+                ),
+            )
+        ).all()
+    )
+    kind_by_handle = {
+        (h or "").lower(): (k if k and k != "unknown" else sg)
+        for h, k, sg in session.execute(
+            select(BDCandidate.handle, BDCandidate.object_kind, BDCandidate.object_kind_suggested)
+            .where(BDCandidate.handle.is_not(None))
+        ).all()
+    }
+
+    def keep(account: XAccount) -> bool:
+        if account.rest_id in priced_uids:
+            return True
+        return kind_by_handle.get((account.handle or "").lower()) in catalog.BUYABLE_KINDS
+
+    blocked = {t.handle for t in catalog.load_targets()} | set(catalog.excluded_handles())
+    result = personas_mod.aggregate(
+        session, selection, limit=limit, keep=keep, exclude_handles=blocked,
+    )
+    items = []
+    for i, r in enumerate(result.items):
+        h = (r.account.handle or "").lstrip("@")
+        items.append({
+            "rank": i + 1,
+            "name": r.account.display_name or h,
+            "handle": f"@{h}" if h else None,
+            "avatarUrl": f"https://unavatar.io/x/{h}" if h else None,
+            "url": f"https://x.com/{h}" if h else None,
+            "followers": r.account.followers,
+            "source": "priced" if r.account.rest_id in priced_uids else "discovered",
+            "score": round(r.score, 4),
+            "targetsFollowing": len(r.followed_by),
+            "circlesReached": r.circles_reached,
+            "followedBy": [f"@{x}" for x in r.followed_by],
+            "byPersona": [
+                {"persona": x.persona, "label": x.label, "count": len(x.followed_by),
+                 "collected": x.collected, "share": round(x.share, 4)}
+                for x in r.reach
+            ],
+            # 关注边从未人工确认 —— 与 /api/candidates 的 edges 同一口径。
+            "verified": False,
+        })
+    return {
+        "personas": [
+            {"id": c["id"], "label": c["label"], "targets": c["targets"],
+             "collected": c["collected"], "inScore": c["in_score"]}
+            for c in personas_mod.coverage_dicts(result)
+        ],
+        "uncollected": [f"@{h}" for h in result.uncollected + result.unresolved],
+        "counts": {"poolTotal": result.pool_size, "total": len(items)},
+        "items": items,
+        "note": personas_mod.AGGREGATE_NOTE_ZH,
+    }
